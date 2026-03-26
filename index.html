@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Monica Cortes | Designer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- HEADER -->
   <header class="header">
-    <div class="logo">YN</div>
+    <div class="logo">LOGO</div>
 
     <nav class="nav">
       <a href="#projects">Projects</a>
-      <a href="#">Play</a>
-      <a href="#">About</a>
+      <a href="#play">Play</a>
+      <a href="#about">About</a>
     </nav>
 
     <div class="nav-right">
-      <a href="#">LinkedIn</a>
-      <a href="#">Resume</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>
-      Designing bold, thoughtful <span>digital experiences</span>.
-    </h1>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Product Designer</p>
+      <h1>Your Name</h1>
+      <p class="hero-copy">
+        I design bold, thoughtful digital experiences with a focus on clarity,
+        systems, and high-impact storytelling.
+      </p>
+    </section>
 
-    <p>
-      I’m Your Name — a product designer focused on crafting 
-      strategic, high-impact work that blends clarity and personality.
-    </p>
-  </section>
+    <section id="projects" class="projects-section">
+      <div class="section-heading">
+        <p class="section-label">Selected Work</p>
+        <h2>Project case studies</h2>
+      </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="projects">
+      <div class="bento-grid">
+        <a href="#" class="bento-card large">
+          <div class="card-image"></div>
+          <div class="card-content">
+            <p class="card-tag">Product Design</p>
+            <h3>Project One</h3>
+            <p>
+              Reimagining a complex workflow into a clearer, faster product experience.
+            </p>
+          </div>
+        </a>
 
-    <div class="project-card">
-      <div class="project-image"></div>
-      <h3>Project One</h3>
-      <p>Product design / UX strategy</p>
-    </div>
+        <a href="#" class="bento-card">
+          <div class="card-image"></div>
+          <div class="card-content">
+            <p class="card-tag">Brand + UX</p>
+            <h3>Project Two</h3>
+            <p>
+              A sharper visual system and website experience for a growing brand.
+            </p>
+          </div>
+        </a>
 
-    <div class="project-card">
-      <div class="project-image"></div>
-      <h3>Project Two</h3>
-      <p>Brand + digital experience</p>
-    </div>
+        <a href="#" class="bento-card">
+          <div class="card-image"></div>
+          <div class="card-content">
+            <p class="card-tag">Mobile</p>
+            <h3>Project Three</h3>
+            <p>
+              Simplifying key mobile journeys to improve usability and confidence.
+            </p>
+          </div>
+        </a>
 
-    <div class="project-card">
-      <div class="project-image"></div>
-      <h3>Project Three</h3>
-      <p>Mobile product redesign</p>
-    </div>
+        <a href="#" class="bento-card wide">
+          <div class="card-image"></div>
+          <div class="card-content">
+            <p class="card-tag">Design Systems</p>
+            <h3>Project Four</h3>
+            <p>
+              Building a scalable component system across product surfaces and teams.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <div class="project-card">
-      <div class="project-image"></div>
-      <h3>Project Four</h3>
-      <p>Design system build</p>
-    </div>
-
-  </section>
-
-  <footer>
-    © 2026 Monica Cortes
+  <footer class="footer">
+    <p>© 2026 Monica Cortes</p>
   </footer>
-
 </body>
 </html>
