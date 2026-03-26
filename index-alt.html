@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <span class="logo">Your Name</span>
+    </div>
+
+    <div class="header-right">
+      <nav class="nav">
+        <a href="#graph">Explore</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="links">
+        <a href="#">LinkedIn</a>
+        <a href="#">Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Designer</p>
+      <h1>A portfolio organized by connection.</h1>
+      <p class="hero-copy">
+        Explore projects, experiments, background, and experience through a
+        structured visual network.
+      </p>
+    </section>
+
+    <section id="graph" class="graph-section">
+      <div class="graph-container">
+        <svg class="graph-lines" viewBox="0 0 1200 700" preserveAspectRatio="none">
+          <line x1="250" y1="190" x2="160" y2="90" />
+          <line x1="250" y1="190" x2="120" y2="240" />
+          <line x1="250" y1="190" x2="220" y2="340" />
+
+          <line x1="860" y1="170" x2="980" y2="90" />
+          <line x1="860" y1="170" x2="1030" y2="200" />
+          <line x1="860" y1="170" x2="940" y2="320" />
+
+          <line x1="310" y1="520" x2="180" y2="500" />
+          <line x1="310" y1="520" x2="260" y2="640" />
+          <line x1="310" y1="520" x2="430" y2="620" />
+
+          <line x1="880" y1="500" x2="1010" y2="470" />
+          <line x1="880" y1="500" x2="940" y2="620" />
+          <line x1="880" y1="500" x2="760" y2="620" />
+        </svg>
+
+        <button class="node hub projects" type="button">Projects</button>
+        <button class="node child p1" type="button">Case Study 01</button>
+        <button class="node child p2" type="button">Case Study 02</button>
+        <button class="node child p3" type="button">Case Study 03</button>
+
+        <button class="node hub play" type="button">Play</button>
+        <button class="node child pl1" type="button">Visual Lab</button>
+        <button class="node child pl2" type="button">Writing</button>
+        <button class="node child pl3" type="button">Experiments</button>
+
+        <button class="node hub about" type="button">About</button>
+        <button class="node child a1" type="button">Bio</button>
+        <button class="node child a2" type="button">Approach</button>
+        <button class="node child a3" type="button">Experience</button>
+
+        <button class="node hub resume" type="button">Resume</button>
+        <button class="node child r1" type="button">CV</button>
+        <button class="node child r2" type="button">LinkedIn</button>
+        <button class="node child r3" type="button">Contact</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
