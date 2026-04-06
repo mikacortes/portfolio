@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monica Cortes | Project</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /*
+        =====================================================
+        PROJECT PAGE LAYOUT OVERRIDES
+        This page now uses a left sticky sidebar instead of a header.
+        The main content lives in the right column.
+        The footer is also placed in the right column only.
+        =====================================================
+      */
+
+      .project-layout {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      /*
+        LEFT SIDEBAR
+        - stays visible while scrolling
+        - fills the screen height
+        - contains navigation links to sections on the page
+      */
+      .project-sidebar {
+        padding: 64px 40px 40px 64px;
+      }
+
+      .project-sidebar-inner {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 8px 0 32px;
+      }
+
+      .sidebar-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 72px;
+        color: var(--blue);
+      }
+
+      .sidebar-home .arrow-left {
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .sidebar-group {
+        margin-bottom: 42px;
+      }
+
+      .sidebar-heading {
+        margin-bottom: 20px;
+        color: rgba(28, 28, 28, 0.65);
+      }
+
+      .sidebar-links {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .sidebar-links a {
+        font-size: 16px;
+        line-height: 1.4;
+      }
+
+      /*
+        RIGHT CONTENT COLUMN
+        All actual case-study content lives here.
+      */
+      .project-column {
+        min-width: 0;
+        padding: 44px 56px 0 0;
+      }
+
+      .project-main {
+        padding: 0 0 96px;
+      }
+
+      .project-section {
+        scroll-margin-top: 32px;
+      }
+
+      .project-main .content-section {
+        margin-bottom: 88px;
+      }
+
+      /*
+        Footer only spans the right content area,
+        so it sits underneath the main content rather than under the sidebar.
+      */
+      .project-footer {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      .project-footer .footer-inner {
+        width: 100%;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      @media (max-width: 980px) {
+        .project-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .project-sidebar {
+          padding: 28px 28px 0;
+        }
+
+        .project-sidebar-inner {
+          position: static;
+          height: auto;
+          padding: 0;
+        }
+
+        .project-column {
+          padding: 24px 28px 0;
+        }
+
+        .sidebar-home {
+          margin-bottom: 40px;
+        }
+
+        .sidebar-links {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .project-sidebar {
+          padding: 24px 20px 0;
+        }
+
+        .project-column {
+          padding: 20px 20px 0;
+        }
+
+        .sidebar-home .arrow-left {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project-layout">
+      <!-- =====================================================
+           STICKY SIDEBAR NAVIGATION
+           - Change link labels here if your section names change.
+           - Each href should match a section id in the main content.
+           ===================================================== -->
+      <aside class="project-sidebar" aria-label="Project page navigation">
+        <div class="project-sidebar-inner">
+          <a class="sidebar-home subtitle" href="index.html">
+            <span class="arrow-left">←</span>
+            <span>Home</span>
+          </a>
+
+          <div class="sidebar-group">
+            <div class="sidebar-heading subtitle">Intro</div>
+            <nav class="sidebar-links" aria-label="Intro sections">
+              <a href="#overview">Overview</a>
+              <a href="#final-solution">Final Solution</a>
+              <a href="#results">Results</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-group">
+            <div class="sidebar-heading subtitle">Full Process</div>
+            <nav class="sidebar-links" aria-label="Full process sections">
+              <a href="#background">Background</a>
+              <a href="#research">Research</a>
+              <a href="#outcomes">Outcomes</a>
+              <a href="#ideation">Ideation</a>
+              <a href="#findings">Findings</a>
+              <a href="#solution">Solution</a>
+              <a href="#reflection">Reflection</a>
+            </nav>
+          </div>
+        </div>
+      </aside>
+
+      <!-- =====================================================
+           RIGHT COLUMN
+           This contains all project content plus the footer.
+           ===================================================== -->
+      <div class="project-column">
+        <main class="project-main">
+          <div class="container">
+            <!-- OVERVIEW -->
+            <section class="project-section project-hero" id="overview">
+              <div class="project-summary">
+                <h1>Supporting incarcerated learners preparing for re-entry</h1>
+                <p>
+                  Replace this paragraph with a short overview of the challenge, your approach,
+                  and the impact of the work.
+                </p>
+              </div>
+
+              <div class="project-meta">
+                <div class="meta-item">
+                  <div class="meta-label">Role</div>
+                  <div class="meta-value">Product Designer</div>
+                </div>
+                <div class="meta-item">
+                  <div class="meta-label">Timeline</div>
+                  <div class="meta-value">12 weeks</div>
+                </div>
+                <div class="meta-item">
+                  <div class="meta-label">Team</div>
+                  <div class="meta-value">2 designers, 1 PM</div>
+                </div>
+                <div class="meta-item">
+                  <div class="meta-label">Tools</div>
+                  <div class="meta-value">Figma, FigJam</div>
+                </div>
+              </div>
+            </section>
+
+            <div class="image-frame hero-image">
+              <img src="images/project-hero.jpg" alt="Main project hero image" />
+            </div>
+
+            <!-- FINAL SOLUTION -->
+            <section class="project-section content-section" id="final-solution">
+              <div class="subtitle">Final Solution</div>
+              <h2>
+                Incarcerated individuals need help tracking their rehabilitation progress in order
+                to create structure, prepare portfolios, and support re-entry.
+              </h2>
+              <p>
+                Replace this with the final solution summary. This can describe the product,
+                service, system, or intervention you designed.
+              </p>
+            </section>
+
+            <!-- RESULTS -->
+            <section class="project-section content-section" id="results">
+              <div class="subtitle">Results</div>
+              <h2>
+                The dashboard supported residents as they tracked and showcased their accomplishments.
+              </h2>
+              <p>
+                Replace this area with project outcomes, launch details, metrics, feedback, or
+                what changed as a result of the work.
+              </p>
+            </section>
+
+            <!-- BACKGROUND -->
+            <section class="project-section content-section two-column" id="background">
+              <div>
+                <div class="subtitle">Background</div>
+              </div>
+              <div>
+                <h2>Our solution dashboard made it easy to track progress and organize a physical portfolio.</h2>
+                <p>Replace this text with the project background.</p>
+                <div class="three-up">
+                  <div><div class="image-frame"><img src="images/project-panel-1.jpg" alt="Project detail image 1" /></div></div>
+                  <div><div class="image-frame"><img src="images/project-panel-2.jpg" alt="Project detail image 2" /></div></div>
+                  <div><div class="image-frame"><img src="images/project-panel-3.jpg" alt="Project detail image 3" /></div></div>
+                </div>
+              </div>
+            </section>
+
+            <!-- RESEARCH -->
+            <section class="project-section content-section" id="research">
+              <div class="subtitle">Research</div>
+              <p>
+                Replace this paragraph with user interviews, desk research, field notes, or key insights.
+              </p>
+            </section>
+
+            <!-- OUTCOMES -->
+            <section class="project-section content-section" id="outcomes">
+              <div class="subtitle">Outcomes</div>
+              <div class="three-up">
+                <div>
+                  <div class="image-frame"><img src="images/feature-1.jpg" alt="Outcome image 1" /></div>
+                  <div class="caption">Add a short description of outcome one here.</div>
+                </div>
+                <div>
+                  <div class="image-frame"><img src="images/feature-2.jpg" alt="Outcome image 2" /></div>
+                  <div class="caption">Add a short description of outcome two here.</div>
+                </div>
+                <div>
+                  <div class="image-frame"><img src="images/feature-3.jpg" alt="Outcome image 3" /></div>
+                  <div class="caption">Add a short description of outcome three here.</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- IDEATION -->
+            <section class="project-section content-section" id="ideation">
+              <div class="subtitle">Ideation</div>
+              <h2>
+                Given the complexity of state-by-state parole requirement differences, we focused on one state to create a reusable dashboard solution.
+              </h2>
+              <p>This section is designed for workshop outputs, research synthesis, or sticky-note clustering.</p>
+              <div class="sticky-note-grid">
+                <div class="note">Replace this note with one key insight, quote, or design constraint.</div>
+                <div class="note">Replace this note with another finding from your interviews or synthesis.</div>
+                <div class="note">Replace this note with a third key pattern you identified.</div>
+                <div class="note">Use as many notes as you need, or delete this whole section later.</div>
+                <div class="note">You can also change the yellow note color if your project uses another accent.</div>
+                <div class="note">This layout is meant to imitate the reference image you shared.</div>
+              </div>
+            </section>
+
+            <!-- FINDINGS -->
+            <section class="project-section content-section" id="findings">
+              <div class="subtitle">Findings</div>
+              <p>
+                Add your synthesized findings here. This section can hold insights, themes,
+                constraints, or lessons from testing.
+              </p>
+            </section>
+
+            <!-- SOLUTION -->
+            <section class="project-section content-section" id="solution">
+              <div class="subtitle">Solution</div>
+              <p>
+                The proposed dashboard to encourage continued engagement in programs allowed users
+                to understand needs and goals.
+              </p>
+              <div class="image-frame full-width-image">
+                <img src="images/outcome.jpg" alt="Outcome image or final mockup" />
+              </div>
+            </section>
+
+            <!-- REFLECTION -->
+            <section class="project-section content-section" id="reflection">
+              <div class="subtitle">Reflection</div>
+              <p>Add your reflection here.</p>
+            </section>
+          </div>
+        </main>
+
+        <!-- FOOTER ONLY UNDER THE RIGHT CONTENT COLUMN -->
+        <footer class="footer project-footer">
+          <div class="footer-inner">
+            <div class="footer-left">
+              <a href="index.html">Monica Cortes</a>
+              <div class="footer-note">Thank you for visiting!</div>
+            </div>
+            <div class="footer-right">
+              <nav class="nav" aria-label="Footer">
+                <a href="index.html#projects">Projects</a>
+                <a href="archive.html">Archive</a>
+                <a href="about.html">About</a>
+                <a href="#resume">Resume</a>
+                <a href="#linkedin">LinkedIn</a>
+              </nav>
+              <div class="copyright">© 2026 Monica Cortes</div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

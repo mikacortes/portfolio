@@ -1,154 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Monica Cortes | Designer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="header-container">
-      <a href="#" class="logo">✦ Monica Cortes ✦</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monica Cortes | Home</title>
 
-      <nav class="header-right" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#playground">Playground</a>
-        <a href="#about">About</a>
+    <!--
+      Shared stylesheet for the whole site.
+      Keep styles.css in the same folder as this file.
+    -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- =====================================================
+         SITE HEADER
+         Update resume and LinkedIn links when ready.
+         ===================================================== -->
+    <header>
+      <div class="topbar">
+        <div class="topbar-inner">
+          <a class="brand" href="#home">✦ MONICA CORTES ✦</a>
+          <nav class="nav" aria-label="Primary">
+            <a href="#projects">PROJECTS</a>
+            <a href="archive.html">ARCHIVE</a>
+            <a href="about.html">ABOUT</a>
+            <a class="external" href="#resume">RESUME</a>
+            <a class="external" href="https://www.linkedin.com/in/monica--cortes/">LINKEDIN</a>
+          </nav>
+        </div>
+      </div>
 
-        <a
-          href="https://www.linkedin.com/in/monica--cortes/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="linkedin-link"
-          aria-label="LinkedIn"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.03 2.03 0 0 0 3.2 5.03 2.03 2.03 0 0 0 5.25 7.06 2.03 2.03 0 0 0 7.3 5.03 2.03 2.03 0 0 0 5.25 3ZM20.44 12.73c0-3.39-1.81-4.97-4.23-4.97-1.95 0-2.82 1.07-3.31 1.83V8.5H9.53c.04.72 0 11.5 0 11.5h3.37v-6.42c0-.34.02-.68.13-.92.27-.68.89-1.39 1.94-1.39 1.37 0 1.92 1.05 1.92 2.58V20h3.38v-7.27Z"/>
-          </svg>
-        </a>
+      <!-- HERO / INTRO SECTION -->
+      <section class="hero" id="home">
+        <div class="container hero-content">
+          <h1 class="hero-title">
+            Designing thoughtful systems,<br />
+            visual experiences, and<br />
+            product direction
+          </h1>
 
-        <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
-      </nav>
-    </div>
-  </header>
+          <!-- Replace this introduction with your final bio. -->
+          <p class="body-large">
+            I’m Monica, a multi-disciplinary designer with a background in Data Science.
+          </p>
+          <p class="body-large">
+            I’ve worked with startups and nonprofits as a Designer and Analyst, and I’m
+            continuing to deepen my skills across product, design, business, and data analytics.
+          </p>
+          <p class="body-large">
+            I’m based in Southern California and open to relocation for full-time roles with
+            positive impact.
+          </p>
+        </div>
+      </section>
+    </header>
 
-  <main>
-    <section class="hero" id="about">
-      <div class="page-shell hero-shell">
-        <div class="hero-inner">
-          <div class="hero-copy-inner">
-            <div>
-              <h1>
-                Designing
-                <span class="highlight-box">thoughtful systems</span>,
-                <span class="highlight-box">visual experiences</span>,
-                and <span class="highlight-box">product direction</span>.
-              </h1>
-            </div>
-    
-            <div class="hero-copy-body">
-              <p class="hero-text">
-                I’m Monica, a multi-disciplinary designer with a background in Data Science.
-              </p>
-    
-              <p class="hero-text">
-                I’ve worked with startups and nonprofits, and I’m continuing to deepen my skills across product, graphic design, business, and data analytics.
-              </p>
-    
-              <p class="hero-text">
-                I’m based in Southern California and open to relocation for full-time roles with positive impact.
-              </p>
-            </div>
+    <main class="home-main">
+      <div class="container">
+        <!-- FEATURED PROJECTS -->
+        <section id="projects">
+          <h2 class="section-title">Featured Projects</h2>
+
+          <!--
+            Every image links to the same sample project page for now.
+            Later, change each href to a different project page if needed.
+          -->
+          <div class="grid featured-grid">
+            <a class="card feature-a" href="project.html">
+              <img src="images/Unlocked Labs Preview.png" alt="Unlocked Labs Project" />
+            </a>
+            <a class="card feature-b" href="project.html">
+              <img src="images/featured-project-2.jpg" alt="Featured project 2" />
+            </a>
+            <a class="card feature-c" href="project.html">
+              <img src="images/featured-project-3.jpg" alt="Featured project 3" />
+            </a>
+            <a class="card feature-d" href="project.html">
+              <img src="images/featured-project-4.jpg" alt="Featured project 4" />
+            </a>
+            <a class="card feature-e" href="project.html">
+              <img src="images/featured-project-5.jpg" alt="Featured project 5" />
+            </a>
+            <a class="card feature-f" href="project.html">
+              <img src="images/featured-project-6.jpg" alt="Featured project 6" />
+            </a>
           </div>
+        </section>
+
+        <!-- RECENT WORK -->
+        <section id="archive">
+          <h2 class="section-title">Recent Work</h2>
+          <div class="grid recent-grid">
+            <a class="card" href="project.html">
+              <img src="images/recent-work-1.jpg" alt="Recent work 1" />
+            </a>
+            <a class="card" href="project.html">
+              <img src="images/recent-work-2.jpg" alt="Recent work 2" />
+            </a>
+            <a class="card" href="project.html">
+              <img src="images/recent-work-3.jpg" alt="Recent work 3" />
+            </a>
+          </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact">
+          <h3>Let’s build together!</h3>
+          <a href="mailto:monicacortes@berkeley.edu">monicacortes@berkeley.edu</a>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a class="brand" href="#home">Monica Cortes</a>
+          <div class="footer-note">Thank you for visiting!</div>
+        </div>
+
+        <div class="footer-right">
+          <nav class="nav" aria-label="Footer">
+            <a href="#projects">Projects</a>
+            <a href="archive.html">Archive</a>
+            <a href="about.html">About</a>
+            <a href="#resume">RESUME</a>
+            <a href="https://www.linkedin.com/in/monica--cortes/">LINKEDIN</a>
+          </nav>
+          <div class="copyright">© 2026 Monica Cortes</div>
         </div>
       </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-      <div class="page-shell">
-        <div class="bento-layout">
-          <a href="#" class="bento-card card-1 lavender">
-            <div class="card-media"></div>
-            <div class="card-content">
-              <p class="card-tag">Product Design</p>
-              <h3>Supporting incarcerated students for parole review</h3>
-              <p>Unlocked Labs | Shipped 2025</p>
-            </div>
-          </a>
-
-          <a href="#" class="bento-card card-2 pink">
-            <div class="card-media"></div>
-            <div class="card-content">
-              <p class="card-tag">UX Design</p>
-              <h3>Revamping the digital identity for a ed-tech non-profit's website</h3>
-              <p>trubel&amp;Co | Shipped 2025</p>
-            </div>
-          </a>
-
-          <a href="#" class="bento-card card-3 green">
-            <div class="card-media"></div>
-            <div class="card-content">
-              <p class="card-tag">UX Research</p>
-              <h3>Decoding premium user behavior for an AI education tool</h3>
-              <p>CoGrader | 2024</p>
-            </div>
-          </a>
-
-          <a href="#" class="bento-card card-4 yellow">
-            <div class="card-media"></div>
-            <div class="card-content">
-              <p class="card-tag">Visual Design &amp; Data Science</p>
-              <h3>Measuring achievement gaps across Berkeley's public schools </h3>
-              <p>BUSD | Delivered 2023</p>
-            </div>
-          </a>
-
-          <a href="#" class="bento-card card-5 peach">
-            <div class="card-media"></div>
-            <div class="card-content">
-              <p class="card-tag">Visual Design</p>
-              <h3>Designing a successful accreditation report for a world-renowned university</h3>
-              <p>UC Berkeley UED | Published 2024</p>
-            </div>
-          </a>
-
-          <a href="#" class="bento-card card-6 blue">
-            <div class="card-media"></div>
-            <div class="card-content">
-              <p class="card-tag">Product Design</p>
-              <h3>Simplifying park discovery for SF's picnic-goers</h3>
-              <p>SF Parks &amp; Rec | 2024</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-container">
-      <a href="#" class="logo">Monica</a>
-
-      <nav class="footer-right" aria-label="Footer">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="linkedin-link"
-          aria-label="LinkedIn"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A2.03 2.03 0 0 0 3.2 5.03 2.03 2.03 0 0 0 5.25 7.06 2.03 2.03 0 0 0 7.3 5.03 2.03 2.03 0 0 0 5.25 3ZM20.44 12.73c0-3.39-1.81-4.97-4.23-4.97-1.95 0-2.82 1.07-3.31 1.83V8.5H9.53c.04.72 0 11.5 0 11.5h3.37v-6.42c0-.34.02-.68.13-.92.27-.68.89-1.39 1.94-1.39 1.37 0 1.92 1.05 1.92 2.58V20h3.38v-7.27Z"/>
-          </svg>
-        </a>
-
-        <a href="#" target="_blank" rel="noopener noreferrer">Resume</a>
-      </nav>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
