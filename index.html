@@ -66,6 +66,12 @@
         cursor: none;
       }
 
+      body.has-custom-cursor.is-blue-hovering .cursor-star {
+        color: var(--white);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
+        filter: none;
+      }
+
       body.preload-ui .hero-copy,
       body.preload-ui .topbar {
         opacity: 0;
@@ -173,14 +179,25 @@
         opacity: 0.95;
       }
 
-      .external::before {
-        content: "↗";
-        margin-right: 6px;
-        font-size: var(--external-arrow-size);
-        vertical-align: middle;
-        display: inline-block;
-        transform: scaleX(var(--external-arrow-scale-x));
-        transform-origin: center;
+      .external {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .external-arrow {
+        width: var(--external-arrow-size);
+        height: var(--external-arrow-size);
+        margin-left: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .external-arrow img {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
 
       .hero {
@@ -343,7 +360,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.3);
         opacity: 0;
         transition: opacity 220ms ease;
         pointer-events: none;
@@ -377,8 +394,18 @@
       }
 
       .featured-cursor-arrow {
-        display: inline-block;
-        transform: translateY(-1px);
+        width: 12px;
+        height: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .featured-cursor-arrow img {
+        width: 100%;
+        height: 100%;
+        display: block;
       }
 
       .featured-image:hover .featured-media::after,
@@ -748,7 +775,9 @@
               </a>
               <span class="featured-cursor" aria-hidden="true">
                 <span>View Case Study</span>
-                <span class="featured-cursor-arrow">↗</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
               </span>
               <div class="project-meta">
                 <h2>Supporting incarcerated students for parole review</h2>
@@ -763,7 +792,9 @@
               </a>
               <span class="featured-cursor" aria-hidden="true">
                 <span>View Case Study</span>
-                <span class="featured-cursor-arrow">↗</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
               </span>
               <div class="project-meta">
                 <h2>Revamping the digital identity for a ed-tech non-profit's website</h2>
@@ -788,7 +819,9 @@
               </a>
               <span class="featured-cursor" aria-hidden="true">
                 <span>View Case Study</span>
-                <span class="featured-cursor-arrow">↗</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
               </span>
               <div class="project-meta">
                 <h2>PROJECT NAME</h2>
@@ -803,7 +836,9 @@
               </a>
               <span class="featured-cursor" aria-hidden="true">
                 <span>View Case Study</span>
-                <span class="featured-cursor-arrow">↗</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
               </span>
               <div class="project-meta">
                 <h2>PROJECT NAME</h2>
@@ -818,7 +853,9 @@
               </a>
               <span class="featured-cursor" aria-hidden="true">
                 <span>View Case Study</span>
-                <span class="featured-cursor-arrow">↗</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
               </span>
               <div class="project-meta">
                 <h2>PROJECT NAME</h2>
@@ -833,7 +870,9 @@
               </a>
               <span class="featured-cursor" aria-hidden="true">
                 <span>View Case Study</span>
-                <span class="featured-cursor-arrow">↗</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
               </span>
               <div class="project-meta">
                 <h2>PROJECT NAME</h2>
@@ -852,7 +891,7 @@
                 <img src="assets/Unlocked Labs Preview.png" alt="Recent work 1" />
               </a>
               <div class="project-meta">
-                <h2>PROJECT NAME</h2>
+                <h2>Designing and analyzing user behavior at an ed-tech startup</h2>
               </div>
             </article>
             <article class="recent-item reveal-card">
@@ -860,7 +899,7 @@
                 <img src="assets/trubel_co Preview.png" alt="Recent work 2" />
               </a>
               <div class="project-meta">
-                <h2>PROJECT NAME</h2>
+                <h2>Designed a mini-website for a social media breaking the norm</h2>
               </div>
             </article>
             <article class="recent-item reveal-card">
@@ -868,7 +907,7 @@
                 <img src="assets/Unlocked Labs Preview.png" alt="Recent work 3" />
               </a>
               <div class="project-meta">
-                <h2>PROJECT NAME</h2>
+                <h2>Spreading the word about Develop For Good on social media</h2>
               </div>
             </article>
           </div>
@@ -919,6 +958,7 @@
         const revealCards = document.querySelectorAll('.reveal-card');
         const featuredMedias = document.querySelectorAll('.featured-media');
         const featuredItems = document.querySelectorAll('.featured-item');
+        const blueHoverTargets = document.querySelectorAll('.hero, .topbar, .footer');
         const stars = Array.from(document.querySelectorAll('.cursor-star'));
 
         function showSupportingUi() {
@@ -1033,6 +1073,24 @@
 
           featuredItem.addEventListener('focusout', () => {
             body.classList.remove('is-featured-hovering');
+          });
+        });
+
+        blueHoverTargets.forEach((target) => {
+          target.addEventListener('pointerenter', () => {
+            body.classList.add('is-blue-hovering');
+          });
+
+          target.addEventListener('pointerleave', () => {
+            body.classList.remove('is-blue-hovering');
+          });
+
+          target.addEventListener('focusin', () => {
+            body.classList.add('is-blue-hovering');
+          });
+
+          target.addEventListener('focusout', () => {
+            body.classList.remove('is-blue-hovering');
           });
         });
 

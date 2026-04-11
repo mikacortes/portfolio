@@ -14,8 +14,18 @@ class SiteHeader extends HTMLElement {
             <a href="${projectsHref}">Projects</a>
             <a href="archive.html">Archive</a>
             <a href="about.html">About</a>
-            <a class="external" href="#resume">Resume</a>
-            <a class="external" href="#linkedin">LinkedIn</a>
+            <a class="external" href="#resume">
+              <span>Resume</span>
+              <span class="external-arrow" aria-hidden="true">
+                <img src="assets/icons/Arrow up-right.svg" alt="" />
+              </span>
+            </a>
+            <a class="external" href="#linkedin">
+              <span>LinkedIn</span>
+              <span class="external-arrow" aria-hidden="true">
+                <img src="assets/icons/Arrow up-right.svg" alt="" />
+              </span>
+            </a>
           </nav>
         </div>
       </header>
@@ -46,8 +56,18 @@ class SiteFooter extends HTMLElement {
               <a href="${projectsHref}">Projects</a>
               <a href="archive.html">Archive</a>
               <a href="about.html">About</a>
-              <a class="external" href="#resume">Resume</a>
-              <a class="external" href="#linkedin">LinkedIn</a>
+              <a class="external" href="#resume">
+                <span>Resume</span>
+                <span class="external-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
+              </a>
+              <a class="external" href="#linkedin">
+                <span>LinkedIn</span>
+                <span class="external-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
+              </a>
             </nav>
             <div class="copyright">© 2026 Monica Cortes</div>
           </div>

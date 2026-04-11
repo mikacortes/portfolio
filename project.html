@@ -33,7 +33,7 @@
         position: sticky;
         top: 0;
         height: 100vh;
-        padding: 64px 40px 40px 64px;
+        padding: 36px;
       }
 
       .project-sidebar-inner {
@@ -42,7 +42,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        padding: 8px 0 32px;
+        padding: 4px 0 24px;
       }
 
       .sidebar-home {
@@ -54,12 +54,38 @@
       }
 
       .sidebar-home .arrow-left {
-        font-size: 24px;
-        line-height: 1;
+        width: 24px;
+        height: 24px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        transform: translateY(1px);
+        flex: 0 0 auto;
+      }
+
+      .sidebar-home .arrow-left img,
+      .sidebar-next .arrow-right img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(4052%) hue-rotate(213deg) brightness(91%) contrast(102%);
+      }
+
+      .sidebar-bottom {
+        margin-top: auto;
+        padding-top: 28px;
+      }
+
+      .sidebar-next {
+        margin-bottom: 0;
+      }
+
+      .sidebar-next .arrow-right {
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
       }
 
       .sidebar-group {
@@ -67,7 +93,7 @@
       }
 
       .sidebar-heading {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         color: rgba(28, 28, 28, 0.65);
       }
 
@@ -90,17 +116,32 @@
       }
 
       .project-section .subtitle {
-        margin-bottom: 24px;
+        margin-bottom: 12px;
         color: var(--black);
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.5;
         font-weight: 400;
-        letter-spacing: 0;
-        text-transform: none;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
       }
 
       .project-section .subtitle + h2 {
         margin-top: 0;
+        margin-bottom: 12px;
+      }
+
+      .process-group {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .process-entry {
+        padding-bottom: 2px;
+      }
+
+      .process-entry p:last-child {
+        margin-bottom: 0;
       }
 
       /*
@@ -109,7 +150,7 @@
       */
       .project-column {
         min-width: 0;
-        padding: 44px 56px 0 0;
+        padding: 44px 50px 0 0;
       }
 
       .project-main {
@@ -128,15 +169,29 @@
         Footer only spans the right content area,
         so it sits underneath the main content rather than under the sidebar.
       */
-      .project-footer {
-        background: var(--blue);
-        color: var(--white);
+      .project-footer-minimal {
+        color: #f2f2f2;
+        padding: 18px 0 32px;
       }
 
-      .project-footer .footer-inner {
+      .project-footer-inner {
         width: 100%;
-        padding-left: 32px;
-        padding-right: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .project-footer-email {
+        color: inherit;
+      }
+
+      .project-footer-label {
+        white-space: nowrap;
       }
 
       @media (max-width: 980px) {
@@ -147,7 +202,7 @@
         .project-sidebar {
           position: static;
           height: auto;
-          padding: 28px 28px 0;
+          padding: 24px;
         }
 
         .project-sidebar-inner {
@@ -156,7 +211,7 @@
         }
 
         .project-column {
-          padding: 24px 28px 0;
+          padding: 24px 24px 0;
         }
 
         .sidebar-home {
@@ -170,15 +225,16 @@
 
       @media (max-width: 640px) {
         .project-sidebar {
-          padding: 24px 20px 0;
+          padding: 18px;
         }
 
         .project-column {
-          padding: 20px 20px 0;
+          padding: 20px 18px 0;
         }
 
         .sidebar-home .arrow-left {
-          font-size: 20px;
+          width: 20px;
+          height: 20px;
         }
       }
     </style>
@@ -193,7 +249,9 @@
       <aside class="project-sidebar" aria-label="Project page navigation">
         <div class="project-sidebar-inner">
           <a class="sidebar-home subtitle" href="index.html">
-            <span class="arrow-left">←</span>
+            <span class="arrow-left" aria-hidden="true">
+              <img src="assets/icons/Arrow left.svg" alt="" />
+            </span>
             <span>Home</span>
           </a>
 
@@ -218,6 +276,15 @@
               <a href="#reflection">Reflection</a>
             </nav>
           </div>
+
+          <div class="sidebar-bottom">
+            <a class="sidebar-home sidebar-next subtitle" href="project.html">
+              <span>NEXT PROJECT</span>
+              <span class="arrow-right" aria-hidden="true">
+                <img src="assets/icons/Arrow right.svg" alt="" />
+              </span>
+            </a>
+          </div>
         </div>
       </aside>
 
@@ -231,7 +298,8 @@
             <!-- OVERVIEW -->
             <section class="project-section project-hero" id="overview">
               <div class="project-summary">
-                <h1>Supporting incarcerated learners preparing for re-entry</h1>
+                <div class="subtitle">Overview</div>
+                <h2>Supporting incarcerated learners preparing for re-entry</h2>
                 <p>
                   Replace this paragraph with a short overview of the challenge, your approach,
                   and the impact of the work.
@@ -276,24 +344,44 @@
             </section>
 
             <!-- RESULTS -->
-            <section class="project-section content-section" id="results">
-              <div class="subtitle">Results</div>
-              <h2>
-                The dashboard supported residents as they tracked and showcased their accomplishments.
-              </h2>
-              <p>
-                Replace this area with project outcomes, launch details, metrics, feedback, or
-                what changed as a result of the work.
-              </p>
+            <section class="project-section content-section process-group" id="results">
+              <div class="process-entry">
+                <div class="subtitle">Results</div>
+                <h2>
+                  The dashboard supported residents as they tracked and showcased their accomplishments.
+                </h2>
+                <p>
+                  Replace this area with project outcomes, launch details, metrics, feedback, or
+                  what changed as a result of the work.
+                </p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Results</div>
+                <h2>
+                  The dashboard supported residents as they tracked and showcased their accomplishments.
+                </h2>
+                <p>
+                  Add a second results section here when you want to expand this story later.
+                </p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Results</div>
+                <h2>
+                  The dashboard supported residents as they tracked and showcased their accomplishments.
+                </h2>
+                <p>
+                  Add a third results section here when you want to expand this story later.
+                </p>
+              </div>
             </section>
 
             <!-- BACKGROUND -->
-            <section class="project-section content-section two-column" id="background">
-              <div>
+            <section class="project-section content-section process-group" id="background">
+              <div class="process-entry">
                 <div class="subtitle">Background</div>
-              </div>
-              <div>
-                <h2>Our solution dashboard made it easy to track progress and organize a physical portfolio.</h2>
+                <h2>
+                  Our solution dashboard made it easy to track progress and organize a physical portfolio.
+                </h2>
                 <p>Replace this text with the project background.</p>
                 <div class="three-up">
                   <div><div class="image-frame"><img src="images/project-panel-1.jpg" alt="Project detail image 1" /></div></div>
@@ -301,87 +389,186 @@
                   <div><div class="image-frame"><img src="images/project-panel-3.jpg" alt="Project detail image 3" /></div></div>
                 </div>
               </div>
+              <div class="process-entry">
+                <div class="subtitle">Background</div>
+                <h2>
+                  Our solution dashboard made it easy to track progress and organize a physical portfolio.
+                </h2>
+                <p>Add a second background section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Background</div>
+                <h2>
+                  Our solution dashboard made it easy to track progress and organize a physical portfolio.
+                </h2>
+                <p>Add a third background section here when you want to expand this story later.</p>
+              </div>
             </section>
 
             <!-- RESEARCH -->
-            <section class="project-section content-section" id="research">
-              <div class="subtitle">Research</div>
-              <p>
-                Replace this paragraph with user interviews, desk research, field notes, or key insights.
-              </p>
+            <section class="project-section content-section process-group" id="research">
+              <div class="process-entry">
+                <div class="subtitle">Research</div>
+                <h2>Research helped clarify the constraints, stakeholders, and opportunities for this case study.</h2>
+                <p>
+                  Replace this paragraph with user interviews, desk research, field notes, or key insights.
+                </p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Research</div>
+                <h2>Research helped clarify the constraints, stakeholders, and opportunities for this case study.</h2>
+                <p>Add a second research section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Research</div>
+                <h2>Research helped clarify the constraints, stakeholders, and opportunities for this case study.</h2>
+                <p>Add a third research section here when you want to expand this story later.</p>
+              </div>
             </section>
 
             <!-- OUTCOMES -->
-            <section class="project-section content-section" id="outcomes">
-              <div class="subtitle">Outcomes</div>
-              <div class="three-up">
-                <div>
-                  <div class="image-frame"><img src="images/feature-1.jpg" alt="Outcome image 1" /></div>
-                  <div class="caption">Add a short description of outcome one here.</div>
+            <section class="project-section content-section process-group" id="outcomes">
+              <div class="process-entry">
+                <div class="subtitle">Outcomes</div>
+                <h2>The final design gave the team a clearer way to understand progress and next steps.</h2>
+                <p>Add a short outcome sentence here before you drop in more supporting details.</p>
+                <div class="three-up">
+                  <div>
+                    <div class="image-frame"><img src="images/feature-1.jpg" alt="Outcome image 1" /></div>
+                    <div class="caption">Add a short description of outcome one here.</div>
+                  </div>
+                  <div>
+                    <div class="image-frame"><img src="images/feature-2.jpg" alt="Outcome image 2" /></div>
+                    <div class="caption">Add a short description of outcome two here.</div>
+                  </div>
+                  <div>
+                    <div class="image-frame"><img src="images/feature-3.jpg" alt="Outcome image 3" /></div>
+                    <div class="caption">Add a short description of outcome three here.</div>
+                  </div>
                 </div>
-                <div>
-                  <div class="image-frame"><img src="images/feature-2.jpg" alt="Outcome image 2" /></div>
-                  <div class="caption">Add a short description of outcome two here.</div>
-                </div>
-                <div>
-                  <div class="image-frame"><img src="images/feature-3.jpg" alt="Outcome image 3" /></div>
-                  <div class="caption">Add a short description of outcome three here.</div>
-                </div>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Outcomes</div>
+                <h2>The final design gave the team a clearer way to understand progress and next steps.</h2>
+                <p>Add a second outcomes section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Outcomes</div>
+                <h2>The final design gave the team a clearer way to understand progress and next steps.</h2>
+                <p>Add a third outcomes section here when you want to expand this story later.</p>
               </div>
             </section>
 
             <!-- IDEATION -->
-            <section class="project-section content-section" id="ideation">
-              <div class="subtitle">Ideation</div>
-              <h2>
-                Given the complexity of state-by-state parole requirement differences, we focused on one state to create a reusable dashboard solution.
-              </h2>
-              <p>This section is designed for workshop outputs, research synthesis, or sticky-note clustering.</p>
-              <div class="sticky-note-grid">
-                <div class="note">Replace this note with one key insight, quote, or design constraint.</div>
-                <div class="note">Replace this note with another finding from your interviews or synthesis.</div>
-                <div class="note">Replace this note with a third key pattern you identified.</div>
-                <div class="note">Use as many notes as you need, or delete this whole section later.</div>
-                <div class="note">You can also change the yellow note color if your project uses another accent.</div>
-                <div class="note">This layout is meant to imitate the reference image you shared.</div>
+            <section class="project-section content-section process-group" id="ideation">
+              <div class="process-entry">
+                <div class="subtitle">Ideation</div>
+                <h2>
+                  Given the complexity of state-by-state parole requirement differences, we focused on one state to create a reusable dashboard solution.
+                </h2>
+                <p>This section is designed for workshop outputs, research synthesis, or sticky-note clustering.</p>
+                <div class="sticky-note-grid">
+                  <div class="note">Replace this note with one key insight, quote, or design constraint.</div>
+                  <div class="note">Replace this note with another finding from your interviews or synthesis.</div>
+                  <div class="note">Replace this note with a third key pattern you identified.</div>
+                  <div class="note">Use as many notes as you need, or delete this whole section later.</div>
+                  <div class="note">You can also change the yellow note color if your project uses another accent.</div>
+                  <div class="note">This layout is meant to imitate the reference image you shared.</div>
+                </div>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Ideation</div>
+                <h2>
+                  Given the complexity of state-by-state parole requirement differences, we focused on one state to create a reusable dashboard solution.
+                </h2>
+                <p>Add a second ideation section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Ideation</div>
+                <h2>
+                  Given the complexity of state-by-state parole requirement differences, we focused on one state to create a reusable dashboard solution.
+                </h2>
+                <p>Add a third ideation section here when you want to expand this story later.</p>
               </div>
             </section>
 
             <!-- FINDINGS -->
-            <section class="project-section content-section" id="findings">
-              <div class="subtitle">Findings</div>
-              <p>
-                Add your synthesized findings here. This section can hold insights, themes,
-                constraints, or lessons from testing.
-              </p>
+            <section class="project-section content-section process-group" id="findings">
+              <div class="process-entry">
+                <div class="subtitle">Findings</div>
+                <h2>Key findings can live here as the project narrative gets built out over time.</h2>
+                <p>
+                  Add your synthesized findings here. This section can hold insights, themes,
+                  constraints, or lessons from testing.
+                </p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Findings</div>
+                <h2>Key findings can live here as the project narrative gets built out over time.</h2>
+                <p>Add a second findings section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Findings</div>
+                <h2>Key findings can live here as the project narrative gets built out over time.</h2>
+                <p>Add a third findings section here when you want to expand this story later.</p>
+              </div>
             </section>
 
             <!-- SOLUTION -->
-            <section class="project-section content-section" id="solution">
-              <div class="subtitle">Solution</div>
-              <p>
-                The proposed dashboard to encourage continued engagement in programs allowed users
-                to understand needs and goals.
-              </p>
-              <div class="image-frame full-width-image">
-                <img src="images/outcome.jpg" alt="Outcome image or final mockup" />
+            <section class="project-section content-section process-group" id="solution">
+              <div class="process-entry">
+                <div class="subtitle">Solution</div>
+                <h2>The proposed dashboard made the next step clearer for both users and stakeholders.</h2>
+                <p>
+                  The proposed dashboard to encourage continued engagement in programs allowed users
+                  to understand needs and goals.
+                </p>
+                <div class="image-frame full-width-image">
+                  <img src="images/outcome.jpg" alt="Outcome image or final mockup" />
+                </div>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Solution</div>
+                <h2>The proposed dashboard made the next step clearer for both users and stakeholders.</h2>
+                <p>Add a second solution section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Solution</div>
+                <h2>The proposed dashboard made the next step clearer for both users and stakeholders.</h2>
+                <p>Add a third solution section here when you want to expand this story later.</p>
               </div>
             </section>
 
             <!-- REFLECTION -->
-            <section class="project-section content-section" id="reflection">
-              <div class="subtitle">Reflection</div>
-              <p>Add your reflection here.</p>
+            <section class="project-section content-section process-group" id="reflection">
+              <div class="process-entry">
+                <div class="subtitle">Reflection</div>
+                <h2>Reflection can capture the lessons, tradeoffs, and next directions from the project.</h2>
+                <p>Add your reflection here.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Reflection</div>
+                <h2>Reflection can capture the lessons, tradeoffs, and next directions from the project.</h2>
+                <p>Add a second reflection section here when you want to expand this story later.</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Reflection</div>
+                <h2>Reflection can capture the lessons, tradeoffs, and next directions from the project.</h2>
+                <p>Add a third reflection section here when you want to expand this story later.</p>
+              </div>
             </section>
           </div>
         </main>
 
         <!-- FOOTER ONLY UNDER THE RIGHT CONTENT COLUMN -->
-        <site-footer
-          footer-class="project-footer"
-          brand-href="index.html"
-          projects-href="index.html#featured-projects"
-        ></site-footer>
+        <footer class="project-footer-minimal" aria-label="Project page footer">
+          <div class="project-footer-inner">
+            <div class="project-footer-label">THANK YOU FOR VISITING</div>
+            <a class="project-footer-email" href="mailto:monicacortes@berkeley.edu">
+              monicacortes@berkeley.edu
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
   </body>
