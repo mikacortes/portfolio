@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monica Cortes | Project</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="components.js"></script>
 
     <style>
       /*
@@ -29,13 +30,15 @@
         - contains navigation links to sections on the page
       */
       .project-sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
         padding: 64px 40px 40px 64px;
       }
 
       .project-sidebar-inner {
-        position: sticky;
-        top: 0;
-        height: 100vh;
+        position: static;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -45,7 +48,7 @@
       .sidebar-home {
         display: inline-flex;
         align-items: center;
-        gap: 14px;
+        gap: 12px;
         margin-bottom: 72px;
         color: var(--blue);
       }
@@ -53,6 +56,10 @@
       .sidebar-home .arrow-left {
         font-size: 24px;
         line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(1px);
       }
 
       .sidebar-group {
@@ -73,6 +80,27 @@
       .sidebar-links a {
         font-size: 16px;
         line-height: 1.4;
+        color: var(--black);
+        transition: color 160ms ease;
+      }
+
+      .sidebar-links a:hover,
+      .sidebar-links a:focus-visible {
+        color: var(--blue);
+      }
+
+      .project-section .subtitle {
+        margin-bottom: 24px;
+        color: var(--black);
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .project-section .subtitle + h2 {
+        margin-top: 0;
       }
 
       /*
@@ -117,11 +145,12 @@
         }
 
         .project-sidebar {
+          position: static;
+          height: auto;
           padding: 28px 28px 0;
         }
 
         .project-sidebar-inner {
-          position: static;
           height: auto;
           padding: 0;
         }
@@ -149,7 +178,7 @@
         }
 
         .sidebar-home .arrow-left {
-          font-size: 28px;
+          font-size: 20px;
         }
       }
     </style>
@@ -348,24 +377,11 @@
         </main>
 
         <!-- FOOTER ONLY UNDER THE RIGHT CONTENT COLUMN -->
-        <footer class="footer project-footer">
-          <div class="footer-inner">
-            <div class="footer-left">
-              <a href="index.html">Monica Cortes</a>
-              <div class="footer-note">Thank you for visiting!</div>
-            </div>
-            <div class="footer-right">
-              <nav class="nav" aria-label="Footer">
-                <a href="index.html#projects">Projects</a>
-                <a href="archive.html">Archive</a>
-                <a href="about.html">About</a>
-                <a href="#resume">Resume</a>
-                <a href="#linkedin">LinkedIn</a>
-              </nav>
-              <div class="copyright">© 2026 Monica Cortes</div>
-            </div>
-          </div>
-        </footer>
+        <site-footer
+          footer-class="project-footer"
+          brand-href="index.html"
+          projects-href="index.html#featured-projects"
+        ></site-footer>
       </div>
     </div>
   </body>

@@ -4,102 +4,873 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monica Cortes | Home</title>
+    <script src="components.js"></script>
 
-    <!--
-      Shared stylesheet for the whole site.
-      Keep styles.css in the same folder as this file.
-    -->
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /*
+        =====================================================
+        GLOBAL DESIGN TOKENS
+        Change these variables to update colors, spacing,
+        and typography across the whole page.
+        =====================================================
+      */
+      :root {
+        --blue: #013fa7;
+        --light-gray: #f2f2f2;
+        --card-gray: #d9d9d9;
+        --white: #ffffff;
+        --black: #1c1c1c;
+        --max-width: 1440px;
+        --content-width: 90%;
+        --section-gap: 112px;
+        --radius: 8px;
+
+        /* Header spacing controls */
+        --nav-gap: 36px;
+        --nav-gap-large: 64px;
+
+        /* Header arrow controls for Resume + LinkedIn */
+        --external-arrow-size: 12px;
+        --external-arrow-scale-x: 1.2;
+
+        /* Offset used when clicking anchor links like “Projects” */
+        --featured-anchor-offset: 76px;
+
+        /* Shared image height for featured and recent cards */
+        --project-image-height: 390px;
+
+        /* Smaller body scale used for secondary labels and hover CTA */
+        --body-small-size: 14px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Apercu Pro", "Apercu", Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        color: var(--black);
+        background: var(--light-gray);
+      }
+
+      body.has-custom-cursor,
+      body.has-custom-cursor a,
+      body.has-custom-cursor button,
+      body.has-custom-cursor [role="button"] {
+        cursor: none;
+      }
+
+      body.preload-ui .hero-copy,
+      body.preload-ui .topbar {
+        opacity: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(var(--max-width), var(--content-width));
+        margin: 0 auto;
+      }
+
+      .cursor-star {
+        height: 22px;
+        width: 22px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 99999999;
+        transform: translate3d(-100px, -100px, 0);
+        opacity: 0;
+        will-change: transform;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        line-height: 1;
+        font-weight: 500;
+        color: var(--blue);
+        text-shadow: 0 0 10px rgba(1, 63, 167, 0.12);
+        mix-blend-mode: multiply;
+        filter: saturate(0.85);
+      }
+
+      body.has-custom-cursor.is-featured-hovering .cursor-star {
+        opacity: 0 !important;
+      }
+
+      .topbar,
+      .footer {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transform: translateY(0);
+        opacity: 1;
+        transition: transform 260ms ease, opacity 260ms ease;
+      }
+
+      .topbar.is-hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+
+      .topbar-inner,
+      .footer-inner {
+        width: min(100%, calc(100% - 24px));
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .topbar,
+      .footer,
+      .topbar .brand,
+      .topbar .nav a,
+      .footer .brand,
+      .footer .nav a,
+      .footer-note,
+      .copyright {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .brand {
+        font-weight: 500;
+      }
+
+      .nav {
+        display: flex;
+        gap: var(--nav-gap);
+        align-items: center;
+      }
+
+      .topbar .nav .external:first-of-type {
+        margin-left: var(--nav-gap-large);
+      }
+
+      .nav a {
+        opacity: 0.95;
+      }
+
+      .external::before {
+        content: "↗";
+        margin-right: 6px;
+        font-size: var(--external-arrow-size);
+        vertical-align: middle;
+        display: inline-block;
+        transform: scaleX(var(--external-arrow-scale-x));
+        transform-origin: center;
+      }
+
+      .hero {
+        background: var(--blue);
+        color: var(--white);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 72px 0;
+        padding-top: 118px;
+      }
+
+      .hero-content {
+        max-width: 90%;
+      }
+
+      .hero h1 {
+        margin: 0 0 36px;
+        font-size: 48px;
+        line-height: 1.12;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      .hero-title {
+        display: block;
+        max-width: 50vw;
+      }
+
+      .hero-phrase {
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      .hero-copy {
+        margin: 0 0 18px;
+        max-width: 760px;
+        font-size: 18px;
+        line-height: 1.55;
+        font-weight: 400;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 500ms ease, transform 500ms ease;
+      }
+
+      .hero-copy.is-visible,
+      .topbar.is-visible-on-load {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      main {
+        padding: 84px 0 96px;
+      }
+
+      section {
+        margin-bottom: var(--section-gap);
+      }
+
+      #projects,
+      #archive,
+      #home {
+        scroll-margin-top: var(--featured-anchor-offset);
+      }
+
+      #featured-projects {
+        scroll-margin-top: var(--featured-anchor-offset);
+      }
+
+      h2 {
+        margin: 0 0 24px;
+        color: var(--blue);
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 65px;
+        align-items: start;
+      }
+
+      .featured-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .featured-item.reveal-card,
+      .recent-item.reveal-card {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+
+      .featured-item.reveal-card.is-revealed,
+      .recent-item.reveal-card.is-revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .featured-item.reveal-card .featured-image,
+      .featured-item.reveal-card .project-meta,
+      .recent-item.reveal-card .recent-image,
+      .recent-item.reveal-card .project-meta {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 480ms ease, transform 480ms ease;
+      }
+
+      .featured-item.reveal-card.is-revealed .featured-image,
+      .featured-item.reveal-card.is-revealed .project-meta,
+      .recent-item.reveal-card.is-revealed .recent-image,
+      .recent-item.reveal-card.is-revealed .project-meta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .featured-image {
+        width: 100%;
+        height: var(--project-image-height);
+        overflow: visible;
+        border: 1px solid var(--card-gray);
+        border-radius: 0;
+      }
+
+      .featured-media {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 0;
+      }
+
+      .featured-media video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .featured-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transition: opacity 220ms ease;
+        pointer-events: none;
+      }
+
+      .featured-cursor {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 12px;
+        border: 1px solid var(--white);
+        background: var(--blue);
+        color: var(--white);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+        font-family: "Apercu Pro", "Apercu", Arial, Helvetica, sans-serif;
+        font-size: var(--body-small-size);
+        line-height: 1;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translate(-50%, -50%) translateY(6px);
+        transition: opacity 220ms ease, transform 220ms ease;
+        pointer-events: none;
+        white-space: nowrap;
+        border-radius: 100px;
+      }
+
+      .featured-cursor-arrow {
+        display: inline-block;
+        transform: translateY(-1px);
+      }
+
+      .featured-image:hover .featured-media::after,
+      .featured-image:focus-visible .featured-media::after,
+      .featured-item:hover .featured-cursor,
+      .featured-item:focus-within .featured-cursor {
+        opacity: 1;
+      }
+
+      .featured-item:hover .featured-cursor,
+      .featured-item:focus-within .featured-cursor {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+
+      .featured-item:hover .featured-media::after,
+      .featured-item:focus-within .featured-media::after {
+        opacity: 1;
+      }
+
+      .project-meta {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .project-meta h2 {
+        margin: 0;
+        flex: 1 1 auto;
+        min-width: 0;
+        font-family: "Apercu Pro", "Apercu", Arial, Helvetica, sans-serif;
+        color: var(--blue);
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+      }
+
+      .project-status {
+        font-family: "Apercu Pro", "Apercu", Arial, Helvetica, sans-serif;
+        color: #6b7280;
+        font-size: var(--body-small-size);
+        line-height: 1.2;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        flex: 0 0 auto;
+      }
+
+      .recent-grid {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 80px;
+      }
+
+      .recent-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .recent-image {
+        width: 100%;
+        height: var(--project-image-height);
+        border: 1px solid var(--card-gray);
+        border-radius: 0;
+      }
+
+      .card {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 0;
+        min-height: 100%;
+        background: var(--card-gray);
+      }
+
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: var(--card-gray);
+      }
+
+      .contact {
+        margin-top: 28px;
+      }
+
+      .contact h3 {
+        margin: 0 0 12px;
+        color: var(--blue);
+        font-size: clamp(2.2rem, 4vw, 3.5rem);
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .contact a {
+        color: var(--blue);
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 400;
+      }
+
+      .footer-inner {
+        align-items: flex-end;
+      }
+
+      .footer-left {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer-note {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      .footer-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .copyright {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 980px) {
+        :root {
+          --section-gap: 72px;
+          --nav-gap-large: 40px;
+          --featured-anchor-offset: 132px;
+          --project-image-height: 260px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 96px 0 92px;
+          padding-top: 136px;
+        }
+
+        .hero h1,
+        .hero-title {
+          font-size: 40px;
+          max-width: none;
+        }
+
+        .featured-grid,
+        .recent-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          row-gap: 48px;
+        }
+
+        .featured-item {
+          gap: 12px;
+        }
+
+        .featured-image {
+          height: 260px;
+        }
+
+        .featured-cursor {
+          font-size: var(--body-small-size);
+        }
+
+        .project-meta {
+          gap: 8px 12px;
+          flex-wrap: wrap;
+        }
+
+        .project-meta h2,
+        .project-status {
+          font-size: 16px;
+        }
+
+        .recent-item {
+          gap: 12px;
+        }
+
+        .recent-image {
+          height: 260px;
+        }
+
+        .contact a {
+          font-size: 28px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --section-gap: 64px;
+        }
+
+        .topbar-inner,
+        .footer-inner {
+          width: min(100%, calc(100% - 20px));
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+          gap: 12px 16px;
+        }
+
+        .topbar .nav .external:first-of-type {
+          margin-left: 14px;
+        }
+
+        .hero {
+          padding-top: 152px;
+          padding-bottom: 84px;
+        }
+
+        .hero-content {
+          max-width: 100%;
+        }
+
+        .hero h1,
+        .hero-title {
+          font-size: 34px;
+          max-width: none;
+        }
+
+        .hero-copy {
+          font-size: 17px;
+        }
+
+        main {
+          padding: 72px 0 84px;
+        }
+
+        .featured-grid,
+        .recent-grid {
+          grid-template-columns: 1fr;
+          row-gap: 39px;
+        }
+
+        .featured-image,
+        .recent-image {
+          height: 240px;
+        }
+
+        .footer-right {
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --section-gap: 56px;
+        }
+
+        main {
+          padding: 64px 0 72px;
+        }
+
+        .hero h1,
+        .hero-title {
+          font-size: 32px;
+          max-width: none;
+          min-height: auto;
+        }
+
+        .hero-copy {
+          font-size: 18px;
+        }
+
+        h2,
+        .contact a {
+          font-size: 28px;
+        }
+
+        .featured-grid,
+        .recent-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .featured-image {
+          height: 220px;
+        }
+
+        .recent-image {
+          height: 220px;
+        }
+
+        .contact a {
+          word-break: break-word;
+        }
+      }
+    </style>
   </head>
-  <body>
+  <body class="preload-ui">
     <!-- =====================================================
          SITE HEADER
-         Update resume and LinkedIn links when ready.
+         Update links here if your resume or LinkedIn URLs change.
          ===================================================== -->
-    <header>
-      <div class="topbar">
-        <div class="topbar-inner">
-          <a class="brand" href="#home">✦ MONICA CORTES ✦</a>
-          <nav class="nav" aria-label="Primary">
-            <a href="#projects">PROJECTS</a>
-            <a href="archive.html">ARCHIVE</a>
-            <a href="about.html">ABOUT</a>
-            <a class="external" href="#resume">RESUME</a>
-            <a class="external" href="https://www.linkedin.com/in/monica--cortes/">LINKEDIN</a>
-          </nav>
-        </div>
+    <site-header brand-href="#home" projects-href="#featured-projects"></site-header>
+
+    <!-- HERO / INTRO SECTION -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1 class="hero-title">
+          Designing <span class="hero-phrase">thoughtful systems</span>, 
+          <span class="hero-phrase">visual experiences</span>, and
+          <br />
+          <span class="hero-phrase">product direction</span>
+        </h1>
+
+        <!-- Replace this introduction with your final personal bio. -->
+        <p class="hero-copy">
+          I’m Monica, a multi-disciplinary designer with a background in Data Science.
+        </p>
+        <p class="hero-copy">
+          I’ve worked with startups and nonprofits as a Designer and Analyst, and I’m
+          continuing to deepen my skills across product, design, business, and data analytics.
+        </p>
+        <p class="hero-copy">
+          I’m based in Southern California and open to relocation for full-time roles with
+          positive impact.
+        </p>
       </div>
+    </section>
 
-      <!-- HERO / INTRO SECTION -->
-      <section class="hero" id="home">
-        <div class="container hero-content">
-          <h1 class="hero-title">
-            Designing thoughtful systems,<br />
-            visual experiences, and<br />
-            product direction
-          </h1>
-
-          <!-- Replace this introduction with your final bio. -->
-          <p class="body-large">
-            I’m Monica, a multi-disciplinary designer with a background in Data Science.
-          </p>
-          <p class="body-large">
-            I’ve worked with startups and nonprofits as a Designer and Analyst, and I’m
-            continuing to deepen my skills across product, design, business, and data analytics.
-          </p>
-          <p class="body-large">
-            I’m based in Southern California and open to relocation for full-time roles with
-            positive impact.
-          </p>
-        </div>
-      </section>
-    </header>
-
-    <main class="home-main">
+    <main>
       <div class="container">
         <!-- FEATURED PROJECTS -->
         <section id="projects">
-          <h2 class="section-title">Featured Projects</h2>
+          <h2 id="featured-projects">Featured Projects</h2>
 
           <!--
-            Every image links to the same sample project page for now.
-            Later, change each href to a different project page if needed.
+            Each project links to the same sample project page for now.
+            Later, you can swap these hrefs to different project files.
           -->
           <div class="grid featured-grid">
-            <a class="card feature-a" href="project.html">
-              <img src="images/Unlocked Labs Preview.png" alt="Unlocked Labs Project" />
-            </a>
-            <a class="card feature-b" href="project.html">
-              <img src="images/featured-project-2.jpg" alt="Featured project 2" />
-            </a>
-            <a class="card feature-c" href="project.html">
-              <img src="images/featured-project-3.jpg" alt="Featured project 3" />
-            </a>
-            <a class="card feature-d" href="project.html">
-              <img src="images/featured-project-4.jpg" alt="Featured project 4" />
-            </a>
-            <a class="card feature-e" href="project.html">
-              <img src="images/featured-project-5.jpg" alt="Featured project 5" />
-            </a>
-            <a class="card feature-f" href="project.html">
-              <img src="images/featured-project-6.jpg" alt="Featured project 6" />
-            </a>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <video
+                    class="featured-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="assets/images/Unlocked Labs Preview.png"
+                    aria-label="Featured project 1 video preview"
+                  >
+                    <source src="assets/videos/unlocked labs demo.mp4" type="video/mp4" />
+                  </video>
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow">↗</span>
+              </span>
+              <div class="project-meta">
+                <h2>Supporting incarcerated students for parole review</h2>
+                <span class="project-status">SHIPPED 2025</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <img src="assets/images/trubel_co Preview.png" alt="Featured project 2" />
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow">↗</span>
+              </span>
+              <div class="project-meta">
+                <h2>Revamping the digital identity for a ed-tech non-profit's website</h2>
+                <span class="project-status">SHIPPED 2025</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <video
+                    class="featured-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="assets/Unlocked Labs Preview.png"
+                    aria-label="Featured project 3 video preview"
+                  >
+                    <source src="videos/featured-project-3.mp4" type="video/mp4" />
+                  </video>
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow">↗</span>
+              </span>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+                <span class="project-status">SHIPPED</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <img src="assets/trubel_co Preview.png" alt="Featured project 4" />
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow">↗</span>
+              </span>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+                <span class="project-status">SHIPPED</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <img src="assets/Unlocked Labs Preview.png" alt="Featured project 5" />
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow">↗</span>
+              </span>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+                <span class="project-status">SHIPPED</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <img src="assets/trubel_co Preview.png" alt="Featured project 6" />
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow">↗</span>
+              </span>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+                <span class="project-status">SHIPPED</span>
+              </div>
+            </article>
           </div>
         </section>
 
         <!-- RECENT WORK -->
         <section id="archive">
-          <h2 class="section-title">Recent Work</h2>
+          <h2>Recent Work</h2>
           <div class="grid recent-grid">
-            <a class="card" href="project.html">
-              <img src="images/recent-work-1.jpg" alt="Recent work 1" />
-            </a>
-            <a class="card" href="project.html">
-              <img src="images/recent-work-2.jpg" alt="Recent work 2" />
-            </a>
-            <a class="card" href="project.html">
-              <img src="images/recent-work-3.jpg" alt="Recent work 3" />
-            </a>
+            <article class="recent-item reveal-card">
+              <a class="card recent-image" href="project.html">
+                <img src="assets/Unlocked Labs Preview.png" alt="Recent work 1" />
+              </a>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+              </div>
+            </article>
+            <article class="recent-item reveal-card">
+              <a class="card recent-image" href="project.html">
+                <img src="assets/trubel_co Preview.png" alt="Recent work 2" />
+              </a>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+              </div>
+            </article>
+            <article class="recent-item reveal-card">
+              <a class="card recent-image" href="project.html">
+                <img src="assets/Unlocked Labs Preview.png" alt="Recent work 3" />
+              </a>
+              <div class="project-meta">
+                <h2>PROJECT NAME</h2>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -111,25 +882,215 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <a class="brand" href="#home">Monica Cortes</a>
-          <div class="footer-note">Thank you for visiting!</div>
-        </div>
+    <site-footer
+      brand-href="#home"
+      projects-href="#featured-projects"
+    ></site-footer>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <div class="cursor-star" aria-hidden="true">✦</div>
+    <script>
+      /*
+        HOME PAGE INTERACTIONS
+        - Header hides on scroll down, shows on scroll up
+        - Project cards fade in when they reach the middle of the viewport
+      */
+      (function () {
+        const body = document.body;
+        const topbar = document.querySelector('.topbar');
+        const heroCopies = document.querySelectorAll('.hero-copy');
+        const revealCards = document.querySelectorAll('.reveal-card');
+        const featuredMedias = document.querySelectorAll('.featured-media');
+        const featuredItems = document.querySelectorAll('.featured-item');
+        const stars = Array.from(document.querySelectorAll('.cursor-star'));
 
-        <div class="footer-right">
-          <nav class="nav" aria-label="Footer">
-            <a href="#projects">Projects</a>
-            <a href="archive.html">Archive</a>
-            <a href="about.html">About</a>
-            <a href="#resume">RESUME</a>
-            <a href="https://www.linkedin.com/in/monica--cortes/">LINKEDIN</a>
-          </nav>
-          <div class="copyright">© 2026 Monica Cortes</div>
-        </div>
-      </div>
-    </footer>
+        function showSupportingUi() {
+          topbar.classList.add('is-visible-on-load');
+          heroCopies.forEach((copy, index) => {
+            window.setTimeout(() => {
+              copy.classList.add('is-visible');
+            }, index * 120);
+          });
+          body.classList.remove('preload-ui');
+        }
+
+        showSupportingUi();
+
+        const isFinePointer =
+          window.matchMedia &&
+          window.matchMedia('(pointer: fine)').matches &&
+          window.matchMedia('(hover: hover)').matches;
+
+        if (isFinePointer && stars.length) {
+          body.classList.add('has-custom-cursor');
+
+          const coords = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+          const blueColors = [
+            '#013fa7',
+            '#0d4ab1',
+            '#1a56ba',
+            '#2a63c2',
+            '#396fca',
+            '#487ad0',
+            '#5685d6',
+            '#6490db',
+            '#729ade',
+            '#80a3e1',
+            '#8caee4',
+            '#97b7e7',
+            '#a2c0e9',
+            '#acc8eb',
+            '#b6d0ed',
+            '#bfd8ef',
+            '#c7e0f1',
+            '#cfe7f3',
+            '#d7eef5',
+            '#dff4f7'
+          ];
+          let hasPointerMoved = false;
+
+          stars.forEach((star, index) => {
+            star.x = 0;
+            star.y = 0;
+            star.style.color = blueColors[index % blueColors.length];
+            star.style.opacity = '0';
+          });
+
+          window.addEventListener('mousemove', (event) => {
+            hasPointerMoved = true;
+            coords.x = event.clientX;
+            coords.y = event.clientY;
+          });
+
+          function animateCircles(timestamp = 0) {
+            let x = coords.x;
+            let y = coords.y;
+
+            if (!hasPointerMoved) {
+              const swirlTime = timestamp * 0.00045;
+              x += Math.cos(swirlTime) * 18;
+              y += Math.sin(swirlTime * 1.15) * 18;
+            }
+
+            const baseScale = 0.74;
+            const scaleRange = 0.22;
+            const opacityRange = 0.18;
+            const minOpacity = 0.04;
+            const trailEase = 0.14;
+
+            stars.forEach((star, index) => {
+              const offset = 10;
+              star.style.left = `${x - offset}px`;
+              star.style.top = `${y - offset}px`;
+              star.style.transform = `scale(${baseScale + ((stars.length - index) / stars.length) * scaleRange})`;
+              star.style.opacity = hasPointerMoved
+                ? `${Math.max(minOpacity, ((stars.length - index) / stars.length) * opacityRange)}`
+                : '0';
+
+              star.x = x;
+              star.y = y;
+
+              const nextStar = stars[index + 1] || stars[0];
+              x += (nextStar.x - x) * trailEase;
+              y += (nextStar.y - y) * trailEase;
+            });
+
+            window.requestAnimationFrame(animateCircles);
+          }
+
+          animateCircles();
+        }
+
+        featuredItems.forEach((featuredItem) => {
+          featuredItem.addEventListener('pointerenter', () => {
+            body.classList.add('is-featured-hovering');
+          });
+
+          featuredItem.addEventListener('pointerleave', () => {
+            body.classList.remove('is-featured-hovering');
+          });
+
+          featuredItem.addEventListener('focusin', () => {
+            body.classList.add('is-featured-hovering');
+          });
+
+          featuredItem.addEventListener('focusout', () => {
+            body.classList.remove('is-featured-hovering');
+          });
+        });
+
+        featuredMedias.forEach((featuredMedia) => {
+          const card = featuredMedia.closest('.featured-item');
+          const cursor = card ? card.querySelector('.featured-cursor') : null;
+          if (!cursor) return;
+
+          function positionCursor(event) {
+            const rect = featuredMedia.getBoundingClientRect();
+            cursor.style.left = `${event.clientX - rect.left}px`;
+            cursor.style.top = `${event.clientY - rect.top}px`;
+          }
+
+          featuredMedia.addEventListener('pointerenter', (event) => {
+            positionCursor(event);
+            cursor.style.opacity = '1';
+            cursor.style.transform = 'translate(-50%, -50%) translateY(0)';
+          });
+
+          featuredMedia.addEventListener('pointermove', positionCursor);
+
+          featuredMedia.addEventListener('pointerleave', () => {
+            cursor.style.opacity = '0';
+            cursor.style.transform = 'translate(-50%, -50%) translateY(6px)';
+          });
+        });
+
+        let lastScrollY = window.scrollY;
+        function handleHeaderScroll() {
+          const currentScrollY = window.scrollY;
+          if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            topbar.classList.add('is-hidden');
+          } else {
+            topbar.classList.remove('is-hidden');
+          }
+          lastScrollY = Math.max(currentScrollY, 0);
+        }
+        window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            root: null,
+            threshold: 0.15,
+            rootMargin: '0px 0px -20% 0px'
+          }
+        );
+
+        revealCards.forEach((card) => revealObserver.observe(card));
+      })();
+    </script>
   </body>
 </html>
