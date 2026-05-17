@@ -30,7 +30,7 @@
         --nav-gap-large: 64px;
 
         /* Header arrow controls for Resume + LinkedIn */
-        --external-arrow-size: 12px;
+        --external-arrow-size: 16px;
         --external-arrow-scale-x: 1.2;
 
         /* Offset used when clicking anchor links like “Projects” */
@@ -66,10 +66,15 @@
         cursor: none;
       }
 
+      body.has-custom-cursor * {
+        cursor: none !important;
+      }
+
       body.has-custom-cursor.is-blue-hovering .cursor-star {
         color: var(--white);
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
         filter: none;
+        mix-blend-mode: normal;
       }
 
       body.preload-ui .hero-copy,
@@ -762,6 +767,7 @@
                 <span class="featured-media">
                   <video
                     class="featured-video"
+                    data-playback-rate="1"
                     autoplay
                     muted
                     loop
@@ -804,16 +810,50 @@
             <article class="featured-item reveal-card">
               <a class="card featured-image" href="project.html">
                 <span class="featured-media">
+                  <img src="assets/images/WSCUC Preview.png" alt="Featured project 3" />
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
+              </span>
+              <div class="project-meta">
+                <h2>Designing a successful university accreditation report</h2>
+                <span class="project-status">SHIPPED 2024</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
+                  <img src="assets/images/nenos Preview.png" alt="Featured project 4" />
+                </span>
+              </a>
+              <span class="featured-cursor" aria-hidden="true">
+                <span>View Case Study</span>
+                <span class="featured-cursor-arrow" aria-hidden="true">
+                  <img src="assets/icons/Arrow up-right.svg" alt="" />
+                </span>
+              </span>
+              <div class="project-meta">
+                <h2>Optimizing a social media company's parent website</h2>
+                <span class="project-status">SHIPPED 2025</span>
+              </div>
+            </article>
+            <article class="featured-item reveal-card">
+              <a class="card featured-image" href="project.html">
+                <span class="featured-media">
                   <video
                     class="featured-video"
                     autoplay
                     muted
                     loop
                     playsinline
-                    poster="assets/Unlocked Labs Preview.png"
-                    aria-label="Featured project 3 video preview"
+                    poster="assets/images/Bonded Diamond Preview.png"
+                    aria-label="Featured project 5 video preview"
                   >
-                    <source src="videos/featured-project-3.mp4" type="video/mp4" />
+                    <source src="assets/videos/unlocked labs demo.mp4" type="video/mp4" />
                   </video>
                 </span>
               </a>
@@ -824,14 +864,14 @@
                 </span>
               </span>
               <div class="project-meta">
-                <h2>PROJECT NAME</h2>
-                <span class="project-status">SHIPPED</span>
+                <h2>Advertising a luxury diamond jewelry brand</h2>
+                <span class="project-status">SHIPPED 2025</span>
               </div>
             </article>
             <article class="featured-item reveal-card">
               <a class="card featured-image" href="project.html">
                 <span class="featured-media">
-                  <img src="assets/trubel_co Preview.png" alt="Featured project 4" />
+                  <img src="assets/images/ScriptChain Health Preview.png" alt="Featured project 6" />
                 </span>
               </a>
               <span class="featured-cursor" aria-hidden="true">
@@ -841,42 +881,8 @@
                 </span>
               </span>
               <div class="project-meta">
-                <h2>PROJECT NAME</h2>
-                <span class="project-status">SHIPPED</span>
-              </div>
-            </article>
-            <article class="featured-item reveal-card">
-              <a class="card featured-image" href="project.html">
-                <span class="featured-media">
-                  <img src="assets/Unlocked Labs Preview.png" alt="Featured project 5" />
-                </span>
-              </a>
-              <span class="featured-cursor" aria-hidden="true">
-                <span>View Case Study</span>
-                <span class="featured-cursor-arrow" aria-hidden="true">
-                  <img src="assets/icons/Arrow up-right.svg" alt="" />
-                </span>
-              </span>
-              <div class="project-meta">
-                <h2>PROJECT NAME</h2>
-                <span class="project-status">SHIPPED</span>
-              </div>
-            </article>
-            <article class="featured-item reveal-card">
-              <a class="card featured-image" href="project.html">
-                <span class="featured-media">
-                  <img src="assets/trubel_co Preview.png" alt="Featured project 6" />
-                </span>
-              </a>
-              <span class="featured-cursor" aria-hidden="true">
-                <span>View Case Study</span>
-                <span class="featured-cursor-arrow" aria-hidden="true">
-                  <img src="assets/icons/Arrow up-right.svg" alt="" />
-                </span>
-              </span>
-              <div class="project-meta">
-                <h2>PROJECT NAME</h2>
-                <span class="project-status">SHIPPED</span>
+                <h2>Leading marketing design for a healthcare startup</h2>
+                <span class="project-status">SHIPPED 2025</span>
               </div>
             </article>
           </div>
@@ -958,7 +964,6 @@
         const revealCards = document.querySelectorAll('.reveal-card');
         const featuredMedias = document.querySelectorAll('.featured-media');
         const featuredItems = document.querySelectorAll('.featured-item');
-        const blueHoverTargets = document.querySelectorAll('.hero, .topbar, .footer');
         const stars = Array.from(document.querySelectorAll('.cursor-star'));
 
         function showSupportingUi() {
@@ -982,6 +987,7 @@
           body.classList.add('has-custom-cursor');
 
           const coords = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+          const blueReference = { r: 1, g: 63, b: 167 };
           const blueColors = [
             '#013fa7',
             '#0d4ab1',
@@ -1013,10 +1019,66 @@
             star.style.opacity = '0';
           });
 
+          function parseRgbColor(color) {
+            const match = color && color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+            if (!match) {
+              return null;
+            }
+
+            return {
+              r: Number(match[1]),
+              g: Number(match[2]),
+              b: Number(match[3]),
+            };
+          }
+
+          function isBlueLikeColor(color) {
+            const rgb = parseRgbColor(color);
+            if (!rgb) {
+              return false;
+            }
+
+            const distance = Math.sqrt(
+              Math.pow(rgb.r - blueReference.r, 2) +
+              Math.pow(rgb.g - blueReference.g, 2) +
+              Math.pow(rgb.b - blueReference.b, 2)
+            );
+
+            return distance < 90 || (rgb.b > rgb.r + 18 && rgb.b > rgb.g + 10 && rgb.b > 90);
+          }
+
+          function updateBlueHoverState(event) {
+            const hovered = document.elementFromPoint(event.clientX, event.clientY);
+            let element = hovered;
+            let isBlueHovering = false;
+
+            while (element && element !== document.body) {
+              const styles = window.getComputedStyle(element);
+              if (
+                isBlueLikeColor(styles.color) ||
+                isBlueLikeColor(styles.backgroundColor) ||
+                isBlueLikeColor(styles.borderTopColor) ||
+                isBlueLikeColor(styles.borderRightColor) ||
+                isBlueLikeColor(styles.borderBottomColor) ||
+                isBlueLikeColor(styles.borderLeftColor) ||
+                isBlueLikeColor(styles.fill) ||
+                isBlueLikeColor(styles.stroke)
+              ) {
+                isBlueHovering = true;
+                break;
+              }
+
+              element = element.parentElement;
+            }
+
+            body.classList.toggle('is-blue-hovering', isBlueHovering);
+          }
+
           window.addEventListener('mousemove', (event) => {
             hasPointerMoved = true;
             coords.x = event.clientX;
             coords.y = event.clientY;
+            updateBlueHoverState(event);
           });
 
           function animateCircles(timestamp = 0) {
@@ -1076,24 +1138,6 @@
           });
         });
 
-        blueHoverTargets.forEach((target) => {
-          target.addEventListener('pointerenter', () => {
-            body.classList.add('is-blue-hovering');
-          });
-
-          target.addEventListener('pointerleave', () => {
-            body.classList.remove('is-blue-hovering');
-          });
-
-          target.addEventListener('focusin', () => {
-            body.classList.add('is-blue-hovering');
-          });
-
-          target.addEventListener('focusout', () => {
-            body.classList.remove('is-blue-hovering');
-          });
-        });
-
         featuredMedias.forEach((featuredMedia) => {
           const card = featuredMedia.closest('.featured-item');
           const cursor = card ? card.querySelector('.featured-cursor') : null;
@@ -1117,6 +1161,13 @@
             cursor.style.opacity = '0';
             cursor.style.transform = 'translate(-50%, -50%) translateY(6px)';
           });
+        });
+
+        document.querySelectorAll('video[data-playback-rate]').forEach((video) => {
+          const rate = Number(video.dataset.playbackRate);
+          if (Number.isFinite(rate) && rate > 0) {
+            video.playbackRate = rate;
+          }
         });
 
         let lastScrollY = window.scrollY;
