@@ -171,33 +171,21 @@
         color: var(--blue);
       }
 
-      .project-section .subtitle {
-        margin-bottom: 12px;
-        color: var(--black);
+      .project-main .meta-label {
+        color: #013fa7;
+        color: var(--blue);
+      }
+
+      .project-main .project-section .subtitle {
+        color: #013fa7;
+        color: var(--blue);
         font-size: 14px;
         line-height: 1.5;
-        font-weight: 400;
         letter-spacing: 0.06em;
-        text-transform: uppercase;
       }
 
-      .project-section .subtitle + h2 {
-        margin-top: 0;
-        margin-bottom: 12px;
-      }
-
-      .process-group {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-      }
-
-      .process-entry {
-        padding-bottom: 2px;
-      }
-
-      .process-entry p:last-child {
-        margin-bottom: 0;
+      .project-main .project-hero .project-summary .subtitle {
+        color: var(--black);
       }
 
       /*
@@ -215,10 +203,6 @@
 
       .project-section {
         scroll-margin-top: 32px;
-      }
-
-      .project-main .content-section {
-        margin-bottom: 88px;
       }
 
       /*
@@ -719,7 +703,7 @@
         <!-- FOOTER ONLY UNDER THE RIGHT CONTENT COLUMN -->
         <footer class="project-footer-minimal" aria-label="Project page footer">
           <div class="project-footer-inner">
-            <div class="project-footer-label">THANK YOU FOR VISITING</div>
+            <div class="project-footer-label">✦ THANK YOU FOR VISITING ✦</div>
             <div class="project-footer-actions" aria-label="Contact links">
               <a class="project-footer-action" href="mailto:monicacortes@berkeley.edu" aria-label="Email Monica Cortes">
                 <img src="assets/icons/envelope.svg" alt="" />
@@ -758,8 +742,8 @@
             top = clientY - rect.height - pointerOffset;
           }
 
-          left = Math.max(viewportPadding, Math.min(left, window.innerWidth - viewportPadding - rect.width));
-          top = Math.max(viewportPadding, Math.min(top, window.innerHeight - viewportPadding - rect.height));
+          left = Math.max(viewportPadding + rect.width / 2, Math.min(left, window.innerWidth - viewportPadding - rect.width / 2));
+          top = Math.max(viewportPadding + rect.height / 2, Math.min(top, window.innerHeight - viewportPadding - rect.height / 2));
 
           preview.style.left = `${left}px`;
           preview.style.top = `${top}px`;
