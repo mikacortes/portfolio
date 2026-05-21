@@ -20,7 +20,7 @@ class SiteHeader extends HTMLElement {
                 <img src="assets/icons/Arrow up-right.svg" alt="" />
               </span>
             </a>
-            <a class="external" href="#linkedin">
+            <a class="external" href="https://www.linkedin.com/in/monica--cortes/">
               <span>LinkedIn</span>
               <span class="external-arrow" aria-hidden="true">
                 <img src="assets/icons/Arrow up-right.svg" alt="" />
@@ -62,7 +62,7 @@ class SiteFooter extends HTMLElement {
                   <img src="assets/icons/Arrow up-right.svg" alt="" />
                 </span>
               </a>
-              <a class="external" href="#linkedin">
+              <a class="external" href="https://www.linkedin.com/in/monica--cortes/">
                 <span>LinkedIn</span>
                 <span class="external-arrow" aria-hidden="true">
                   <img src="assets/icons/Arrow up-right.svg" alt="" />
