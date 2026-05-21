@@ -1,0 +1,47 @@
+/*
+  Sparkle cursor (site-wide)
+*/
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor [role="button"] {
+  cursor: none;
+}
+
+body.has-custom-cursor * {
+  cursor: none !important;
+}
+
+body.has-custom-cursor.is-blue-hovering .cursor-star {
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+body.has-custom-cursor.is-featured-hovering .cursor-star {
+  opacity: 0 !important;
+}
+
+.cursor-star {
+  height: 22px;
+  width: 22px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+  transform: translate3d(-100px, -100px, 0);
+  opacity: 0;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--blue, #013fa7);
+  text-shadow: 0 0 10px rgba(1, 63, 167, 0.12);
+  mix-blend-mode: multiply;
+  filter: saturate(0.85);
+}

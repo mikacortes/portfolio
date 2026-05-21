@@ -7,6 +7,12 @@ class SiteHeader extends HTMLElement {
     const projectsHref = this.getAttribute('projects-href') || '#featured-projects';
 
     this.innerHTML = `
+      <button
+        type="button"
+        class="nav-menu-overlay"
+        aria-label="Close menu"
+        hidden
+      ></button>
       <header class="topbar">
         <div class="topbar-inner">
           <a class="brand" href="${brandHref}">✦ Monica Cortes ✦</a>
@@ -49,7 +55,8 @@ class SiteHeader extends HTMLElement {
     const topbar = this.querySelector('.topbar');
     const toggle = this.querySelector('.menu-toggle');
     const nav = this.querySelector('.nav');
-    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    const overlay = this.querySelector('.nav-menu-overlay');
+    const mobileQuery = window.matchMedia('(max-width: 980px)');
 
     if (!topbar || !toggle || !nav) return;
 
@@ -58,6 +65,10 @@ class SiteHeader extends HTMLElement {
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       document.body.classList.toggle('nav-menu-open', open);
+      if (overlay) {
+        overlay.hidden = !open;
+        overlay.setAttribute('aria-hidden', String(!open));
+      }
       if (open) topbar.classList.remove('is-hidden');
     };
 
@@ -66,6 +77,8 @@ class SiteHeader extends HTMLElement {
     toggle.addEventListener('click', () => {
       setMenuOpen(!topbar.classList.contains('is-menu-open'));
     });
+
+    overlay?.addEventListener('click', closeMenu);
 
     nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', closeMenu);
@@ -131,4 +144,189 @@ if (!customElements.get('site-header')) {
 
 if (!customElements.get('site-footer')) {
   customElements.define('site-footer', SiteFooter);
+}
+
+const SPARKLE_STAR_COUNT = 20;
+
+function initSparkleCursor() {
+  if (document.body.dataset.sparkleCursorReady === 'true') return;
+  document.body.dataset.sparkleCursorReady = 'true';
+
+  const isFinePointer =
+    window.matchMedia &&
+    window.matchMedia('(pointer: fine)').matches &&
+    window.matchMedia('(hover: hover)').matches;
+
+  if (!isFinePointer) return;
+
+  const body = document.body;
+  const stars = [];
+
+  for (let index = 0; index < SPARKLE_STAR_COUNT; index += 1) {
+    const star = document.createElement('div');
+    star.className = 'cursor-star';
+    star.setAttribute('aria-hidden', 'true');
+    star.textContent = '✦';
+    document.body.appendChild(star);
+    stars.push(star);
+  }
+
+  body.classList.add('has-custom-cursor');
+
+  const coords = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  const blueReference = { r: 1, g: 63, b: 167 };
+  const blueColors = [
+    '#013fa7',
+    '#0d4ab1',
+    '#1a56ba',
+    '#2a63c2',
+    '#396fca',
+    '#487ad0',
+    '#5685d6',
+    '#6490db',
+    '#729ade',
+    '#80a3e1',
+    '#8caee4',
+    '#97b7e7',
+    '#a2c0e9',
+    '#acc8eb',
+    '#b6d0ed',
+    '#bfd8ef',
+    '#c7e0f1',
+    '#cfe7f3',
+    '#d7eef5',
+    '#dff4f7',
+  ];
+  let hasPointerMoved = false;
+
+  stars.forEach((star, index) => {
+    star.x = 0;
+    star.y = 0;
+    star.style.color = blueColors[index % blueColors.length];
+    star.style.opacity = '0';
+  });
+
+  function parseRgbColor(color) {
+    const match = color && color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
+    if (!match) {
+      return null;
+    }
+
+    return {
+      r: Number(match[1]),
+      g: Number(match[2]),
+      b: Number(match[3]),
+    };
+  }
+
+  function isBlueLikeColor(color) {
+    const rgb = parseRgbColor(color);
+    if (!rgb) {
+      return false;
+    }
+
+    const distance = Math.sqrt(
+      Math.pow(rgb.r - blueReference.r, 2) +
+        Math.pow(rgb.g - blueReference.g, 2) +
+        Math.pow(rgb.b - blueReference.b, 2)
+    );
+
+    return distance < 90 || (rgb.b > rgb.r + 18 && rgb.b > rgb.g + 10 && rgb.b > 90);
+  }
+
+  function updateBlueHoverState(event) {
+    const hovered = document.elementFromPoint(event.clientX, event.clientY);
+    let element = hovered;
+    let isBlueHovering = false;
+
+    while (element && element !== document.body) {
+      const styles = window.getComputedStyle(element);
+      if (
+        isBlueLikeColor(styles.color) ||
+        isBlueLikeColor(styles.backgroundColor) ||
+        isBlueLikeColor(styles.borderTopColor) ||
+        isBlueLikeColor(styles.borderRightColor) ||
+        isBlueLikeColor(styles.borderBottomColor) ||
+        isBlueLikeColor(styles.borderLeftColor) ||
+        isBlueLikeColor(styles.fill) ||
+        isBlueLikeColor(styles.stroke)
+      ) {
+        isBlueHovering = true;
+        break;
+      }
+
+      element = element.parentElement;
+    }
+
+    body.classList.toggle('is-blue-hovering', isBlueHovering);
+  }
+
+  window.addEventListener('mousemove', (event) => {
+    hasPointerMoved = true;
+    coords.x = event.clientX;
+    coords.y = event.clientY;
+    updateBlueHoverState(event);
+  });
+
+  function animateCircles(timestamp = 0) {
+    let x = coords.x;
+    let y = coords.y;
+
+    if (!hasPointerMoved) {
+      const swirlTime = timestamp * 0.00045;
+      x += Math.cos(swirlTime) * 18;
+      y += Math.sin(swirlTime * 1.15) * 18;
+    }
+
+    const baseScale = 0.74;
+    const scaleRange = 0.22;
+    const opacityRange = 0.18;
+    const minOpacity = 0.04;
+    const trailEase = 0.14;
+
+    stars.forEach((star, index) => {
+      const offset = 10;
+      star.style.left = `${x - offset}px`;
+      star.style.top = `${y - offset}px`;
+      star.style.transform = `scale(${baseScale + ((stars.length - index) / stars.length) * scaleRange})`;
+      star.style.opacity = hasPointerMoved
+        ? `${Math.max(minOpacity, ((stars.length - index) / stars.length) * opacityRange)}`
+        : '0';
+
+      star.x = x;
+      star.y = y;
+
+      const nextStar = stars[index + 1] || stars[0];
+      x += (nextStar.x - x) * trailEase;
+      y += (nextStar.y - y) * trailEase;
+    });
+
+    window.requestAnimationFrame(animateCircles);
+  }
+
+  animateCircles();
+
+  document.querySelectorAll('.featured-item').forEach((featuredItem) => {
+    featuredItem.addEventListener('pointerenter', () => {
+      body.classList.add('is-featured-hovering');
+    });
+
+    featuredItem.addEventListener('pointerleave', () => {
+      body.classList.remove('is-featured-hovering');
+    });
+
+    featuredItem.addEventListener('focusin', () => {
+      body.classList.add('is-featured-hovering');
+    });
+
+    featuredItem.addEventListener('focusout', () => {
+      body.classList.remove('is-featured-hovering');
+    });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSparkleCursor);
+} else {
+  initSparkleCursor();
 }

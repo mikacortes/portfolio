@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monica Cortes | Project</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="sparkle-cursor.css" />
     <script src="components.js"></script>
 
     <style>
@@ -21,6 +22,8 @@
         display: grid;
         grid-template-columns: 260px minmax(0, 1fr);
         min-height: 100vh;
+        max-width: 100%;
+        overflow-x: clip;
       }
 
       /*
@@ -81,7 +84,6 @@
       }
 
       .sidebar-next {
-        cursor: none;
         margin-bottom: 0;
       }
 
@@ -98,7 +100,8 @@
         position: fixed;
         left: 0;
         top: 0;
-        width: min(220px, calc(100vw - 24px));
+        width: min(220px, calc(100% - 24px));
+        max-width: calc(100vw - 24px);
         padding: 12px;
         border: 1px solid var(--image-container-border);
         background: var(--image-container-fill);
@@ -194,7 +197,9 @@
       */
       .project-column {
         min-width: 0;
-        padding: 56px 24px 0 0;
+        max-width: 100%;
+        padding: 56px 24px 0;
+        overflow-x: clip;
       }
 
       .project-main {
@@ -216,7 +221,9 @@
 
       .project-footer-inner {
         width: 100%;
+        max-width: 100%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: flex-end;
         align-items: center;
         gap: 12px;
@@ -260,7 +267,7 @@
           position: static;
           height: auto;
           padding: 24px;
-          overflow: visible;
+          overflow-x: clip;
         }
 
         .project-sidebar-inner {
@@ -288,6 +295,15 @@
 
         .project-column {
           padding: 20px 18px 0;
+        }
+
+        .project-footer-inner {
+          justify-content: center;
+        }
+
+        .project-footer-label {
+          white-space: normal;
+          text-align: center;
         }
 
         .sidebar-home .arrow-left {

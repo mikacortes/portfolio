@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monica Cortes | Home</title>
     <script src="components.js"></script>
+    <link rel="stylesheet" href="sparkle-cursor.css" />
 
     <style>
       /*
@@ -43,6 +44,9 @@
 
         /* Smaller body scale used for secondary labels and hover CTA */
         --body-small-size: 14px;
+
+        /* Mobile nav backdrop when hamburger menu is open */
+        --nav-menu-overlay-color: rgba(0, 0, 0, 0.3);
       }
 
       * {
@@ -51,32 +55,17 @@
 
       html {
         scroll-behavior: smooth;
+        overflow-x: clip;
       }
 
       body {
         margin: 0;
+        overflow-x: clip;
+        max-width: 100%;
         font-family: "Apercu Pro", "Apercu", Arial, Helvetica, sans-serif;
         font-size: 16px;
         color: var(--black);
         background: var(--light-gray);
-      }
-
-      body.has-custom-cursor,
-      body.has-custom-cursor a,
-      body.has-custom-cursor button,
-      body.has-custom-cursor [role="button"] {
-        cursor: none;
-      }
-
-      body.has-custom-cursor * {
-        cursor: none !important;
-      }
-
-      body.has-custom-cursor.is-blue-hovering .cursor-star {
-        color: var(--white);
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
-        filter: none;
-        mix-blend-mode: normal;
       }
 
       body.preload-ui .hero-copy,
@@ -91,34 +80,13 @@
 
       .container {
         width: min(var(--max-width), var(--content-width));
+        max-width: 100%;
         margin: 0 auto;
       }
 
-      .cursor-star {
-        height: 22px;
-        width: 22px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 99999999;
-        transform: translate3d(-100px, -100px, 0);
-        opacity: 0;
-        will-change: transform;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 26px;
-        line-height: 1;
-        font-weight: 500;
-        color: var(--blue);
-        text-shadow: 0 0 10px rgba(1, 63, 167, 0.12);
-        mix-blend-mode: multiply;
-        filter: saturate(0.85);
-      }
-
-      body.has-custom-cursor.is-featured-hovering .cursor-star {
-        opacity: 0 !important;
+      img,
+      video {
+        max-width: 100%;
       }
 
       .topbar,
@@ -231,6 +199,27 @@
         overflow: hidden;
       }
 
+      .nav-menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        background: var(--nav-menu-overlay-color);
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 220ms ease, visibility 220ms ease;
+        visibility: hidden;
+      }
+
+      body.nav-menu-open .nav-menu-overlay {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+
       .hero {
         background: var(--blue);
         color: var(--white);
@@ -259,7 +248,7 @@
       }
 
       .hero-phrase {
-        display: inline-block;
+        display: inline;
         white-space: nowrap;
       }
 
@@ -365,8 +354,9 @@
 
       .featured-image {
         width: 100%;
+        max-width: 100%;
         height: var(--project-image-height);
-        overflow: visible;
+        overflow: hidden;
         border: 1px solid var(--image-container-border);
         border-radius: 0;
       }
@@ -495,7 +485,7 @@
       }
 
       .recent-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         row-gap: 80px;
       }
 
@@ -588,6 +578,7 @@
         font-size: 32px;
         line-height: 1.2;
         font-weight: 400;
+        overflow-wrap: anywhere;
       }
 
       .footer-inner {
@@ -633,6 +624,60 @@
           --project-image-height: 260px;
         }
 
+        .menu-toggle {
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          align-items: center;
+        }
+
+        .topbar-inner {
+          flex-wrap: wrap;
+          align-items: center;
+          width: min(100%, calc(100% - 20px));
+          max-width: 100%;
+        }
+
+        .topbar .brand {
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+
+        .topbar .nav {
+          display: none;
+          flex-basis: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: nowrap;
+          gap: 14px;
+          padding: 16px 0 4px;
+        }
+
+        .topbar.is-menu-open .nav {
+          display: flex;
+        }
+
+        .topbar .nav .external:first-of-type {
+          margin-left: 0;
+        }
+
+        .topbar.is-menu-open .menu-toggle-bar:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        .topbar.is-menu-open .menu-toggle-bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .topbar.is-menu-open .menu-toggle-bar:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .hero-phrase {
+          white-space: normal;
+        }
+
         .hero {
           min-height: auto;
           padding: 96px 0 92px;
@@ -673,67 +718,23 @@
           font-size: 16px;
         }
 
+        .project-status {
+          white-space: normal;
+        }
+
         .recent-item {
           gap: 12px;
         }
 
         .contact a {
           font-size: 28px;
+          word-break: break-word;
         }
       }
 
       @media (max-width: 768px) {
         :root {
           --section-gap: 64px;
-        }
-
-        .menu-toggle {
-          display: inline-flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 5px;
-          align-items: center;
-        }
-
-        .topbar-inner {
-          flex-wrap: wrap;
-          align-items: center;
-          width: min(100%, calc(100% - 20px));
-        }
-
-        .topbar .brand {
-          flex: 1 1 auto;
-          min-width: 0;
-        }
-
-        .topbar .nav {
-          display: none;
-          flex-basis: 100%;
-          flex-direction: column;
-          align-items: flex-start;
-          flex-wrap: nowrap;
-          gap: 14px;
-          padding: 16px 0 4px;
-        }
-
-        .topbar.is-menu-open .nav {
-          display: flex;
-        }
-
-        .topbar .nav .external:first-of-type {
-          margin-left: 0;
-        }
-
-        .topbar.is-menu-open .menu-toggle-bar:nth-child(1) {
-          transform: translateY(7px) rotate(45deg);
-        }
-
-        .topbar.is-menu-open .menu-toggle-bar:nth-child(2) {
-          opacity: 0;
-        }
-
-        .topbar.is-menu-open .menu-toggle-bar:nth-child(3) {
-          transform: translateY(-7px) rotate(-45deg);
         }
 
         .footer-inner {
@@ -831,6 +832,11 @@
 
         .contact a {
           word-break: break-word;
+        }
+
+        .brand {
+          font-size: 14px;
+          letter-spacing: 0.03em;
         }
       }
     </style>
@@ -1054,26 +1060,6 @@
       brand-href="/"
       projects-href="#featured-projects"
     ></site-footer>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
-    <div class="cursor-star" aria-hidden="true">✦</div>
     <script>
       /*
         HOME PAGE INTERACTIONS
@@ -1086,8 +1072,6 @@
         const heroCopies = document.querySelectorAll('.hero-copy');
         const revealCards = document.querySelectorAll('.reveal-card');
         const featuredMedias = document.querySelectorAll('.featured-media');
-        const featuredItems = document.querySelectorAll('.featured-item');
-        const stars = Array.from(document.querySelectorAll('.cursor-star'));
 
         function showSupportingUi() {
           topbar.classList.add('is-visible-on-load');
@@ -1100,166 +1084,6 @@
         }
 
         showSupportingUi();
-
-        const isFinePointer =
-          window.matchMedia &&
-          window.matchMedia('(pointer: fine)').matches &&
-          window.matchMedia('(hover: hover)').matches;
-
-        if (isFinePointer && stars.length) {
-          body.classList.add('has-custom-cursor');
-
-          const coords = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-          const blueReference = { r: 1, g: 63, b: 167 };
-          const blueColors = [
-            '#013fa7',
-            '#0d4ab1',
-            '#1a56ba',
-            '#2a63c2',
-            '#396fca',
-            '#487ad0',
-            '#5685d6',
-            '#6490db',
-            '#729ade',
-            '#80a3e1',
-            '#8caee4',
-            '#97b7e7',
-            '#a2c0e9',
-            '#acc8eb',
-            '#b6d0ed',
-            '#bfd8ef',
-            '#c7e0f1',
-            '#cfe7f3',
-            '#d7eef5',
-            '#dff4f7'
-          ];
-          let hasPointerMoved = false;
-
-          stars.forEach((star, index) => {
-            star.x = 0;
-            star.y = 0;
-            star.style.color = blueColors[index % blueColors.length];
-            star.style.opacity = '0';
-          });
-
-          function parseRgbColor(color) {
-            const match = color && color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/i);
-            if (!match) {
-              return null;
-            }
-
-            return {
-              r: Number(match[1]),
-              g: Number(match[2]),
-              b: Number(match[3]),
-            };
-          }
-
-          function isBlueLikeColor(color) {
-            const rgb = parseRgbColor(color);
-            if (!rgb) {
-              return false;
-            }
-
-            const distance = Math.sqrt(
-              Math.pow(rgb.r - blueReference.r, 2) +
-              Math.pow(rgb.g - blueReference.g, 2) +
-              Math.pow(rgb.b - blueReference.b, 2)
-            );
-
-            return distance < 90 || (rgb.b > rgb.r + 18 && rgb.b > rgb.g + 10 && rgb.b > 90);
-          }
-
-          function updateBlueHoverState(event) {
-            const hovered = document.elementFromPoint(event.clientX, event.clientY);
-            let element = hovered;
-            let isBlueHovering = false;
-
-            while (element && element !== document.body) {
-              const styles = window.getComputedStyle(element);
-              if (
-                isBlueLikeColor(styles.color) ||
-                isBlueLikeColor(styles.backgroundColor) ||
-                isBlueLikeColor(styles.borderTopColor) ||
-                isBlueLikeColor(styles.borderRightColor) ||
-                isBlueLikeColor(styles.borderBottomColor) ||
-                isBlueLikeColor(styles.borderLeftColor) ||
-                isBlueLikeColor(styles.fill) ||
-                isBlueLikeColor(styles.stroke)
-              ) {
-                isBlueHovering = true;
-                break;
-              }
-
-              element = element.parentElement;
-            }
-
-            body.classList.toggle('is-blue-hovering', isBlueHovering);
-          }
-
-          window.addEventListener('mousemove', (event) => {
-            hasPointerMoved = true;
-            coords.x = event.clientX;
-            coords.y = event.clientY;
-            updateBlueHoverState(event);
-          });
-
-          function animateCircles(timestamp = 0) {
-            let x = coords.x;
-            let y = coords.y;
-
-            if (!hasPointerMoved) {
-              const swirlTime = timestamp * 0.00045;
-              x += Math.cos(swirlTime) * 18;
-              y += Math.sin(swirlTime * 1.15) * 18;
-            }
-
-            const baseScale = 0.74;
-            const scaleRange = 0.22;
-            const opacityRange = 0.18;
-            const minOpacity = 0.04;
-            const trailEase = 0.14;
-
-            stars.forEach((star, index) => {
-              const offset = 10;
-              star.style.left = `${x - offset}px`;
-              star.style.top = `${y - offset}px`;
-              star.style.transform = `scale(${baseScale + ((stars.length - index) / stars.length) * scaleRange})`;
-              star.style.opacity = hasPointerMoved
-                ? `${Math.max(minOpacity, ((stars.length - index) / stars.length) * opacityRange)}`
-                : '0';
-
-              star.x = x;
-              star.y = y;
-
-              const nextStar = stars[index + 1] || stars[0];
-              x += (nextStar.x - x) * trailEase;
-              y += (nextStar.y - y) * trailEase;
-            });
-
-            window.requestAnimationFrame(animateCircles);
-          }
-
-          animateCircles();
-        }
-
-        featuredItems.forEach((featuredItem) => {
-          featuredItem.addEventListener('pointerenter', () => {
-            body.classList.add('is-featured-hovering');
-          });
-
-          featuredItem.addEventListener('pointerleave', () => {
-            body.classList.remove('is-featured-hovering');
-          });
-
-          featuredItem.addEventListener('focusin', () => {
-            body.classList.add('is-featured-hovering');
-          });
-
-          featuredItem.addEventListener('focusout', () => {
-            body.classList.remove('is-featured-hovering');
-          });
-        });
 
         featuredMedias.forEach((featuredMedia) => {
           const card = featuredMedia.closest('.featured-item');
