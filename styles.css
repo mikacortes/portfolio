@@ -862,7 +862,10 @@ body.archive-modal-open {
   margin-top: 0.35em;
 }
 
-.project-main .hero-image,
+.project-main .hero-image {
+  margin-bottom: var(--project-section-gap);
+}
+
 .project-main .process-entry > .image-frame,
 .project-main .content-section:not(.process-group) > .image-frame {
   margin-bottom: var(--project-block-gap);
@@ -1067,13 +1070,14 @@ body.archive-modal-open {
   grid-template-columns: minmax(0, 1.36fr) minmax(0, 1fr);
   gap: 64px;
   align-items: start;
-  margin-bottom: var(--project-block-gap);
+  margin-bottom: var(--project-section-gap);
 }
 
 .project-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px 32px;
+  align-self: end;
 }
 
 .meta-item {
@@ -1492,6 +1496,11 @@ body.archive-modal-open {
   .sticky-note-row {
     flex-direction: column;
     align-items: center;
+  }
+
+  .project-hero .project-meta {
+    align-self: stretch;
+    width: 100%;
   }
 
   .sticky-note-row--top .note,
