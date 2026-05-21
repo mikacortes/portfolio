@@ -49,10 +49,10 @@
         aria-modal="true"
         aria-labelledby="archive-modal-title"
       >
-        <button type="button" class="archive-modal-close" aria-label="Close folder">
-          <img src="assets/icons/Arrow left.svg" alt="" />
-        </button>
         <div class="archive-modal-body">
+          <button type="button" class="archive-modal-close" aria-label="Close folder">
+            <img src="assets/icons/Arrow left.svg" alt="" />
+          </button>
           <h2 id="archive-modal-title" class="archive-modal-folder-title"></h2>
           <div class="archive-modal-sections" id="archive-modal-sections"></div>
         </div>
@@ -73,22 +73,85 @@
         const backdrop = modal.querySelector(".archive-modal-backdrop");
         const folders = document.querySelectorAll(".archive-folder[data-folder]");
         let lastFocusedElement = null;
+        let galleryScrollStops = [];
+
+        const archiveImageBase = "assets/archive-specific/";
+        const archiveImageMinHeight = 300;
+        const archiveImageLayoutLimits = {
+          wide: { maxWidth: 520, maxHeight: 420 },
+          tall: { maxWidth: 320, maxHeight: 480 },
+          standard: { maxWidth: 360, maxHeight: 360 },
+        };
+
+        function scaleArchiveImage(img, layout) {
+          const naturalWidth = img.naturalWidth;
+          const naturalHeight = img.naturalHeight;
+          if (!naturalWidth || !naturalHeight) {
+            return;
+          }
+
+          const limits = archiveImageLayoutLimits[layout] || archiveImageLayoutLimits.standard;
+          let width = naturalWidth;
+          let height = naturalHeight;
+
+          if (height < archiveImageMinHeight) {
+            const scaleUp = archiveImageMinHeight / height;
+            width *= scaleUp;
+            height = archiveImageMinHeight;
+          }
+
+          const widthRatio = limits.maxWidth / width;
+          const heightRatio = limits.maxHeight / height;
+          const shrinkRatio = Math.min(1, widthRatio, heightRatio);
+          width *= shrinkRatio;
+          height *= shrinkRatio;
+
+          if (height < archiveImageMinHeight) {
+            const scaleUp = archiveImageMinHeight / height;
+            width *= scaleUp;
+            height = archiveImageMinHeight;
+          }
+
+          img.style.width = `${Math.round(width)}px`;
+          img.style.height = `${Math.round(height)}px`;
+        }
 
         const folderContent = {
           "social-media": {
             title: "Social Media",
             sections: [
               {
-                title: "Campaign Concepts",
-                text: "Early explorations for social-first storytelling, post formats, and visual hooks tailored to each platform.",
+                title: "Entrepreneurial Education Nonprofit",
+                text: "Social media graphics for a nonprofit focused on entrepreneurial education.",
+                images: [
+                  { file: "social-media/entrepreneurial-education-nonprofit/op graphic - axel bichara.png", layout: "standard" },
+                  { file: "social-media/entrepreneurial-education-nonprofit/op graphic - colleen boselli.png", layout: "standard" },
+                  { file: "social-media/entrepreneurial-education-nonprofit/op graphic - hyo duk shin.png", layout: "standard" },
+                  { file: "social-media/entrepreneurial-education-nonprofit/op graphic - hyo duk shin (youtube).png", layout: "wide" },
+                  { file: "social-media/entrepreneurial-education-nonprofit/op graphic - indu navar.png", layout: "standard" },
+                  { file: "social-media/entrepreneurial-education-nonprofit/op graphic - indu navar (youtube).png", layout: "wide" },
+                ],
               },
               {
-                title: "Content Systems",
-                text: "Templates and repeatable layouts that keep brand voice consistent while making weekly publishing faster.",
+                title: "Girls Who Code @ Berkeley",
+                text: "Social media graphics and slides for UC Berkeley's Girls Who Code chapter.",
+                images: [
+                  { file: "social-media/girls-who-code-berkeley/posts/gwc berk 1.png", layout: "standard" },
+                  { file: "social-media/girls-who-code-berkeley/posts/gwc berk 2.png", layout: "standard" },
+                  { file: "social-media/girls-who-code-berkeley/posts/gwc berk 3.png", layout: "standard" },
+                  { file: "social-media/girls-who-code-berkeley/slides/gwc berk slide 1.png", layout: "wide" },
+                  { file: "social-media/girls-who-code-berkeley/slides/gwc berk slide 2.png", layout: "wide" },
+                  { file: "social-media/girls-who-code-berkeley/slides/gwc berk slide 3.png", layout: "wide" },
+                  { file: "social-media/girls-who-code-berkeley/slides/gwc berk slide 4.png", layout: "wide" },
+                ],
               },
               {
-                title: "Published Posts",
-                text: "A sample of shipped social posts highlighting typography, color, and layout decisions in context.",
+                title: "ASUC Student Government",
+                text: "Social media graphics for UC Berkeley's student government elections.",
+                images: [
+                  { file: "social-media/asuc-student-government/asuc graphic 1.png", layout: "standard" },
+                  { file: "social-media/asuc-student-government/asuc graphic 2.png", layout: "standard" },
+                ],
               },
             ],
           },
@@ -96,16 +159,39 @@
             title: "Graphic Design",
             sections: [
               {
-                title: "Brand Marks",
-                text: "Logo studies, mark refinements, and alternate treatments created during identity exploration.",
+                title: "UC Berkeley STS",
+                text: "Brand identity and event graphics for UC Berkeley Student Tech Services' Step Into Tech campus career fair—promotional flyers (Fall 2023 and a Spring 2024 redesign), team table signage, sticker sheets, and QR flyers. Graphic Designer · 3 months · Adobe CC.",
+                images: [
+                  { file: "graphic-design/uc-berkeley-sts/signage/sts sit 1.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/signage/sts sit 2.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/signage/sts sit 3.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/signage/sts sit 4.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/signage/sts sit 5.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/signage/sts sit 6.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/event/sts event 1.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/event/sts event 2.png", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/event/sts event 3.webp", layout: "standard" },
+                  { file: "graphic-design/uc-berkeley-sts/event/sts event 4.png", layout: "standard" },
+                ],
               },
               {
-                title: "Print & Collateral",
-                text: "Posters, flyers, and event materials focused on hierarchy, contrast, and readable information design.",
+                title: "ASUC Student Government",
+                text: "Election banners for UC Berkeley's student government campaigns.",
+                images: [
+                  { file: "graphic-design/asuc-student-government/asuc banner 1.png", layout: "wide" },
+                  { file: "graphic-design/asuc-student-government/asuc banner 2.png", layout: "wide" },
+                  { file: "graphic-design/asuc-student-government/asuc banner 3.png", layout: "wide" },
+                ],
               },
               {
-                title: "Visual Experiments",
-                text: "Illustration and composition exercises that informed later product and marketing work.",
+                title: "UC Berkeley Geography",
+                text: "Data visualizations and a presentation deck prepared for the Geography department.",
+                images: [
+                  { file: "graphic-design/uc-berkeley-geography/geography slide 1.png", layout: "wide" },
+                  { file: "graphic-design/uc-berkeley-geography/geography slide 2.png", layout: "wide" },
+                  { file: "graphic-design/uc-berkeley-geography/geography slide 3.png", layout: "wide" },
+                  { file: "graphic-design/uc-berkeley-geography/geography slide 4.png", layout: "wide" },
+                ],
               },
             ],
           },
@@ -113,16 +199,27 @@
             title: "Layout Design",
             sections: [
               {
-                title: "Editorial Spreads",
-                text: "Magazine-style layouts balancing photography, pull quotes, and long-form reading rhythm.",
+                title: "The Daily Californian",
+                text: "Graphics and newspaper layouts for Berkeley's student-run newspaper.",
+                images: [
+                  { file: "layout-design/the-daily-californian/newspaper/daily cal np 1.png", layout: "tall" },
+                  { file: "layout-design/the-daily-californian/newspaper/daily cal np 2.png", layout: "tall" },
+                  { file: "layout-design/the-daily-californian/newspaper/daily cal np 3.png", layout: "tall" },
+                  { file: "layout-design/the-daily-californian/newspaper/daily cal np 4.png", layout: "tall" },
+                  { file: "layout-design/the-daily-californian/graphics/daily cal graphic 1.png", layout: "standard" },
+                  { file: "layout-design/the-daily-californian/graphics/daily cal graphic 2.png", layout: "standard" },
+                ],
               },
               {
-                title: "Grid Studies",
-                text: "Modular grids and baseline systems used to align type, imagery, and negative space.",
-              },
-              {
-                title: "Responsive Layouts",
-                text: "Breakpoint explorations showing how dense desktop layouts simplify for smaller screens.",
+                title: "Blue & Gold Yearbook",
+                text: "Full-page spreads for UC Berkeley's only yearbook organization—also where I first learned the Adobe Suite.",
+                images: [
+                  { file: "layout-design/blue-gold-yearbook/yb 1.png", layout: "wide" },
+                  { file: "layout-design/blue-gold-yearbook/yb 2.png", layout: "wide" },
+                  { file: "layout-design/blue-gold-yearbook/yb 3.png", layout: "wide" },
+                  { file: "layout-design/blue-gold-yearbook/yb 4.png", layout: "wide" },
+                  { file: "layout-design/blue-gold-yearbook/yb 5.png", layout: "wide" },
+                ],
               },
             ],
           },
@@ -130,38 +227,195 @@
             title: "UI/UX Design",
             sections: [
               {
-                title: "Wireframes",
-                text: "Low-fidelity flows mapping core tasks, navigation paths, and content priority before visual design.",
+                title: "Helping Hands",
+                text: "A presentation for Helping Hands, a mock volunteer-matching application I designed.",
+                images: [
+                  { file: "ui-ux-design/helping-hands/helping hands 1.png", layout: "tall" },
+                  { file: "ui-ux-design/helping-hands/helping hands 2.png", layout: "tall" },
+                  { file: "ui-ux-design/helping-hands/helping hands 3.png", layout: "tall" },
+                  { file: "ui-ux-design/helping-hands/helping hands 4.png", layout: "tall" },
+                  { file: "ui-ux-design/helping-hands/helping hands 5.png", layout: "tall" },
+                ],
               },
               {
-                title: "Interface Screens",
-                text: "High-fidelity UI explorations covering components, states, and screen-to-screen continuity.",
-              },
-              {
-                title: "Prototype Moments",
-                text: "Key interaction snapshots from usability tests and iteration cycles across product teams.",
+                title: "SF Parks & Rec",
+                text: "Redesigned SF Rec & Park's picnic reservation flow for Berkeley's INFO 215 Product Design Studio—replacing a text-heavy, table-based experience with filters and card-based discovery, clearer pricing and availability, and a streamlined path from explore to book (14+ mobile screens). Product Designer · 1 month · Figma.",
+                images: [],
               },
             ],
           },
         };
 
-        function buildGallery() {
+        function createGalleryThumb(index, isClone, label) {
+          const thumb = document.createElement("div");
+          thumb.className = "archive-modal-thumb";
+          thumb.setAttribute("role", "listitem");
+          thumb.setAttribute("aria-label", label || `Image ${index + 1}`);
+          if (isClone) {
+            thumb.setAttribute("aria-hidden", "true");
+            thumb.dataset.clone = "true";
+          }
+          return thumb;
+        }
+
+        function normalizeGalleryImage(image, defaultLayout) {
+          if (typeof image === "string") {
+            return { file: image, layout: defaultLayout || "standard" };
+          }
+
+          return {
+            file: image.file,
+            layout: image.layout || defaultLayout || "standard",
+          };
+        }
+
+        function appendGalleryImage(gallery, image, index, isClone) {
+          const { file, layout } = image;
+          const label = file.replace(/\.[^.]+$/, "");
+          const thumb = createGalleryThumb(index, isClone, label);
+          thumb.classList.add(`archive-modal-thumb--${layout}`);
+          const img = document.createElement("img");
+          img.src = `${archiveImageBase}${file}`;
+          img.alt = "";
+          img.loading = "lazy";
+          img.decoding = "async";
+
+          const applyScale = () => {
+            scaleArchiveImage(img, layout);
+            gallery.dispatchEvent(new Event("archive-gallery-resize"));
+          };
+
+          img.addEventListener("load", applyScale);
+          if (img.complete) {
+            applyScale();
+          }
+
+          thumb.appendChild(img);
+          gallery.appendChild(thumb);
+        }
+
+        function buildGallery(images, defaultLayout) {
+          if (!images || images.length === 0) {
+            return null;
+          }
+
+          const normalizedImages = images.map((image) =>
+            normalizeGalleryImage(image, defaultLayout)
+          );
+
+          const wrap = document.createElement("div");
+          wrap.className = "archive-modal-gallery-wrap";
+
           const gallery = document.createElement("div");
           gallery.className = "archive-modal-gallery";
           gallery.setAttribute("role", "list");
 
-          for (let index = 0; index < 5; index += 1) {
-            const thumb = document.createElement("div");
-            thumb.className = "archive-modal-thumb";
-            thumb.setAttribute("role", "listitem");
-            thumb.setAttribute("aria-label", `Image ${index + 1}`);
-            gallery.appendChild(thumb);
+          normalizedImages.forEach((image, index) => {
+            appendGalleryImage(gallery, image, index, false);
+          });
+
+          normalizedImages.forEach((image, index) => {
+            appendGalleryImage(gallery, image, index, true);
+          });
+
+          wrap.appendChild(gallery);
+          return wrap;
+        }
+
+        function initGalleryInfiniteScroll(gallery) {
+          const updateLoopWidth = () => {
+            const loopWidth = gallery.scrollWidth / 2;
+            if (loopWidth > 0) {
+              gallery.dataset.loopWidth = String(loopWidth);
+            }
+            return loopWidth;
+          };
+
+          const normalizeScroll = () => {
+            const loopWidth = Number(gallery.dataset.loopWidth) || updateLoopWidth();
+            if (!loopWidth) {
+              return;
+            }
+
+            while (gallery.scrollLeft >= loopWidth) {
+              gallery.scrollLeft -= loopWidth;
+            }
+          };
+
+          gallery.addEventListener("scroll", normalizeScroll, { passive: true });
+
+          const blockUserScroll = (event) => {
+            event.preventDefault();
+          };
+
+          gallery.addEventListener("wheel", blockUserScroll, { passive: false });
+          gallery.addEventListener("touchmove", blockUserScroll, { passive: false });
+
+          const resizeObserver = new ResizeObserver(updateLoopWidth);
+          resizeObserver.observe(gallery);
+          gallery.addEventListener("archive-gallery-resize", updateLoopWidth);
+          requestAnimationFrame(updateLoopWidth);
+
+          return () => {
+            resizeObserver.disconnect();
+            gallery.removeEventListener("archive-gallery-resize", updateLoopWidth);
+            gallery.removeEventListener("scroll", normalizeScroll);
+            gallery.removeEventListener("wheel", blockUserScroll);
+            gallery.removeEventListener("touchmove", blockUserScroll);
+          };
+        }
+
+        function stopAllGalleryAutoScroll() {
+          galleryScrollStops.forEach((stop) => stop());
+          galleryScrollStops = [];
+        }
+
+        function startGalleryAutoScroll(gallery, galleryWrap) {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return () => {};
           }
 
-          return gallery;
+          const scrollSpeedNormal = 0.9;
+          const scrollSpeedHover = 0.45;
+          let scrollSpeed = scrollSpeedNormal;
+          let running = true;
+          let rafId = null;
+
+          const step = () => {
+            if (!running) {
+              return;
+            }
+
+            const loopWidth = Number(gallery.dataset.loopWidth);
+            if (loopWidth > 0) {
+              gallery.scrollLeft += scrollSpeed;
+              if (gallery.scrollLeft >= loopWidth) {
+                gallery.scrollLeft -= loopWidth;
+              }
+            }
+
+            rafId = requestAnimationFrame(step);
+          };
+
+          galleryWrap.addEventListener("mouseenter", () => {
+            scrollSpeed = scrollSpeedHover;
+          });
+          galleryWrap.addEventListener("mouseleave", () => {
+            scrollSpeed = scrollSpeedNormal;
+          });
+
+          rafId = requestAnimationFrame(step);
+
+          return () => {
+            running = false;
+            if (rafId) {
+              cancelAnimationFrame(rafId);
+            }
+          };
         }
 
         function renderSections(sections) {
+          stopAllGalleryAutoScroll();
           modalSections.replaceChildren();
 
           sections.forEach((section) => {
@@ -174,7 +428,14 @@
             const copy = document.createElement("p");
             copy.textContent = section.text;
 
-            block.append(heading, copy, buildGallery());
+            const galleryWrap = buildGallery(section.images, section.galleryLayout);
+            block.append(heading, copy);
+            if (galleryWrap) {
+              const gallery = galleryWrap.querySelector(".archive-modal-gallery");
+              block.append(galleryWrap);
+              galleryScrollStops.push(initGalleryInfiniteScroll(gallery));
+              galleryScrollStops.push(startGalleryAutoScroll(gallery, galleryWrap));
+            }
             modalSections.appendChild(block);
           });
         }
@@ -196,6 +457,7 @@
         }
 
         function closeModal() {
+          stopAllGalleryAutoScroll();
           modal.classList.remove("is-open");
           modal.setAttribute("aria-hidden", "true");
           modal.hidden = true;

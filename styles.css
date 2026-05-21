@@ -52,6 +52,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) transparent;
 }
 
 body {
@@ -63,6 +65,26 @@ body {
   line-height: 1.5;
   color: var(--black);
   background: var(--page-bg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 a {
@@ -602,8 +624,26 @@ body.nav-menu-open .nav-menu-overlay {
   ARCHIVE PAGE
   ============================================================
 */
+.archive-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-page > site-header,
+.archive-page > site-footer {
+  flex-shrink: 0;
+}
+
+.archive-page > .archive-main {
+  flex: 1 0 auto;
+}
+
+.archive-page > site-footer {
+  margin-top: auto;
+}
+
 .archive-main {
-  min-height: calc(100vh - 136px);
   padding: 136px 0 118px;
 }
 
@@ -664,6 +704,11 @@ body.nav-menu-open .nav-menu-overlay {
   font-size: 18px;
   line-height: 1.3;
   font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.archive-folder:hover span {
+  color: var(--blue);
 }
 
 body.archive-modal-open {
@@ -677,7 +722,7 @@ body.archive-modal-open {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 48px;
 }
 
 .archive-modal.is-open {
@@ -693,8 +738,8 @@ body.archive-modal-open {
 .archive-modal-dialog {
   position: relative;
   z-index: 1;
-  width: min(500px, calc(100% - 48px));
-  height: min(500px, calc(100dvh - 48px));
+  width: min(1000px, calc(100% - 96px));
+  height: min(650px, calc(100dvh - 96px));
   max-width: 100%;
   border-radius: 20px;
   background: var(--white);
@@ -703,15 +748,13 @@ body.archive-modal-open {
 }
 
 .archive-modal-close {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 2;
-  width: 32px;
-  height: 32px;
+  position: static;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 0 24px;
   padding: 0;
   border: 0;
   border-radius: 999px;
@@ -720,11 +763,11 @@ body.archive-modal-open {
 }
 
 .archive-modal-close img {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
+  max-width: none;
   display: block;
-  filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(4052%) hue-rotate(213deg)
-    brightness(91%) contrast(102%);
+  filter: brightness(0) saturate(100%) invert(80%);
 }
 
 .archive-modal-close:focus-visible {
@@ -735,7 +778,7 @@ body.archive-modal-open {
 .archive-modal-body {
   height: 100%;
   overflow-y: auto;
-  padding: 52px 20px 20px;
+  padding: 40px;
 }
 
 .archive-modal-folder-title {
@@ -752,6 +795,11 @@ body.archive-modal-open {
   gap: 22px;
 }
 
+.archive-modal-section {
+  position: relative;
+  isolation: isolate;
+}
+
 .archive-modal-section h3 {
   margin: 0 0 8px;
   color: var(--blue);
@@ -761,33 +809,50 @@ body.archive-modal-open {
 }
 
 .archive-modal-section p {
-  margin: 0 0 12px;
+  margin: 0 0 24px;
   color: var(--black);
   font-size: 13px;
   line-height: 1.45;
 }
 
+.archive-modal-gallery-wrap {
+  position: relative;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
 .archive-modal-gallery {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  touch-action: none;
+  user-select: none;
+  cursor: default;
 }
 
 .archive-modal-thumb {
-  width: 84px;
-  height: 84px;
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--archive-thumb-min-h, 300px);
   border: 1px solid var(--image-container-border);
   border-radius: 6px;
   background: var(--image-container-fill);
 }
 
 .archive-modal-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
-  border-radius: 6px;
+  width: auto;
+  height: auto;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 5px;
 }
 
 /*
