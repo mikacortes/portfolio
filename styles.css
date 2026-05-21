@@ -276,7 +276,7 @@ img {
   margin-top: 28px;
 }
 
-.contact h3 {
+.contact h1 {
   margin: 0 0 12px;
   color: var(--blue);
   font-size: clamp(2.2rem, 4vw, 3.5rem);
