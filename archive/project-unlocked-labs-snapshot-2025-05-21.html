@@ -1,13 +1,324 @@
 <!DOCTYPE html>
+<!--
+  ARCHIVED SNAPSHOT — 2025-05-21
+  Frozen copy of the original single project.html (Unlocked Labs) with
+  inline layout CSS and embedded scripts. Restore from here if you need
+  the exact previous self-contained page. Live styling is now in
+  ../project-page.css; the live case study is ../project.html.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monica Cortes | Unlocked Labs</title>
+    <title>Monica Cortes | Project</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="sparkle-cursor.css" />
-    <link rel="stylesheet" href="project-page.css" />
     <script src="components.js"></script>
+
+    <style>
+      /*
+        =====================================================
+        PROJECT PAGE LAYOUT OVERRIDES
+        This page now uses a left sticky sidebar instead of a header.
+        The main content lives in the right column.
+        The footer is also placed in the right column only.
+        =====================================================
+      */
+
+      .project-layout {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        min-height: 100vh;
+        max-width: 100%;
+        overflow-x: clip;
+      }
+
+      /*
+        LEFT SIDEBAR
+        - stays visible while scrolling
+        - fills the screen height
+        - contains navigation links to sections on the page
+      */
+      .project-sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 36px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-gutter: stable;
+      }
+
+      .project-sidebar-inner {
+        position: static;
+        height: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 4px 0 24px;
+      }
+
+      .sidebar-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 64px;
+        color: var(--blue);
+      }
+
+      .sidebar-home .arrow-left {
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .sidebar-home .arrow-left img,
+      .sidebar-next .arrow-right img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(4052%) hue-rotate(213deg) brightness(91%) contrast(102%);
+      }
+
+      .sidebar-bottom {
+        position: relative;
+        margin-top: auto;
+        padding-top: 28px;
+      }
+
+      .sidebar-next {
+        margin-bottom: 0;
+      }
+
+      .sidebar-next .arrow-right {
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .sidebar-next-preview {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: min(220px, calc(100% - 24px));
+        max-width: calc(100vw - 24px);
+        padding: 12px;
+        border: 1px solid var(--image-container-border);
+        background: var(--image-container-fill);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+        opacity: 0;
+        transform: scale(0.98);
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+        z-index: 1200;
+      }
+
+      .sidebar-next-preview-image {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border: 1px solid var(--image-container-border);
+        background: var(--image-container-fill);
+      }
+
+      .sidebar-next-preview-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .sidebar-next-preview-copy {
+        padding-top: 10px;
+      }
+
+      .sidebar-next-preview-copy .subtitle {
+        margin-bottom: 6px;
+      }
+
+      .sidebar-next-preview-copy p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .sidebar-next-preview.is-visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .sidebar-group {
+        margin-bottom: 40px;
+      }
+
+      .sidebar-heading {
+        margin-bottom: 14px;
+        color: rgba(28, 28, 28, 0.65);
+      }
+
+      .sidebar-links {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .sidebar-links a {
+        font-size: 16px;
+        line-height: 1.4;
+        color: var(--black);
+        transition: color 160ms ease;
+      }
+
+      .sidebar-links a:hover,
+      .sidebar-links a:focus-visible {
+        color: var(--blue);
+      }
+
+      .project-main .meta-label {
+        color: #013fa7;
+        color: var(--blue);
+      }
+
+      .project-main .project-section .subtitle {
+        color: #013fa7;
+        color: var(--blue);
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 0.06em;
+      }
+
+      .project-main .project-hero .project-summary .subtitle {
+        color: var(--black);
+      }
+
+      /*
+        RIGHT CONTENT COLUMN
+        All actual case-study content lives here.
+      */
+      .project-column {
+        min-width: 0;
+        max-width: 100%;
+        padding: 56px 24px 0;
+        overflow-x: clip;
+      }
+
+      .project-main {
+        padding: 0 0 60px;
+      }
+
+      .project-section {
+        scroll-margin-top: 32px;
+      }
+
+      /*
+        Footer only spans the right content area,
+        so it sits underneath the main content rather than under the sidebar.
+      */
+      .project-footer-minimal {
+        color: var(--black);
+        padding: 18px 0 32px;
+      }
+
+      .project-footer-inner {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0.05em;
+      }
+
+      .project-footer-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .project-footer-label {
+        white-space: nowrap;
+      }
+
+      .project-footer-action {
+        width: 20px;
+        height: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
+
+      .project-footer-action img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(0%) hue-rotate(163deg) brightness(96%) contrast(92%);
+      }
+
+      @media (max-width: 980px) {
+        .project-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .project-sidebar {
+          position: static;
+          height: auto;
+          padding: 24px;
+          overflow-x: clip;
+        }
+
+        .project-sidebar-inner {
+          height: auto;
+          padding: 0;
+        }
+
+        .project-column {
+          padding: 24px 24px 0;
+        }
+
+        .sidebar-home {
+          margin-bottom: 40px;
+        }
+
+        .sidebar-links {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .project-sidebar {
+          padding: 18px;
+        }
+
+        .project-column {
+          padding: 20px 18px 0;
+        }
+
+        .project-footer-inner {
+          justify-content: center;
+        }
+
+        .project-footer-label {
+          white-space: normal;
+          text-align: center;
+        }
+
+        .sidebar-home .arrow-left {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="project-layout">
@@ -48,7 +359,7 @@
           </div>
 
           <div class="sidebar-bottom">
-            <a class="sidebar-home sidebar-next subtitle" href="projects/trubel-co.html">
+            <a class="sidebar-home sidebar-next subtitle" href="project.html">
               <span>NEXT PROJECT</span>
               <span class="arrow-right" aria-hidden="true">
                 <img src="assets/icons/Arrow right.svg" alt="" />
@@ -56,10 +367,10 @@
             </a>
             <div class="sidebar-next-preview" aria-hidden="true">
               <div class="sidebar-next-preview-image">
-                <img src="assets/images/trubel_co Preview - Project Page.jpg" alt="" />
+                <img src="assets/images/Unlocked Labs Preview - Project Page.png" alt="" />
               </div>
               <div class="sidebar-next-preview-copy">
-                <p>Revamping the digital identity of an ed-tech non-profit's website</p>
+                <p>Supporting incarcerated students for parole review</p>
               </div>
             </div>
           </div>
@@ -565,6 +876,68 @@
         </footer>
       </div>
     </div>
-    <script src="project-page.js"></script>
+    <script>
+      (function () {
+        const nextLink = document.querySelector('.sidebar-next');
+        const preview = document.querySelector('.sidebar-next-preview');
+
+        if (!nextLink || !preview) {
+          return;
+        }
+
+        const viewportPadding = 12;
+        const pointerOffset = 6;
+        let isVisible = false;
+
+        const placePreview = (clientX, clientY) => {
+          const rect = preview.getBoundingClientRect();
+          let left = clientX + pointerOffset;
+          let top = clientY + pointerOffset;
+
+          if (left + rect.width + viewportPadding > window.innerWidth) {
+            left = clientX - rect.width - pointerOffset;
+          }
+
+          if (top + rect.height + viewportPadding > window.innerHeight) {
+            top = clientY - rect.height - pointerOffset;
+          }
+
+          left = Math.max(viewportPadding + rect.width / 2, Math.min(left, window.innerWidth - viewportPadding - rect.width / 2));
+          top = Math.max(viewportPadding + rect.height / 2, Math.min(top, window.innerHeight - viewportPadding - rect.height / 2));
+
+          preview.style.left = `${left}px`;
+          preview.style.top = `${top}px`;
+        };
+
+        const showPreview = (event) => {
+          isVisible = true;
+          preview.classList.add('is-visible');
+          if (event) {
+            placePreview(event.clientX, event.clientY);
+          }
+        };
+
+        const hidePreview = () => {
+          isVisible = false;
+          preview.classList.remove('is-visible');
+        };
+
+        nextLink.addEventListener('pointerenter', showPreview);
+        nextLink.addEventListener('pointermove', (event) => {
+          if (isVisible) {
+            placePreview(event.clientX, event.clientY);
+          }
+        });
+        nextLink.addEventListener('pointerleave', hidePreview);
+        nextLink.addEventListener('focus', () => {
+          const rect = nextLink.getBoundingClientRect();
+          showPreview({
+            clientX: rect.right,
+            clientY: rect.top + rect.height / 2,
+          });
+        });
+        nextLink.addEventListener('blur', hidePreview);
+      })();
+    </script>
   </body>
 </html>

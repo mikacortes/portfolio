@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  PROJECT PAGE TEMPLATE
+  -------------------
+  1. Duplicate this file into /projects/your-project-slug.html
+  2. Keep these shared assets on every project page:
+       ../styles.css, ../sparkle-cursor.css, ../project-page.css, ../project-page.js
+  3. Edit sidebar links to match section ids on YOUR page (add/remove freely).
+  4. Copy content blocks from project.html (Unlocked Labs) or styles.css component classes.
+  5. Full Unlocked Labs reference (inline styles included):
+       archive/project-unlocked-labs-snapshot-2025-05-21.html
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monica Cortes | Project Name</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../sparkle-cursor.css" />
+    <link rel="stylesheet" href="../project-page.css" />
+    <script src="../components.js"></script>
+  </head>
+  <body>
+    <div class="project-layout">
+      <aside class="project-sidebar" aria-label="Project page navigation">
+        <div class="project-sidebar-inner">
+          <a class="sidebar-home subtitle" href="../">
+            <span class="arrow-left" aria-hidden="true">
+              <img src="../assets/icons/Arrow left.svg" alt="" />
+            </span>
+            <span>Home</span>
+          </a>
+
+          <!-- Optional: remove entire .sidebar-group blocks you do not need -->
+          <div class="sidebar-group">
+            <div class="sidebar-heading subtitle">Brief</div>
+            <nav class="sidebar-links" aria-label="Brief sections">
+              <a href="#overview">Overview</a>
+              <a href="#final-solution">Final Solution</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-bottom">
+            <a class="sidebar-home sidebar-next subtitle" href="next-project-slug.html">
+              <span>NEXT PROJECT</span>
+              <span class="arrow-right" aria-hidden="true">
+                <img src="../assets/icons/Arrow right.svg" alt="" />
+              </span>
+            </a>
+            <div class="sidebar-next-preview" aria-hidden="true">
+              <div class="sidebar-next-preview-image">
+                <img src="../assets/images/example-preview.png" alt="" />
+              </div>
+              <div class="sidebar-next-preview-copy">
+                <p>Next project headline from the home page</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="project-column">
+        <main class="project-main">
+          <div class="container">
+            <section class="project-section project-hero" id="project-intro">
+              <div class="project-summary">
+                <div class="subtitle">Client or Project Name</div>
+                <h2>Project headline</h2>
+              </div>
+              <div class="project-meta">
+                <div class="meta-item">
+                  <div class="meta-label">ROLE</div>
+                  <div class="meta-value">Your role</div>
+                </div>
+              </div>
+            </section>
+
+            <div class="image-frame hero-image">
+              <img src="../assets/images/example-preview.png" alt="" />
+            </div>
+
+            <section class="project-section content-section" id="overview">
+              <div class="subtitle">Overview</div>
+              <h2>Section headline</h2>
+              <p>Body copy.</p>
+            </section>
+
+            <!-- Use any layout from styles.css: .image-frame, .custom-containers, .three-up, etc. -->
+          </div>
+        </main>
+
+        <footer class="project-footer-minimal" aria-label="Project page footer">
+          <div class="project-footer-inner">
+            <div class="project-footer-label">✦ THANK YOU FOR VISITING ✦</div>
+            <div class="project-footer-actions" aria-label="Contact links">
+              <a class="project-footer-action" href="mailto:monicacortes@berkeley.edu" aria-label="Email Monica Cortes">
+                <img src="../assets/icons/envelope.svg" alt="" />
+              </a>
+              <a class="project-footer-action" href="https://www.linkedin.com/in/monica--cortes/" aria-label="LinkedIn">
+                <img src="../assets/icons/linkedin-logo.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="../project-page.js"></script>
+  </body>
+</html>

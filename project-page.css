@@ -1,0 +1,298 @@
+/*
+  =====================================================
+  PROJECT PAGE LAYOUT (shared across all case studies)
+  =====================================================
+  Linked from every page in /projects/ and from
+  archive/project-unlocked-labs-snapshot-2025-05-21.html
+  if you need the original self-contained version.
+
+  Content-specific typography and components live in
+  styles.css (.project-main, .image-frame, etc.).
+  =====================================================
+*/
+
+.project-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.project-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 36px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+.project-sidebar-inner {
+  position: static;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4px 0 24px;
+}
+
+.sidebar-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 64px;
+  color: var(--blue);
+}
+
+.sidebar-home .arrow-left {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.sidebar-home .arrow-left img,
+.sidebar-next .arrow-right img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(4052%) hue-rotate(213deg) brightness(91%) contrast(102%);
+}
+
+.sidebar-bottom {
+  position: relative;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.sidebar-next {
+  margin-bottom: 0;
+}
+
+.sidebar-next .arrow-right {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.sidebar-next-preview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: min(220px, calc(100% - 24px));
+  max-width: calc(100vw - 24px);
+  padding: 12px;
+  border: 1px solid var(--image-container-border);
+  background: var(--image-container-fill);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 1200;
+}
+
+.sidebar-next-preview-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--image-container-border);
+  background: var(--image-container-fill);
+}
+
+.sidebar-next-preview-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sidebar-next-preview-copy {
+  padding-top: 10px;
+}
+
+.sidebar-next-preview-copy .subtitle {
+  margin-bottom: 6px;
+}
+
+.sidebar-next-preview-copy p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.sidebar-next-preview.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sidebar-group {
+  margin-bottom: 40px;
+}
+
+.sidebar-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.sidebar-heading {
+  margin-bottom: 14px;
+  color: rgba(28, 28, 28, 0.65);
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar-links a {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--black);
+  transition: color 160ms ease;
+}
+
+.sidebar-links a:hover,
+.sidebar-links a:focus-visible {
+  color: var(--blue);
+}
+
+.project-main .meta-label {
+  color: var(--blue);
+}
+
+.project-main .project-section .subtitle {
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.project-main .project-hero .project-summary .subtitle {
+  color: var(--black);
+}
+
+.project-column {
+  min-width: 0;
+  max-width: 100%;
+  padding: 56px 24px 0;
+  overflow-x: clip;
+}
+
+.project-main {
+  padding: 0 0 60px;
+}
+
+.project-section {
+  scroll-margin-top: 32px;
+}
+
+.project-placeholder {
+  max-width: 42rem;
+}
+
+.project-footer-minimal {
+  color: var(--black);
+  padding: 18px 0 32px;
+}
+
+.project-footer-inner {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.project-footer-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-footer-label {
+  white-space: nowrap;
+}
+
+.project-footer-action {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.project-footer-action img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(16%) sepia(0%) saturate(0%) hue-rotate(163deg) brightness(96%) contrast(92%);
+}
+
+@media (max-width: 980px) {
+  .project-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project-sidebar {
+    position: static;
+    height: auto;
+    padding: 24px;
+    overflow-x: clip;
+  }
+
+  .project-sidebar-inner {
+    height: auto;
+    padding: 0;
+  }
+
+  .project-column {
+    padding: 24px 24px 0;
+  }
+
+  .sidebar-home {
+    margin-bottom: 40px;
+  }
+
+  .sidebar-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-sidebar {
+    padding: 18px;
+  }
+
+  .project-column {
+    padding: 20px 18px 0;
+  }
+
+  .project-footer-inner {
+    justify-content: center;
+  }
+
+  .project-footer-label {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .sidebar-home .arrow-left {
+    width: 16px;
+    height: 16px;
+  }
+}

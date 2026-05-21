@@ -161,6 +161,7 @@
               {
                 title: "UC Berkeley STS",
                 text: "Brand identity and event graphics for UC Berkeley Student Tech Services' Step Into Tech campus career fair—promotional flyers (Fall 2023 and a Spring 2024 redesign), team table signage, sticker sheets, and QR flyers. Graphic Designer · 3 months · Adobe CC.",
+                caseStudyHref: "/",
                 images: [
                   { file: "graphic-design/uc-berkeley-sts/signage/sts sit 1.png", layout: "standard" },
                   { file: "graphic-design/uc-berkeley-sts/signage/sts sit 2.png", layout: "standard" },
@@ -240,6 +241,7 @@
               {
                 title: "SF Parks & Rec",
                 text: "Redesigned SF Rec & Park's picnic reservation flow for Berkeley's INFO 215 Product Design Studio—replacing a text-heavy, table-based experience with filters and card-based discovery, clearer pricing and availability, and a streamlined path from explore to book (14+ mobile screens). Product Designer · 1 month · Figma.",
+                caseStudyHref: "/",
                 images: [],
               },
             ],
@@ -414,6 +416,31 @@
           };
         }
 
+        function createCaseStudyLink(section) {
+          if (!section.caseStudyHref) {
+            return null;
+          }
+
+          const link = document.createElement("a");
+          link.className = "tertiary-button archive-modal-case-study";
+          link.href = section.caseStudyHref;
+
+          const label = document.createElement("span");
+          label.textContent = "See case study";
+
+          const arrow = document.createElement("span");
+          arrow.className = "tertiary-button__arrow";
+          arrow.setAttribute("aria-hidden", "true");
+
+          const arrowIcon = document.createElement("img");
+          arrowIcon.src = "assets/icons/Arrow right.svg";
+          arrowIcon.alt = "";
+          arrow.appendChild(arrowIcon);
+          link.append(label, arrow);
+
+          return link;
+        }
+
         function renderSections(sections) {
           stopAllGalleryAutoScroll();
           modalSections.replaceChildren();
@@ -428,8 +455,12 @@
             const copy = document.createElement("p");
             copy.textContent = section.text;
 
+            const caseStudyLink = createCaseStudyLink(section);
             const galleryWrap = buildGallery(section.images, section.galleryLayout);
             block.append(heading, copy);
+            if (caseStudyLink) {
+              block.append(caseStudyLink);
+            }
             if (galleryWrap) {
               const gallery = galleryWrap.querySelector(".archive-modal-gallery");
               block.append(galleryWrap);
