@@ -475,12 +475,32 @@
         min-width: 0;
       }
 
-      .recent-image {
+      .card.recent-image {
+        display: block;
         width: 100%;
-        aspect-ratio: 1 / 1;
-        height: auto;
+        min-height: 0;
         border: 1px solid var(--card-gray);
         border-radius: 0;
+        background: var(--card-gray);
+      }
+
+      .recent-image-frame {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        position: relative;
+        background: var(--card-gray);
+      }
+
+      .recent-image-frame img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        background: var(--card-gray);
       }
 
       .card {
@@ -724,7 +744,7 @@
          SITE HEADER
          Update links here if your resume or LinkedIn URLs change.
          ===================================================== -->
-    <site-header brand-href="#home" projects-href="#featured-projects"></site-header>
+    <site-header brand-href="/" projects-href="#featured-projects"></site-header>
 
     <!-- HERO / INTRO SECTION -->
     <section class="hero" id="home">
@@ -853,7 +873,7 @@
                     poster="assets/images/Bonded Diamond Preview.png"
                     aria-label="Featured project 5 video preview"
                   >
-                    <source src="assets/videos/unlocked labs demo.mp4" type="video/mp4" />
+                    <source src="assets/videos/Bonded Diamond Ad Preview.mp4" type="video/mp4" />
                   </video>
                 </span>
               </a>
@@ -895,7 +915,9 @@
           <div class="grid recent-grid">
             <article class="recent-item reveal-card">
               <a class="card recent-image" href="project.html">
-                <img src="assets/images/Learvo Preview.png" alt="Learvo preview" />
+                <span class="recent-image-frame">
+                  <img src="assets/images/Learvo Preview.png" alt="Learvo preview" />
+                </span>
               </a>
               <div class="project-meta">
                 <h2>Designing and analyzing user behavior at an ed-tech startup</h2>
@@ -903,7 +925,9 @@
             </article>
             <article class="recent-item reveal-card">
               <a class="card recent-image" href="project.html">
-                <img src="assets/images/Ligo Preview.png" alt="Ligo preview" />
+                <span class="recent-image-frame">
+                  <img src="assets/images/Ligo Preview.png" alt="Ligo preview" />
+                </span>
               </a>
               <div class="project-meta">
                 <h2>Designed a mini-website for a social media breaking the norm</h2>
@@ -911,7 +935,9 @@
             </article>
             <article class="recent-item reveal-card">
               <a class="card recent-image" href="project.html">
-                <img src="assets/images/DFG Preview.png" alt="Develop For Good preview" />
+                <span class="recent-image-frame">
+                  <img src="assets/images/DFG Preview.png" alt="Develop For Good preview" />
+                </span>
               </a>
               <div class="project-meta">
                 <h2>Spreading the word about Develop For Good on social media</h2>
@@ -929,7 +955,7 @@
     </main>
 
     <site-footer
-      brand-href="#home"
+      brand-href="/"
       projects-href="#featured-projects"
     ></site-footer>
     <div class="cursor-star" aria-hidden="true">✦</div>

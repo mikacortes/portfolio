@@ -3,7 +3,7 @@ class SiteHeader extends HTMLElement {
     if (this.dataset.rendered === 'true') return;
     this.dataset.rendered = 'true';
 
-    const brandHref = this.getAttribute('brand-href') || '#home';
+    const brandHref = this.getAttribute('brand-href') || '/';
     const projectsHref = this.getAttribute('projects-href') || '#featured-projects';
 
     this.innerHTML = `
@@ -39,7 +39,7 @@ class SiteFooter extends HTMLElement {
     this.dataset.rendered = 'true';
 
     const footerClass = this.getAttribute('footer-class') || '';
-    const brandHref = this.getAttribute('brand-href') || '#home';
+    const brandHref = this.getAttribute('brand-href') || '/';
     const projectsHref = this.getAttribute('projects-href') || '#featured-projects';
     const className = ['footer', footerClass].filter(Boolean).join(' ');
 
