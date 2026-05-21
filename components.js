@@ -325,8 +325,8 @@ function initSparkleCursor() {
   });
 }
 
-const HERO_SPARKLE_CHARS = ['✦', '✧', '·'];
-const HERO_SPARKLE_COLORS = [
+const SPARKLE_TRAIL_CHARS = ['✦', '✧', '·'];
+const SPARKLE_TRAIL_LIGHT_COLORS = [
   '#ffffff',
   '#f4f7ff',
   '#e8efff',
@@ -335,11 +335,55 @@ const HERO_SPARKLE_COLORS = [
   '#c4d7ff',
   '#b8ceff',
 ];
+const SPARKLE_TRAIL_BLUE_COLORS = [
+  '#013fa7',
+  '#0d4ab1',
+  '#1a56ba',
+  '#2a63c2',
+  '#396fca',
+  '#487ad0',
+  '#5685d6',
+  '#6490db',
+  '#729ade',
+  '#80a3e1',
+  '#8caee4',
+  '#97b7e7',
+  '#a2c0e9',
+  '#acc8eb',
+  '#b6d0ed',
+  '#bfd8ef',
+  '#c7e0f1',
+  '#cfe7f3',
+  '#d7eef5',
+  '#dff4f7',
+];
 
-function initHeroSparkleTrail() {
-  const hero = document.querySelector('.hero');
-  if (!hero || document.body.dataset.heroSparkleTrailReady === 'true') return;
-  document.body.dataset.heroSparkleTrailReady = 'true';
+const SPARKLE_TRAIL_ZONE_CONFIGS = [
+  {
+    selector: '.hero',
+    bodyClass: 'is-hero-cursor-zone',
+    sparkleClass: 'sparkle-trail-particle sparkle-trail-particle--light',
+    colors: SPARKLE_TRAIL_LIGHT_COLORS,
+  },
+  {
+    selector: '.contact',
+    bodyClass: 'is-contact-sparkle-zone',
+    sparkleClass: 'sparkle-trail-particle sparkle-trail-particle--blue',
+    colors: SPARKLE_TRAIL_BLUE_COLORS,
+  },
+];
+
+function initSparkleTrailZones() {
+  if (document.body.dataset.sparkleTrailZonesReady === 'true') return;
+
+  const zones = SPARKLE_TRAIL_ZONE_CONFIGS.map((config) => {
+    const element = document.querySelector(config.selector);
+    if (!element) return null;
+    return { ...config, element };
+  }).filter(Boolean);
+
+  if (zones.length === 0) return;
+  document.body.dataset.sparkleTrailZonesReady = 'true';
 
   const isFinePointer =
     window.matchMedia &&
@@ -357,24 +401,31 @@ function initHeroSparkleTrail() {
   let lastSpawnAt = 0;
   let lastSpawnX = 0;
   let lastSpawnY = 0;
-  let isPointerInHero = false;
+  let activeZone = null;
 
-  function spawnSparkle(x, y) {
+  function spawnSparkle(x, y, zone) {
     const sparkle = document.createElement('span');
-    sparkle.className = 'hero-cursor-sparkle';
+    sparkle.className = zone.sparkleClass;
     sparkle.setAttribute('aria-hidden', 'true');
     sparkle.textContent =
-      HERO_SPARKLE_CHARS[Math.floor(Math.random() * HERO_SPARKLE_CHARS.length)];
+      SPARKLE_TRAIL_CHARS[Math.floor(Math.random() * SPARKLE_TRAIL_CHARS.length)];
     sparkle.style.left = `${x}px`;
     sparkle.style.top = `${y}px`;
     sparkle.style.setProperty(
       '--sparkle-color',
-      HERO_SPARKLE_COLORS[Math.floor(Math.random() * HERO_SPARKLE_COLORS.length)]
+      zone.colors[Math.floor(Math.random() * zone.colors.length)]
     );
     sparkle.style.setProperty('--sparkle-rotate', `${Math.floor(Math.random() * 360)}deg`);
-    sparkle.style.setProperty('--sparkle-scale', `${0.55 + Math.random() * 0.75}`);
+    const scaleMin = zone.sparkleScaleMin ?? 0.55;
+    const scaleMax = zone.sparkleScaleMax ?? 1.3;
+    const fontMin = zone.sparkleFontMin ?? 12;
+    const fontMax = zone.sparkleFontMax ?? 26;
+    sparkle.style.setProperty(
+      '--sparkle-scale',
+      `${scaleMin + Math.random() * (scaleMax - scaleMin)}`
+    );
     sparkle.style.setProperty('--sparkle-duration', `${620 + Math.floor(Math.random() * 280)}ms`);
-    sparkle.style.fontSize = `${12 + Math.floor(Math.random() * 14)}px`;
+    sparkle.style.fontSize = `${fontMin + Math.floor(Math.random() * (fontMax - fontMin))}px`;
 
     document.body.appendChild(sparkle);
 
@@ -386,7 +437,7 @@ function initHeroSparkleTrail() {
     window.setTimeout(removeSparkle, 1100);
   }
 
-  function maybeSpawnSparkle(x, y) {
+  function maybeSpawnSparkle(x, y, zone) {
     const now = performance.now();
     const travel = Math.hypot(x - lastSpawnX, y - lastSpawnY);
 
@@ -397,11 +448,11 @@ function initHeroSparkleTrail() {
     lastSpawnAt = now;
     lastSpawnX = x;
     lastSpawnY = y;
-    spawnSparkle(x, y);
+    spawnSparkle(x, y, zone);
   }
 
-  function isPointInsideHero(clientX, clientY) {
-    const rect = hero.getBoundingClientRect();
+  function isPointInsideZone(zone, clientX, clientY) {
+    const rect = zone.element.getBoundingClientRect();
     return (
       clientX >= rect.left &&
       clientX <= rect.right &&
@@ -410,27 +461,26 @@ function initHeroSparkleTrail() {
     );
   }
 
+  function findZoneAtPoint(clientX, clientY) {
+    return zones.find((zone) => isPointInsideZone(zone, clientX, clientY)) || null;
+  }
+
+  function updateZoneState(zone) {
+    if (zone === activeZone) return;
+
+    zones.forEach((entry) => {
+      body.classList.toggle(entry.bodyClass, entry === zone);
+    });
+    activeZone = zone;
+  }
+
   window.addEventListener(
     'pointermove',
     (event) => {
-      const insideHero = isPointInsideHero(event.clientX, event.clientY);
-
-      if (insideHero !== isPointerInHero) {
-        isPointerInHero = insideHero;
-        body.classList.toggle('is-hero-cursor-zone', insideHero);
-      }
-
-      if (!insideHero) return;
-      maybeSpawnSparkle(event.clientX, event.clientY);
-    },
-    { passive: true }
-  );
-
-  hero.addEventListener(
-    'pointerleave',
-    () => {
-      isPointerInHero = false;
-      body.classList.remove('is-hero-cursor-zone');
+      const zone = findZoneAtPoint(event.clientX, event.clientY);
+      updateZoneState(zone);
+      if (!zone) return;
+      maybeSpawnSparkle(event.clientX, event.clientY, zone);
     },
     { passive: true }
   );
@@ -438,7 +488,7 @@ function initHeroSparkleTrail() {
 
 function initCursorEffects() {
   initSparkleCursor();
-  initHeroSparkleTrail();
+  initSparkleTrailZones();
 }
 
 if (document.readyState === 'loading') {
