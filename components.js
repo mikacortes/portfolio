@@ -325,8 +325,124 @@ function initSparkleCursor() {
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSparkleCursor);
-} else {
+const HERO_SPARKLE_CHARS = ['✦', '✧', '·'];
+const HERO_SPARKLE_COLORS = [
+  '#ffffff',
+  '#f4f7ff',
+  '#e8efff',
+  '#dce7ff',
+  '#d0dfff',
+  '#c4d7ff',
+  '#b8ceff',
+];
+
+function initHeroSparkleTrail() {
+  const hero = document.querySelector('.hero');
+  if (!hero || document.body.dataset.heroSparkleTrailReady === 'true') return;
+  document.body.dataset.heroSparkleTrailReady = 'true';
+
+  const isFinePointer =
+    window.matchMedia &&
+    window.matchMedia('(pointer: fine)').matches &&
+    window.matchMedia('(hover: hover)').matches;
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!isFinePointer || prefersReducedMotion) return;
+
+  const body = document.body;
+  const spawnIntervalMs = 28;
+  const minTravelPx = 10;
+  let lastSpawnAt = 0;
+  let lastSpawnX = 0;
+  let lastSpawnY = 0;
+  let isPointerInHero = false;
+
+  function spawnSparkle(x, y) {
+    const sparkle = document.createElement('span');
+    sparkle.className = 'hero-cursor-sparkle';
+    sparkle.setAttribute('aria-hidden', 'true');
+    sparkle.textContent =
+      HERO_SPARKLE_CHARS[Math.floor(Math.random() * HERO_SPARKLE_CHARS.length)];
+    sparkle.style.left = `${x}px`;
+    sparkle.style.top = `${y}px`;
+    sparkle.style.setProperty(
+      '--sparkle-color',
+      HERO_SPARKLE_COLORS[Math.floor(Math.random() * HERO_SPARKLE_COLORS.length)]
+    );
+    sparkle.style.setProperty('--sparkle-rotate', `${Math.floor(Math.random() * 360)}deg`);
+    sparkle.style.setProperty('--sparkle-scale', `${0.55 + Math.random() * 0.75}`);
+    sparkle.style.setProperty('--sparkle-duration', `${620 + Math.floor(Math.random() * 280)}ms`);
+    sparkle.style.fontSize = `${12 + Math.floor(Math.random() * 14)}px`;
+
+    document.body.appendChild(sparkle);
+
+    const removeSparkle = () => {
+      sparkle.remove();
+    };
+
+    sparkle.addEventListener('animationend', removeSparkle, { once: true });
+    window.setTimeout(removeSparkle, 1100);
+  }
+
+  function maybeSpawnSparkle(x, y) {
+    const now = performance.now();
+    const travel = Math.hypot(x - lastSpawnX, y - lastSpawnY);
+
+    if (now - lastSpawnAt < spawnIntervalMs && travel < minTravelPx) {
+      return;
+    }
+
+    lastSpawnAt = now;
+    lastSpawnX = x;
+    lastSpawnY = y;
+    spawnSparkle(x, y);
+  }
+
+  function isPointInsideHero(clientX, clientY) {
+    const rect = hero.getBoundingClientRect();
+    return (
+      clientX >= rect.left &&
+      clientX <= rect.right &&
+      clientY >= rect.top &&
+      clientY <= rect.bottom
+    );
+  }
+
+  window.addEventListener(
+    'pointermove',
+    (event) => {
+      const insideHero = isPointInsideHero(event.clientX, event.clientY);
+
+      if (insideHero !== isPointerInHero) {
+        isPointerInHero = insideHero;
+        body.classList.toggle('is-hero-cursor-zone', insideHero);
+      }
+
+      if (!insideHero) return;
+      maybeSpawnSparkle(event.clientX, event.clientY);
+    },
+    { passive: true }
+  );
+
+  hero.addEventListener(
+    'pointerleave',
+    () => {
+      isPointerInHero = false;
+      body.classList.remove('is-hero-cursor-zone');
+    },
+    { passive: true }
+  );
+}
+
+function initCursorEffects() {
   initSparkleCursor();
+  initHeroSparkleTrail();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCursorEffects);
+} else {
+  initCursorEffects();
 }

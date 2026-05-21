@@ -23,6 +23,13 @@ body.has-custom-cursor.is-featured-hovering .cursor-star {
   opacity: 0 !important;
 }
 
+body.has-custom-cursor.is-hero-cursor-zone .cursor-star {
+  color: var(--white, #ffffff);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
+  mix-blend-mode: normal;
+  filter: none;
+}
+
 .cursor-star {
   height: 22px;
   width: 22px;
@@ -44,4 +51,50 @@ body.has-custom-cursor.is-featured-hovering .cursor-star {
   text-shadow: 0 0 10px rgba(1, 63, 167, 0.12);
   mix-blend-mode: multiply;
   filter: saturate(0.85);
+}
+
+/*
+  Hero sparkle trail (landing page hero only)
+*/
+.hero-cursor-sparkle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--sparkle-color, #ffffff);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.28);
+  mix-blend-mode: normal;
+  filter: none;
+  transform: translate(-50%, -50%) rotate(var(--sparkle-rotate, 0deg))
+    scale(var(--sparkle-scale, 1));
+  animation: hero-cursor-sparkle-fade var(--sparkle-duration, 720ms) ease-out
+    forwards;
+}
+
+@keyframes hero-cursor-sparkle-fade {
+  0% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) rotate(var(--sparkle-rotate, 0deg))
+      scale(var(--sparkle-scale, 1));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--sparkle-rotate, 0deg) + 48deg))
+      scale(calc(var(--sparkle-scale, 1) * 0.35));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cursor-sparkle {
+    animation: none;
+    opacity: 0;
+  }
 }
