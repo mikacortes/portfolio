@@ -17,22 +17,22 @@
         </section>
 
         <section class="archive-folder-grid" aria-label="Archive folders">
-          <button type="button" class="archive-folder" data-folder="social-media" aria-haspopup="dialog">
+          <button type="button" class="archive-folder" data-folder="social-media" aria-haspopup="dialog" aria-controls="archive-modal">
             <img src="assets/icons/Folder Icon.svg" alt="" aria-hidden="true" />
             <span>Social Media</span>
           </button>
 
-          <button type="button" class="archive-folder" data-folder="graphic-design" aria-haspopup="dialog">
+          <button type="button" class="archive-folder" data-folder="graphic-design" aria-haspopup="dialog" aria-controls="archive-modal">
             <img src="assets/icons/Folder Icon.svg" alt="" aria-hidden="true" />
             <span>Graphic Design</span>
           </button>
 
-          <button type="button" class="archive-folder" data-folder="layout-design" aria-haspopup="dialog">
+          <button type="button" class="archive-folder" data-folder="layout-design" aria-haspopup="dialog" aria-controls="archive-modal">
             <img src="assets/icons/Folder Icon.svg" alt="" aria-hidden="true" />
             <span>Layout Design</span>
           </button>
 
-          <button type="button" class="archive-folder" data-folder="ui-ux-design" aria-haspopup="dialog">
+          <button type="button" class="archive-folder" data-folder="ui-ux-design" aria-haspopup="dialog" aria-controls="archive-modal">
             <img src="assets/icons/Folder Icon.svg" alt="" aria-hidden="true" />
             <span>UI/UX Design</span>
           </button>
@@ -40,7 +40,7 @@
       </div>
     </main>
 
-    <div class="archive-modal" id="archive-modal" hidden>
+    <div class="archive-modal" id="archive-modal" aria-hidden="true" hidden>
       <div class="archive-modal-backdrop" data-close-modal aria-hidden="true"></div>
       <div
         class="archive-modal-dialog"
@@ -188,11 +188,15 @@
           modalTitle.textContent = content.title;
           renderSections(content.sections);
           modal.hidden = false;
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
           document.body.classList.add("archive-modal-open");
           closeButton.focus();
         }
 
         function closeModal() {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
           modal.hidden = true;
           document.body.classList.remove("archive-modal-open");
 

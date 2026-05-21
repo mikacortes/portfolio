@@ -613,14 +613,14 @@ body.archive-modal-open {
   position: fixed;
   inset: 0;
   z-index: 2000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 24px;
 }
 
-.archive-modal[hidden] {
-  display: none;
+.archive-modal.is-open {
+  display: flex;
 }
 
 .archive-modal-backdrop {
