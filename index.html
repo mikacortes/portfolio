@@ -477,7 +477,8 @@
 
       .recent-image {
         width: 100%;
-        height: var(--project-image-height);
+        aspect-ratio: 1 / 1;
+        height: auto;
         border: 1px solid var(--card-gray);
         border-radius: 0;
       }
@@ -613,10 +614,6 @@
           gap: 12px;
         }
 
-        .recent-image {
-          height: 260px;
-        }
-
         .contact a {
           font-size: 28px;
         }
@@ -673,8 +670,7 @@
           row-gap: 39px;
         }
 
-        .featured-image,
-        .recent-image {
+        .featured-image {
           height: 240px;
         }
 
@@ -714,10 +710,6 @@
         }
 
         .featured-image {
-          height: 220px;
-        }
-
-        .recent-image {
           height: 220px;
         }
 
