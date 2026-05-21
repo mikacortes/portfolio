@@ -53,7 +53,7 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 72px;
+        margin-bottom: 64px;
         color: var(--blue);
       }
 
@@ -100,8 +100,8 @@
         top: 0;
         width: min(220px, calc(100vw - 24px));
         padding: 12px;
-        border: 1px solid var(--border-strong);
-        background: var(--page-bg);
+        border: 1px solid var(--image-container-border);
+        background: var(--image-container-fill);
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
         opacity: 0;
         transform: scale(0.98);
@@ -114,8 +114,8 @@
         width: 100%;
         aspect-ratio: 16 / 10;
         overflow: hidden;
-        border: 1px solid var(--border-strong);
-        background: var(--card-gray);
+        border: 1px solid var(--image-container-border);
+        background: var(--image-container-fill);
       }
 
       .sidebar-next-preview-image img {
@@ -145,18 +145,18 @@
       }
 
       .sidebar-group {
-        margin-bottom: 42px;
+        margin-bottom: 40px;
       }
 
       .sidebar-heading {
-        margin-bottom: 16px;
+        margin-bottom: 14px;
         color: rgba(28, 28, 28, 0.65);
       }
 
       .sidebar-links {
         display: flex;
         flex-direction: column;
-        gap: 26px;
+        gap: 18px;
       }
 
       .sidebar-links a {
@@ -194,11 +194,11 @@
       */
       .project-column {
         min-width: 0;
-        padding: 44px 24px 0 0;
+        padding: 56px 24px 0 0;
       }
 
       .project-main {
-        padding: 0 0 96px;
+        padding: 0 0 60px;
       }
 
       .project-section {
@@ -318,7 +318,7 @@
             <nav class="sidebar-links" aria-label="Brief sections">
               <a href="#overview">Overview</a>
               <a href="#final-solution">Final Solution</a>
-              <a href="#results">Key Takeaways</a>
+              <a href="#results">Final Outcome</a>
             </nav>
           </div>
 
@@ -419,7 +419,11 @@
               <div class="custom-containers">
                 <div class="custom-container">
                   <div class="custom-container-inner">
-                    <div class="custom-container-visual" aria-hidden="true"></div>
+                    <img
+                      class="custom-container-image"
+                      src="assets/project-specific/unlocked labs/[REVISED] Dashboard- completed tab-1.png"
+                      alt="Completed dashboard tab tracking rehabilitative progress"
+                    />
                     <div class="custom-container-copy">
                       <p>A dashboard that motivates residents while tracking their rehabilitative progress</p>
                     </div>
@@ -427,7 +431,11 @@
                 </div>
                 <div class="custom-container">
                   <div class="custom-container-inner">
-                    <div class="custom-container-visual" aria-hidden="true"></div>
+                    <img
+                      class="custom-container-image"
+                      src="assets/project-specific/unlocked labs/[FINAL] Version Page 2.png"
+                      alt="Printable report page summarizing resident progress"
+                    />
                     <div class="custom-container-copy">
                       <p>Printable reports that summarize their progress across programs</p>
                     </div>
@@ -439,7 +447,7 @@
             <!-- KEY TAKEAWAYS -->
             <section class="project-section content-section process-group" id="results">
               <div class="process-entry">
-                <div class="subtitle">Key Takeaways</div>
+                <div class="subtitle">Final Outcome</div>
                 <h2>
                   This project launched in 2025 Q2 to reach 500+ correctional facility residents.
                 </h2>
@@ -466,11 +474,22 @@
                   Their product, UnlockEd, was created to address the challenges of education
                   access and data centralization within correctional facilities.
                 </p>
-                <div class="custom-container">
-                  <div class="custom-container-inner">
-                    <div class="custom-container-visual" aria-hidden="true"></div>
-                    <div class="custom-container-copy">
-                      <p>What UnlockEd students currently see on the platform</p>
+                <div class="custom-container platform-preview-container">
+                  <div class="platform-preview-inner">
+                    <p class="platform-preview-title">What UnlockEd students currently see on the platform</p>
+                    <div class="platform-preview-grid">
+                      <div class="platform-preview-frame">
+                        <img
+                          src="assets/project-specific/unlocked labs/unlocked labs home page.png"
+                          alt="UnlockEd home page dashboard"
+                        />
+                      </div>
+                      <div class="platform-preview-frame">
+                        <img
+                          src="assets/project-specific/unlocked labs/unlocked labs progress.png"
+                          alt="UnlockEd My Progress page"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -513,21 +532,55 @@
                 </h2>
                 <p>
                   To follow up that secondary research, I conducted 2 interviews with Unlocked Labs executives who had
-                  direct experience with incarceration and parole. These interviews doubled as stakeholder interviews that
+                  direct experience with incarceration and parole. These interviews doubled as stakeholder interviews that could inform us 
+                  on any additional knowledge for this project.
                 </p>
-                <div class="sticky-note-grid">
-                  <div class="note">"It was just an educated guess on what programs to do and what to present."</div>
-                  <div class="note">"Nothing has a sense of connection and you don't see how it moves you forward."</div>
-                  <div class="note">“I have to show the positive and useful things I’ve done too so it’s not just 
-                    my negative criminal record [in my parole portfolio].”</div>
-                  <div class="note">“The burden of proof [in parole hearings] is huge. […] It’s so hard to keep track of 
-                    all the work you are doing when you are bouncing between programs.”</div>
-                  <div class="note">“You have a limit to how much property you’re supposed to have [so] I had to figure out 
-                    how to make photocopies [and] how to keep them.”</div>
+                <div class="sticky-note-section">
+                  <p class="sticky-note-title">Notable quotes from our user interviews</p>
+                  <div class="sticky-note-grid">
+                    <div class="sticky-note-row sticky-note-row--top">
+                      <div class="note note--blue">"It was just an educated guess on what programs to do and what to present."</div>
+                      <div class="note note--pink">"Nothing has a sense of connection and you don't see how it moves you forward."</div>
+                    </div>
+                    <div class="sticky-note-row sticky-note-row--bottom">
+                      <div class="note note--green">"I have to show the positive and useful things I've done too so it's not just my negative criminal record [in my parole portfolio]."</div>
+                      <div class="note note--cyan">"The burden of proof [in parole hearings] is huge. […] It's so hard to keep track of all the work you are doing when you are bouncing between programs."</div>
+                      <div class="note note--purple">"You have a limit to how much property you're supposed to have [so] I had to figure out how to make photocopies [and] how to keep them."</div>
+                    </div>
+                  </div>
                 </div>
                 <p>Both members were able to walk us through their portfolio. Our research was also validated by reviewing 
                   additional user interviews conducted by the original UnlockEd team.
                 </p>
+                <div class="portfolio-pages-section">
+                  <div class="portfolio-pages-gallery">
+                    <figure class="portfolio-page-item">
+                      <div class="portfolio-page-frame">
+                        <img
+                          src="assets/project-specific/unlocked labs/blurred image 1.jpg"
+                          alt="Blurred portfolio page with typed notes"
+                        />
+                      </div>
+                    </figure>
+                    <figure class="portfolio-page-item">
+                      <div class="portfolio-page-frame">
+                        <img
+                          src="assets/project-specific/unlocked labs/blurred image 2.jpg"
+                          alt="Blurred portfolio page with handwritten notes"
+                        />
+                      </div>
+                    </figure>
+                    <figure class="portfolio-page-item">
+                      <div class="portfolio-page-frame">
+                        <img
+                          src="assets/project-specific/unlocked labs/blurred image 3.jpg"
+                          alt="Blurred portfolio report page"
+                        />
+                      </div>
+                    </figure>
+                  </div>
+                  <p class="portfolio-pages-caption">These portfolio pages (blurred for privacy) contain a mix of typed and handwritten notes, along with screenshots and combined PDFs. This portfolio became 188 pages long.</p>
+                </div>
               </div>
               
             </section>
@@ -541,25 +594,31 @@
                 <p>Add a short outcome sentence here before you drop in more supporting details.</p>
                 <div class="three-up">
                   <div>
-                    <div class="image-frame"><img src="images/feature-1.jpg" alt="Outcome image 1" /></div>
+                    <div class="image-frame"><img src="assets/project-specific/unlocked labs/what's the point.jpg" alt="Notes questioning the point of scattered program participation" /></div>
                     <p>Residents don't have a holistic view of their outcomes.</p>
-                    <div class="caption">Currently, there's no clear structure connecting students' participation in programs 
+                    <p>
+                      Currently, there's no clear structure connecting students' participation in programs
                       to tangible milestones, ie. advancing towards parole. It's like taking random college courses
-                      without tracking graduation requirements.                     </div>
+                      without tracking graduation requirements.
+                    </p>
                   </div>
                   <div>
-                    <div class="image-frame"><img src="images/feature-2.jpg" alt="Outcome image 2" /></div>
+                    <div class="image-frame"><img src="assets/project-specific/unlocked labs/mail.jpg" alt="Messy handwritten and mailed program tracking documents" /></div>
                     <p>Tracking documents can be messy.</p>
-                    <div class="caption">Residents must manually track course completions, often with handwritten notes they 
-                      may have to hide due to prison rules. Records are scattered across programs, making it difficult to 
-                      compile a clear portfolio for parole.</div>
+                    <p>
+                      Residents must manually track course completions, often with handwritten notes they
+                      may have to hide due to prison rules. Records are scattered across programs, making it difficult to
+                      compile a clear portfolio for parole.
+                    </p>
                   </div>
                   <div>
-                    <div class="image-frame"><img src="images/feature-3.jpg" alt="Outcome image 3" /></div>
+                    <div class="image-frame"><img src="assets/project-specific/unlocked labs/no direction.png" alt="Lack of formal guidance on programs for parole eligibility" /></div>
                     <p>There is no formal guidance on which programs to take for parole eligibility.</p>
-                    <div class="caption">There's no clear link between crimogenic needs and recommended programs. Unlocked Labs 
-                      has begun addressing this by offering a variety of programs through UnlockEd, but it is still early in 
-                      its solution.</div>
+                    <p>
+                      There's no clear link between crimogenic needs and recommended programs. Unlocked Labs
+                      has begun addressing this by offering a variety of programs through UnlockEd, but it is still early in
+                      its solution.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -576,34 +635,44 @@
               <div class="process-entry">
                 <div class="subtitle">User Goals</div>
                 <h2>Our primary users are incarcerated learners enrolled in UnlockEd programs.</h2>
-                <div class="image-frame"><img src="images/feature-1.jpg" alt="Outcome image 1" /></div>
-                <p>To address their key challenges, our solution must:
-
-                  Enable easy tracking of program progress
-                  
-                  Securely store and organize documents for parole board submission
-                  
-                  Keep learners motivated and engaged throughout their rehabilitative journey
-                  
-                  Provide a sense of accomplishment by visualizing progress
-                  
-                  Given the diverse backgrounds of our users, we opted for an empathy map instead of traditional 
-                  personas to better capture their unique experiences and needs.</p>
+                <div class="user-goals-layout">
+                  <div class="user-goals-media">
+                    <div class="image-frame user-goals-image">
+                      <img
+                        src="assets/project-specific/unlocked labs/empathy map.png"
+                        alt="Empathy map for incarcerated learners in UnlockEd programs"
+                      />
+                    </div>
+                  </div>
+                  <div class="user-goals-content">
+                    <p>To address their key challenges, our solution must:</p>
+                    <ul>
+                      <li>Enable easy tracking of program progress</li>
+                      <li>Securely store and organize documents for parole board submission</li>
+                      <li>Keep learners motivated and engaged throughout their rehabilitative journey</li>
+                      <li>Provide a sense of accomplishment by visualizing progress</li>
+                    </ul>
+                    <p>
+                      Given the diverse backgrounds of our users, we opted for an empathy map instead of traditional
+                      personas to better capture their unique experiences and needs.
+                    </p>
+                  </div>
+                </div>
               </div>
               <div class="process-entry">
                 <div class="subtitle">Ideation</div>
                 <h2>We proposed a dashboard to encourage continue engagement in programs tailored to their 
                   individual needs and goals.</h2>
-                <p>We envision a structured system that empowers residents to:
-
-                  Track their rehabilitative progress, 
-                  
-                  Reach key program milestones, and 
-                  
-                  Strengthen their case for parole
-                  
-                  At this stage, we hadn’t received all client resources but moved forward due to the short timeline, beginning 
-                  our brainstorming with limited knowledge.</p>
+                <p>We envision a structured system that empowers residents to:</p>
+                <ul>
+                  <li>Track their rehabilitative progress</li>
+                  <li>Reach key program milestones</li>
+                  <li>Strengthen their case for parole</li>
+                </ul>
+                <p>
+                  At this stage, we hadn’t received all client resources but moved forward due to the short timeline, beginning
+                  our brainstorming with limited knowledge.
+                </p>
                   <p>After speaking with the CTO, we gained clarity on existing resident resources and how they tie into UnlockEd. Since some of the courses redirect users to external websites/dashboards, features like a class calendar felt redundant. 
 
                     We also focused on what users would find genuinely useful and how they could assign quantitative value 
@@ -641,7 +710,12 @@
               <div class="process-entry">
                 <div class="subtitle">Final Solution</div>
                 <h2>Our first deliverable was a dashboard centralizing the users' needs.</h2>
-                <div class="image-frame full-width-image"><img src="images/outcome.jpg" alt="Outcome image or final mockup" /></div>
+                <div class="image-frame full-width-image">
+                  <img
+                    src="assets/project-specific/unlocked labs/[REVISED] Dashboard- completed tab-1.png"
+                    alt="Completed dashboard tab tracking rehabilitative progress"
+                  />
+                </div>
                 <h2>Residents can also download reports summarizing their progress and achievements.</h2>
                 <p>We also presented the Unlocked Labs team with a template for their residents to print out.
                   <br> Users can easily view achievements by program type and export structured reports from My Learning 
@@ -649,52 +723,122 @@
                   These reports include program details, completion status, hours earned, 
                   and dates, eliminating the need for manual tracking so that users can focus more on making progress.
                 </p>
-                <div class="image-frame full-width-image"><img src="images/outcome.jpg" alt="Outcome image or final mockup" /></div>
+                <div class="image-frame full-width-image">
+                  <img
+                    src="assets/project-specific/unlocked labs/[FINAL] Printed Version Page 1.png"
+                    alt="Printable report template page for resident progress summaries"
+                  />
+                </div>
               </div>
               <div class="process-entry">
                 <div class="subtitle">Design Decision</div>
-                <h2>We prioritized high-level data that summarizes information across programs by program type.</h2>
-                <p>UnlockEd already tracks daily hours, so we opted for course widgets to make the dashboard more engaging in a 
-                  day-by-day basis as motivation to continue. However, user testing revealed that courses alone didn’t convey 
-                  long-term progress, so we iterated upon this to instead show higher-level rehabilitation progress by program 
-                  type. This led to the Time Allocation chart, which helps residents see if their activities align with parole 
-                  goals and meet state program requirements.</p>
+                <h2>
+                  We prioritized high-level data that summarizes information across programs
+                  <em>by program type.</em>
+                </h2>
+                <p>
+                  UnlockEd already tracks daily hours, so we opted for course widgets to make the dashboard more engaging in a
+                  day-by-day basis as motivation to continue. However, user testing revealed that courses alone didn’t convey
+                  long-term progress, so we iterated upon this to instead show higher-level rehabilitation progress by program
+                  type. This led to the Time Allocation chart, which helps residents see if their activities align with parole
+                  goals and meet state program requirements.
+                </p>
+                <div class="custom-container platform-preview-container design-decision-preview">
+                  <div class="platform-preview-inner">
+                    <p class="platform-preview-title">
+                      Users can now see a breakdown of the hours put towards program type (right).
+                    </p>
+                    <div class="platform-preview-grid">
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <img
+                            src="assets/project-specific/unlocked labs/my progress snippet.png"
+                            alt="My Progress dashboard snippet with activity heatmap"
+                          />
+                        </div>
+                      </figure>
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <img
+                            src="assets/project-specific/unlocked labs/time allocation snippet.png"
+                            alt="Time Allocation chart snippet showing hours by program category"
+                          />
+                        </div>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
             <!-- REFLECTION -->
             <section class="project-section content-section process-group" id="reflection">
-              <div class="process-entry">
-                <div class="subtitle">Wishes</div>
-                <h2>Conducting more user interviews and user testing.</h2>
-                <p>Due to our tight timeline and lack of experience with incarcerated individuals, we opted not to try 
-                  and source interviewees for us to conduct user interviews. However, broader user feedback enhance 
-                  inclusivity and effectiveness, given the many backgrounds of residents. </p>
-                <h2>Addressing the last pain point.</h2>
-                <p>We lacked time to fully address the final pain point: unclear guidance on parole-eligible programs, which 
-                  vary by state and individual. With more time, we would have added a dedicated dashboard page for personalized 
-                  program guidance that can indicate what's required in your state.</p>
-              </div>
-              <div class="process-entry">
-                <div class="subtitle">Learnings</div>
-                <h2>A design process isn't always linear when starting out.</h2>
-                <p>We adopted a parallel process, where we made informed assumptions while gathering feedback from Unlocked Labs. 
-                  This accelerated our workflow and improved our user interviews, helping us ask more relevant and 
-                  impactful questions.</p> 
-                <h2>A smaller scope doesn’t equate to lesser impact. </h2>
-                <p>I often associate design solutions with creating multiple interface pages, but this project shifted my 
-                  perspective. I realized that even a single, thoughtful change (in this case, designing just one dashboard page) 
-                  can still lead to meaningful and impactful outcomes. </p> 
+              <div class="process-entry reflection-panels">
+                <div class="reflection-row">
+                  <div class="reflection-row-label subtitle">Wishes</div>
+                  <div class="reflection-row-columns">
+                    <div class="reflection-column">
+                      <h2>Conducting more user interviews and user testing.</h2>
+                      <p>
+                        Due to our tight timeline and lack of experience with incarcerated individuals, we opted not to try
+                        and source interviewees for us to conduct user interviews. However, broader user feedback enhance
+                        inclusivity and effectiveness, given the many backgrounds of residents.
+                      </p>
+                    </div>
+                    <div class="reflection-column">
+                      <h2>Addressing the last pain point.</h2>
+                      <p>
+                        We lacked time to fully address the final pain point: unclear guidance on parole-eligible programs, which
+                        vary by state and individual. With more time, we would have added a dedicated dashboard page for personalized
+                        program guidance that can indicate what's required in your state.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="reflection-row">
+                  <div class="reflection-row-label subtitle">Learnings</div>
+                  <div class="reflection-row-columns">
+                    <div class="reflection-column">
+                      <h2>A design process isn't always linear when starting out.</h2>
+                      <p>
+                        We adopted a parallel process, where we made informed assumptions while gathering feedback from Unlocked Labs.
+                        This accelerated our workflow and improved our user interviews, helping us ask more relevant and
+                        impactful questions.
+                      </p>
+                    </div>
+                    <div class="reflection-column">
+                      <h2>A smaller scope doesn’t equate to lesser impact.</h2>
+                      <p>
+                        I often associate design solutions with creating multiple interface pages, but this project shifted my
+                        perspective. I realized that even a single, thoughtful change (in this case, designing just one dashboard page)
+                        can still lead to meaningful and impactful outcomes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="process-entry">
                 <div class="subtitle">Learnings</div>
                 <h2>Special thanks to Unlocked Labs, everyone on my team, and Jamie (my professor)!</h2>
-                <div class="image-frame full-width-image"><img src="images/outcome.jpg" alt="Outcome image or final mockup" /></div>
-                <p>My team and I were matched to this project for our second project in the INFO 215 course (Product Design Studio). 
-
-                  I really enjoyed taking this class, and it really makes me excited to continue pursuing a career in product design (and possibly grad school)! 
-                  
-                  P.S. Here's another project I got to work on for this class.</p>
+                <div class="user-goals-layout">
+                  <div class="user-goals-media">
+                    <div class="image-frame user-goals-image">
+                      <img
+                        src="assets/project-specific/unlocked labs/monica presenting (ul).webp"
+                        alt="Monica presenting the Unlocked Labs project"
+                      />
+                    </div>
+                  </div>
+                  <div class="user-goals-content">
+                    <p>
+                      My team and I were matched to this project for our second project in the INFO 215 course (Product Design Studio).
+                    </p>
+                    <p>
+                      I really enjoyed taking this class, and it really makes me excited to continue pursuing a career in product design (and possibly grad school)!
+                    </p>
+                    <p>P.S. Here's another project I got to work on for this class.</p>
+                  </div>
+                </div>
               </div>
             </section>
           </div>
