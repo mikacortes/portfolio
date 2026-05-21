@@ -505,6 +505,13 @@
         object-fit: cover;
         display: block;
         background: var(--card-gray);
+        transition: transform 220ms ease;
+        transform-origin: center;
+      }
+
+      .card.recent-image:hover .recent-image-frame img,
+      .card.recent-image:focus-visible .recent-image-frame img {
+        transform: scale(1.05);
       }
 
       .card {
@@ -526,6 +533,9 @@
 
       .contact {
         margin-top: 28px;
+        display: grid;
+        justify-items: center;
+        text-align: center;
       }
 
       .recent-intro {
@@ -539,9 +549,11 @@
       .contact h2 {
         margin: 0 0 12px;
         color: var(--blue);
-        font-size: clamp(2.2rem, 4vw, 3.5rem);
-        font-style: italic;
+        font-family: "Apercu Pro", "Apercu", Arial, Helvetica, sans-serif;
+        font-size: 48px;
+        line-height: 1.12;
         font-weight: 500;
+        letter-spacing: 0;
       }
 
       .contact a {
@@ -918,33 +930,33 @@
           <p class="recent-intro">These projects are in-progress, but details may be provided upon request.</p>
           <div class="grid recent-grid">
             <article class="recent-item reveal-card">
-              <a class="card recent-image" href="project.html">
+              <a class="card recent-image" href="https://www.linkedin.com/company/learvo/">
                 <span class="recent-image-frame">
                   <img src="assets/images/Learvo Preview.png" alt="Learvo preview" />
                 </span>
               </a>
               <div class="project-meta">
-                <h2>Designing and analyzing user behavior at an ed-tech startup</h2>
+                <h2>Designing new features and analyzing user behavior at an ed-tech startup</h2>
               </div>
             </article>
             <article class="recent-item reveal-card">
-              <a class="card recent-image" href="project.html">
+              <a class="card recent-image" href="https://www.linkedin.com/company/ligo-social/">
                 <span class="recent-image-frame">
                   <img src="assets/images/Ligo Preview.png" alt="Ligo preview" />
                 </span>
               </a>
               <div class="project-meta">
-                <h2>Designed a mini-website for a social media breaking the norm</h2>
+                <h2>Designed a website to advertise a new app connecting users through their music taste</h2>
               </div>
             </article>
             <article class="recent-item reveal-card">
-              <a class="card recent-image" href="project.html">
+              <a class="card recent-image" href="https://www.linkedin.com/company/develop-for-good/">
                 <span class="recent-image-frame">
                   <img src="assets/images/DFG Preview.png" alt="Develop For Good preview" />
                 </span>
               </a>
               <div class="project-meta">
-                <h2>Spreading the word about Develop For Good on social media</h2>
+                <h2>Using social media to stay connected with a non-profit's current and potential clients</h2>
               </div>
             </article>
           </div>
