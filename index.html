@@ -361,6 +361,10 @@
         object-fit: cover;
       }
 
+      .featured-media video.align-top-left {
+        object-position: left top;
+      }
+
       .featured-media::after {
         content: "";
         position: absolute;
@@ -865,7 +869,7 @@
               <a class="card featured-image" href="project.html">
                 <span class="featured-media">
                   <video
-                    class="featured-video"
+                    class="featured-video align-top-left"
                     autoplay
                     muted
                     loop
