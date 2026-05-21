@@ -207,6 +207,30 @@
         display: block;
       }
 
+      .menu-toggle {
+        display: none;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        padding: 8px;
+        margin: -8px;
+        flex-shrink: 0;
+      }
+
+      .menu-toggle-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        border-radius: 1px;
+        transition: transform 200ms ease, opacity 200ms ease;
+      }
+
+      body.nav-menu-open {
+        overflow: hidden;
+      }
+
       .hero {
         background: var(--blue);
         color: var(--white);
@@ -663,21 +687,78 @@
           --section-gap: 64px;
         }
 
-        .topbar-inner,
-        .footer-inner {
-          width: min(100%, calc(100% - 20px));
+        .menu-toggle {
+          display: inline-flex;
           flex-direction: column;
-          align-items: flex-start;
-          gap: 16px;
+          justify-content: center;
+          gap: 5px;
+          align-items: center;
         }
 
-        .nav {
+        .topbar-inner {
           flex-wrap: wrap;
-          gap: 12px 16px;
+          align-items: center;
+          width: min(100%, calc(100% - 20px));
+        }
+
+        .topbar .brand {
+          flex: 1 1 auto;
+          min-width: 0;
+        }
+
+        .topbar .nav {
+          display: none;
+          flex-basis: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: nowrap;
+          gap: 14px;
+          padding: 16px 0 4px;
+        }
+
+        .topbar.is-menu-open .nav {
+          display: flex;
         }
 
         .topbar .nav .external:first-of-type {
-          margin-left: 14px;
+          margin-left: 0;
+        }
+
+        .topbar.is-menu-open .menu-toggle-bar:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        .topbar.is-menu-open .menu-toggle-bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .topbar.is-menu-open .menu-toggle-bar:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 28px;
+          width: min(100%, calc(100% - 20px));
+        }
+
+        .footer-left,
+        .footer-right {
+          width: 100%;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .footer-right {
+          gap: 16px;
+        }
+
+        .footer-right .nav {
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: nowrap;
+          gap: 12px;
         }
 
         .hero {
@@ -711,10 +792,6 @@
 
         .featured-image {
           height: 240px;
-        }
-
-        .footer-right {
-          align-items: flex-start;
         }
       }
 
@@ -1218,6 +1295,8 @@
 
         let lastScrollY = window.scrollY;
         function handleHeaderScroll() {
+          if (topbar.classList.contains('is-menu-open')) return;
+
           const currentScrollY = window.scrollY;
           if (currentScrollY > lastScrollY && currentScrollY > 80) {
             topbar.classList.add('is-hidden');

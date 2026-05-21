@@ -10,7 +10,18 @@ class SiteHeader extends HTMLElement {
       <header class="topbar">
         <div class="topbar-inner">
           <a class="brand" href="${brandHref}">✦ Monica Cortes ✦</a>
-          <nav class="nav" aria-label="Primary">
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            aria-label="Open menu"
+          >
+            <span class="menu-toggle-bar" aria-hidden="true"></span>
+            <span class="menu-toggle-bar" aria-hidden="true"></span>
+            <span class="menu-toggle-bar" aria-hidden="true"></span>
+          </button>
+          <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="${projectsHref}">Projects</a>
             <a href="archive.html">Archive</a>
             <a href="about.html">About</a>
@@ -30,6 +41,43 @@ class SiteHeader extends HTMLElement {
         </div>
       </header>
     `;
+
+    this.initMobileMenu();
+  }
+
+  initMobileMenu() {
+    const topbar = this.querySelector('.topbar');
+    const toggle = this.querySelector('.menu-toggle');
+    const nav = this.querySelector('.nav');
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+    if (!topbar || !toggle || !nav) return;
+
+    const setMenuOpen = (open) => {
+      topbar.classList.toggle('is-menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('nav-menu-open', open);
+      if (open) topbar.classList.remove('is-hidden');
+    };
+
+    const closeMenu = () => setMenuOpen(false);
+
+    toggle.addEventListener('click', () => {
+      setMenuOpen(!topbar.classList.contains('is-menu-open'));
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    mobileQuery.addEventListener('change', () => {
+      if (!mobileQuery.matches) closeMenu();
+    });
   }
 }
 
