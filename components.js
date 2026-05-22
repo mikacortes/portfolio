@@ -198,6 +198,12 @@ function initSparkleCursor() {
     '#dff4f7',
   ];
   let hasPointerMoved = false;
+  let featuredMorph = 0;
+  let featuredMorphTarget = 0;
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const featuredMorphEase = prefersReducedMotion ? 1 : 0.14;
 
   stars.forEach((star, index) => {
     star.x = 0;
@@ -278,20 +284,32 @@ function initSparkleCursor() {
       y += Math.sin(swirlTime * 1.15) * 18;
     }
 
+    featuredMorph += (featuredMorphTarget - featuredMorph) * featuredMorphEase;
+
     const baseScale = 0.74;
     const scaleRange = 0.22;
     const opacityRange = 0.18;
     const minOpacity = 0.04;
     const trailEase = 0.14;
+    const morphScale = 1 - featuredMorph * 0.82;
+    const morphBlur = featuredMorph * 2.5;
 
     stars.forEach((star, index) => {
       const offset = 10;
+      const trailIndex = (stars.length - index) / stars.length;
+      const trailScale = baseScale + trailIndex * scaleRange;
+      const trailOpacity = hasPointerMoved
+        ? Math.max(minOpacity, trailIndex * opacityRange)
+        : 0;
+
       star.style.left = `${x - offset}px`;
       star.style.top = `${y - offset}px`;
-      star.style.transform = `scale(${baseScale + ((stars.length - index) / stars.length) * scaleRange})`;
-      star.style.opacity = hasPointerMoved
-        ? `${Math.max(minOpacity, ((stars.length - index) / stars.length) * opacityRange)}`
-        : '0';
+      star.style.transform = `scale(${trailScale * morphScale})`;
+      star.style.opacity = `${trailOpacity * (1 - featuredMorph)}`;
+      star.style.filter =
+        morphBlur > 0.05
+          ? `saturate(${0.85 + featuredMorph * 0.15}) blur(${morphBlur}px)`
+          : 'saturate(0.85)';
 
       star.x = x;
       star.y = y;
@@ -306,21 +324,33 @@ function initSparkleCursor() {
 
   animateCircles();
 
+  function setFeaturedMorphTarget(value) {
+    featuredMorphTarget = value;
+    body.classList.toggle('is-featured-hovering', value > 0);
+  }
+
+  const featuredMorphTargets = document.querySelectorAll('.featured-media');
+  const featuredMorphFallback = document.querySelectorAll('.featured-item');
+
+  (featuredMorphTargets.length ? featuredMorphTargets : featuredMorphFallback).forEach(
+    (target) => {
+      target.addEventListener('pointerenter', () => {
+        setFeaturedMorphTarget(1);
+      });
+
+      target.addEventListener('pointerleave', () => {
+        setFeaturedMorphTarget(0);
+      });
+    }
+  );
+
   document.querySelectorAll('.featured-item').forEach((featuredItem) => {
-    featuredItem.addEventListener('pointerenter', () => {
-      body.classList.add('is-featured-hovering');
-    });
-
-    featuredItem.addEventListener('pointerleave', () => {
-      body.classList.remove('is-featured-hovering');
-    });
-
     featuredItem.addEventListener('focusin', () => {
-      body.classList.add('is-featured-hovering');
+      setFeaturedMorphTarget(1);
     });
 
     featuredItem.addEventListener('focusout', () => {
-      body.classList.remove('is-featured-hovering');
+      setFeaturedMorphTarget(0);
     });
   });
 }
