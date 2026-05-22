@@ -12,6 +12,9 @@
 */
 
 .project-layout {
+  --project-column-padding-left: 120px;
+  --project-column-padding-right: 220px;
+  --project-footer-inset-right: 20px;
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   min-height: 100vh;
@@ -212,7 +215,7 @@
 .project-column {
   min-width: 0;
   max-width: 100%;
-  padding: 56px 220px 0 120px;
+  padding: 56px var(--project-column-padding-right) 0 var(--project-column-padding-left);
   overflow-x: clip;
 }
 
@@ -312,6 +315,13 @@
 
 .project-footer-minimal {
   color: var(--black);
+  box-sizing: border-box;
+  width: calc(
+    100% + var(--project-column-padding-right) - var(--project-footer-inset-right)
+  );
+  margin-right: calc(
+    var(--project-footer-inset-right) - var(--project-column-padding-right)
+  );
   padding: 18px 0 32px;
 }
 
@@ -372,7 +382,7 @@
   }
 
   .project-column {
-    padding: 24px 220px 0 120px;
+    padding: 24px var(--project-column-padding-right) 0 var(--project-column-padding-left);
   }
 
   .sidebar-home {
@@ -390,7 +400,7 @@
   }
 
   .project-column {
-    padding: 20px 220px 0 120px;
+    padding: 20px var(--project-column-padding-right) 0 var(--project-column-padding-left);
   }
 
   .outcome-stats {
