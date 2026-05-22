@@ -957,6 +957,22 @@ body.archive-modal-open {
   line-height: 1.62;
 }
 
+/* Text accompanying images — body typography, italic caption */
+.project-main .custom-container:not(.platform-preview-container) .custom-container-copy p,
+.project-main .platform-preview-title,
+.project-main .portfolio-pages-caption,
+.project-main .sticky-note-title,
+.project-main .three-up > div > .image-frame + p {
+  margin: 0;
+  max-width: none;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.62;
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+}
+
 .project-main blockquote {
   margin: 0 0 var(--project-block-gap);
   max-width: 820px;
@@ -1051,19 +1067,13 @@ body.archive-modal-open {
 }
 
 .custom-container:not(.platform-preview-container) .custom-container-copy p {
-  margin: 0;
-  max-width: none;
   width: 100%;
-  font-size: 16px;
-  line-height: 1.55;
-  font-style: italic;
-  text-align: center;
 }
 
 #final-solution .custom-containers {
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 180px;
+  height: fit-content;
   gap: 20px;
 }
 
@@ -1090,12 +1100,12 @@ body.archive-modal-open {
   flex-direction: row;
   width: 100%;
   max-width: none;
-  height: 180px;
+  height: fit-content;
   overflow: hidden;
   gap: 24px;
   padding-top: 0;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #f2f2f2;
@@ -1108,7 +1118,19 @@ body.archive-modal-open {
   background: transparent;
 }
 
-#final-solution .custom-container-image {
+#final-solution .custom-containers > .custom-container-inner .custom-container-image {
+  width: fit-content;
+  height: 800px;
+  max-width: none;
+  display: block;
+  margin: 0;
+  padding: 20px 0 0;
+  object-fit: contain;
+  object-position: top left;
+  box-sizing: border-box;
+}
+
+#final-solution .custom-container .custom-container-image {
   width: fit-content;
   height: 260px;
   max-width: none;
@@ -1122,23 +1144,24 @@ body.archive-modal-open {
 
 #final-solution .custom-container:not(.platform-preview-container) .custom-container-copy,
 #final-solution .custom-containers > .custom-container-inner .custom-container-copy {
+  flex: 1 1 0;
+  align-self: stretch;
   width: 100%;
-  height: fit-content;
-  align-items: flex-start;
+  height: auto;
+  min-height: 100%;
+  align-items: center;
   justify-content: center;
-  padding: 0;
-  text-align: left;
-  vertical-align: middle;
+  padding: 0 20px;
+  text-align: center;
 }
 
 #final-solution .custom-container:not(.platform-preview-container) .custom-container-copy p,
 #final-solution .custom-containers > .custom-container-inner .custom-container-copy p {
   width: 100%;
-  height: fit-content;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: left;
-  vertical-align: middle;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.62;
+  text-align: center;
 }
 
 @media (max-width: 980px) {
@@ -1157,7 +1180,7 @@ body.archive-modal-open {
   }
 
   #final-solution .custom-container:not(.platform-preview-container) {
-    height: auto;
+    height: fit-content;
     min-height: 0;
   }
 
@@ -1174,7 +1197,8 @@ body.archive-modal-open {
     padding: 0 20px 20px;
   }
 
-  #final-solution .custom-container-image {
+  #final-solution .custom-containers > .custom-container-inner .custom-container-image,
+  #final-solution .custom-container .custom-container-image {
     margin: 20px 20px 0;
     padding: 0;
   }
@@ -1183,6 +1207,8 @@ body.archive-modal-open {
 .platform-preview-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   height: auto;
   border: 1px solid var(--image-container-border);
   background: var(--image-container-fill);
@@ -1195,6 +1221,8 @@ body.archive-modal-open {
   height: fit-content;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   gap: 20px;
   padding: 24px 24px 0;
 }
@@ -1203,10 +1231,6 @@ body.archive-modal-open {
   margin: 0;
   width: 100%;
   max-width: none;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.55;
-  font-style: italic;
 }
 
 .platform-preview-grid {
@@ -1214,7 +1238,7 @@ body.archive-modal-open {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   width: 100%;
-  height: auto;
+  height: 200px;
 }
 
 .platform-preview-grid > img {
@@ -1319,9 +1343,6 @@ body.archive-modal-open {
   aspect-ratio: 4 / 3;
 }
 
-.three-up > div > .image-frame + p {
-  font-weight: 600;
-}
 
 .user-goals-layout {
   display: grid;
@@ -1409,10 +1430,6 @@ body.archive-modal-open {
 .sticky-note-title {
   margin: 0 0 24px;
   width: 100%;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.55;
-  font-style: italic;
   color: rgba(28, 28, 28, 0.75);
 }
 
@@ -1525,26 +1542,10 @@ body.archive-modal-open {
   max-width: 720px;
   width: 100%;
   height: fit-content;
-  font-size: 16px;
-  line-height: 1.62;
-  font-style: italic;
-  text-align: center;
 }
 
 .project-main .image-frame {
   border-radius: 2px;
-}
-
-.project-main .custom-container:not(.platform-preview-container) .custom-container-copy p,
-.project-main .platform-preview-title,
-.project-main .portfolio-pages-caption,
-.project-main .sticky-note-title {
-  font-style: italic;
-  text-align: center;
-}
-
-#final-solution .custom-container:not(.platform-preview-container) .custom-container-copy p {
-  text-align: left;
 }
 
 .process-row {
