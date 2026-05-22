@@ -1,4 +1,71 @@
-(function () {
+(function initSidebarScrollSpy() {
+  const navLinks = document.querySelectorAll('.project-sidebar .sidebar-links a[href^="#"]');
+  if (!navLinks.length) return;
+
+  const sections = [];
+
+  navLinks.forEach((link) => {
+    const id = link.getAttribute('href').slice(1);
+    const section = document.getElementById(id);
+    if (section) {
+      sections.push({ id, section, link });
+    }
+  });
+
+  if (!sections.length) return;
+
+  let scrollTicking = false;
+
+  function setActiveLink(activeId) {
+    sections.forEach(({ id, link }) => {
+      const isActive = id === activeId;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function updateActiveSection() {
+    const viewportCenter = window.innerHeight / 2;
+    let activeId = sections[0].id;
+    let minDistance = Infinity;
+
+    sections.forEach(({ id, section }) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+        return;
+      }
+
+      const sectionCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(sectionCenter - viewportCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        activeId = id;
+      }
+    });
+
+    setActiveLink(activeId);
+  }
+
+  function scheduleActiveUpdate() {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      updateActiveSection();
+      scrollTicking = false;
+    });
+  }
+
+  updateActiveSection();
+  window.addEventListener('scroll', scheduleActiveUpdate, { passive: true });
+  window.addEventListener('resize', updateActiveSection);
+})();
+
+(function initSidebarNextPreview() {
   const nextLink = document.querySelector('.sidebar-next');
   const preview = document.querySelector('.sidebar-next-preview');
 

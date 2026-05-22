@@ -156,8 +156,12 @@
 .sidebar-links a {
   font-size: 16px;
   line-height: 1.4;
-  color: var(--black);
+  color: rgba(28, 28, 28, 0.38);
   transition: color 160ms ease;
+}
+
+.sidebar-links a.is-active {
+  color: var(--black);
 }
 
 .sidebar-links a:hover,
@@ -169,27 +173,134 @@
   color: var(--blue);
 }
 
-.project-main .project-section .subtitle {
-  color: var(--blue);
+.project-main .project-section .subtitle,
+.project-main .project-hero .project-summary .subtitle,
+.project-main .reflection-row-label.subtitle {
+  color: rgba(28, 28, 28, 0.65);
   font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.06em;
 }
 
-.project-main .project-hero .project-summary .subtitle {
+.outcome-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
+.outcome-stat {
+  min-width: 0;
+}
+
+.outcome-stat h2 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.outcome-stat p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.62;
+  font-weight: 400;
   color: var(--black);
 }
 
 .project-column {
   min-width: 0;
   max-width: 100%;
-  padding: 56px 24px 0;
+  padding: 56px 220px 0 120px;
   overflow-x: clip;
 }
 
 .project-main {
   padding: 0 0 60px;
 }
+
+.project-main .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.project-main .project-section,
+.project-main .content-section,
+.project-main .process-group,
+.project-main .process-entry,
+.project-main .project-hero,
+.project-main .project-summary,
+.project-main .project-meta,
+.project-main .subtitle,
+.project-main h1,
+.project-main h2,
+.project-main p,
+.project-main blockquote,
+.project-main .process-entry ul,
+.project-main .portfolio-pages-caption,
+.project-main .portfolio-pages-section,
+.project-main #journey h2,
+.project-main .custom-containers,
+.project-main .custom-container,
+.project-main .custom-container-inner,
+.project-main .platform-preview-container,
+.project-main .platform-preview-inner,
+.project-main .platform-preview-grid,
+.project-main .platform-preview-title,
+.project-main .sticky-note-section,
+.project-main .sticky-note-grid,
+.project-main .sticky-note-row,
+.project-main .sticky-note-row .note,
+.project-main .three-up,
+.project-main .three-up > div,
+.project-main .user-goals-layout,
+.project-main .user-goals-content,
+.project-main .image-frame {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project-main .process-entry > .platform-preview-container,
+.project-main .custom-container.platform-preview-container {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.project-main .platform-preview-title {
+  margin: 0;
+}
+
+.project-main .platform-preview-grid {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  height: fit-content;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: max-content;
+  align-items: start;
+}
+
+.project-main .platform-preview-grid > img,
+.project-main .platform-preview-item,
+.project-main .platform-preview-frame,
+.project-main .platform-preview-frame img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.project-main .platform-preview-frame {
+  height: fit-content;
+}
+
 
 .project-section {
   scroll-margin-top: 32px;
@@ -261,7 +372,7 @@
   }
 
   .project-column {
-    padding: 24px 24px 0;
+    padding: 24px 220px 0 120px;
   }
 
   .sidebar-home {
@@ -279,7 +390,16 @@
   }
 
   .project-column {
-    padding: 20px 18px 0;
+    padding: 20px 220px 0 120px;
+  }
+
+  .outcome-stats {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .outcome-stat h2 {
+    font-size: 28px;
   }
 
   .project-footer-inner {

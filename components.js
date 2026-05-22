@@ -1,3 +1,6 @@
+const RESUME_URL =
+  'https://drive.google.com/file/d/1mOMvKb67YjsOM65gHeu3iLooPVo6r2ut/view?usp=sharing';
+
 class SiteHeader extends HTMLElement {
   connectedCallback() {
     if (this.dataset.rendered === 'true') return;
@@ -31,7 +34,7 @@ class SiteHeader extends HTMLElement {
             <a href="${projectsHref}">Projects</a>
             <a href="archive.html">Archive</a>
             <a href="about.html">About</a>
-            <a class="external" href="https://drive.google.com/drive/u/0/folders/1XbnYRbWaqmWYE9XXKzeN9OAETWf2YSIV">
+            <a class="external" href="${RESUME_URL}" target="_blank" rel="noopener noreferrer">
               <span>Resume</span>
               <span class="external-arrow" aria-hidden="true">
                 <img src="assets/icons/Arrow up-right.svg" alt="" />
@@ -117,7 +120,7 @@ class SiteFooter extends HTMLElement {
               <a href="${projectsHref}">Projects</a>
               <a href="archive.html">Archive</a>
               <a href="about.html">About</a>
-              <a class="external" href="#resume">
+              <a class="external" href="${RESUME_URL}" target="_blank" rel="noopener noreferrer">
                 <span>Resume</span>
                 <span class="external-arrow" aria-hidden="true">
                   <img src="assets/icons/Arrow up-right.svg" alt="" />
