@@ -40,7 +40,7 @@
               <a href="#background">Background</a>
               <a href="#research">Research</a>
               <a href="#outcomes">Outcomes</a>
-              <a href="#ideation">Ideation</a>
+              <a href="#ideation">User Testing</a>
               <a href="#findings">Results</a>
               <a href="#solution">Solution</a>
               <a href="#reflection">Reflection</a>
@@ -130,11 +130,19 @@
               <div class="custom-containers">
                 <div class="custom-container">
                   <div class="custom-container-inner">
-                    <img
+                    <video
                       class="custom-container-image"
-                      src="assets/project-specific/unlocked labs/[REVISED] Dashboard- completed tab.png"
-                      alt="Completed dashboard tab tracking rehabilitative progress"
-                    />
+                      controls
+                      playsinline
+                      preload="metadata"
+                      poster="assets/project-specific/unlocked labs/[REVISED] Dashboard- completed tab.png"
+                      aria-label="Dashboard demo tracking rehabilitative progress"
+                    >
+                      <source
+                        src="assets/project-specific/unlocked labs/UL Quick Demo.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
                     <div class="custom-container-copy">
                       <p>A dashboard that motivates residents while tracking their rehabilitative progress</p>
                     </div>
@@ -142,11 +150,27 @@
                 </div>
                 <div class="custom-container">
                   <div class="custom-container-inner">
-                    <img
-                      class="custom-container-image"
-                      src="assets/project-specific/unlocked labs/[FINAL] Version Page 2.png"
-                      alt="Printable report page summarizing resident progress"
-                    />
+                    <div
+                      class="custom-container-report-pages"
+                      role="group"
+                      aria-label="Printable report pages summarizing resident progress"
+                    >
+                      <img
+                        class="custom-container-image"
+                        src="assets/project-specific/unlocked labs/[FINAL] Printed Version Page 1.png"
+                        alt="Printable report page 1"
+                      />
+                      <img
+                        class="custom-container-image"
+                        src="assets/project-specific/unlocked labs/[FINAL] Version Page 2.png"
+                        alt="Printable report page 2"
+                      />
+                      <img
+                        class="custom-container-image"
+                        src="assets/project-specific/unlocked labs/[FINAL] Printed Version Page 3.png"
+                        alt="Printable report page 3"
+                      />
+                    </div>
                     <div class="custom-container-copy">
                       <p>Printable reports that summarize their progress across programs</p>
                     </div>
@@ -161,12 +185,30 @@
                 <div class="subtitle">Outcomes</div>
                 <div class="outcome-stats">
                   <div class="outcome-stat">
-                    <h2>2025 Q2</h2>
-                    <p>Launch Date</p>
+                    <img
+                      class="outcome-stat-icon"
+                      src="assets/icons/rocket_launch_Rounded.svg"
+                      alt=""
+                      width="32"
+                      height="32"
+                    />
+                    <div class="outcome-stat-text">
+                      <h2>2025 Q2</h2>
+                      <p>Launch Date</p>
+                    </div>
                   </div>
                   <div class="outcome-stat">
-                    <h2>500+</h2>
-                    <p>residents reached</p>
+                    <img
+                      class="outcome-stat-icon"
+                      src="assets/icons/groups_3_Rounded.svg"
+                      alt=""
+                      width="32"
+                      height="32"
+                    />
+                    <div class="outcome-stat-text">
+                      <h2>500+</h2>
+                      <p>residents reached</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -336,7 +378,42 @@
                 <div class="subtitle">The Problem: A Closer Look</div>
                 <h2>Incarcerated students are left uncertain over what to include in their portfolio, 
                   putting them at risk of inadequate preparation and negatively impacting their portfolio status. </h2>
-                <p>Add a second outcomes section here when you want to expand this story later.</p>
+                <div class="three-up three-up--sketches">
+                  <div>
+                    <img
+                      src="assets/project-specific/unlocked labs/sketch 1 (ul).png"
+                      alt="Sketch illustrating limited UnlockEd access and pen-and-paper progress tracking"
+                    />
+                    <ul>
+                      <li>Resident's access to UnlockEd is limited</li>
+                      <li>They log progress with pen and paper</li>
+                      <li>No fixed format for portfolio content</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img
+                      src="assets/project-specific/unlocked labs/sketch 2 (ul).png"
+                      alt="Sketch illustrating fragmented document storage without a central system"
+                    />
+                    <ul>
+                      <li>No central system for safeguarding their documents</li>
+                      <li>Some learners keep backup copies of important documents</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <img
+                      src="assets/project-specific/unlocked labs/sketch 3 (ul).png"
+                      alt="Sketch illustrating portfolio sharing before parole hearings"
+                    />
+                    <ul>
+                      <li>Residents share their portfolio prior to parole hearings</li>
+                      <li>
+                        This contains handwritten and/or typed summaries + all supporting evidence
+                        (certificates, transcripts, etc.)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </section>
 
@@ -383,36 +460,107 @@
                   At this stage, we hadn’t received all client resources but moved forward due to the short timeline, beginning
                   our brainstorming with limited knowledge.
                 </p>
-                  <p>After speaking with the CTO, we gained clarity on existing resident resources and how they tie into UnlockEd. Since some of the courses redirect users to external websites/dashboards, features like a class calendar felt redundant. 
-
-                    We also focused on what users would find genuinely useful and how they could assign quantitative value 
-                    to their program progress.</p>
+                <div class="platform-preview-container process-media-block">
+                  <div class="platform-preview-inner">
+                    <p class="portfolio-pages-caption">
+                      Early low-fidelity explorations of the resident dashboard and progress tracking
+                    </p>
+                    <div class="platform-preview-grid platform-preview-grid--five">
+                      <div class="platform-preview-grid-row platform-preview-grid-row--primary">
+                        <img
+                          src="assets/project-specific/unlocked labs/lo fi 1.png"
+                          alt="Low-fidelity dashboard concept 1"
+                        />
+                        <img
+                          src="assets/project-specific/unlocked labs/lo fi 2.png"
+                          alt="Low-fidelity dashboard concept 2"
+                        />
+                        <img
+                          src="assets/project-specific/unlocked labs/lo fi 3.png"
+                          alt="Low-fidelity dashboard concept 3"
+                        />
+                      </div>
+                      <div class="platform-preview-grid-row platform-preview-grid-row--secondary">
+                        <img
+                          src="assets/project-specific/unlocked labs/lo fi 4.png"
+                          alt="Low-fidelity dashboard concept 4"
+                        />
+                        <img
+                          src="assets/project-specific/unlocked labs/lo fi 5.png"
+                          alt="Low-fidelity dashboard concept 5"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  After speaking with the CTO, we gained clarity on existing resident resources and how they tie into UnlockEd.
+                  Since some of the courses redirect users to external websites/dashboards, features like a class calendar felt
+                  redundant.
+                </p>
+                <p>
+                  We also focused on what users would find genuinely useful and how they could assign quantitative value to
+                  their program progress.
+                </p>
+                <div class="platform-preview-container process-media-block">
+                  <div class="platform-preview-inner">
+                    <p class="portfolio-pages-caption">
+                      This round features a history of achievements, progress, and hours completed by program type. At the bottom, users can switch between current programs and past programs.
+                    </p>
+                    <div class="platform-preview-grid">
+                      <img
+                        src="assets/project-specific/unlocked labs/mid fi 1.png"
+                        alt="Mid-fidelity screen exploring useful dashboard features for residents"
+                      />
+                      <img
+                        src="assets/project-specific/unlocked labs/mid fi 2.png"
+                        alt="Mid-fidelity screen exploring how residents assign value to program progress"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <!-- IDEATION -->
+            <!-- USER TESTING -->
             <section class="project-section content-section process-group" id="ideation">
               <div class="process-entry">
-                <div class="subtitle">Ideation</div>
+                <div class="subtitle">User Testing</div>
                 <h2>User testing highlighted the need for clearer terminology, improved tracking of any course type, 
-                  more intuitive  displays, and a summary view for parole review.</h2>
-                <p>After speaking with both of our previous interviewees, we uncovered potential key refinements: 
-
-                  Terminology needed adjustments ("Experiences" was unclear), and units and credits should be standardized. 
-                  
-                  They valued tracking completed and ongoing courses, even those without certificates (outcome). 
-                  
-                  They also wanted clearer hourly correlations instead of pie charts and a summary view of both accomplishments 
-                  and certifications for parole review. 
-                  
-                  From here, we moved into a high-fidelity prototype that addressed these points and now fit within the 
-                  branding of UnlockEd.
-                  
-                  </p>
-                <p>We went through one more round of design iteration before finalizing the dashboard, 
-                  to which we finalized any visual design flaws.</p>
+                  more intuitive displays, and a summary view for parole review.</h2>
+                <p>
+                  After speaking with both of our previous interviewees, we uncovered potential key refinements:
+                  terminology needed adjustments (“Experiences” was unclear), and units and credits should be standardized.
+                  They valued tracking completed and ongoing courses, even those without certificates (outcome). They also wanted
+                  clearer hourly correlations instead of pie charts and a summary view of both accomplishments and certifications
+                  for parole review.
+                </p>
+                <p>
+                  From here, we moved into a high-fidelity prototype that addressed these points and now fit within the branding
+                  of UnlockEd.
+                </p>
+                <div class="platform-preview-container process-media-block">
+                  <div class="platform-preview-inner">
+                    <p class="portfolio-pages-caption">
+                      Our new design features an overview of progress, time allocated by program type, certificates gained, and both on-going and completed programs.
+                    </p>
+                    <div class="platform-preview-grid">
+                      <img
+                        src="assets/project-specific/unlocked labs/hi fi 1.png"
+                        alt="High-fidelity prototype screen 1"
+                      />
+                      <img
+                        src="assets/project-specific/unlocked labs/hi fi 2.png"
+                        alt="High-fidelity prototype screen 2"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  We went through one more round of design iteration before finalizing the dashboard, to which we finalized any
+                  visual design flaws.
+                </p>
               </div>
-              
             </section>
 
             <!-- SOLUTION -->
@@ -420,10 +568,10 @@
               <div class="process-entry">
                 <div class="subtitle">Final Solution</div>
                 <h2>Our first deliverable was a dashboard centralizing the users' needs.</h2>
-                <div class="image-frame full-width-image">
+                <div class="image-frame full-width-image full-width-image--natural">
                   <img
-                    src="assets/project-specific/unlocked labs/[REVISED] Dashboard- completed tab.png"
-                    alt="Completed dashboard tab tracking rehabilitative progress"
+                    src="assets/project-specific/unlocked labs/Full Solution Explained.png"
+                    alt="Overview diagram explaining the full dashboard solution for residents"
                   />
                 </div>
                 <h2>Residents can also download reports summarizing their progress and achievements.</h2>
@@ -433,10 +581,25 @@
                   These reports include program details, completion status, hours earned, 
                   and dates, eliminating the need for manual tracking so that users can focus more on making progress.
                 </p>
-                <div class="image-frame full-width-image">
+                <div
+                  class="custom-container-report-pages"
+                  role="group"
+                  aria-label="Printable report pages summarizing resident progress"
+                >
                   <img
+                    class="custom-container-image"
                     src="assets/project-specific/unlocked labs/[FINAL] Printed Version Page 1.png"
-                    alt="Printable report template page for resident progress summaries"
+                    alt="Printable report page 1"
+                  />
+                  <img
+                    class="custom-container-image"
+                    src="assets/project-specific/unlocked labs/[FINAL] Version Page 2.png"
+                    alt="Printable report page 2"
+                  />
+                  <img
+                    class="custom-container-image"
+                    src="assets/project-specific/unlocked labs/[FINAL] Printed Version Page 3.png"
+                    alt="Printable report page 3"
                   />
                 </div>
               </div>
@@ -488,7 +651,7 @@
                   <div class="reflection-row-label subtitle">Wishes</div>
                   <div class="reflection-row-columns">
                     <div class="reflection-column">
-                      <h2>Conducting more user interviews and user testing.</h2>
+                      <h2>Conducting more user interviews + testing.</h2>
                       <p>
                         Due to our tight timeline and lack of experience with incarcerated individuals, we opted not to try
                         and source interviewees for us to conduct user interviews. However, broader user feedback enhance
