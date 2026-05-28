@@ -1544,19 +1544,33 @@ body.archive-modal-open {
 }
 
 .trubel-co-page #ideation .platform-preview-grid.platform-preview-grid--five {
+  --ideation-media-size: clamp(64px, 12vw, 110px);
+  --ideation-arrow-size: clamp(24px, 5vw, 60px);
+  --ideation-gap: clamp(6px, 1.2vw, 10px);
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   grid-template-columns: none !important;
   align-items: flex-start;
-  gap: var(--media-caption-gap);
-  overflow-x: auto;
+  gap: var(--ideation-gap);
+  overflow: visible;
   border: none;
   border-radius: 0;
   background: transparent;
 }
 
 .trubel-co-page #ideation .platform-preview-grid.platform-preview-grid--five > img {
+  flex: 0 0 var(--ideation-media-size);
+  width: var(--ideation-media-size);
+  min-width: var(--ideation-media-size);
+  max-width: var(--ideation-media-size);
+  height: auto;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
+}
+
+.trubel-co-page #ideation .platform-preview-grid.platform-preview-grid--five > video {
   flex: 0 0 110px;
   width: 110px;
   min-width: 110px;
@@ -1567,16 +1581,52 @@ body.archive-modal-open {
   background: var(--image-container-fill);
 }
 
+.trubel-co-page #ideation .platform-preview-inner.ideation-no-shell > .platform-preview-grid.platform-preview-grid--five:not(.ideation-fluid-row) {
+  --ideation-secondary-gap: clamp(6px, 1.2vw, 10px);
+  --ideation-secondary-arrow-size: 40px;
+  --ideation-secondary-media-size: clamp(
+    72px,
+    calc((100% - var(--ideation-secondary-arrow-size) - (var(--ideation-secondary-gap) * 4)) / 4),
+    220px
+  );
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch;
+  gap: var(--ideation-secondary-gap);
+  overflow: visible !important;
+}
+
+.trubel-co-page #ideation .platform-preview-inner.ideation-no-shell > .platform-preview-grid.platform-preview-grid--five:not(.ideation-fluid-row) > img,
+.trubel-co-page #ideation .platform-preview-inner.ideation-no-shell > .platform-preview-grid.platform-preview-grid--five:not(.ideation-fluid-row) > video {
+  flex: 0 0 var(--ideation-secondary-media-size);
+  width: var(--ideation-secondary-media-size) !important;
+  min-width: var(--ideation-secondary-media-size) !important;
+  max-width: var(--ideation-secondary-media-size) !important;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: none;
+  object-fit: cover;
+}
+
+.trubel-co-page #ideation .platform-preview-inner.ideation-no-shell > .platform-preview-grid.platform-preview-grid--five:not(.ideation-fluid-row) > .ideation-arrow-inline {
+  flex: 0 0 var(--ideation-secondary-arrow-size);
+  width: var(--ideation-secondary-arrow-size);
+  min-width: var(--ideation-secondary-arrow-size);
+}
+
+
 .trubel-co-page #ideation .ideation-arrow-stack {
-  flex: 0 0 60px;
-  width: 60px;
-  min-width: 60px;
+  flex: 0 0 auto;
+  width: fit-content;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 14px;
-  min-height: 100%;
+  height: fit-content;
+  align-self: center;
 }
 
 .trubel-co-page #ideation .ideation-arrow-stack img {
@@ -1584,6 +1634,99 @@ body.archive-modal-open {
   height: 24px;
   display: block;
   filter: brightness(0) saturate(100%) invert(64%);
+}
+
+.trubel-co-page #ideation .ideation-arrow-inline {
+  flex: 0 0 40px;
+  width: 40px;
+  min-width: 40px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trubel-co-page #ideation .ideation-arrow-inline img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(64%);
+}
+
+.trubel-co-page #ideation .ideation-fluid-row > img,
+.trubel-co-page #ideation .ideation-fluid-row > video {
+  flex: 0 0 var(--ideation-media-size);
+  width: var(--ideation-media-size);
+  min-width: 0;
+  max-width: var(--ideation-media-size);
+}
+
+.trubel-co-page #ideation .ideation-fluid-row {
+  --ideation-row-gap: clamp(6px, 1.2vw, 10px);
+  --ideation-row-arrow-stack-size: 24px;
+  --ideation-row-arrow-inline-size: 40px;
+  --ideation-media-size: calc(
+    (
+        100% - var(--ideation-row-arrow-stack-size) - var(--ideation-row-arrow-inline-size) -
+          (var(--ideation-row-gap) * 5)
+      ) / 4
+  );
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  gap: var(--ideation-row-gap);
+  align-self: stretch;
+  overflow: hidden;
+}
+
+.trubel-co-page #ideation .ideation-fluid-row .ideation-pair {
+  flex: 0 0 auto;
+  min-width: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--ideation-row-gap);
+  width: fit-content;
+}
+
+.trubel-co-page #ideation .ideation-fluid-row > .ideation-pair-stack {
+  flex: 0 0 auto;
+  min-width: calc((2 * var(--ideation-media-size)) + var(--ideation-row-gap));
+  width: calc((2 * var(--ideation-media-size)) + var(--ideation-row-gap));
+  display: flex;
+  flex-direction: column;
+  gap: var(--ideation-row-gap);
+}
+
+.trubel-co-page #ideation .ideation-fluid-row .ideation-arrow-stack {
+  flex: 0 0 var(--ideation-row-arrow-stack-size);
+  width: var(--ideation-row-arrow-stack-size);
+  min-width: var(--ideation-row-arrow-stack-size);
+}
+
+.trubel-co-page #ideation .ideation-fluid-row .ideation-arrow-inline {
+  flex: 0 0 var(--ideation-row-arrow-inline-size);
+  width: var(--ideation-row-arrow-inline-size);
+  min-width: var(--ideation-row-arrow-inline-size);
+}
+
+.trubel-co-page #ideation .process-entry > .platform-preview-container,
+.trubel-co-page #ideation .process-entry > .platform-preview-container > .platform-preview-inner.ideation-no-shell,
+.trubel-co-page #ideation .process-entry > .platform-preview-container > .platform-preview-inner.ideation-no-shell > .platform-preview-grid {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+
+.trubel-co-page #ideation .ideation-fluid-row .ideation-pair > img {
+  flex: 0 0 var(--ideation-media-size);
+  width: var(--ideation-media-size);
+  min-width: 0;
+  max-width: var(--ideation-media-size);
+  height: auto;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
 }
 
 #old-designs .old-workshops-iframe {
