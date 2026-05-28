@@ -1161,27 +1161,12 @@ body.archive-modal-open {
   text-align: left;
 }
 
-/* Printable reports: stack images above caption so copy never overlaps */
-#final-solution .custom-container:last-child:not(.platform-preview-container) .custom-container-inner {
-  flex-direction: column;
-  align-items: stretch;
-  gap: var(--media-caption-gap);
-}
-
+/* Printable reports: images and caption side by side (matches dashboard row) */
 #final-solution .custom-container:last-child:not(.platform-preview-container) .custom-container-report-pages {
-  flex: none;
-  align-self: stretch;
-  width: 100%;
-  max-width: 100%;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: 65%;
   margin-right: 0;
-}
-
-#final-solution .custom-container:last-child:not(.platform-preview-container) .custom-container-copy {
-  flex: none;
-  align-self: stretch;
-  width: 100%;
-  max-width: none;
-  align-items: flex-start;
 }
 
 #final-solution .custom-container:not(.platform-preview-container) .custom-container-copy p {
@@ -1201,11 +1186,10 @@ body.archive-modal-open {
   max-height: 280px;
 }
 
-#final-solution .custom-container-report-pages {
+#final-solution .custom-container-report-pages,
+#solution .custom-container-report-pages {
   --report-page-gap: 8px;
-  --report-page-size: min(170px, calc((100% - 2 * var(--report-page-gap)) / 3));
   display: flex;
-  flex: 1 1 auto;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: flex-end;
@@ -1213,20 +1197,17 @@ body.archive-modal-open {
   min-width: 0;
   max-width: 100%;
   width: 100%;
-  align-self: flex-end;
   overflow: visible;
 }
 
+#final-solution .custom-container-report-pages {
+  --report-page-size: min(200px, calc((100% - 2 * var(--report-page-gap)) / 3));
+  flex: 1 1 auto;
+  align-self: flex-end;
+}
+
 #solution .custom-container-report-pages {
-  --report-page-gap: var(--media-caption-gap);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: var(--report-page-gap);
-  min-width: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow: visible;
+  --report-page-col: calc((100% - 2 * var(--report-page-gap)) / 3);
 }
 
 #final-solution .custom-container-report-pages .custom-container-image {
@@ -1246,10 +1227,10 @@ body.archive-modal-open {
 }
 
 #solution .custom-container-report-pages .custom-container-image {
-  flex: none;
+  flex: 1 1 0;
   width: 100%;
   min-width: 0;
-  max-width: 100%;
+  max-width: var(--report-page-col);
   height: auto;
   max-height: none;
   display: block;
@@ -1259,6 +1240,8 @@ body.archive-modal-open {
   border: 1px solid var(--image-container-border);
   border-radius: var(--media-caption-radius);
   background: var(--white);
+  object-fit: contain;
+  object-position: bottom center;
 }
 
 /* Global img { max-width: 100% } must not shrink report pages inside flex */
@@ -1270,10 +1253,10 @@ body.archive-modal-open {
 }
 
 .project-main #solution .custom-container-report-pages .custom-container-image {
-  flex: none;
+  flex: 1 1 0;
   width: 100%;
   min-width: 0;
-  max-width: 100%;
+  max-width: var(--report-page-col);
 }
 
 @media (max-width: 980px) {
@@ -1423,6 +1406,9 @@ body.archive-modal-open {
 
 .project-main .platform-preview-grid.platform-preview-grid--five,
 .platform-preview-grid--five {
+  --lo-fi-primary-col-width: calc((100% - 2 * var(--media-caption-gap)) / 3);
+  /* Match tallest primary thumb (~162×134) so row 2 aligns with row 1 */
+  --lo-fi-shared-max-height: calc(var(--lo-fi-primary-col-width) * 134 / 162);
   display: flex;
   flex-direction: column;
   gap: var(--media-caption-gap);
@@ -1460,11 +1446,14 @@ body.archive-modal-open {
 }
 
 .platform-preview-grid--five .platform-preview-grid-row--primary > img {
-  max-width: calc((100% - 2 * var(--media-caption-gap)) / 3);
+  max-width: var(--lo-fi-primary-col-width);
 }
 
 .platform-preview-grid--five .platform-preview-grid-row--secondary > img {
   max-width: calc((100% - var(--media-caption-gap)) / 2);
+  max-height: var(--lo-fi-shared-max-height);
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .platform-preview-item {
@@ -2216,6 +2205,15 @@ body.archive-modal-open {
   .platform-preview-grid {
     grid-template-columns: 1fr;
     height: fit-content;
+  }
+
+  .design-decision-preview .platform-preview-grid--with-arrow {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .design-decision-preview .platform-preview-arrow img {
+    transform: rotate(90deg);
   }
 
   .platform-preview-grid--five .platform-preview-grid-row--secondary {

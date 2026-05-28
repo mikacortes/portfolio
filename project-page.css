@@ -176,6 +176,11 @@
   color: var(--blue);
 }
 
+.project-main p a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
 .project-main .project-section .subtitle,
 .project-main .project-hero .project-summary .subtitle,
 .project-main .reflection-row-label.subtitle {
@@ -350,6 +355,28 @@
 
 .project-main .design-decision-preview .platform-preview-grid {
   align-items: center;
+}
+
+.project-main .design-decision-preview .platform-preview-grid--with-arrow {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.project-main .design-decision-preview .platform-preview-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: auto;
+  max-width: none;
+  padding: 0 4px;
+}
+
+.project-main .design-decision-preview .platform-preview-arrow img {
+  width: 28px;
+  height: 28px;
+  max-width: none;
+  filter: brightness(0) saturate(100%) invert(64%);
 }
 
 .project-main .design-decision-preview .platform-preview-item {
