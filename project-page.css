@@ -197,6 +197,11 @@
   width: 100%;
 }
 
+.project-main #impact .outcome-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .outcome-stat {
   display: flex;
   align-items: flex-start;
