@@ -94,6 +94,110 @@
   background: transparent;
 }
 
+.trubel-co-page #stakeholder-feedback .process-entry > .platform-preview-container > .platform-preview-inner.ideation-no-shell,
+.trubel-co-page #stakeholder-feedback .process-entry > .platform-preview-container > .platform-preview-inner.ideation-no-shell > .platform-preview-grid {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media {
+  --ideation-secondary-gap: clamp(6px, 1.2vw, 10px);
+  --ideation-secondary-arrow-size: 40px;
+  --stakeholder-workshop-card-height: clamp(120px, 28vw, 240px);
+  --ideation-pair-column-width: calc(
+    (100% - var(--ideation-secondary-arrow-size) - (2 * var(--ideation-secondary-gap))) / 2
+  );
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: flex-start;
+  gap: var(--ideation-secondary-gap);
+  overflow: hidden;
+  width: 100%;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item {
+  flex: 0 0 var(--ideation-pair-column-width) !important;
+  width: var(--ideation-pair-column-width) !important;
+  max-width: var(--ideation-pair-column-width) !important;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item .ideation-media-frame {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item:first-of-type .ideation-media-frame {
+  width: 100%;
+  height: var(--stakeholder-workshop-card-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item:first-of-type .ideation-media-frame > img {
+  width: auto !important;
+  max-width: 100%;
+  height: auto !important;
+  max-height: 100%;
+  min-width: 0;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item:last-of-type .ideation-media-frame {
+  width: 100%;
+  display: block;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item:last-of-type .ideation-media-frame > img {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: var(--stakeholder-workshop-card-height);
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+  border: 1px solid var(--image-container-border);
+  border-radius: 8px;
+  background: var(--image-container-fill);
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item > .ideation-media-caption {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  color: #555555;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-arrow-inline {
+  flex: 0 0 var(--ideation-secondary-arrow-size);
+  width: var(--ideation-secondary-arrow-size);
+  min-width: var(--ideation-secondary-arrow-size);
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-arrow-inline img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(64%);
+}
+
 /* Icons should never inherit media shell styles */
 img.outcome-stat-icon,
 img[src*="assets/icons/"] {
