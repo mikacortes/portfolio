@@ -32,8 +32,7 @@
           <div class="sidebar-group">
             <div class="sidebar-heading subtitle">Full Process</div>
             <nav class="sidebar-links" aria-label="Full process sections">
-              <a href="#timeline">Project Timeline</a>
-              <a href="#old-designs">Old Designs</a>
+              <a href="#timeline">Background</a>
               <a href="#research">Research</a>
               <a href="#ideation">Ideation</a>
               <a href="#user-testing">User Testing</a>
@@ -239,7 +238,7 @@
                 <div class="outcome-stat">
                   <img
                     class="outcome-stat-icon"
-                    src="../assets/icons/Thumbs up.svg"
+                    src="../assets/icons/groups_3_Rounded.svg"
                     alt=""
                     width="32"
                     height="32"
@@ -252,7 +251,7 @@
                 <div class="outcome-stat">
                   <img
                     class="outcome-stat-icon"
-                    src="../assets/icons/groups_3_Rounded.svg"
+                    src="../assets/icons/Thumbs up.svg"
                     alt=""
                     width="32"
                     height="32"
@@ -304,16 +303,13 @@
               <div class="process-entry">
                 <div class="subtitle">Project Goal &amp; Constraints</div>
                 <h2>
-                  Building on the previous team's foundation, I redesigned 4 website pages to enhance the user experience while ensuring easy handoff to a non-designer team.
+                  Building on the previous team's foundation, I was responsible for redesigning 4 pages that would need to be managed by non-designers.
                 </h2>
                 <p>
-                  Though initially scoped to the Workshops page, I identified additional gaps and ultimately redesigned 3 more pages — all within Squarespace to keep the design simple enough for the trubel&amp;co team to manage after handoff.
+                  Though my work was initially scoped to the Workshops page, I identified additional gaps and ultimately redesigned 3 more pages — all within Squarespace to keep the design simple enough for the trubel&amp;co team to manage after handoff.
                 </p>
               </div>
-            </section>
-
-            <section class="project-section content-section process-group" id="old-designs">
-              <div class="process-entry">
+              <div class="process-entry" id="old-designs">
                 <div class="subtitle">Old Designs</div>
                 <h2>All four pages struggled with oversized text, dominant images, and poorly optimized information.</h2>
                 <p>
@@ -392,11 +388,12 @@
             <section class="project-section content-section process-group" id="research">
               <div class="process-entry">
                 <div class="subtitle">Research</div>
-                <h2>Using Qualtrics, we gathered users' thoughts about the old designs.</h2>
+                <h2>Using Qualtrics, we gathered users' thoughts about the current website.</h2>
                 <p>
                   We received overall positive feedback on the design, layout, and clarity across most pages, including the News &amp; Press page. However, the main pain points arose on the Workshops page, particularly due to a lack of specificity and clarity about past and upcoming workshops, which aligned with what I initially observed.
-                  <br />
-                  Since the individual Workshops and Blog pages were not intially considered for the project yet, they were not included as part of this survey.
+                </p>
+                <p class="impact-footnote">
+                  Since the individual workshop and blog pages were not intially considered for the project yet, they were not included as part of this survey.
                 </p>
                 <div class="three-up">
                   <div class="research-insight-card">
@@ -420,7 +417,7 @@
                     />
                     <p class="research-insight-title"><strong>Information overload</strong></p>
                     <p>
-                      Both pages were described to have redundant or clunky text, with respondents suggesting that we improve skimmability.
+                      The Workshops and News &amp; Press pages were described to have redundant or clunky text, with respondents suggesting that we improve skimmability.
                     </p>
                   </div>
                   <div class="research-insight-card">
@@ -482,7 +479,7 @@
                         </div>
                       </div>
                       <div class="ideation-arrow-inline" aria-hidden="true">
-                        <img src="../assets/icons/Arrow right.svg" alt="" />
+                        <img src="../assets/icons/Arrow up-right.svg" alt="" />
                       </div>
                       <img
                         src="../assets/project-specific/trubel-co/workshops v2.png"
@@ -493,42 +490,59 @@
                   </div>
                 </div>
                 <p>
-                  Since our client-side contact wasn't part of the team managing workshops, I received weekly feedback on new constraints and additional information. At this stage, I also explored ways to make the website more engaging with custom code, while keeping within Squarespace's limitations.
+                  Since our client-side contact wasn't part of the team managing workshops, I received weekly feedback on new constraints and additional information. At this stage, I also explored ways to make the website more engaging with custom code while keeping within Squarespace's limitations.
                 </p>
                 <div class="platform-preview-container">
                   <div class="platform-preview-inner ideation-no-shell">
                     <div class="platform-preview-grid platform-preview-grid--five">
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
-                        alt="Workshops low-fidelity design overview"
-                      />
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
+                          alt="Workshops low-fidelity design overview"
+                        />
+                        <p class="ideation-media-caption">Previous design: Pressing the buttons within each card revealed past workshops in that theme</p>
+                      </div>
                       <div class="ideation-arrow-inline" aria-hidden="true">
                         <img src="../assets/icons/Arrow right.svg" alt="" />
                       </div>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Hover effect preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/hover effect.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Buttons pop up preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/buttons pop up.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
+                      <div class="ideation-video-stack">
+                        <div class="ideation-media-item">
+                          <video
+                            class="ideation-inline-video"
+                            autoplay
+                            muted
+                            loop
+                            controls
+                            playsinline
+                            preload="metadata"
+                            aria-label="Hover effect preview"
+                          >
+                            <source
+                              src="../assets/project-specific/trubel-co/hover effect.mp4"
+                              type="video/mp4"
+                            />
+                          </video>
+                          <p class="ideation-media-caption">New design: Hovering over a card reveals more about that workshop type</p>
+                        </div>
+                        <div class="ideation-media-item">
+                          <video
+                            class="ideation-inline-video"
+                            autoplay
+                            muted
+                            loop
+                            controls
+                            playsinline
+                            preload="metadata"
+                            aria-label="Buttons pop up preview"
+                          >
+                            <source
+                              src="../assets/project-specific/trubel-co/buttons pop up.mp4"
+                              type="video/mp4"
+                            />
+                          </video>
+                          <p class="ideation-media-caption">New design: Pressing on these buttons allows users to see upcoming workshops or past workshops</p>
+                        </div>
+                      </div>
                     </div>
                     <p class="platform-preview-title">I iterated on the initial design to explore different ways of organizing information about workshop themes, past workshops, and upcoming sessions.</p>
                   </div>
@@ -537,153 +551,121 @@
               <div class="process-entry">
                 <h2>During this phase, I saw the potential to improve the overall flow for signing up for a workshop.</h2>
                 <p>
-                  When a new workshop is added, trubel&amp;co includes it in the navigation bar. To avoid overcrowding it with non-core pages, I proposed an accordion section on the Workshops page to showcase upcoming workshops, each linking to its individual page.
+                  When a new workshop is added, trubel&amp;co includes it in the navigation bar. To avoid overcrowding it, I proposed an accordion section on the Workshops page to showcase upcoming workshops, each linking to its individual page.
                 </p>
                 <div class="platform-preview-container">
                   <div class="platform-preview-inner ideation-no-shell">
-                    <div class="platform-preview-grid platform-preview-grid--five">
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
-                        alt="Workshops low-fidelity design overview"
-                      />
+                    <div class="platform-preview-grid platform-preview-grid--five ideation-grid-equal-media">
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/Previous Workshop Tab.png"
+                          alt="Previous Workshops navigation tab in site header"
+                        />
+                        <p class="ideation-media-caption">Previous design: Upcoming workshops were added to the navigation bar</p>
+                      </div>
                       <div class="ideation-arrow-inline" aria-hidden="true">
                         <img src="../assets/icons/Arrow right.svg" alt="" />
                       </div>
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (after).png"
-                        alt="Workshops design version 2"
-                      />
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Hover effect preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/hover effect.mp4"
-                          type="video/mp4"
+                      <div class="ideation-video-stack ideation-video-stack--row">
+                        <div class="ideation-media-item">
+                          <video
+                            class="ideation-inline-video"
+                            autoplay
+                            muted
+                            loop
+                            controls
+                            playsinline
+                            preload="metadata"
+                            aria-label="New way of getting to a workshop preview"
+                          >
+                            <source
+                              src="../assets/project-specific/trubel-co/New way of getting to a workshop.mp4"
+                              type="video/mp4"
+                            />
+                          </video>
+                          <p class="ideation-media-caption">New design: Access a roster of upcoming workshop by clicking on &ldquo;Apply to upcoming workshop&rdquo;</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="platform-preview-title">Upcoming workshops were previously added as a tab in the nav bar, but the redesign keeps them listed in the Workshops page</p>
+                  </div>
+                </div>
+                <p>
+                  The old designs relied on blocks of text, posters, and application links. I analyzed their promotional materials to identify recurring information — program descriptions, locations, objectives, sponsor details, and timelines — and used that as the foundation for a structured page template, making the content easier to follow without losing the detail the posters provided.
+                </p>
+                <div class="platform-preview-container">
+                  <div class="platform-preview-inner ideation-no-shell">
+                    <div class="platform-preview-grid platform-preview-grid--five ideation-grid-equal-media ideation-grid-with-posters">
+                      <div class="ideation-media-item ideation-media-item--with-posters">
+                        <div class="ideation-poster-stack" aria-hidden="true">
+                          <img
+                            src="../assets/project-specific/trubel-co/poster 1.jpeg"
+                            alt="Workshop promotional poster 1"
+                          />
+                          <img
+                            src="../assets/project-specific/trubel-co/poster 2.jpeg"
+                            alt="Workshop promotional poster 2"
+                          />
+                          <img
+                            src="../assets/project-specific/trubel-co/poster 3.jpeg"
+                            alt="Workshop promotional poster 3"
+                          />
+                        </div>
+                        <p class="ideation-media-caption">A few of their posters</p>
+                        <img
+                          src="../assets/project-specific/trubel-co/old individual workshop page.jpg"
+                          alt="Old individual workshop page"
                         />
-                      </video>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Buttons pop up preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/buttons pop up.mp4"
-                          type="video/mp4"
+                        <p class="ideation-media-caption">Previous design</p>
+                      </div>
+                      <div class="ideation-arrow-inline" aria-hidden="true">
+                        <img src="../assets/icons/Arrow right.svg" alt="" />
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/Upcoming Workshops hi fi v1.jpg"
+                          alt="Upcoming Workshops high-fidelity design version 1"
                         />
-                      </video>
+                        <p class="ideation-media-caption">New design: Pulls out important, shared information from the posters</p>
+                      </div>
                     </div>
                     <p class="platform-preview-title">I iterated on the initial design to explore different ways of organizing information about workshop themes, past workshops, and upcoming sessions.</p>
                   </div>
                 </div>
-                <p>
-                  Their promotional posters typically included a program description, location, application link, objectives or goals, sponsor information, and a general timeline or time commitment. I turned that information into sections for the page.
-                </p>
-                <p>
-                  The old designs relied on blocks of text, a two-page poster, and application links. I created a template based on shared information across these posters, making it easier for users to follow the content on the webpage while still referencing the posters for additional details.
-                </p>
-                <div class="platform-preview-container">
-                  <div class="platform-preview-inner ideation-no-shell">
-                    <div class="platform-preview-grid platform-preview-grid--five">
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
-                        alt="Workshops low-fidelity design overview"
-                      />
-                      <div class="ideation-arrow-inline" aria-hidden="true">
-                        <img src="../assets/icons/Arrow right.svg" alt="" />
-                      </div>
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (after).png"
-                        alt="Workshops design version 2"
-                      />
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Hover effect preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/hover effect.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Buttons pop up preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/buttons pop up.mp4"
-                          type="video/mp4"
-                        />
-                      </video>
-                    </div>
-                    <p class="platform-preview-title">I iterated on the initial design to explore different ways of organizing information about workshop themes, past workshops, and upcoming sessions.</p>
-                  </div>
-                </div>
-                <p>
-                  You can access an upcoming workshop's page by clicking on "Apply to upcoming workshops" (within the Workshops page) and the workshop you're interested in.
-                </p>
               </div>
               <div class="process-entry">
-                <div class="subtitle">News &amp; Press</div>
-                <h2>Since I was ahead of my design timeline, I also took on the News &amp; Press page and its individual blog posts.</h2>
+                <h2>Since I was ahead of the design timeline, I also took on the News &amp; Press page and its individual blog posts.</h2>
                 <p>
-                  Earlier user testing revealed that the bottom half of the page felt clunky due to large text and images, which I addressed by adjusting the layout. Because of Squarespace's limited blog design choices and embedded LinkedIn posts requiring integration through Elfsight, I opted to skip a high-fidelity redesign of the News &amp; Press page and instead edited that page and each blog post directly.
+                  Earlier user testing flagged the bottom half of the News &amp; Press page as clunky due to large text and images, which I addressed through layout adjustments. Given Squarespace's limited blog options and the complexity of their Elfsight LinkedIn integration, I skipped a high-fidelity redesign for the News &amp; Press page — instead working directly in Squarespace to adjust the layout, blog format, and parent font styles.
                 </p>
                 <div class="platform-preview-container">
                   <div class="platform-preview-inner ideation-no-shell">
-                    <div class="platform-preview-grid platform-preview-grid--five">
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
-                        alt="Workshops low-fidelity design overview"
-                      />
-                      <div class="ideation-arrow-inline" aria-hidden="true">
-                        <img src="../assets/icons/Arrow right.svg" alt="" />
+                    <div class="platform-preview-grid platform-preview-grid--five ideation-grid-four-up">
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/News &amp; Press - LoFi.png"
+                          alt="News and Press low-fidelity design"
+                        />
+                        <p class="ideation-media-caption">Low-fidelity mockup</p>
                       </div>
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (after).png"
-                        alt="Workshops design version 2"
-                      />
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Hover effect preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/hover effect.mp4"
-                          type="video/mp4"
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/elfsight linkedin edit.jpeg"
+                          alt="Elfsight LinkedIn integration editing"
                         />
-                      </video>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Buttons pop up preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/buttons pop up.mp4"
-                          type="video/mp4"
+                        <p class="ideation-media-caption">Elfsight LinkedIn integration</p>
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/squarespace editing 1.jpeg"
+                          alt="Squarespace editing"
                         />
-                      </video>
+                        <p class="ideation-media-caption">Editing blog formats directly in Squarespace</p>
+                      </div>
                     </div>
-                    <p class="platform-preview-title">I iterated on the initial design to explore different ways of organizing information about workshop themes, past workshops, and upcoming sessions.</p>
+                    <p class="platform-preview-title">The low-fidelity mockup was presented to the client and used as a reference for direct edits in Squarespace.</p>
                   </div>
                 </div>
-                <p>
-                  I designed a low-fidelity News &amp; Press mockup to show layout changes, but actually updating the page required altering their Elfsight LinkedIn integration, adjusting Squarespace's blog format, and editing parent font styles.
-                </p>
               </div>
             </section>
 
@@ -692,48 +674,37 @@
                 <div class="subtitle">User Testing</div>
                 <h2>Users appreciated how intuitive this new design was while still providing a clear overview about workshops.</h2>
                 <p>
-                  I tested the Workshops and Individual Workshops pages using a Maze survey. Since I took on the News &amp; Press page, and consequently the individual blog pages, after user testing had already been in progress, I did not test these pages.
+                  I tested both workshop pages using a Maze survey. Since I took on the News &amp; Press page and Blogs after user testing had already been in progress, I did not test these pages.
                 </p>
                 <div class="platform-preview-container">
                   <div class="platform-preview-inner ideation-no-shell">
-                    <div class="platform-preview-grid platform-preview-grid--five">
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
-                        alt="Workshops low-fidelity design overview"
-                      />
-                      <div class="ideation-arrow-inline" aria-hidden="true">
-                        <img src="../assets/icons/Arrow right.svg" alt="" />
+                    <div class="platform-preview-grid platform-preview-grid--five ideation-grid-four-up">
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/Workshops Final-Testing.png"
+                          alt="Workshops final testing screen"
+                        />
                       </div>
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (after).png"
-                        alt="Workshops design version 2"
-                      />
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Hover effect preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/hover effect.mp4"
-                          type="video/mp4"
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/Workshops Final-Testing-1.png"
+                          alt="Workshops final testing screen 1"
                         />
-                      </video>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Buttons pop up preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/buttons pop up.mp4"
-                          type="video/mp4"
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/Workshops Final-Testing-2.png"
+                          alt="Workshops final testing screen 2"
                         />
-                      </video>
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/Individual Upcoming Workshops-Testing.png"
+                          alt="Individual upcoming workshops testing screen"
+                        />
+                      </div>
                     </div>
-                    <p class="platform-preview-title">I iterated on the initial design to explore different ways of organizing information about workshop themes, past workshops, and upcoming sessions.</p>
+                    <p class="platform-preview-title">Final testing screens (<a href="https://www.figma.com/proto/A50MgkredkagA8hNxVKIl4/Monica-s-DFG-Sandbox?node-id=239-15374&amp;t=4MjxJw4xd02nnLoM-0&amp;scaling=min-zoom&amp;content-scaling=fixed&amp;page-id=0%3A1&amp;starting-point-node-id=239%3A15374" target="_blank" rel="noopener noreferrer">Figma prototype</a>)</p>
                   </div>
                 </div>
               </div>
@@ -748,44 +719,30 @@
                 </p>
                 <div class="platform-preview-container">
                   <div class="platform-preview-inner ideation-no-shell">
-                    <div class="platform-preview-grid platform-preview-grid--five">
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
-                        alt="Workshops low-fidelity design overview"
-                      />
-                      <div class="ideation-arrow-inline" aria-hidden="true">
-                        <img src="../assets/icons/Arrow right.svg" alt="" />
+                    <div class="platform-preview-grid platform-preview-grid--five ideation-grid-four-up">
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/News &amp; Press - LoFi.png"
+                          alt="News and Press low-fidelity design"
+                        />
+                        <p class="ideation-media-caption">Low-fidelity mockup</p>
                       </div>
-                      <img
-                        src="../assets/project-specific/trubel-co/workshops - shortened section (after).png"
-                        alt="Workshops design version 2"
-                      />
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Hover effect preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/hover effect.mp4"
-                          type="video/mp4"
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/elfsight linkedin edit.jpeg"
+                          alt="Elfsight LinkedIn integration editing"
                         />
-                      </video>
-                      <video
-                        class="ideation-inline-video"
-                        controls
-                        playsinline
-                        preload="metadata"
-                        aria-label="Buttons pop up preview"
-                      >
-                        <source
-                          src="../assets/project-specific/trubel-co/buttons pop up.mp4"
-                          type="video/mp4"
+                        <p class="ideation-media-caption">Elfsight LinkedIn integration</p>
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/trubel-co/squarespace editing 1.jpeg"
+                          alt="Squarespace editing"
                         />
-                      </video>
+                        <p class="ideation-media-caption">Editing blog formats directly in Squarespace</p>
+                      </div>
                     </div>
-                    <p class="platform-preview-title">I iterated on the initial design to explore different ways of organizing information about workshop themes, past workshops, and upcoming sessions.</p>
+                    <p class="platform-preview-title">The low-fidelity mockup was presented to the client and used as a reference for direct edits in Squarespace.</p>
                   </div>
                 </div>
                 <p>An example of how I reduced information (Upcoming Workshop cards)</p>
@@ -798,9 +755,19 @@
                 <h2>
                   I redesigned the Workshops page to fit a cleaner, more playful aesthetic while reorganizing existing content for clarity.
                 </h2>
-                <p>
-                  User research highlighted confusion between requesting vs. signing up for workshops, so I clarified the distinction and restructured the page to serve both students and donors/organizations. I also introduced an interactive map to showcase past workshop locations, added a new section to preview upcoming workshops with application links alongside highlights of past workshops and past student testimonials, and created a dedicated FAQ to address common workshop-related questions.
-                </p>
+                <div class="final-solution-text-image-layout">
+                  <div class="final-solution-text-image-copy">
+                    <p>
+                      User research highlighted confusion between requesting vs. signing up for workshops, so I clarified the distinction and restructured the page to serve both students and donors/organizations. I also introduced an interactive map to showcase past workshop locations, added a new section to preview upcoming workshops with application links alongside highlights of past workshops and past student testimonials, and created a dedicated FAQ to address common workshop-related questions.
+                    </p>
+                  </div>
+                  <div class="final-solution-text-image-media">
+                    <img
+                      src="../assets/project-specific/trubel-co/workshops - shortened section (before).png"
+                      alt="Workshops page redesign highlights"
+                    />
+                  </div>
+                </div>
               </div>
               <div class="process-entry">
                 <div class="subtitle">Individual Workshop Page</div>
