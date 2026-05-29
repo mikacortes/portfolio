@@ -3045,14 +3045,15 @@ body.trubel-lightbox-open {
   min-width: 0;
 }
 
-.project-main #similar-work .wscuc-similar-work-pages .portfolio-pages-gallery {
+.project-main #similar-work .wscuc-similar-work-gallery {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--media-caption-gap);
   justify-items: stretch;
+  margin-bottom: var(--project-block-gap);
 }
 
-.project-main #similar-work .wscuc-similar-work-pages .portfolio-pages-gallery > img {
+.project-main #similar-work .wscuc-similar-work-gallery > img {
   display: block;
   width: 100%;
   height: auto;
