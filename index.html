@@ -1066,9 +1066,10 @@
       brand-href="/"
       projects-href="#featured-projects"
     ></site-footer>
-    <script>
+    <script defer>
       /*
         HOME PAGE INTERACTIONS
+        Runs deferred so site-header (components.js) exists before we touch .topbar.
         - Header hides on scroll down, shows on scroll up
         - Project cards fade in when they reach the middle of the viewport
       */
@@ -1080,7 +1081,7 @@
         const featuredMedias = document.querySelectorAll('.featured-media');
 
         function showSupportingUi() {
-          topbar.classList.add('is-visible-on-load');
+          topbar?.classList.add('is-visible-on-load');
           heroCopies.forEach((copy, index) => {
             window.setTimeout(() => {
               copy.classList.add('is-visible');
@@ -1123,7 +1124,7 @@
 
         let lastScrollY = window.scrollY;
         function handleHeaderScroll() {
-          if (topbar.classList.contains('is-menu-open')) return;
+          if (!topbar || topbar.classList.contains('is-menu-open')) return;
 
           const currentScrollY = window.scrollY;
           if (currentScrollY > lastScrollY && currentScrollY > 80) {
@@ -1151,7 +1152,13 @@
           }
         );
 
-        revealCards.forEach((card) => revealObserver.observe(card));
+        revealCards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            card.classList.add('is-revealed');
+          }
+          revealObserver.observe(card);
+        });
       })();
     </script>
   </body>
