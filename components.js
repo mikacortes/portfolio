@@ -1,3 +1,22 @@
+const GA_MEASUREMENT_ID = 'G-939JMB63LX';
+
+(function initGoogleAnalytics() {
+  if (!GA_MEASUREMENT_ID) return;
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+})();
+
 const RESUME_URL =
   'https://drive.google.com/file/d/1mOMvKb67YjsOM65gHeu3iLooPVo6r2ut/view?usp=sharing';
 
