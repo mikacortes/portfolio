@@ -11,6 +11,11 @@
   =====================================================
 */
 
+.project-main .project-section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
+}
+
 .project-layout {
   --project-column-padding-left: 120px;
   --project-column-padding-right: 220px;
