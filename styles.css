@@ -1091,7 +1091,8 @@ body.archive-modal-open {
   color: rgba(28, 28, 28, 0.65);
 }
 
-.project-section .subtitle + h2 {
+.project-section .subtitle + h2,
+.project-section .subtitle + .wscuc-final-layout-rows {
   margin-top: 0;
 }
 
@@ -1199,6 +1200,7 @@ body.archive-modal-open {
 .project-main .process-entry > .sticky-note-section,
 .project-main .process-entry > .sticky-note-grid,
 .project-main .process-entry > .portfolio-pages-section,
+.project-main .process-entry > .wscuc-final-layout-rows,
 .project-main .process-entry > .three-up,
 .project-main .process-entry > .user-goals-layout,
 .project-main .process-entry > .platform-preview-container,
@@ -2826,6 +2828,240 @@ body.trubel-lightbox-open {
   max-width: none;
   width: 100%;
   height: fit-content;
+}
+
+.project-main #overview .wscuc-snapshots-grid.portfolio-pages-section {
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+
+.project-main #overview .wscuc-snapshots-grid .portfolio-pages-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: stretch;
+}
+
+.project-main #overview .wscuc-snapshots-grid .portfolio-page-item {
+  flex: none;
+  width: 100%;
+  max-width: none;
+}
+
+.project-main #original-report .wscuc-original-pages .portfolio-pages-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: stretch;
+}
+
+.project-main #original-report .wscuc-original-pages .portfolio-page-item {
+  flex: none;
+  width: 100%;
+  max-width: none;
+}
+
+.project-main #branding .wscuc-branding-pages .portfolio-pages-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  align-items: center;
+  gap: var(--media-caption-gap);
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.project-main #branding .wscuc-branding-pages .portfolio-page-item {
+  flex: none;
+  width: auto;
+  max-width: none;
+}
+
+.project-main #branding .wscuc-branding-pages .portfolio-page-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--media-caption-gap);
+  width: auto;
+}
+
+.project-main #branding .wscuc-branding-pages .portfolio-page-item > img,
+.project-main #branding .wscuc-branding-pages .portfolio-page-stack > img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--white);
+  object-fit: contain;
+  object-position: top center;
+}
+
+.project-main #research .wscuc-inspo-pages .portfolio-pages-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  justify-items: stretch;
+}
+
+.project-main #research .wscuc-inspo-pages .portfolio-page-item {
+  flex: none;
+  width: 100%;
+  max-width: none;
+}
+
+.project-main #early-drafts .wscuc-early-drafts-pages .portfolio-pages-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: stretch;
+  gap: var(--media-caption-gap);
+}
+
+.project-main #early-drafts .wscuc-early-drafts-pages .portfolio-page-item {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.project-main #early-drafts .wscuc-early-drafts-pages .portfolio-page-item > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 8.5 / 11;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--white);
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-main #early-drafts .wscuc-alt-design-gallery {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.project-main #early-drafts .wscuc-alt-design-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--media-caption-gap);
+  width: 80%;
+  max-width: 80%;
+  margin-inline: auto;
+}
+
+.project-main #early-drafts .wscuc-alt-design-stack-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--media-caption-gap);
+}
+
+.project-main #early-drafts .wscuc-alt-design-stack-row > img,
+.project-main #early-drafts .wscuc-alt-design-stack > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--white);
+  object-fit: contain;
+  object-position: top center;
+}
+
+.project-main #final-layout .wscuc-final-layout-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--project-section-gap);
+  margin-bottom: var(--project-block-gap);
+}
+
+.project-main #final-layout .wscuc-final-layout-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--media-caption-gap);
+  align-items: start;
+  width: 100%;
+}
+
+.project-main #final-layout .wscuc-final-layout-row > h2 {
+  position: sticky;
+  top: 32px;
+  z-index: 1;
+  min-width: 0;
+  margin: 0;
+  align-self: start;
+  background: var(--page-bg);
+}
+
+.project-main #final-layout .wscuc-final-layout-media {
+  width: 100%;
+  min-width: 0;
+  min-height: 180px;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
+}
+
+.project-main #final-layout .wscuc-final-layout-media:has(> img) {
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.project-main #final-layout .wscuc-final-layout-media > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--white);
+  object-fit: contain;
+  object-position: top center;
+}
+
+.project-main #final-layout .wscuc-final-layout-media--stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--media-caption-gap);
+}
+
+.project-main #final-layout .wscuc-final-layout-media--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--media-caption-gap);
+}
+
+.project-main #final-layout .wscuc-final-layout-media--grid > img {
+  width: 100%;
+  min-width: 0;
+}
+
+.project-main #similar-work .wscuc-similar-work-pages .portfolio-pages-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--media-caption-gap);
+  justify-items: stretch;
+}
+
+.project-main #similar-work .wscuc-similar-work-pages .portfolio-pages-gallery > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--white);
+  object-fit: contain;
+  object-position: top center;
 }
 
 .project-main .image-frame {
