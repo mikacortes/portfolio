@@ -591,6 +591,79 @@ function initViewportAutoplayVideos(root) {
 
 window.initViewportAutoplayVideos = initViewportAutoplayVideos;
 
+function initHomeFeaturedAutoplay() {
+  const videos = document.querySelectorAll('.featured-video');
+  if (!videos.length) return;
+
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion) {
+    videos.forEach((video) => {
+      video.removeAttribute('autoplay');
+      video.pause();
+    });
+    return;
+  }
+
+  videos.forEach((video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    if (!video.hasAttribute('autoplay')) {
+      video.setAttribute('autoplay', '');
+    }
+    if (!video.getAttribute('preload')) {
+      video.preload = 'metadata';
+    }
+
+    const tryPlay = () => {
+      const result = video.play();
+      if (result && typeof result.catch === 'function') {
+        result.catch(() => {});
+      }
+    };
+
+    tryPlay();
+    video.addEventListener('loadeddata', tryPlay, { once: true });
+    video.addEventListener('canplay', tryPlay, { once: true });
+
+    const card = video.closest('.featured-item');
+    if (card) {
+      if (card.classList.contains('is-revealed')) {
+        tryPlay();
+      } else {
+        const revealWatcher = new MutationObserver(() => {
+          if (card.classList.contains('is-revealed')) {
+            tryPlay();
+            revealWatcher.disconnect();
+          }
+        });
+        revealWatcher.observe(card, { attributes: true, attributeFilter: ['class'] });
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            tryPlay();
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: '80px', threshold: 0.1 }
+    );
+
+    observer.observe(video);
+  });
+}
+
 function initHomePageLazyMedia() {
   const recentSection = document.querySelector('.recent-grid, #recent-work');
   if (recentSection) {
@@ -609,7 +682,7 @@ function initHomePageLazyMedia() {
     });
   });
 
-  initViewportAutoplayVideos(document);
+  initHomeFeaturedAutoplay();
 }
 
 function initCursorEffects() {
