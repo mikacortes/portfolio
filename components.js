@@ -26,7 +26,7 @@ const GA_MEASUREMENT_ID = 'G-939JMB63LX';
 })();
 
 const RESUME_URL =
-  'https://drive.google.com/file/d/1mOMvKb67YjsOM65gHeu3iLooPVo6r2ut/view?usp=sharing';
+  'https://drive.google.com/file/d/15hiMYotLD28_68xlZpxlYPcf4pC3u9S1/view?usp=sharing';
 
 class SiteHeader extends HTMLElement {
   connectedCallback() {
