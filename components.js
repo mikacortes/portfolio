@@ -1,4 +1,5 @@
 const GA_MEASUREMENT_ID = 'G-939JMB63LX';
+const CLARITY_PROJECT_ID = 'x0ek0up8lg';
 
 (function initGoogleAnalytics() {
   if (!GA_MEASUREMENT_ID) return;
@@ -22,6 +23,31 @@ const GA_MEASUREMENT_ID = 'G-939JMB63LX';
     requestIdleCallback(loadAnalytics, { timeout: 3000 });
   } else {
     window.setTimeout(loadAnalytics, 2000);
+  }
+})();
+
+(function initMicrosoftClarity() {
+  if (!CLARITY_PROJECT_ID) return;
+
+  function loadClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadClarity, { timeout: 3000 });
+  } else {
+    window.setTimeout(loadClarity, 2000);
   }
 })();
 
