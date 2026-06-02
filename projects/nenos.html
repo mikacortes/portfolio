@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../project-page.css" />
     <script defer src="../components.js"></script>
   </head>
-  <body>
+  <body class="nenos-page trubel-co-page">
     <div class="project-layout">
       <aside class="project-sidebar" aria-label="Project page navigation">
         <div class="project-sidebar-inner">
@@ -23,21 +23,20 @@
           <div class="sidebar-group">
             <div class="sidebar-heading subtitle">Overview</div>
             <nav class="sidebar-links" aria-label="Overview sections">
-              <a href="#overview">The Challenge</a>
-              <a href="#final-solution">Final Solution</a>
-              <a href="#results">Final Outcome</a>
+              <a href="#overview">Background</a>
+              <a href="#solution-brief">Solution</a>
+              <a href="#impact">Impact</a>
             </nav>
           </div>
 
           <div class="sidebar-group">
             <div class="sidebar-heading subtitle">Full Process</div>
             <nav class="sidebar-links" aria-label="Full process sections">
-              <a href="#background">Background</a>
-              <a href="#planning">Planning</a>
+              <a href="#timeline">Background</a>
               <a href="#research">Research</a>
-              <a href="#ideation">Design</a>
-              <a href="#development">Development</a>
-              <a href="#solution">Solution</a>
+              <a href="#ideation">Ideation</a>
+              <a href="#stakeholder-feedback">Development</a>
+              <a href="#final-solution">Final Solution</a>
               <a href="#reflection">Reflection</a>
             </nav>
           </div>
@@ -102,56 +101,147 @@
                 The nenos team needed a website that was engaging, inspiring, and better connected supporters to their work.
               </h2>
               <p>
-                <a href="https://nenos.one/mission" target="_blank" rel="noopener noreferrer">nenos</a>
+                Nenos
                 is a unique nonprofit—one of the few in the world developing an ethical social media network while focusing on digital literacy. nenos prioritizes community: lifting up small businesses, connecting users with local activities, and giving content creators an ethical platform to connect with their followers.
               </p>
               <p>
-                Their existing Squarespace site was rudimentary and lacked clear organization. This project focused on developing a new WordPress site that effectively tells nenos' story and makes it easy for visitors to volunteer or donate.
+                Their existing Squarespace site was rudimentary and lacked clear organization. This project focused on developing a new WordPress site that effectively tells nenos' story and makes it easy for visitors to donate or volunteer.
               </p>
             </section>
 
-            <section class="project-section content-section" id="final-solution">
-              <div class="subtitle">Final Solution</div>
+            <section class="project-section content-section" id="solution-brief">
+              <div class="subtitle">Solution</div>
               <h2>
                 A redesigned WordPress site with clearer information architecture, accessible visuals, and integrated donation and volunteer flows.
               </h2>
-              <p>Our prioritized deliverables included:</p>
-              <ul>
-                <li><strong>Payment page</strong> — Reimplemented the Givebutter plugin within WordPress; redesigned donation CTAs to be clearer and easier to navigate.</li>
-                <li><strong>Volunteer page</strong> — Configured WPForms for volunteer sign-ups with forms that felt native to the site.</li>
-                <li><strong>Contact page</strong> — Integrated WPForms with topic-based selections routed to the appropriate teams.</li>
-                <li><strong>Board page</strong> — Redesigned layout for headshots, bios, and social links; added an application form for prospective board members.</li>
-                <li><strong>Landing page</strong> — Dedicated space for mission and vision with clear CTAs and testimonials.</li>
-                <li><strong>Blog pages</strong> — Centralized blog section; migrated existing posts from Squarespace to WordPress.</li>
-                <li><strong>Accessibility &amp; visual consistency</strong> — Consistent color palette and WCAG-compliant contrast.</li>
-                <li><strong>Indexability &amp; SEO</strong> — Optimized meta descriptions and indexable content across major browsers and platforms.</li>
-              </ul>
-              <!-- [EDIT: Project plan screenshot]
-              <div class="image-frame">
-                <img src="../assets/project-specific/nenos/project-plan.png" alt="nenos project plan" />
+              <p>
+                Our team delivered core pages, migrated content from Squarespace, and built forms and donation flows that felt native to the new experience—all while meeting accessibility and SEO requirements.
+              </p>
+              <div class="custom-containers">
+                <div class="custom-container">
+                  <div class="custom-container-inner">
+                    <video
+                      class="custom-container-image"
+                      autoplay
+                      muted
+                      loop
+                      controls
+                      playsinline
+                      preload="metadata"
+                      poster="../assets/project-specific/nenos/Original%20Landing%20Page.jpg"
+                      aria-label="Landing page finished preview"
+                    >
+                      <source
+                        src="../assets/project-specific/nenos/Landing%20Page%20Video%20Preview.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="custom-container-copy">
+                      <p>The <strong>Landing page</strong> is now engaging and provides motivation and context for potential supporters.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-container">
+                  <div class="custom-container-inner">
+                    <video
+                      class="custom-container-image"
+                      autoplay
+                      muted
+                      loop
+                      controls
+                      playsinline
+                      preload="metadata"
+                      poster="../assets/project-specific/nenos/Original%20Volunteer%20Form.jpg"
+                      aria-label="Volunteer page finished preview"
+                    >
+                      <source
+                        src="../assets/project-specific/nenos/Volunteer%20Video%20Preview.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="custom-container-copy">
+                      <p>The <strong>Volunteer</strong> page makes it much easier for potential applicants to learn more and apply.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-container">
+                  <div class="custom-container-inner">
+                    <video
+                      class="custom-container-image"
+                      autoplay
+                      muted
+                      loop
+                      controls
+                      playsinline
+                      preload="metadata"
+                      aria-label="Board page finished preview"
+                    >
+                      <source
+                        src="../assets/project-specific/nenos/Board%20Video%20Preview.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="custom-container-copy">
+                      <p>The <strong>Board</strong> page provides more information about Nenos's team and values.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-container">
+                  <div class="custom-container-inner">
+                    <video
+                      class="custom-container-image"
+                      autoplay
+                      muted
+                      loop
+                      controls
+                      playsinline
+                      preload="metadata"
+                      poster="../assets/project-specific/nenos/Original%20Contact%20Us.jpg"
+                      aria-label="Contact Us page finished preview"
+                    >
+                      <source
+                        src="../assets/project-specific/nenos/Contact%20Us%20Video%20Preview.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="custom-container-copy">
+                      <p>The <strong>Contact Us</strong> page provides multiple avenues to contact Nenos.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              -->
             </section>
 
-            <section class="project-section content-section process-group" id="results">
-              <div class="process-entry">
-                <div class="subtitle">Final Outcome</div>
-                <h2>
-                  While deployment was not within the scope of our project, we received qualitative reviews and feedback from the nenos board of directors.
-                </h2>
-                <p>
-                  Explore the work:
-                  <a href="https://nenos.one/" target="_blank" rel="noopener noreferrer">Live site (nenos.one)</a>
-                  ·
-                  <a href="https://www.figma.com/design/aEY4hgZuaXPIaF156jIbmC/nenos-Inc.?node-id=3-3&amp;t=MZ95hAUhrbqUrIu9-1" target="_blank" rel="noopener noreferrer">Figma prototype</a>
-                </p>
-                <!-- [EDIT: Demo video — add to assets/videos/ when ready]
-                <div class="image-frame">
-                  <video controls playsinline poster="../assets/images/nenos Preview.png">
-                    <source src="../assets/videos/nenos-video.mp4" type="video/mp4" />
-                  </video>
-                </div>
-                -->
+            <section class="project-section content-section" id="impact">
+              <div class="subtitle">Impact</div>
+              <h2>
+                While deployment was not within our project scope, we received qualitative reviews and feedback from the nenos board of directors.
+              </h2>
+              <div class="impact-testimonials">
+                <figure class="impact-testimonial">
+                  <blockquote>
+                    <p>
+                      &ldquo;This is a fantastic group of engaged and productive folks. They ask very thoughtful questions and the concepts they've produced have been great.&rdquo;
+                    </p>
+                  </blockquote>
+                  <figcaption>— Matthew Calabresky (CEO)</figcaption>
+                </figure>
+                <figure class="impact-testimonial">
+                  <blockquote>
+                    <p>
+                      &ldquo;The new website looks fantastic, much more modern look and feel and easy to navigate!&rdquo;
+                    </p>
+                  </blockquote>
+                  <figcaption>— Greg M. (Board Chair)</figcaption>
+                </figure>
+                <figure class="impact-testimonial">
+                  <blockquote>
+                    <p>
+                      &ldquo;The redesigned website presents a far more modern and elevated digital presence, with improved spacing, contemporary fonts, and streamlined navigation create a polished, professional feel while making content easier to digest. Overall, the updated experience strengthens credibility and engagement while positioning the organization for continued growth and broader outreach.&rdquo;
+                    </p>
+                  </blockquote>
+                  <figcaption>— Andrea D. (Treasurer)</figcaption>
+                </figure>
               </div>
             </section>
 
@@ -159,97 +249,356 @@
               <h2>But how did I get here?</h2>
             </section>
 
-            <section class="project-section content-section process-group" id="background">
+            <section class="project-section content-section process-group" id="timeline">
               <div class="process-entry">
-                <div class="subtitle">About nenos</div>
-                <h2>
-                  nenos is building an ethical social media network—and needed a parent site that could tell that story without feeling like a typical app landing page.
-                </h2>
-                <p>
-                  Unlike competitors that center their homepages on app downloads alone, nenos needed space to highlight multiple ventures and maintain a separate page dedicated to BloomSocial and their broader mission.
-                </p>
+                <div class="subtitle">Timeline</div>
+                <img
+                  class="trubel-timeline-image"
+                  src="../assets/project-specific/nenos/DFG WI26 Timeline.png"
+                  alt="nenos project timeline visual"
+                />
               </div>
-            </section>
-
-            <section class="project-section content-section process-group" id="planning">
               <div class="process-entry">
-                <div class="subtitle">Planning</div>
-                <h2>We began by establishing clear product requirements and a structured project plan.</h2>
+                <div class="subtitle">Who are nenos?</div>
+                <h2>
+                  Nenos is a 501(c)(3) nonprofit developing a social media network and focusing on digital literacy.
+                </h2>
+                <div class="user-goals-layout">
+                  <div class="user-goals-media">
+                    <div class="image-frame user-goals-image">
+                      <img
+                        src="../assets/project-specific/nenos/bloom social.png"
+                        alt="Bloom Social platform preview"
+                      />
+                    </div>
+                  </div>
+                  <div class="user-goals-content">
+                    <p>nenos prioritizes community by:</p>
+                    <ul>
+                      <li>lifting up small businesses,</li>
+                      <li>connecting users with local activities, and</li>
+                      <li>giving content creators an ethical platform to connect with their followers.</li>
+                    </ul>
+                    <p>
+                      Their app, Bloom Social, is a creator-focused, ad-free social media platform.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Project Goal</div>
+                <h2>
+                  Nenos needed a new website design that is engaging, inspiring, and connects potential supporters with their work.
+                </h2>
                 <p>
                   As a team, we brainstormed the specific pages to redesign and broke each deliverable into smaller, actionable tasks. After defining our deliverables, we created a detailed project plan that outlined expected hours, start and end dates, success criteria, and engineer ownership for each task.
                 </p>
                 <p>
                   To manage progress and stay on schedule, we used a Jira board to track tasks and updated items weekly based on work completed by both designers and engineers.
                 </p>
-                <!-- [EDIT: Deliverables overview, project plan, and Jira board screenshots]
-                <div class="image-frame"><img src="../assets/project-specific/nenos/deliverables.png" alt="" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/project-plan-detail.png" alt="" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/jira-board.png" alt="" /></div>
-                -->
+              </div>
+              <div class="process-entry" id="old-designs">
+                <div class="subtitle">Old Designs</div>
+                <h2>The existing Squarespace site was rudimentary and lacked clear organization.</h2>
+                <p>
+                  The previous site had too many moving parts, which made pages feel slow and harder to manage for goals like Google Ad Grants eligibility. The graphics and calls to action felt basic and promotional rather than intentional, and the overall experience did not feel fresh or inviting. The team wanted a full face makeover that modernized the site while making actions like volunteering and donating easier to find.
+                </p>
+                <div class="platform-preview-container old-designs-gallery">
+                  <div class="platform-preview-inner">
+                    <div class="old-designs-video-row">
+                      <div class="old-designs-video-card">
+                        <video
+                          class="old-designs-video"
+                          autoplay
+                          muted
+                          loop
+                          controls
+                          playsinline
+                          preload="metadata"
+                          poster="../assets/project-specific/nenos/Original Landing Page.jpg"
+                          aria-label="Old Landing page walkthrough"
+                        >
+                          <source
+                            src="../assets/project-specific/nenos/Original Landing Page - Video Preview.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                        <p class="platform-preview-title">Landing Page</p>
+                      </div>
+                      <div class="old-designs-video-card">
+                        <video
+                          class="old-designs-video"
+                          autoplay
+                          muted
+                          loop
+                          controls
+                          playsinline
+                          preload="metadata"
+                          poster="../assets/project-specific/nenos/Original Volunteering Opps.jpg"
+                          aria-label="Old Volunteering Opportunities page walkthrough"
+                        >
+                          <source
+                            src="../assets/project-specific/nenos/Original Volunteer Page - Video Preview.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                        <p class="platform-preview-title">Volunteering Opportunities</p>
+                      </div>
+                    </div>
+                    <div class="old-designs-video-row">
+                      <div class="old-designs-video-card">
+                        <video
+                          class="old-designs-video"
+                          autoplay
+                          muted
+                          loop
+                          controls
+                          playsinline
+                          preload="metadata"
+                          aria-label="Old Board page walkthrough"
+                        >
+                          <source
+                            src="../assets/project-specific/nenos/Original Board Page - Video Preview.mp4"
+                            type="video/mp4"
+                          />
+                        </video>
+                        <p class="platform-preview-title">Board Page</p>
+                      </div>
+                      <div class="old-designs-video-card">
+                        <img
+                          class="old-designs-video"
+                          src="../assets/project-specific/nenos/Original Contact Us.jpg"
+                          alt="Old Contact Us page"
+                        />
+                        <p class="platform-preview-title">Contact Us</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
             <section class="project-section content-section process-group" id="research">
               <div class="process-entry">
                 <div class="subtitle">Research</div>
-                <h2>The client asked for a sleek, modern look and pointed to Mastodon as a visual reference.</h2>
+                <h2>The client asked for a "sleek, modern" look, so I looked into potential designs.</h2>
                 <p>
                   We also analyzed other alternative social platforms like Pixelfed and Bluesky. However, these competitors primarily promoted their social media apps on landing pages—an approach nenos did not want to replicate, since they also needed room to highlight other ventures beyond the app itself.
                 </p>
-                <!-- [EDIT: Competitive reference screenshot]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/nenos/competitive-references.png" alt="Mastodon and alternative platform references" />
+                <div class="platform-preview-container">
+                  <div class="platform-preview-inner">
+                    <div class="platform-preview-grid research-reference-grid">
+                      <div class="research-reference-item">
+                        <img
+                          src="../assets/project-specific/nenos/mastodon.png"
+                          alt="Mastodon visual reference used during early research"
+                        />
+                        <p class="platform-preview-title">Mastodon</p>
+                      </div>
+                      <div class="research-reference-item">
+                        <img
+                          src="../assets/project-specific/nenos/bluesky.png"
+                          alt="Bluesky visual reference used during early research"
+                        />
+                        <p class="platform-preview-title">Bluesky</p>
+                      </div>
+                      <div class="research-reference-item">
+                        <img
+                          src="../assets/project-specific/nenos/pixelfed.png"
+                          alt="Pixelfed visual reference used during early research"
+                        />
+                        <p class="platform-preview-title">Pixelfed</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                -->
+                <p>
+                  I used these references to compare visual style, hierarchy, and content structure before moving into ideation.
+                </p>
+                <img
+                  src="../assets/project-specific/nenos/Nenos Website Inspiration.jpg"
+                  alt="Nenos website inspiration board"
+                />
               </div>
             </section>
 
             <section class="project-section content-section process-group" id="ideation">
               <div class="process-entry">
-                <div class="subtitle">Visual Direction</div>
+                <div class="subtitle">Ideation</div>
                 <h2>Before low-fidelity wireframes, we aligned on visual direction with three exploratory approaches.</h2>
-                <ol>
-                  <li>Gradient-driven designs common in tech spaces</li>
-                  <li>A monochrome system emphasizing cohesion across the site and key actions</li>
-                  <li>An organic, softer aesthetic to differentiate from bright, neon competitor palettes</li>
-                </ol>
                 <p>
-                  After reviewing these directions—with supporting details such as organic blob assets—the client chose to lead with the organic visual style using their existing color palette, while expressing interest in selectively incorporating gradients.
+                  We explored gradient-driven designs, a monochrome system emphasizing cohesion, and an organic, softer aesthetic to differentiate from bright, neon competitor palettes. After review—with supporting details such as organic blob assets—the client chose the organic visual style using their existing color palette, with selective gradient accents.
                 </p>
-                <!-- [EDIT: Three visual direction explorations]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/nenos/visual-directions.png" alt="Three visual direction explorations" />
-                </div>
-                -->
               </div>
               <div class="process-entry">
-                <div class="subtitle">Wireframes &amp; Design System</div>
-                <h2>Low-fidelity wireframes restructured content while introducing new visual touches like organic blobs.</h2>
-                <p>
-                  Because nenos's website is fairly small, work was split between two designers on the team. We also established a design system based on the color palette and fonts provided by nenos.
-                </p>
-                <p>
-                  <a href="https://www.figma.com/design/aEY4hgZuaXPIaF156jIbmC/nenos-Inc.?node-id=6-2&amp;p=f&amp;t=MZ95hAUhrbqUrIu9-0" target="_blank" rel="noopener noreferrer">Low-fidelity designs (Figma)</a>
-                </p>
-                <!-- [EDIT: Low-fi wireframes and design system screenshots]
-                <div class="image-frame"><img src="../assets/project-specific/nenos/low-fi-wireframes.png" alt="" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/design-system.png" alt="" /></div>
-                -->
-              </div>
-              <div class="process-entry">
-                <div class="subtitle">High-Fidelity Design</div>
                 <h2>Over several weeks, we met with the client to review layouts, visual assets, and feedback.</h2>
+                <div class="platform-preview-container">
+                  <div class="platform-preview-inner ideation-no-shell">
+                    <div class="platform-preview-grid platform-preview-grid--five ideation-grid-four-up">
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/nenos/donations-before-after.png"
+                          alt="Donations page before and after"
+                        />
+                        <p class="ideation-media-caption">Donations page</p>
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/nenos/landing-before-after.png"
+                          alt="Landing page before and after"
+                        />
+                        <p class="ideation-media-caption">Landing page</p>
+                      </div>
+                      <div class="ideation-media-item">
+                        <img
+                          src="../assets/project-specific/nenos/mission-before-after.png"
+                          alt="Mission page before and after"
+                        />
+                        <p class="ideation-media-caption">Mission page</p>
+                      </div>
+                    </div>
+                    <p class="platform-preview-title">Before-and-after comparisons from Squarespace to the new WordPress direction.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section content-section process-group" id="stakeholder-feedback">
+              <div class="process-entry">
+                <div class="subtitle">Development</div>
+                <h2>
+                  The WordPress site was built with native WordPress features and custom code to achieve the desired aesthetic and functionality.
+                </h2>
                 <p>
-                  <a href="https://www.figma.com/design/aEY4hgZuaXPIaF156jIbmC/nenos-Inc.?node-id=6-4&amp;p=f&amp;t=MZ95hAUhrbqUrIu9-0" target="_blank" rel="noopener noreferrer">High-fidelity designs (Figma)</a>
+                  <strong>Front-end</strong> work covered the user interface through native WordPress features, including drag-and-drop and custom HTML/CSS blocks. <strong>Back-end</strong> work included migrating blog posts and managing the form database—stored natively in WordPress with WPForms for submissions and the native posts feature for blogs.
                 </p>
-                <!-- [EDIT: Before/after — donations, landing, mission]
-                <div class="image-frame"><img src="../assets/project-specific/nenos/donations-before-after.png" alt="Donations page before and after" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/landing-before-after.png" alt="Landing page before and after" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/mission-before-after.png" alt="Mission page before and after" /></div>
-                -->
+                <p><strong>Technology stack</strong></p>
+                <ul>
+                  <li><strong>WordPress Core</strong> — Content, navigation, and standard site features</li>
+                  <li><strong>Custom HTML &amp; CSS</strong> — Unique design elements beyond default capabilities, including wave backgrounds</li>
+                  <li><strong>Design assets</strong> — Extracted from Figma to match approved specs</li>
+                  <li><strong>Givebutter</strong> — Donation processing (third-party; data stored in Givebutter's external database)</li>
+                  <li><strong>WPForms</strong> — Volunteer and contact forms; submissions stored in WordPress</li>
+                </ul>
+                <p>
+                  As we approached the end of the project, we continued to share changes with the client and collaborated with engineers implementing the WordPress build.
+                </p>
+              </div>
+            </section>
+
+            <section class="project-section content-section process-group" id="final-solution">
+              <div class="process-entry">
+                <div class="subtitle">Final Solution</div>
+                <div class="final-solution-text-image-layout">
+                  <div class="final-solution-text-image-sticky">
+                    <h2>Landing page</h2>
+                    <div class="final-solution-text-image-copy">
+                      <p>
+                        The <strong>landing page</strong> gives dedicated space for mission and vision with clear CTAs and testimonials—surfacing volunteer and donation paths without burying them behind a generic "Take Action" tab.
+                      </p>
+                      <p>
+                        We also improved <strong>accessibility &amp; visual consistency</strong> with a consistent color palette and WCAG-compliant contrast, plus <strong>indexability &amp; SEO</strong> across major browsers and platforms.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="final-solution-text-image-media">
+                    <div class="final-solution-image-pair">
+                      <img
+                        src="../assets/project-specific/nenos/Original Landing Page.jpg"
+                        alt="Original landing page"
+                      />
+                      <img
+                        src="../assets/project-specific/nenos/Landing Page - Final Design.png"
+                        alt="Final landing page design"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="process-entry">
-                <div class="subtitle">Key Design Decisions</div>
+                <div class="final-solution-text-image-layout">
+                  <div class="final-solution-text-image-sticky">
+                    <h2>Volunteers page</h2>
+                    <div class="final-solution-text-image-copy">
+                      <p>
+                        The <strong>payment page</strong> reimplemented the Givebutter plugin within WordPress with clearer donation CTAs. The <strong>volunteer page</strong> uses WPForms for sign-ups that feel native to the site, and the <strong>contact page</strong> routes topic-based selections to the appropriate teams.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="final-solution-text-image-media">
+                    <div class="final-solution-image-pair">
+                      <img
+                        src="../assets/project-specific/nenos/Original Volunteering Opps.jpg"
+                        alt="Original volunteer page"
+                      />
+                      <img
+                        src="../assets/project-specific/nenos/Volunteers - Final Design.png"
+                        alt="Final volunteers page design"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="final-solution-text-image-layout">
+                  <div class="final-solution-text-image-sticky">
+                    <h2>Volunteers page</h2>
+                    <div class="final-solution-text-image-copy">
+                      <p>
+                        The <strong>payment page</strong> reimplemented the Givebutter plugin within WordPress with clearer donation CTAs. The <strong>volunteer page</strong> uses WPForms for sign-ups that feel native to the site, and the <strong>contact page</strong> routes topic-based selections to the appropriate teams.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="final-solution-text-image-media">
+                    <div class="final-solution-image-pair">
+                      <img
+                        src="../assets/project-specific/nenos/Original Volunteering Opps.jpg"
+                        alt="Original volunteer page"
+                      />
+                      <img
+                        src="../assets/project-specific/nenos/Volunteers - Final Design.png"
+                        alt="Final volunteers page design"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="process-entry">
+                <div class="final-solution-text-image-layout">
+                  <div class="final-solution-text-image-sticky">
+                    <h2>Board members page</h2>
+                    <div class="final-solution-text-image-copy">
+                      <p>
+                        The <strong>board page</strong> was redesigned for headshots, bios, and social links, with an application form for prospective board members. <strong>Blog pages</strong> centralize content migrated from Squarespace to WordPress.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="final-solution-text-image-media">
+                    <div class="final-solution-image-pair">
+                      <video
+                        autoplay
+                        muted
+                        loop
+                        controls
+                        playsinline
+                        preload="metadata"
+                        aria-label="Original board page preview"
+                      >
+                        <source
+                          src="../assets/project-specific/nenos/Original Board Page - Video Preview.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                      <img
+                        src="../assets/project-specific/nenos/Our Board - Final Design.png"
+                        alt="Final board members page design"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="project-section content-section process-group" id="design-decisions">
+              <div class="process-entry">
                 <h2>Three decisions shaped the final experience.</h2>
                 <p><strong>Improving access to key actions</strong></p>
                 <p>
@@ -263,54 +612,6 @@
                 <p>
                   The previous site lacked imagery connected to the organization's mission, and the client wanted to avoid stock photography. Custom illustrations introduced personality and visual cohesion without stock images.
                 </p>
-                <!-- [EDIT: Homepage CTA, gradient blobs, illustration screenshots]
-                <div class="image-frame"><img src="../assets/project-specific/nenos/cta-homepage.png" alt="" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/gradient-blobs.png" alt="" /></div>
-                <div class="image-frame"><img src="../assets/project-specific/nenos/illustrations.png" alt="" /></div>
-                -->
-              </div>
-            </section>
-
-            <section class="project-section content-section process-group" id="development">
-              <div class="process-entry">
-                <div class="subtitle">Development</div>
-                <h2>
-                  The WordPress site was built with native WordPress features and custom code to achieve the desired aesthetic and functionality.
-                </h2>
-                <p>
-                  <strong>Front-end</strong> work covered the user interface through native WordPress features, including drag-and-drop and custom HTML/CSS blocks.
-                </p>
-                <p>
-                  <strong>Back-end</strong> work included migrating blog posts and managing the form database—stored natively in WordPress with WPForms for submissions and the native posts feature for blogs.
-                </p>
-                <p><strong>Technology stack</strong></p>
-                <ul>
-                  <li><strong>WordPress Core</strong> — Content, navigation, and standard site features</li>
-                  <li><strong>Custom HTML &amp; CSS</strong> — Unique design elements beyond default capabilities, including wave backgrounds</li>
-                  <li><strong>Design assets</strong> — Extracted from Figma to match approved specs</li>
-                  <li><strong>Givebutter</strong> — Donation processing (third-party; data stored in Givebutter's external database)</li>
-                  <li><strong>WPForms</strong> — Volunteer and contact forms; submissions stored in WordPress</li>
-                </ul>
-                <p>
-                  As we approached the end of the project, we continued to share changes with the client and collaborated with engineers implementing the WordPress build.
-                </p>
-                <!-- [EDIT: WordPress / plugin screenshots]
-                <div class="image-frame"><img src="../assets/project-specific/nenos/wordpress-forms.png" alt="" /></div>
-                -->
-              </div>
-            </section>
-
-            <section class="project-section content-section process-group" id="solution">
-              <div class="process-entry">
-                <div class="subtitle">Solution</div>
-                <h2>Deliverables spanned core pages, migration, accessibility, and SEO—designed in Figma and implemented in WordPress.</h2>
-                <p>
-                  See the
-                  <a href="https://www.figma.com/design/aEY4hgZuaXPIaF156jIbmC/nenos-Inc.?node-id=3-3&amp;t=MZ95hAUhrbqUrIu9-1" target="_blank" rel="noopener noreferrer">full Figma file</a>
-                  and
-                  <a href="https://nenos.one/" target="_blank" rel="noopener noreferrer">nenos.one</a>
-                  for the finished direction.
-                </p>
               </div>
             </section>
 
@@ -319,6 +620,25 @@
                 <div class="subtitle">Reflection</div>
                 <h2>[EDIT: Add closing thoughts—team collaboration, working across design and engineering, lessons from WordPress constraints.]</h2>
                 <p>[EDIT: Optional—board feedback quotes, what you would do differently, thanks to teammates.]</p>
+              </div>
+              <div class="process-entry">
+                <div class="subtitle">Final Mentions</div>
+                <h2>Thank you to the nenos team, our Develop for Good cohort, and everyone who collaborated on this build.</h2>
+                <div class="user-goals-layout">
+                  <div class="user-goals-media">
+                    <div class="image-frame user-goals-image">
+                      <img
+                        src="../assets/images/nenos Preview.png"
+                        alt="nenos Inc. preview"
+                      />
+                    </div>
+                  </div>
+                  <div class="user-goals-content">
+                    <p>
+                      This was a team project spanning design and engineering—balancing Figma exploration with WordPress constraints, plugin integrations, and weekly client reviews through to handoff.
+                    </p>
+                  </div>
+                </div>
               </div>
             </section>
           </div>
