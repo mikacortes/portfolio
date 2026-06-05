@@ -1,21 +1,11 @@
 <!DOCTYPE html>
-<!--
-  SCRIPTCHAIN HEALTH — COPY TEMPLATE
-  ---------------------------------
-  Search for [EDIT] to find every placeholder. Sections mirror project.html (Unlocked Labs).
-
-  Suggested assets folder: assets/project-specific/scriptchain-health/
-    - social/     (posts, carousels, stories)
-    - posters/    (print or event collateral)
-    - analytics/  (dashboards, reports, charts)
-
-  Brief = what you shipped. Full Process = how you got there, split by workstream where helpful.
--->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Case study: six months leading social media, marketing design, and collateral for ScriptChain Health, a health tech startup." />
     <title>Monica Cortes | ScriptChain Health</title>
+    <link rel="preload" as="image" href="../assets/images/ScriptChain Health Preview.png" fetchpriority="high" />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="../sparkle-cursor.css" />
     <link rel="stylesheet" href="../project-page.css" />
@@ -76,7 +66,7 @@
                 </div>
                 <div class="meta-item">
                   <div class="meta-label">TIMELINE</div>
-                  <div class="meta-value">2025–2026</div>
+                  <div class="meta-value">6 months</div>
                 </div>
                 <div class="meta-item">
                   <div class="meta-label">Tools</div>
@@ -102,26 +92,30 @@
               <img
                 src="../assets/images/ScriptChain Health Preview.png"
                 alt="ScriptChain Health marketing work preview"
+                fetchpriority="high"
+                decoding="async"
               />
             </div>
 
             <section class="project-section content-section" id="overview">
               <div class="subtitle">Overview</div>
-              <div class="image-frame project-logo-frame">
-                <img
-                  src="../assets/project-specific/scriptchain-health/scriptchain-health-logo.png"
-                  alt="ScriptChain Health logo"
-                />
-              </div>
               <h2>
                 I was the sole person responsible for ScriptChain Health's social media presence across Instagram, LinkedIn, and TikTok for six months.
               </h2>
-              <p>
-                ScriptChain Health is an early-stage health tech startup building an agentic AI platform that uses food and exercise as medicine to treat metabolic syndrome and reduce hospital readmissions. With a small but ambitious team, the company was working toward its first major product launch while trying to establish credibility with healthcare stakeholders, potential users, and investors.
-              </p>
-              <p>
-                My role included social media content strategy, graphic design, video production, newsletter creation, and marketing collateral design.
-              </p>
+              <div class="overview-brand-layout">
+                <div class="overview-brand-row">
+                  <img
+                    src="../assets/project-specific/scriptchain-health/sch logo.png"
+                    alt="ScriptChain Health logo"
+                  />
+                  <p>
+                    ScriptChain Health is an early-stage health tech startup building an agentic AI platform that uses food and exercise as medicine to treat metabolic syndrome and reduce hospital readmissions.
+                  </p>
+                </div>
+                <p class="overview-brand-note">
+                  While I won't share exact statistics or the full strategy I created here, I'm happy to walk through both in an interview and explain my reasoning in more detail.
+                </p>
+              </div>
             </section>
 
             <!-- BACKGROUND -->
@@ -131,13 +125,8 @@
                 <h2>
                   The accounts had been dormant for months, and there was no strategy, brand guidance, or handoff documentation waiting for me.
                 </h2>
-                <!-- [EDIT: Timeline graphic — gap in post activity (last post dates vs. when you started)]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Timeline showing dormant social accounts before Monica started" />
-                </div>
-                -->
                 <p>
-                  Instagram and LinkedIn hadn't seen activity since August 2025, and TikTok since February. The role had been described as designing posts, but researching topics, developing a voice, building a content strategy, and managing scheduling all fell to me as well. The first two posts I published were built by studying the most recent uploads and replacing the content with new research, a deliberate starting point while I got my footing and figured out what the brand needed to say and to whom.
+                  Instagram and LinkedIn hadn't seen activity since August 2025, and TikTok since February. My role responsibility was described as designing posts, but research, voice, strategy, and scheduling all fell to me as well.
                 </p>
               </div>
               <div class="process-entry">
@@ -145,13 +134,53 @@
                 <h2>
                   A conversation about an upcoming company event made me realize social media needed to market ScriptChain, not just educate the internet.
                 </h2>
-                <!-- [EDIT: Screenshot or mockup — early static post alongside a later video post]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Visual evolution from static post to video post" />
+                <div class="platform-preview-container">
+                  <div class="platform-preview-inner">
+                    <p class="portfolio-pages-caption">Visual shift from early research posts to relatable content</p>
+                    <div class="platform-preview-grid finding-direction-media-grid">
+                      <figure class="platform-preview-item post-carousel" data-post-carousel tabindex="0" aria-label="LinkedIn MTMs carousel post">
+                        <div class="platform-preview-frame post-carousel-frame">
+                          <div class="post-carousel-viewport">
+                            <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/LinkedIn Post  - MTMs/1.png" alt="LinkedIn MTMs post slide 1 of 6" />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/social/LinkedIn Post  - MTMs/2.png" alt="LinkedIn MTMs post slide 2 of 6" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/social/LinkedIn Post  - MTMs/3.png" alt="LinkedIn MTMs post slide 3 of 6" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/social/LinkedIn Post  - MTMs/4.png" alt="LinkedIn MTMs post slide 4 of 6" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/social/LinkedIn Post  - MTMs/5.png" alt="LinkedIn MTMs post slide 5 of 6" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/social/LinkedIn Post  - MTMs/6.png" alt="LinkedIn MTMs post slide 6 of 6" hidden />
+                          </div>
+                          <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                            <img src="../assets/icons/Arrow left.svg" alt="" />
+                          </button>
+                          <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                            <img src="../assets/icons/Arrow right.svg" alt="" />
+                          </button>
+                          <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                        </div>
+                        <div class="post-carousel-dots" role="tablist" aria-label="LinkedIn MTMs carousel slides"></div>
+                      </figure>
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <video
+                            autoplay
+                            muted
+                            loop
+                            controls
+                            playsinline
+                            preload="none"
+                            aria-label="LinkedIn Metabolic Health Good vs Bad video post"
+                          >
+                            <source
+                              src="../assets/project-specific/scriptchain-health/social/[LI] Metabolic Health Good vs. Bad .mp4"
+                              type="video/mp4"
+                            />
+                          </video>
+                        </div>
+                      </figure>
+                    </div>
+                  </div>
                 </div>
-                -->
                 <p>
-                  When the CEO mentioned a collaborative research study being presented at an upcoming event, it reframed how I was thinking about the channels entirely. I had been posting solid healthcare research, but the accounts weren't doing anything to position ScriptChain specifically. From that point forward, I balanced educational content around metabolic syndrome and AI in healthcare with posts that spoke directly to who ScriptChain is, what makes the platform meaningful, and where the company was showing up in the world.
+                  From that point forward, I balanced educational content with posts that spoke directly to who ScriptChain is, what makes the platform meaningful, and where the company was showing up.
                 </p>
               </div>
               <div class="process-entry">
@@ -159,13 +188,78 @@
                 <h2>
                   I researched competitors, tracked our own performance data, and turned those findings into a documented content strategy I handed off to the company.
                 </h2>
-                <!-- [EDIT: Strategy document visual — styled one-pager or flat lay of Canva mockups]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Excerpt from ScriptChain Health content strategy document" />
-                </div>
-                -->
                 <p>
-                  With no existing playbook, I studied how similar health tech companies used social media, looking at post types, engagement hooks, and how they balanced promotional and educational content. Alongside that, I tracked our own metrics closely, testing days and times, comparing video versus static performance, and noting which topics and formats resonated most on each platform. That research shaped a formal strategy covering audience definitions and goals by platform, a weekly posting cadence, platform-specific technical guidance, and newsletter best practices. It was designed to be picked up and built on by whoever came next.
+                  Before defining ScriptChain's voice, I audited how peer companies in health tech and larger health systems used social, looking at cadence, audience, post types, and how they framed problems and solutions.
+                </p>
+                <div class="three-up scriptchain-competitor-insights">
+                  <div>
+                    <p><strong>B2B health tech peers</strong></p>
+                    <p>
+                      Companies like Artemis (Nomi Health) and BC Platforms posted to providers and partner organizations, not consumers. Artemis posted infrequently (~1–2× monthly) with problem→solution hooks, event updates, and team news. BC Platforms posted more often (~1–2× weekly) with product announcements, blog summaries, and clear CTAs to contact or try the product.
+                    </p>
+                  </div>
+                  <div>
+                    <p><strong>Large health systems</strong></p>
+                    <p>
+                      Northwell Health showed what high-volume healthcare social could look like: daily posts on LinkedIn and Instagram built trust through achievements, staff and patient stories, and holiday content. On TikTok, short videos featured named clinicians answering health questions, building credibility through visible expertise rather than polished marketing alone.
+                    </p>
+                  </div>
+                  <div>
+                    <p><strong>What I took into ScriptChain's strategy</strong></p>
+                    <p>
+                      ScriptChain couldn't match that posting volume on a 20-hour week, but I borrowed the formats that fit a pre-launch startup: problem/solution educational posts, event and company news, timely cultural hooks, and video where it could build trust. The goal was a credible cadence with intentional variety, not copying enterprise frequency.
+                    </p>
+                  </div>
+                </div>
+                <div class="platform-preview-container">
+                  <div class="platform-preview-inner">
+                    <p class="portfolio-pages-caption">
+                      Three content types the strategy introduced: research, video, and company/event positioning
+                    </p>
+                    <div class="platform-preview-grid platform-preview-grid--three">
+                      <figure class="platform-preview-item post-carousel" data-post-carousel tabindex="0" aria-label="Research carousel post">
+                        <div class="platform-preview-frame post-carousel-frame">
+                          <div class="post-carousel-viewport">
+                            <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/background/strategy-post-research-01.svg" alt="Research carousel slide 1 of 5" />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/background/strategy-post-research-02.svg" alt="Research carousel slide 2 of 5" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/background/strategy-post-research-03.svg" alt="Research carousel slide 3 of 5" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/background/strategy-post-research-04.svg" alt="Research carousel slide 4 of 5" hidden />
+                            <img class="post-carousel-slide" src="../assets/project-specific/scriptchain-health/background/strategy-post-research-05.svg" alt="Research carousel slide 5 of 5" hidden />
+                          </div>
+                          <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                            <img src="../assets/icons/Arrow left.svg" alt="" />
+                          </button>
+                          <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                            <img src="../assets/icons/Arrow right.svg" alt="" />
+                          </button>
+                          <span class="post-carousel-counter" aria-live="polite">1 / 5</span>
+                        </div>
+                        <div class="post-carousel-dots" role="tablist" aria-label="Research carousel slides"></div>
+                        <figcaption class="portfolio-pages-caption">Research &amp; education · click to browse slides</figcaption>
+                      </figure>
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <img
+                            src="../assets/project-specific/scriptchain-health/background/strategy-post-video.svg"
+                            alt="ScriptChain Health video post"
+                          />
+                        </div>
+                        <figcaption class="portfolio-pages-caption">Video content</figcaption>
+                      </figure>
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <img
+                            src="../assets/project-specific/scriptchain-health/background/strategy-post-event.svg"
+                            alt="ScriptChain Health event announcement post"
+                          />
+                        </div>
+                        <figcaption class="portfolio-pages-caption">Event &amp; company news</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  That research shaped a formal strategy covering audience goals by platform, posting cadence, technical guidance, and newsletter best practices, designed to be picked up by whoever came next.
                 </p>
               </div>
             </section>
@@ -175,34 +269,807 @@
               <div class="process-entry">
                 <div class="subtitle">The Work</div>
                 <h2>
-                  Over six months, I produced 78 posts across three platforms while also creating newsletters, event materials, a brochure, and investor presentations.
+                  Over six months, I published 78 posts across three platforms, with shared content adapted for each channel, while also creating newsletters, event materials, a brochure, and investor presentations.
                 </h2>
-                <!-- [EDIT: 3-column grid of post thumbnails — one column per platform]
-                <div class="platform-preview-container">
+                <p>
+                  The 78 figure reflects total posts published, not 78 unique ideas. The same content that went to LinkedIn was also posted on Instagram and TikTok, with the exception of a few posts not being shared. Even so, every new post meant building separate Canva files resized to each platform's dimensions and format requirements.
+                </p>
+                <div class="platform-preview-container scriptchain-social-showcase">
                   <div class="platform-preview-inner">
-                    <div class="platform-preview-grid">
-                      <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Instagram post examples" />
-                      <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="LinkedIn post examples" />
-                      <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="TikTok post examples" />
+                    <p class="portfolio-pages-caption">
+                      The same campaigns appeared across platforms. Here is how they were adapted for Instagram, LinkedIn, and TikTok
+                    </p>
+                    <div class="scriptchain-campaign-rows">
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Exercise Ideas</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Exercise Ideas carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/1.png" alt="Exercise Ideas, slide 1 of 7" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/2.png" alt="Exercise Ideas, slide 2 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/3.png" alt="Exercise Ideas, slide 3 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/4.png" alt="Exercise Ideas, slide 4 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/5.png" alt="Exercise Ideas, slide 5 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/6.png" alt="Exercise Ideas, slide 6 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Exercise%20Ideas/7.png" alt="Exercise Ideas, slide 7 of 7" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 7</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Exercise Ideas slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Exercise Ideas carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Exercise%20Ideas/1.png" alt="Exercise Ideas, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Exercise%20Ideas/2.png" alt="Exercise Ideas, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Exercise%20Ideas/3.png" alt="Exercise Ideas, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Exercise%20Ideas/4.png" alt="Exercise Ideas, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Exercise%20Ideas/5.png" alt="Exercise Ideas, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Exercise%20Ideas/6.png" alt="Exercise Ideas, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Exercise Ideas slides"></div>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Healthy Diet Ideas</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Healthy Diet Ideas carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/1.png" alt="Healthy Diet Ideas, slide 1 of 7" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/2.png" alt="Healthy Diet Ideas, slide 2 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/3.png" alt="Healthy Diet Ideas, slide 3 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/4.png" alt="Healthy Diet Ideas, slide 4 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/5.png" alt="Healthy Diet Ideas, slide 5 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/6.png" alt="Healthy Diet Ideas, slide 6 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BIG%5D%20Healthy%20Diet%20Ideas/7.png" alt="Healthy Diet Ideas, slide 7 of 7" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 7</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Healthy Diet Ideas slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Healthy Diet Ideas carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Healthy%20Diet%20Ideas/1.png" alt="Healthy Diet Ideas, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Healthy%20Diet%20Ideas/2.png" alt="Healthy Diet Ideas, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Healthy%20Diet%20Ideas/3.png" alt="Healthy Diet Ideas, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Healthy%20Diet%20Ideas/4.png" alt="Healthy Diet Ideas, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Healthy%20Diet%20Ideas/5.png" alt="Healthy Diet Ideas, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Healthy%20Diet%20Ideas/6.png" alt="Healthy Diet Ideas, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Healthy Diet Ideas slides"></div>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Winter Weight Gain</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Winter Weight Gain carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%201.png" alt="Winter Weight Gain, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%202.png" alt="Winter Weight Gain, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%203.png" alt="Winter Weight Gain, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%204.png" alt="Winter Weight Gain, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%205.png" alt="Winter Weight Gain, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%206.png" alt="Winter Weight Gain, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Winter Weight Gain slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Winter Weight Gain carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Winter%20Weight%20Gain/1.png" alt="Winter Weight Gain, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Winter%20Weight%20Gain/2.png" alt="Winter Weight Gain, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Winter%20Weight%20Gain/3.png" alt="Winter Weight Gain, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Winter%20Weight%20Gain/4.png" alt="Winter Weight Gain, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Winter%20Weight%20Gain/5.png" alt="Winter Weight Gain, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Winter%20Weight%20Gain/6.png" alt="Winter Weight Gain, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Winter Weight Gain slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Winter Weight Gain carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%201.png" alt="Winter Weight Gain, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%202.png" alt="Winter Weight Gain, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%203.png" alt="Winter Weight Gain, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%204.png" alt="Winter Weight Gain, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%205.png" alt="Winter Weight Gain, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%20%26%20TikTok%5D%20Winter%20Weight%20Gain/%5BIG%5D%20Walking%2010%20min%20-%206.png" alt="Winter Weight Gain, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Winter Weight Gain slides"></div>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">AI Diabetes Management</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="AI Diabetes Management carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/IG%20Post%20-%20AI%20Diabetes%20Management/1%20-%20AI%20Diabetes%20Management.png" alt="AI Diabetes Management, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/IG%20Post%20-%20AI%20Diabetes%20Management/2%20-%20AI%20Diabetes%20Management.png" alt="AI Diabetes Management, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/IG%20Post%20-%20AI%20Diabetes%20Management/3%20-%20AI%20Diabetes%20Management.png" alt="AI Diabetes Management, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/IG%20Post%20-%20AI%20Diabetes%20Management/4%20-%20AI%20Diabetes%20Management.png" alt="AI Diabetes Management, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/IG%20Post%20-%20AI%20Diabetes%20Management/5%20-%20AI%20Diabetes%20Management.png" alt="AI Diabetes Management, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/IG%20Post%20-%20AI%20Diabetes%20Management/6%20-%20AI%20Diabetes%20Management.png" alt="AI Diabetes Management, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="AI Diabetes Management slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="AI Diabetes Management carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20AI%20Diabetes%20Management/1.png" alt="AI Diabetes Management, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20AI%20Diabetes%20Management/2.png" alt="AI Diabetes Management, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20AI%20Diabetes%20Management/3.png" alt="AI Diabetes Management, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20AI%20Diabetes%20Management/4.png" alt="AI Diabetes Management, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20AI%20Diabetes%20Management/5.png" alt="AI Diabetes Management, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20AI%20Diabetes%20Management/6.png" alt="AI Diabetes Management, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="AI Diabetes Management slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Walking 10 minutes</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Walking 10 minutes carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/Instagram%20Post%20-%20Walking%2010%20minutes/%5BIG%5D%20Walking%2010%20min%20-%201.png" alt="Walking 10 minutes, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/Instagram%20Post%20-%20Walking%2010%20minutes/%5BIG%5D%20Walking%2010%20min%20-%202.png" alt="Walking 10 minutes, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/Instagram%20Post%20-%20Walking%2010%20minutes/%5BIG%5D%20Walking%2010%20min%20-%203.png" alt="Walking 10 minutes, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/Instagram%20Post%20-%20Walking%2010%20minutes/%5BIG%5D%20Walking%2010%20min%20-%204.png" alt="Walking 10 minutes, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/Instagram%20Post%20-%20Walking%2010%20minutes/%5BIG%5D%20Walking%2010%20min%20-%205.png" alt="Walking 10 minutes, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/Instagram%20Post%20-%20Walking%2010%20minutes/%5BIG%5D%20Walking%2010%20min%20-%206.png" alt="Walking 10 minutes, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Walking 10 minutes slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Walking 10 minutes carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20Walking%2010%20minutes%202/%5BLI%5D%20Walking%2010%20min%20-%201.png" alt="Walking 10 minutes, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20Walking%2010%20minutes%202/%5BLI%5D%20Walking%2010%20min%20-%202.png" alt="Walking 10 minutes, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20Walking%2010%20minutes%202/%5BLI%5D%20Walking%2010%20min%20-%203.png" alt="Walking 10 minutes, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20Walking%2010%20minutes%202/%5BLI%5D%20Walking%2010%20min%20-%204.png" alt="Walking 10 minutes, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20Walking%2010%20minutes%202/%5BLI%5D%20Walking%2010%20min%20-%205.png" alt="Walking 10 minutes, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20-%20Walking%2010%20minutes%202/%5BLI%5D%20Walking%2010%20min%20-%206.png" alt="Walking 10 minutes, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Walking 10 minutes slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Walking 10 minutes carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/TikTok%20-%20Walking%20for%2010%20minutes%20%281%29/%5BTT%5D%20Walking%2010%20min%20-%201.png" alt="Walking 10 minutes, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/TikTok%20-%20Walking%20for%2010%20minutes%20%281%29/%5BTT%5D%20Walking%2010%20min%20-%202.png" alt="Walking 10 minutes, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/TikTok%20-%20Walking%20for%2010%20minutes%20%281%29/%5BTT%5D%20Walking%2010%20min%20-%203.png" alt="Walking 10 minutes, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/TikTok%20-%20Walking%20for%2010%20minutes%20%281%29/%5BTT%5D%20Walking%2010%20min%20-%204.png" alt="Walking 10 minutes, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/TikTok%20-%20Walking%20for%2010%20minutes%20%281%29/%5BTT%5D%20Walking%2010%20min%20-%205.png" alt="Walking 10 minutes, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/TikTok%20-%20Walking%20for%2010%20minutes%20%281%29/%5BTT%5D%20Walking%2010%20min%20-%206.png" alt="Walking 10 minutes, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Walking 10 minutes slides"></div>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Metabolic Health in a Day</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Metabolic Health in a Day carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/1.png" alt="Metabolic Health in a Day, slide 1 of 7" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/2.png" alt="Metabolic Health in a Day, slide 2 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/3.png" alt="Metabolic Health in a Day, slide 3 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/4.png" alt="Metabolic Health in a Day, slide 4 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/5.png" alt="Metabolic Health in a Day, slide 5 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/6.png" alt="Metabolic Health in a Day, slide 6 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20in%20a%20Day/7.png" alt="Metabolic Health in a Day, slide 7 of 7" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 7</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Metabolic Health in a Day slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Metabolic Health in a Day carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/1.png" alt="Metabolic Health in a Day, slide 1 of 7" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/2.png" alt="Metabolic Health in a Day, slide 2 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/3.png" alt="Metabolic Health in a Day, slide 3 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/4.png" alt="Metabolic Health in a Day, slide 4 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/5.png" alt="Metabolic Health in a Day, slide 5 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/6.png" alt="Metabolic Health in a Day, slide 6 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Metabolic%20Health%20in%20a%20Day/7.png" alt="Metabolic Health in a Day, slide 7 of 7" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 7</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Metabolic Health in a Day slides"></div>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Adults with Metabolic Syndrome</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Adults with Metabolic Syndrome">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Adults%20with%20Metabolic%20Syndrome.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Adults with Metabolic Syndrome">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Adults%20with%20Metabolic%20Syndrome.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Financial Problem</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Financial Problem">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Financial%20Problem.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Financial Problem">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Financial%20Problem.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Future is personalized</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <img src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Future%20is%20personalized.png" alt="Future is personalized" loading="lazy" />
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <img src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20Future%20is%20personalized.png" alt="Future is personalized" loading="lazy" />
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Future is personalized">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20Future%20is%20personalized.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Taking control of your health</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Taking control of your health">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BIG%20and%20TT%5D%20Taking%20control%20of%20your%20health.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Taking control of your health">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BIG%20and%20TT%5D%20Taking%20control%20of%20your%20health.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">1125 Nutrition Ad Post</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="1125 Nutrition Ad Post">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BLI%20%26%20IG%5D%201125%20Nutrition%20Ad%20Post.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="1125 Nutrition Ad Post">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BLI%20%26%20IG%5D%201125%20Nutrition%20Ad%20Post.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="1125 Nutrition Ad Post">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%201125%20Nutrition%20Ad%20Post.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Bad vs. Good Metabolic Health</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Bad vs. Good Metabolic Health carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/1.png" alt="Bad vs. Good Metabolic Health, slide 1 of 7" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/2.png" alt="Bad vs. Good Metabolic Health, slide 2 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/3.png" alt="Bad vs. Good Metabolic Health, slide 3 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/4.png" alt="Bad vs. Good Metabolic Health, slide 4 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/5.png" alt="Bad vs. Good Metabolic Health, slide 5 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/6.png" alt="Bad vs. Good Metabolic Health, slide 6 of 7" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5Bnew%20IG%5D%20Bad%20vs.%20Good%20Metabolic%20Health/7.png" alt="Bad vs. Good Metabolic Health, slide 7 of 7" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 7</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Bad vs. Good Metabolic Health slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Olympics</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Olympics carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Olympics%202/1.png" alt="Olympics, slide 1 of 5" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Olympics%202/2.png" alt="Olympics, slide 2 of 5" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Olympics%202/3.png" alt="Olympics, slide 3 of 5" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Olympics%202/4.png" alt="Olympics, slide 4 of 5" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Olympics%202/5.png" alt="Olympics, slide 5 of 5" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 5</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Olympics slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Winter Water Carousel</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">Instagram</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="Winter Water Carousel carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Winter%20Water%20Carousel/1.png" alt="Winter Water Carousel, slide 1 of 5" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Winter%20Water%20Carousel/2.png" alt="Winter Water Carousel, slide 2 of 5" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Winter%20Water%20Carousel/3.png" alt="Winter Water Carousel, slide 3 of 5" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Winter%20Water%20Carousel/4.png" alt="Winter Water Carousel, slide 4 of 5" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/%5BInstagram%5D%20Winter%20Water%20Carousel/5.png" alt="Winter Water Carousel, slide 5 of 5" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 5</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="Winter Water Carousel slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">MTMs</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media post-carousel" data-post-carousel tabindex="0" aria-label="MTMs carousel">
+                              <div class="post-carousel-frame">
+                                <div class="post-carousel-viewport">
+                                  <img class="post-carousel-slide is-active" src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20%20-%20MTMs/1.png" alt="MTMs, slide 1 of 6" />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20%20-%20MTMs/2.png" alt="MTMs, slide 2 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20%20-%20MTMs/3.png" alt="MTMs, slide 3 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20%20-%20MTMs/4.png" alt="MTMs, slide 4 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20%20-%20MTMs/5.png" alt="MTMs, slide 5 of 6" hidden />
+                                  <img class="post-carousel-slide" data-src="../assets/project-specific/scriptchain-health/social/LinkedIn%20Post%20%20-%20MTMs/6.png" alt="MTMs, slide 6 of 6" hidden />
+                                </div>
+                                <button type="button" class="post-carousel-arrow post-carousel-prev" aria-label="Previous slide">
+                                  <img src="../assets/icons/Arrow left.svg" alt="" />
+                                </button>
+                                <button type="button" class="post-carousel-arrow post-carousel-next" aria-label="Next slide">
+                                  <img src="../assets/icons/Arrow right.svg" alt="" />
+                                </button>
+                                <span class="post-carousel-counter" aria-live="polite">1 / 6</span>
+                              </div>
+                              <div class="post-carousel-dots" role="tablist" aria-label="MTMs slides"></div>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">Metabolic Health Good vs. Bad</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="Metabolic Health Good vs. Bad">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BLI%5D%20Metabolic%20Health%20Good%20vs.%20Bad%20.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">2025 Recap</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="2025 Recap">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%202025%20Recap.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">January 1-pager video</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="January 1-pager video">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20January%201-pager%20video.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">JPM Conference</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <img src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20JPM%20Conference.png" alt="JPM Conference" loading="lazy" />
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">One-Size Liner</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <img src="../assets/project-specific/scriptchain-health/social/%5BLinkedIn%5D%20One-Size%20Liner.png" alt="One-Size Liner" loading="lazy" />
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">LinkedIn Banner</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">LinkedIn</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <img src="../assets/project-specific/scriptchain-health/social/SCH%20LinkedIn%20Banner.png" alt="LinkedIn Banner" loading="lazy" />
+                            </figure>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">TikTok</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="scriptchain-campaign-row">
+                        <p class="scriptchain-campaign-title">NFL Post</p>
+                        <div class="scriptchain-campaign-grid">
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">Instagram</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell scriptchain-campaign-cell--empty">
+                          <p class="platform-preview-title">LinkedIn</p>
+                          <p class="scriptchain-no-post-caption">No post was made here on purpose.</p>
+                        </div>
+                        <div class="scriptchain-campaign-cell">
+                          <p class="platform-preview-title">TikTok</p>
+                            <figure class="platform-preview-frame scriptchain-campaign-media">
+                              <video autoplay muted loop controls playsinline preload="none" aria-label="NFL Post">
+                                <source src="../assets/project-specific/scriptchain-health/social/%5BTikTok%5D%20NFL%20Post.mp4" type="video/mp4" />
+                              </video>
+                            </figure>
+                        </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                -->
-                <ul>
-                  <li>28 Instagram posts</li>
-                  <li>26 LinkedIn posts</li>
-                  <li>24 TikTok posts</li>
-                </ul>
-                <p>
-                  Content ranged from metabolic syndrome research and AI in healthcare to event announcements, study collaborations, holiday posts, and culturally timely content. I also built a social media visual identity from scratch, developing a branding system based on the product's existing color palette since none existed for the channels before.
-                </p>
-                <!-- [EDIT: Brand tile or color palette swatch — social identity]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="ScriptChain Health social media brand identity" />
-                </div>
-                -->
-                <p>
-                  Outside of social media, I contributed newsletters via beehiiv, event posters, a tri-fold brochure, podcast outreach on behalf of the CEO, and investor and speaking presentations that the company continues to use today.
+                <p class="portfolio-pages-caption">
+                  I built a social visual identity from scratch using the product's existing color palette, applied across research posts, event announcements, and culturally timely content.
                 </p>
               </div>
               <div class="process-entry">
@@ -210,40 +1077,61 @@
                 <h2>
                   Tracking performance across all three platforms revealed clear patterns in what formats, days, and content types actually moved the needle.
                 </h2>
-                <!-- [EDIT: Chart or table — views over time, or avg. views by content type per platform]
                 <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Performance breakdown by platform and content type" />
+                  <img
+                    src="../assets/project-specific/scriptchain-health/analytics/performance-chart.svg"
+                    alt="Performance breakdown by platform and content type"
+                  />
                 </div>
-                -->
+                <div class="scriptchain-data-highlights three-up">
+                  <div>
+                    <p><strong>LinkedIn</strong> Carousels on Tuesday or Thursday mornings averaged 60–85 views.</p>
+                  </div>
+                  <div>
+                    <p><strong>Instagram</strong> Video outperformed static; the top post reached 192 views.</p>
+                  </div>
+                  <div>
+                    <p><strong>TikTok</strong> All six posts earned likes; the Olympics post hit 1,421 views.</p>
+                  </div>
+                </div>
                 <p>
-                  From the start, I logged every post across Instagram, LinkedIn, and TikTok — tracking views, reactions, content type, day, and time. Over time, patterns emerged that informed how I scheduled and formatted content going forward.
-                </p>
-                <p>
-                  On LinkedIn, carousels and static graphics posted on Tuesday or Thursday mornings consistently outperformed other formats and times, averaging 60 to 85 views during my tenure. Video on LinkedIn trended lower in raw views but held its own in reactions. Posts from before my start date averaged significantly higher views (often 100 to 260+), which reflected a larger or more active follower base at the time — a useful benchmark to work back toward.
-                </p>
-                <p>
-                  On Instagram, video posts were the clearest standout. The highest single-post view count on the platform during my time was 192 views on a Tuesday video, and video consistently outperformed static graphics across the board. Static posts clustered in the 25 to 65 view range, while video regularly pushed past that. Reactions stayed fairly steady across formats at 2 to 5 per post, suggesting the audience was small but consistent.
-                </p>
-                <p>
-                  TikTok told the most interesting story. Every post prior to my joining had received zero likes. The six posts I published during my internship all received at least one like, with the top performer — the Olympics post — reaching 56 likes and 1,421 views. Even the lower-performing TikToks in my batch hit 86 to 144 views, signaling that simply resuming activity on a dormant account had a measurable effect.
-                </p>
-                <p>
-                  Across all three platforms, I used these observations to refine the posting schedule, prioritize video content, and experiment with timing. That ongoing tracking also fed directly into the strategy document, so the next person wouldn't have to start from zero.
+                  Those patterns shaped posting schedules, format priorities, and the strategy document I handed off before leaving.
                 </p>
               </div>
               <div class="process-entry">
                 <div class="subtitle">Highlight: The Olympics Post</div>
                 <h2>
-                  A single timely post became the most-liked in the TikTok account's history, with 56 likes and 1,421 views against a baseline of 3 to 4 likes and 100 to 500 views per post.
+                  One timely post became the most-liked in the TikTok account's history, with 56 likes and 1,421 views compared to the usual 3 to 4 likes and 100 to 500 views per post.
                 </h2>
-                <!-- [EDIT: Screenshot or mockup of the Olympics TikTok post with engagement visible]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Olympics TikTok post showing engagement metrics" />
+                <div class="scriptchain-highlight-post scriptchain-tiktok-embed">
+                  <blockquote
+                    class="tiktok-embed"
+                    cite="https://www.tiktok.com/t/ZTBUsGAbn/"
+                    style="max-width: 325px; min-width: 325px"
+                  >
+                    <section>
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="ScriptChain Health Olympics TikTok post"
+                        href="https://www.tiktok.com/t/ZTBUsGAbn/"
+                      >
+                        View the Olympics TikTok post on TikTok
+                      </a>
+                    </section>
+                  </blockquote>
                 </div>
-                -->
                 <p>
-                  Near the end of my internship, I leaned further into culturally relevant content as part of the strategy. The 2026 Winter Olympics post was the result of that thinking, and the response confirmed what the research had been pointing to: audiences engage more when content connects to something they are already paying attention to, even in a niche healthcare context.
+                  Culturally relevant content connected metabolic health to a moment people were already paying attention to, even in a niche healthcare context.
                 </p>
+                <p>Why I think it worked:</p>
+                <ul>
+                  <li><strong>Timing.</strong> I posted it the day after Alysa Liu won her gold medal.</li>
+                  <li><strong>Hashtags.</strong> I tagged the athletes I included in this post, including popular athletes like Alysa Liu and Amber Glenn.</li>
+                  <li><strong>Content.</strong> I purposely made the content easier to understand, relatable to our company without feeling like uncommon jargon.</li>
+                  <li><strong>First slide.</strong> I used popular athletes' faces with a title that directly related to what viewers were seeing.</li>
+                  <li><strong>Music.</strong> Unfortunately, Buffer does not allow music to be added for TikTok carousels, so I believe it would have reached more people with the right song choice.</li>
+                </ul>
               </div>
             </section>
 
@@ -254,53 +1142,78 @@
                 <h2>
                   The most valuable thing I built at ScriptChain was not any individual post, but the ability to think about social media as a strategic tool rather than a design task.
                 </h2>
-                <!-- [EDIT: Side-by-side — early post vs. later post showing design and strategic growth]
                 <div class="platform-preview-container">
                   <div class="platform-preview-inner">
+                    <p class="portfolio-pages-caption">Design and strategic growth from early to later posts</p>
                     <div class="platform-preview-grid">
-                      <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Early ScriptChain Health social post" />
-                      <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Later ScriptChain Health social post" />
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <img
+                            src="../assets/project-specific/scriptchain-health/reflections/early-post.svg"
+                            alt="Early ScriptChain Health social post"
+                          />
+                        </div>
+                      </figure>
+                      <figure class="platform-preview-item">
+                        <div class="platform-preview-frame">
+                          <img
+                            src="../assets/project-specific/scriptchain-health/reflections/later-post.svg"
+                            alt="Later ScriptChain Health social post"
+                          />
+                        </div>
+                      </figure>
                     </div>
                   </div>
                 </div>
-                -->
                 <p>
-                  Stepping into a role with no brief and no precedent pushed me to develop skills I would not have had the chance to use otherwise: market research, content planning, performance analysis, and the discipline to build a strategy before touching a design file. The accounts did not go viral, and for a pre-launch startup targeting a niche healthcare audience, that was never a realistic short-term goal. What this period accomplished was keeping the channels credible and active, establishing a visual identity, and giving the company a foundation to grow from. That work continued to matter after I left.
+                  For a pre-launch startup targeting a niche healthcare audience, the win was keeping channels credible and active, establishing a visual identity, and leaving a foundation the company could grow from.
                 </p>
               </div>
             </section>
 
-            <!-- SOLUTION (detailed by workstream) -->
+            <!-- SOLUTION -->
             <section class="project-section content-section process-group" id="solution">
               <div class="process-entry">
                 <div class="subtitle">Beyond Social Media</div>
                 <h2>
                   Alongside the social channels, I designed physical marketing materials, investor presentations, and a newsletter program that extended ScriptChain's presence beyond the screen.
                 </h2>
-                <!-- [EDIT: Flat lay or mockup — event poster, tri-fold brochure, newsletter screenshot]
                 <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Event poster, tri-fold brochure, and newsletter mockup" />
+                  <img
+                    src="../assets/project-specific/scriptchain-health/marketing/collateral-flatlay.svg"
+                    alt="Event poster, tri-fold brochure, and newsletter mockup"
+                  />
                 </div>
-                -->
                 <p>
-                  For events where the CEO presented or hosted a table, I designed an informational poster and a tri-fold brochure that introduced ScriptChain to attendees, covering the platform, its mission, and the problem it solves. These needed to communicate clearly to a healthcare audience that may have been encountering the company for the first time, so the design prioritized clarity and credibility over flash.
+                  For events where the CEO presented or hosted a table, I designed an informational poster and tri-fold brochure that introduced ScriptChain clearly to a healthcare audience encountering the company for the first time.
                 </p>
-                <p>
-                  I also designed presentations for both speaking engagements and investor meetings. Those decks are still actively in use by the company today.
-                </p>
-                <!-- [EDIT: Presentation slide mockup — layout and visual style]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="ScriptChain Health presentation slide layout" />
+                <div class="platform-preview-grid">
+                  <figure class="platform-preview-item">
+                    <div class="platform-preview-frame">
+                      <img
+                        src="../assets/project-specific/scriptchain-health/marketing/event-poster.svg"
+                        alt="ScriptChain Health event poster"
+                      />
+                    </div>
+                  </figure>
+                  <figure class="platform-preview-item">
+                    <div class="platform-preview-frame">
+                      <img
+                        src="../assets/project-specific/scriptchain-health/marketing/presentation-slide.svg"
+                        alt="ScriptChain Health presentation slide layout"
+                      />
+                    </div>
+                  </figure>
                 </div>
-                -->
                 <p>
-                  On the newsletter side, I set up and sent campaigns through beehiiv with an eye toward what actually gets emails opened and read. That meant writing subject lines built to perform, designing mobile-responsive layouts, maintaining a clean visual hierarchy, and keeping calls to action focused. I also researched newsletter best practices around open rates, click-to-open rates, send frequency, and list hygiene to inform how the program should grow beyond my time there.
+                  Investor and speaking decks from this work are still in use today. I also set up beehiiv newsletters with mobile-responsive layouts and subject lines built to perform.
                 </p>
-                <!-- [EDIT: Newsletter screenshot or mockup — beehiiv layout on mobile and desktop]
-                <div class="image-frame">
-                  <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="ScriptChain Health newsletter layout in beehiiv" />
-                </div>
-                -->
+                <figure class="platform-preview-frame">
+                  <img
+                    src="../assets/project-specific/scriptchain-health/marketing/newsletter.svg"
+                    alt="ScriptChain Health newsletter layout in beehiiv"
+                  />
+                </figure>
               </div>
             </section>
 
@@ -314,16 +1227,14 @@
                       <h2>
                         Given more bandwidth and platform flexibility, I would have pushed harder to expand our reach, particularly onto Facebook.
                       </h2>
-                      <!-- [EDIT: Graphic — three platforms used vs. platforms considered]
                       <div class="image-frame">
-                        <img src="../assets/project-specific/scriptchain-health/[filename].png" alt="Platforms used versus platforms considered" />
+                        <img
+                          src="../assets/project-specific/scriptchain-health/wishes/platforms-graphic.svg"
+                          alt="Platforms used versus platforms considered"
+                        />
                       </div>
-                      -->
                       <p>
-                        Because social media was one part of a broader design role running on a 20-hour week, there was a ceiling on how much I could realistically produce and experiment with. I made the most of the time available, but more runway would have meant more testing, more content variation, and a faster feedback loop on what was working.
-                      </p>
-                      <p>
-                        The bigger strategic wish was getting the company onto Facebook. Given that ScriptChain's target users skew older, Facebook's demographic made it a natural fit, and I made that case to the CEO. It didn't move forward, and the three-channel limit on Buffer's free plan meant there wasn't room to add it anyway without dropping something else. Beyond platform access, Buffer itself introduced a few friction points worth noting for anyone continuing the work: music couldn't be added to TikTok posts through the scheduler, and gradient designs didn't render correctly when uploading PDFs for LinkedIn carousels. Small constraints, but the kind that quietly shape what's possible.
+                        On a 20-hour week, there was a ceiling on how much I could produce and experiment with. I also made the case for Facebook given ScriptChain's older-skewing audience, though Buffer's three-channel limit and scheduling constraints kept the stack at Instagram, LinkedIn, and TikTok.
                       </p>
                     </div>
                   </div>
@@ -336,7 +1247,7 @@
                         How to prioritize, context-switch, and own work that wasn't in the original job description.
                       </h2>
                       <p>
-                        I had worked in the startup environment before, but this role pushed that experience further. Being expected to research content, develop strategy, design across multiple formats, write newsletters, build presentations, and handle outreach within a part-time schedule meant learning quickly how to triage and keep moving without losing quality. That kind of stretched responsibility is uncomfortable, but it builds a different kind of confidence than a well-scoped role does.
+                        Research, strategy, design, newsletters, presentations, and outreach within a part-time schedule meant learning quickly how to triage and keep moving without losing quality.
                       </p>
                     </div>
                     <div class="reflection-column">
@@ -344,7 +1255,7 @@
                         This was also my first time working on a healthcare product, and the subject matter ended up being genuinely interesting.
                       </h2>
                       <p>
-                        Going in, I knew very little about metabolic syndrome or how AI was being applied in preventive care. The research I did for posts, combined with the CEO's expectation that the team stay informed on the space, meant I was absorbing a lot more than I expected to. I came out of it with a working understanding of B2B healthcare dynamics, some awareness of how compliance and trust factor into health tech marketing, and a few genuinely useful health insights I've kept for myself.
+                        Post research and CEO-led learning pushed me toward a working understanding of B2B healthcare dynamics and how compliance and trust shape health tech marketing.
                       </p>
                     </div>
                   </div>
@@ -356,10 +1267,10 @@
                   This internship was as much a lesson in how I want to work as it was in the work itself.
                 </h2>
                 <p>
-                  Beyond the deliverables, my time at ScriptChain gave me a clearer picture of the types of projects I want to keep pursuing and how to stay grounded when the scope of a role expands faster than the hours allow. That kind of self-knowledge is hard to come by without being thrown into the deep end.
+                  Beyond the deliverables, my time at ScriptChain gave me a clearer picture of the projects I want to keep pursuing and how to stay grounded when scope expands faster than the hours allow.
                 </p>
                 <p>
-                  A genuine thank you to the ScriptChain team for the experience. And a special shoutout to my fellow Product Designer and the engineer who kept me sane throughout — their feedback, perspective, and camaraderie made the harder stretches a lot more manageable.
+                  A genuine thank you to the ScriptChain team, and a special shoutout to my fellow Product Designer and the engineer who kept me sane throughout.
                 </p>
               </div>
             </section>
@@ -381,6 +1292,7 @@
         </footer>
       </div>
     </div>
+    <script async src="https://www.tiktok.com/embed.js"></script>
     <script defer src="../project-page.js"></script>
   </body>
 </html>

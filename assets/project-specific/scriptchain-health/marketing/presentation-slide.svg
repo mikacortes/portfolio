@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-label="Presentation slide">
+  <rect width="100%" height="100%" fill="#f3f2ef" stroke="#cfcbc4" stroke-width="2"/>
+  <rect x="24" y="24" width="912" height="492" fill="#faf9f7" stroke="#e3e0da" stroke-dasharray="8 6"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7a7770" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500">Presentation slide</text>
+</svg>

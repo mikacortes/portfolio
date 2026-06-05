@@ -1,13 +1,132 @@
+(function initPostCarousels() {
+  const carousels = document.querySelectorAll('[data-post-carousel]');
+  if (!carousels.length) return;
+
+  function storeSlideSrc(slide) {
+    if (slide.tagName !== 'IMG') return;
+    const src = slide.getAttribute('src');
+    if (src && !slide.dataset.src) {
+      slide.dataset.src = src;
+    }
+  }
+
+  function loadSlide(slide) {
+    if (slide.tagName !== 'IMG') return;
+    storeSlideSrc(slide);
+    if (!slide.getAttribute('src') && slide.dataset.src) {
+      slide.setAttribute('src', slide.dataset.src);
+      if (!slide.hasAttribute('loading')) slide.loading = 'lazy';
+      if (!slide.hasAttribute('decoding')) slide.decoding = 'async';
+    }
+  }
+
+  function unloadSlide(slide) {
+    if (slide.tagName !== 'IMG') return;
+    storeSlideSrc(slide);
+    slide.removeAttribute('src');
+  }
+
+  carousels.forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll('.post-carousel-slide'));
+    const prevButton = carousel.querySelector('.post-carousel-prev');
+    const nextButton = carousel.querySelector('.post-carousel-next');
+    const counter = carousel.querySelector('.post-carousel-counter');
+    const dotsContainer = carousel.querySelector('.post-carousel-dots');
+    let activeIndex = slides.findIndex((slide) => slide.classList.contains('is-active'));
+    if (activeIndex < 0) activeIndex = 0;
+    let hasLoadedActiveSlide = false;
+
+    slides.forEach(storeSlideSrc);
+
+    if (dotsContainer && !dotsContainer.children.length) {
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'post-carousel-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Go to slide ${index + 1} of ${slides.length}`);
+        dot.addEventListener('click', () => goTo(index));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.post-carousel-dot')) : [];
+
+    function updateUI(index, loadActive) {
+      activeIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, slideIndex) => {
+        const isActive = slideIndex === activeIndex;
+        slide.classList.toggle('is-active', isActive);
+        slide.hidden = !isActive;
+
+        if (isActive && loadActive) {
+          loadSlide(slide);
+          hasLoadedActiveSlide = true;
+        } else if (!isActive) {
+          unloadSlide(slide);
+        }
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === activeIndex;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      if (counter) {
+        counter.textContent = `${activeIndex + 1} / ${slides.length}`;
+      }
+    }
+
+    function goTo(index) {
+      updateUI(index, true);
+    }
+
+    prevButton?.addEventListener('click', () => goTo(activeIndex - 1));
+    nextButton?.addEventListener('click', () => goTo(activeIndex + 1));
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        goTo(activeIndex - 1);
+      }
+
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        goTo(activeIndex + 1);
+      }
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasLoadedActiveSlide) {
+            goTo(activeIndex);
+            revealObserver.disconnect();
+          }
+        });
+      },
+      { rootMargin: '160px', threshold: 0.01 }
+    );
+
+    slides.forEach(unloadSlide);
+    updateUI(activeIndex, false);
+    revealObserver.observe(carousel);
+  });
+})();
+
 (function initLazyProjectImages() {
   const main = document.querySelector('.project-main');
   if (!main) return;
 
-  const eagerSection =
-    main.querySelector('#overview') || main.querySelector('.project-section');
   const eagerImages = new Set();
+  const heroImage = main.querySelector('.hero-image img');
+  const overviewSection = main.querySelector('#overview');
 
-  if (eagerSection) {
-    eagerSection.querySelectorAll('img').forEach((img) => eagerImages.add(img));
+  if (heroImage) eagerImages.add(heroImage);
+  if (overviewSection) {
+    overviewSection.querySelectorAll('img').forEach((img) => eagerImages.add(img));
   }
 
   let isFirstEager = true;
