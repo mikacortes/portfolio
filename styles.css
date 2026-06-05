@@ -3107,6 +3107,7 @@ body.trubel-lightbox-open {
   .featured-grid,
   .recent-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
     grid-auto-rows: 220px;
   }
 
@@ -3122,13 +3123,137 @@ body.trubel-lightbox-open {
   .project-meta,
   .two-column,
   .sticky-note-row {
-    flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
-  .project-hero .project-meta {
-    align-self: stretch;
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 24px 24px;
+  }
+
+  .service-header {
+    padding: 22px 24px;
+  }
+
+  .project-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .project-meta {
+    grid-template-columns: 1fr;
     width: 100%;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sticky-note-row {
+    flex-direction: column;
+  }
+
+  .about-main {
+    padding: 72px 0 80px;
+  }
+
+  .about-main section {
+    margin-bottom: 80px;
+  }
+
+  .archive-main {
+    padding: 108px 0 96px;
+  }
+
+  .project-main #overview .wscuc-snapshots-grid .portfolio-pages-gallery,
+  .project-main #original-report .wscuc-original-pages .portfolio-pages-gallery,
+  .project-main #research .wscuc-inspo-pages .portfolio-pages-gallery,
+  .project-main #early-drafts .wscuc-early-drafts-pages .portfolio-pages-gallery,
+  .project-main #similar-work .wscuc-similar-work-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-main #branding .wscuc-branding-pages .portfolio-pages-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  .project-main #branding .wscuc-branding-pages .portfolio-page-item,
+  .project-main #branding .wscuc-branding-pages .portfolio-page-stack {
+    width: 100%;
+  }
+
+  .project-main #branding .wscuc-branding-pages .portfolio-page-item > img,
+  .project-main #branding .wscuc-branding-pages .portfolio-page-stack > img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-main #final-layout .wscuc-final-layout-row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-main #final-layout .wscuc-final-layout-row > h2 {
+    position: static;
+  }
+
+  #solution-brief .custom-container:not(.platform-preview-container) .custom-container-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #solution-brief
+    .custom-container:not(.platform-preview-container)
+    .custom-container-inner
+    > .custom-container-image,
+  #solution-brief
+    .custom-container:not(.platform-preview-container)
+    .custom-container-inner
+    > video.custom-container-image {
+    width: 100%;
+    max-width: none;
+    max-height: 260px;
+    align-self: stretch;
+  }
+
+  #solution-brief .custom-container:not(.platform-preview-container) .custom-container-copy {
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+  }
+
+  .trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+    overflow: visible;
+  }
+
+  .trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-media-item {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .trubel-co-page #stakeholder-feedback .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-equal-media > .ideation-arrow-inline {
+    align-self: center;
+    transform: rotate(90deg);
   }
 
   .sticky-note-row--top .note,
@@ -3223,6 +3348,18 @@ body.trubel-lightbox-open {
     font-size: 28px;
   }
 
+  .about-main {
+    padding: 64px 0 72px;
+  }
+
+  .about-main section {
+    margin-bottom: 64px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
   .featured-grid,
   .recent-grid {
     grid-template-columns: 1fr;
@@ -3244,6 +3381,28 @@ body.trubel-lightbox-open {
   .archive-gallery img,
   .archive-gallery-video {
     margin-bottom: 14px;
+  }
+
+  .project-main #overview .wscuc-snapshots-grid .portfolio-pages-gallery,
+  .project-main #original-report .wscuc-original-pages .portfolio-pages-gallery,
+  .project-main #research .wscuc-inspo-pages .portfolio-pages-gallery,
+  .project-main #early-drafts .wscuc-early-drafts-pages .portfolio-pages-gallery,
+  .project-main #similar-work .wscuc-similar-work-gallery,
+  .project-main #branding .wscuc-branding-pages .portfolio-pages-gallery,
+  .project-main #final-layout .wscuc-final-layout-media--grid,
+  .project-main #early-drafts .wscuc-alt-design-stack-row {
+    grid-template-columns: 1fr;
+  }
+
+  .trubel-co-page #ideation .platform-preview-grid.platform-preview-grid--five,
+  .trubel-co-page #ideation .platform-preview-inner.ideation-no-shell > .platform-preview-grid.platform-preview-grid--five:not(.ideation-fluid-row),
+  .trubel-co-page .platform-preview-inner.ideation-no-shell > .platform-preview-grid.ideation-grid-four-up {
+    flex-wrap: wrap !important;
+    justify-content: center;
+  }
+
+  .trubel-co-page #ideation .platform-preview-inner.ideation-no-shell > .platform-preview-grid.platform-preview-grid--five:not(.ideation-fluid-row) > .ideation-video-stack.ideation-video-stack--row {
+    flex-wrap: wrap;
   }
 
   .platform-preview-grid {

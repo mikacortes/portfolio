@@ -935,6 +935,9 @@
 
 @media (max-width: 980px) {
   .project-layout {
+    --project-column-padding-left: 24px;
+    --project-column-padding-right: 24px;
+    --project-footer-inset-right: 0;
     grid-template-columns: 1fr;
   }
 
@@ -970,15 +973,47 @@
   .project-main .linkedin-embed-wrap iframe {
     min-height: 520px;
   }
+
+  .project-main .platform-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-main .design-decision-preview .platform-preview-grid--with-arrow {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .project-main .design-decision-preview .platform-preview-arrow img {
+    transform: rotate(90deg);
+  }
+
+  .project-main .platform-preview-grid--five .platform-preview-grid-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project-main .platform-preview-grid--five .platform-preview-grid-row--secondary {
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
+  .project-layout {
+    --project-column-padding-left: 18px;
+    --project-column-padding-right: 18px;
+  }
+
   .project-sidebar {
     padding: 18px;
   }
 
   .project-column {
     padding: 20px var(--project-column-padding-right) 0 var(--project-column-padding-left);
+  }
+
+  .project-main .linkedin-embed-wrap,
+  .project-main .linkedin-embed-wrap iframe {
+    min-height: 420px;
   }
 
   .outcome-stats {
