@@ -177,6 +177,11 @@
   color: var(--blue);
 }
 
+.sidebar-links a.sidebar-nested-link {
+  margin-left: 14px;
+  font-size: 14px;
+}
+
 .project-main .meta-label {
   color: var(--blue);
 }
@@ -425,6 +430,59 @@
   align-self: center;
 }
 
+.project-main .project-logo-frame {
+  width: auto;
+  max-width: 220px;
+  margin-bottom: 28px;
+}
+
+.project-main .project-logo-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.project-main .social-embeds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.project-main .social-embed-card {
+  border: 1px solid var(--image-container-border);
+  background: var(--image-container-fill);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.project-main .social-embed-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.project-main .social-embed-card .instagram-media,
+.project-main .social-embed-card .tiktok-embed {
+  margin: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.project-main .linkedin-embed-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+}
+
+.project-main .linkedin-embed-wrap iframe {
+  width: 100%;
+  min-height: 560px;
+  border: 0;
+  border-radius: 8px;
+}
+
 
 .project-section {
   scroll-margin-top: 32px;
@@ -512,6 +570,15 @@
 
   .sidebar-links {
     gap: 16px;
+  }
+
+  .project-main .social-embeds-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-main .linkedin-embed-wrap,
+  .project-main .linkedin-embed-wrap iframe {
+    min-height: 520px;
   }
 }
 
