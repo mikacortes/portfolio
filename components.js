@@ -731,6 +731,15 @@ function loadArchiveGalleryVideo(video) {
   video.preload = 'metadata';
   video.load();
   video.dataset.srcLoaded = 'true';
+
+  if (!video.hasAttribute('autoplay')) return;
+
+  const tryPlay = () => {
+    video.play().catch(() => {});
+  };
+
+  tryPlay();
+  video.addEventListener('canplay', tryPlay, { once: true });
 }
 
 function initArchiveLazyMedia() {
@@ -748,14 +757,25 @@ function initArchiveLazyMedia() {
   const videos = gallery.querySelectorAll('.archive-gallery-video-media');
   if (!videos.length) return;
 
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const loadWhenNeeded = (video) => {
     loadArchiveGalleryVideo(video);
   };
 
   videos.forEach((video) => {
     video.preload = 'none';
-    video.addEventListener('pointerdown', () => loadWhenNeeded(video), { once: true });
-    video.addEventListener('focusin', () => loadWhenNeeded(video), { once: true });
+
+    if (prefersReducedMotion && video.hasAttribute('autoplay')) {
+      video.removeAttribute('autoplay');
+    }
+
+    if (!video.hasAttribute('autoplay')) {
+      video.addEventListener('pointerdown', () => loadWhenNeeded(video), { once: true });
+      video.addEventListener('focusin', () => loadWhenNeeded(video), { once: true });
+    }
   });
 
   if (!('IntersectionObserver' in window)) {
@@ -766,9 +786,19 @@ function initArchiveLazyMedia() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
+        const video = entry.target;
+        const isAutoplay = video.hasAttribute('autoplay');
+
         if (entry.isIntersecting) {
-          loadWhenNeeded(entry.target);
-          observer.unobserve(entry.target);
+          loadWhenNeeded(video);
+          if (isAutoplay && video.dataset.srcLoaded === 'true') {
+            video.play().catch(() => {});
+          }
+          if (!isAutoplay) {
+            observer.unobserve(video);
+          }
+        } else if (isAutoplay) {
+          video.pause();
         }
       });
     },
