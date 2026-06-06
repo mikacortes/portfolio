@@ -208,6 +208,10 @@
   letter-spacing: 0.06em;
 }
 
+.project-main .reflection-row-columns:has(.reflection-column:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .outcome-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -458,6 +462,8 @@
 .project-main .overview-brand-row img {
   display: block;
   max-width: 100%;
+  max-height: 75px;
+  width: auto;
   height: auto;
 }
 
@@ -474,8 +480,30 @@
   align-items: start;
 }
 
-.project-main .finding-direction-media-grid .post-carousel-frame,
-.project-main .finding-direction-media-grid > .platform-preview-item:not(.post-carousel) .platform-preview-frame {
+.project-main .finding-direction-media-grid.platform-preview-grid--with-arrow {
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.project-main .finding-direction-media-grid .platform-preview-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: auto;
+  max-width: none;
+  padding: 0 4px;
+  align-self: center;
+}
+
+.project-main .finding-direction-media-grid .platform-preview-arrow img {
+  width: 28px;
+  height: 28px;
+  max-width: none;
+  filter: brightness(0) saturate(100%) invert(64%);
+}
+
+.project-main .finding-direction-media-grid .post-carousel-frame {
   aspect-ratio: 1 / 1;
   width: 100%;
   overflow: hidden;
@@ -492,11 +520,17 @@
   object-position: center;
 }
 
-.project-main .finding-direction-media-grid .platform-preview-frame video {
-  height: 100%;
+.project-main .finding-direction-media-grid > .platform-preview-item:not(.post-carousel) video {
+  aspect-ratio: 1 / 1;
   width: 100%;
+  height: auto;
   object-fit: contain;
   object-position: center;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--white);
+  display: block;
 }
 
 .project-main .process-group .process-entry {
@@ -640,111 +674,273 @@
   outline-offset: 2px;
 }
 
-.project-main .scriptchain-campaign-rows {
+.project-main .scriptchain-strategy-blocks {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
+  margin: 16px 0 0;
+}
+
+.project-main .scriptchain-strategy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: stretch;
   width: 100%;
 }
 
-.project-main .scriptchain-campaign-row {
-  min-width: 0;
-}
-
-.project-main .scriptchain-campaign-title {
-  margin: 0 0 16px;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.project-main .scriptchain-campaign-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  width: 100%;
-  align-items: start;
-}
-
-.project-main .scriptchain-campaign-cell {
-  min-width: 0;
-  width: 100%;
-}
-
-.project-main .scriptchain-campaign-cell .platform-preview-title {
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.45;
-  color: rgba(28, 28, 28, 0.65);
-}
-
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media {
-  width: 100%;
-}
-
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media:not(.post-carousel) {
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
-  height: auto;
-  display: block;
-  overflow: hidden;
-}
-
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media:not(.post-carousel) img,
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media:not(.post-carousel) video {
-  max-height: 300px;
+.project-main .scriptchain-strategy-block > img {
   width: auto;
   height: auto;
   max-width: 100%;
-  object-fit: contain;
+  max-height: 400px;
   display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 4px;
+  object-fit: contain;
+  object-position: center;
 }
 
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media.post-carousel {
+.project-main .scriptchain-strategy-blocks .user-goals-media {
+  min-width: 0;
+}
+
+.project-main .scriptchain-strategy-blocks .platform-preview-item {
+  margin: 0;
+  width: 100%;
+}
+
+.project-main .scriptchain-strategy-posts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--media-caption-gap);
+}
+
+.project-main .scriptchain-strategy-posts .portfolio-pages-caption {
+  margin: 0;
+}
+
+.project-main .scriptchain-strategy-posts--grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--media-caption-gap);
+  justify-content: center;
+  align-items: center;
+  container-type: inline-size;
+}
+
+.project-main .scriptchain-strategy-posts--grid .portfolio-pages-caption {
+  flex: 1 1 100%;
+}
+
+.project-main .scriptchain-strategy-posts--grid img {
+  flex: 0 0 auto;
+  width: auto;
   height: auto;
+  max-width: calc((100cqw - var(--media-caption-gap)) / 2);
+  max-height: 300px;
   display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 4px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-main .scriptchain-strategy-posts--four {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--media-caption-gap);
+  justify-content: center;
+  align-items: flex-start;
+  container-type: inline-size;
+}
+
+.project-main .scriptchain-strategy-posts--four .portfolio-pages-caption {
+  flex: 1 1 100%;
+}
+
+.project-main .scriptchain-strategy-posts--four img {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 4px;
+}
+
+.project-main .scriptchain-strategy-posts--four img:not(:first-child) {
+  width: auto;
+  height: auto;
+  max-width: calc((100cqw - 3 * var(--media-caption-gap)) / 4);
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-main .scriptchain-strategy-posts--four img:first-child {
+  width: auto;
+  height: auto;
+  max-height: calc((100cqw - 3 * var(--media-caption-gap)) / 4);
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-main .scriptchain-strategy-posts--four img:last-child {
+  align-self: center;
+}
+
+.project-main .scriptchain-strategy-synthesis {
+  margin-top: 32px;
+}
+
+.project-main .scriptchain-strategy-synthesis p {
+  margin: 0 0 var(--project-block-gap);
+  max-width: none;
+}
+
+.project-main .scriptchain-strategy-synthesis p:last-child {
+  margin-bottom: 0;
+}
+
+.project-main .scriptchain-strategy-examples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--media-caption-gap);
+  margin: 0 0 var(--project-block-gap);
+}
+
+.project-main .scriptchain-strategy-example {
+  min-width: 0;
+}
+
+.project-main .scriptchain-strategy-example .platform-preview-item {
+  margin: 0;
+  width: 100%;
+}
+
+.project-main .scriptchain-strategy-example .platform-preview-frame,
+.project-main .scriptchain-strategy-example .post-carousel-frame {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-main .scriptchain-strategy-example .post-carousel-viewport {
+  height: 100%;
+}
+
+.project-main .scriptchain-strategy-example .post-carousel-viewport .post-carousel-slide.is-active {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-main .scriptchain-strategy-examples .platform-preview-frame img:not(.post-carousel-slide),
+.project-main .scriptchain-strategy-examples .platform-preview-frame video {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-main .scriptchain-strategy-example-caption {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.project-main .scriptchain-social-gallery {
+  column-count: 3;
+  column-gap: 20px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.project-main .scriptchain-social-gallery > img,
+.project-main .scriptchain-social-gallery > .archive-gallery-video,
+.project-main .scriptchain-social-gallery > .scriptchain-social-grid-item {
+  break-inside: avoid;
+  margin: 0 0 20px;
+}
+
+.project-main .scriptchain-social-gallery .post-carousel {
+  margin: 0;
+  display: block;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.project-main .scriptchain-social-gallery .post-carousel .post-carousel-frame {
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-radius: 0;
   overflow: visible;
 }
 
-.project-main .scriptchain-social-showcase .post-carousel .post-carousel-frame {
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
-  height: auto;
+.project-main .scriptchain-social-gallery .post-carousel-viewport {
+  overflow: visible;
 }
 
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media.post-carousel .post-carousel-viewport {
-  width: fit-content;
-  max-width: 100%;
-  height: auto;
+.project-main .scriptchain-social-gallery .post-carousel-viewport .post-carousel-slide.is-active {
   display: block;
-}
-
-.project-main .scriptchain-social-showcase .scriptchain-campaign-media.post-carousel .post-carousel-viewport .post-carousel-slide.is-active {
-  max-height: 300px;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  margin: 0 auto;
-  display: block;
-}
-
-.project-main .scriptchain-no-post-caption {
   width: 100%;
-  min-height: 300px;
+  height: auto;
   margin: 0;
-  padding: 16px;
-  display: flex;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 4px;
+  background: var(--white);
+  object-fit: contain;
+  object-position: center;
+}
+
+.project-main .scriptchain-social-gallery .post-carousel-dots {
+  margin-top: 8px;
+}
+
+.project-main .scriptchain-social-gallery .post-carousel-arrow {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.45;
-  color: rgba(28, 28, 28, 0.55);
-  border: 1px dashed var(--image-container-border);
-  border-radius: 8px;
-  box-sizing: border-box;
+  padding: 0;
+}
+
+.project-main .scriptchain-social-gallery .post-carousel-arrow img {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: center;
+  filter: brightness(0);
+}
+
+.project-main .scriptchain-social-gallery .post-carousel-slide:not(.is-active) {
+  margin: 0;
+  border: none;
+  background: transparent;
 }
 
 .project-main .scriptchain-platform-grid {
@@ -809,19 +1005,42 @@
   margin: 16px auto 0;
 }
 
-.project-main .scriptchain-tiktok-embed .tiktok-embed {
-  margin: 0 !important;
-  min-width: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
+.project-main .scriptchain-tiktok-link {
+  margin-top: 12px;
+  text-align: center;
+  font-style: normal;
 }
 
-.project-main .scriptchain-tiktok-embed iframe {
-  border-radius: 8px;
+.project-main .scriptchain-tiktok-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.project-main .scriptchain-tiktok-link a span {
+  text-decoration: underline;
+}
+
+.project-main .scriptchain-tiktok-link a img {
+  width: 12px;
+  height: 12px;
+  display: block;
+  flex-shrink: 0;
+  filter: brightness(0);
 }
 
 @media (max-width: 980px) {
-  .project-main .scriptchain-campaign-grid,
+  .project-main .scriptchain-social-gallery {
+    column-count: 2;
+  }
+
+  .project-main .scriptchain-strategy-examples {
+    grid-template-columns: 1fr;
+  }
+
   .project-main .scriptchain-platform-grid,
   .project-main .scriptchain-data-highlights {
     grid-template-columns: 1fr;
@@ -1115,6 +1334,10 @@
     grid-template-columns: 1fr;
   }
 
+  .project-main .finding-direction-media-grid.platform-preview-grid--with-arrow {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
   .project-main .design-decision-preview .platform-preview-grid--with-arrow {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -1151,6 +1374,15 @@
   .project-main .linkedin-embed-wrap,
   .project-main .linkedin-embed-wrap iframe {
     min-height: 420px;
+  }
+
+  .project-main .finding-direction-media-grid.platform-preview-grid--with-arrow {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .project-main .finding-direction-media-grid .platform-preview-arrow img {
+    transform: rotate(90deg);
   }
 
   .outcome-stats {

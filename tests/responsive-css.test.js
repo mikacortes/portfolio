@@ -86,11 +86,16 @@ describe('responsive CSS rules', () => {
     expect(mobileProjectCss).toMatch(/\.sidebar-bottom--page-end \.sidebar-next \.arrow-right[\s\S]*display: none/);
   });
 
+  it('scales project headings down at tablet and phone breakpoints', () => {
+    expect(mobileSharedCss).toMatch(/\.project-main h2[\s\S]*font-size: 28px/);
+    expect(smallSharedCss).toMatch(/\.project-main h2[\s\S]*font-size: 24px/);
+  });
+
   it('collapses shared layout grids for about and project pages at 980px', () => {
     expect(mobileSharedCss).toMatch(/\.about-grid[\s\S]*grid-template-columns: 1fr/);
     expect(mobileSharedCss).toMatch(/\.stats-grid[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
     expect(mobileSharedCss).toMatch(/\.project-hero[\s\S]*grid-template-columns: 1fr/);
-    expect(mobileSharedCss).toMatch(/\.project-meta[\s\S]*grid-template-columns: 1fr/);
+    expect(mobileSharedCss).toMatch(/\.project-meta[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
     expect(mobileSharedCss).toMatch(/\.featured-grid[\s\S]*grid-template-rows: none/);
   });
 
