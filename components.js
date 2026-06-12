@@ -821,3 +821,51 @@ if (document.readyState === 'loading') {
 } else {
   initSharedEnhancements();
 }
+
+function getComponentsAssetBase() {
+  const script = document.querySelector('script[src*="components.js"]');
+  if (!script) return './';
+  return script.getAttribute('src').replace(/components\.js.*$/, '');
+}
+
+function initPortfolioChat() {
+  if (document.body.dataset.portfolioChatReady === 'true') return;
+  document.body.dataset.portfolioChatReady = 'true';
+
+  const base = getComponentsAssetBase();
+  const stylesheetId = 'portfolio-chat-styles';
+
+  if (!document.getElementById(stylesheetId)) {
+    const link = document.createElement('link');
+    link.id = stylesheetId;
+    link.rel = 'stylesheet';
+    link.href = `${base}portfolio-chat.css`;
+    document.head.appendChild(link);
+  }
+
+  if (!document.querySelector('script[data-portfolio-chat="true"]')) {
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = `${base}portfolio-chat.js`;
+    script.dataset.portfolioChat = 'true';
+    document.head.appendChild(script);
+  }
+
+  const mountChat = () => {
+    if (document.querySelector('portfolio-chat')) return;
+    document.body.appendChild(document.createElement('portfolio-chat'));
+  };
+
+  if (customElements.get('portfolio-chat')) {
+    mountChat();
+    return;
+  }
+
+  customElements.whenDefined('portfolio-chat').then(mountChat);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPortfolioChat);
+} else {
+  initPortfolioChat();
+}

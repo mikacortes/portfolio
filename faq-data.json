@@ -1,0 +1,138 @@
+{
+  "fallbackMessage": "I'm sorry, I don't have the answer to that. Here are some questions I can help with:",
+  "greeting": "Hi! I'm Monica's portfolio assistant. Ask me anything below, or pick a suggested question.",
+  "intents": [
+    {
+      "id": "graduation_year",
+      "label": "What year did Monica graduate?",
+      "patterns": ["graduate", "graduation", "graduated", "year"],
+      "examples": [
+        "What year did I graduate?",
+        "When did Monica graduate?",
+        "What year did Monica graduate in?"
+      ],
+      "answer": "Monica graduated from UC Berkeley in Fall 2024."
+    },
+    {
+      "id": "school",
+      "label": "Where did Monica go to school?",
+      "patterns": ["school", "university", "college", "berkeley", "uc"],
+      "examples": [
+        "What university did Monica attend?",
+        "Did she go to Berkeley?",
+        "Where did Monica study?"
+      ],
+      "answer": "Monica attended UC Berkeley, where she earned degrees in Cognitive Science and Data Science, plus the Berkeley Certificate in Design Innovation."
+    },
+    {
+      "id": "studies",
+      "label": "What did Monica study?",
+      "patterns": ["study", "studied", "major", "degree", "degrees", "cognitive", "data science"],
+      "examples": [
+        "What's her major?",
+        "What degrees does Monica have?",
+        "What did Monica major in?"
+      ],
+      "answer": "Monica studied Cognitive Science and Data Science at UC Berkeley. She also earned the Berkeley Certificate in Design Innovation."
+    },
+    {
+      "id": "location",
+      "label": "Where is Monica based?",
+      "patterns": ["based", "live", "location", "located", "city", "southern california"],
+      "examples": [
+        "Where does Monica live?",
+        "What city is she in?",
+        "Where is Monica located?"
+      ],
+      "answer": "Monica is based in Southern California."
+    },
+    {
+      "id": "relocation",
+      "label": "Is Monica open to relocation?",
+      "patterns": ["relocate", "relocation", "move", "moving", "willing"],
+      "examples": [
+        "Would Monica move for a job?",
+        "Is she open to relocating?",
+        "Can Monica relocate?"
+      ],
+      "answer": "Yes — Monica is open to relocation for full-time roles with positive impact."
+    },
+    {
+      "id": "background",
+      "label": "What does Monica do?",
+      "patterns": ["background", "about", "who", "do", "work", "passionate", "social good"],
+      "examples": [
+        "What's Monica's background?",
+        "Tell me about Monica",
+        "Who is Monica?"
+      ],
+      "answer": "Monica Cortes is a designer and data-minded creative passionate about using design and data for social good. Her work has spanned nonprofits, university projects, and startups."
+    },
+    {
+      "id": "skills",
+      "label": "What are Monica's skills?",
+      "patterns": ["skill", "skills", "ux", "design", "research", "prototype", "brand", "strategy", "data"],
+      "examples": [
+        "What is Monica good at?",
+        "What are her design skills?",
+        "Does Monica do UX research?"
+      ],
+      "answer": "Monica's skills include product design and UX research, visual and brand design, and strategy with data-informed design — from user research and prototyping to content strategy and marketing analytics."
+    },
+    {
+      "id": "job_search",
+      "label": "What kind of work is Monica looking for?",
+      "patterns": ["looking", "job", "role", "roles", "hire", "hiring", "full-time", "opportunities"],
+      "examples": [
+        "Is Monica looking for work?",
+        "What roles is she interested in?",
+        "Is Monica available for full-time roles?"
+      ],
+      "answer": "Monica is looking for full-time roles where she can use design and data for social good. She's open to relocation for the right opportunity."
+    },
+    {
+      "id": "contact",
+      "label": "How can I contact Monica?",
+      "patterns": ["contact", "email", "reach", "message", "get in touch"],
+      "examples": [
+        "What's Monica's email?",
+        "How do I reach Monica?",
+        "How can I get in touch?"
+      ],
+      "answer": "You can reach Monica at monicacortes@berkeley.edu, or connect with her on LinkedIn."
+    },
+    {
+      "id": "resume",
+      "label": "Where can I find Monica's resume?",
+      "patterns": ["resume", "cv", "curriculum"],
+      "examples": [
+        "Resume link?",
+        "Where is her CV?",
+        "Can I see Monica's resume?"
+      ],
+      "answer": "Monica's resume is linked in the site header and footer — look for the Resume link in the navigation."
+    },
+    {
+      "id": "projects",
+      "label": "What projects has Monica worked on?",
+      "patterns": ["project", "projects", "portfolio", "work", "case study", "featured"],
+      "examples": [
+        "Show me her work",
+        "What are her featured projects?",
+        "What has Monica designed?"
+      ],
+      "answer": "Monica's featured projects include Unlocked Labs, trubel&co, and nenos Inc. You can explore them on the home page, or browse more work in the Archive."
+    },
+    {
+      "id": "hobbies",
+      "label": "What are Monica's hobbies?",
+      "patterns": ["hobby", "hobbies", "fun", "interest", "interests", "f1", "formula", "crochet", "movies"],
+      "examples": [
+        "What does Monica do for fun?",
+        "Does Monica like F1?",
+        "What are her interests outside work?"
+      ],
+      "answer": "Outside of work, Monica enjoys media commentary, crocheting, Formula 1, and watching rom-com and thriller movies. She's also building her full-stack skills for personal and professional projects."
+    }
+  ]
+}
