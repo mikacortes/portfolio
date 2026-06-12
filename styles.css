@@ -598,17 +598,68 @@ body.nav-menu-open .nav-menu-overlay {
   ============================================================
 */
 .about-main {
-  padding: 84px 0 96px;
+  padding: 136px 0 96px;
 }
 
 .about-main section {
   margin-bottom: 120px;
 }
 
+.about-intro {
+  margin-bottom: 48px;
+}
+
+.about-bio {
+  max-width: 800px;
+}
+
+.about-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  margin-top: 48px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.about-gallery-item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+.about-gallery-item img {
+  display: block;
+  height: 300px;
+  width: auto;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 0;
+  background: var(--image-container-fill);
+  object-fit: cover;
+}
+
+.about-gallery__caption {
+  display: block;
+  margin: 0;
+  padding: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  background: transparent;
+  border: 0;
+}
+
 .about-main h1 {
-  margin: 0 0 48px;
+  margin: 0;
+  color: var(--blue);
   font-size: 48px;
-  line-height: 1.12;
+  line-height: 1.1;
   font-weight: 500;
 }
 
@@ -625,15 +676,18 @@ body.nav-menu-open .nav-menu-overlay {
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(300px, 0.95fr) minmax(0, 1.35fr);
-  gap: 56px;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 48px;
   align-items: start;
 }
 
 .about-photo {
+  width: 100%;
+  max-width: 280px;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: var(--radius);
+  border: 1px solid var(--image-container-border);
+  border-radius: 0;
   background: var(--image-container-fill);
 }
 
@@ -641,6 +695,7 @@ body.nav-menu-open .nav-menu-overlay {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .cta-row {
@@ -701,7 +756,8 @@ body.nav-menu-open .nav-menu-overlay {
 
 .process-card {
   background: var(--white);
-  border: 1px solid var(--border);
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--radius);
   padding: 28px;
   min-height: 230px;
 }
@@ -717,6 +773,115 @@ body.nav-menu-open .nav-menu-overlay {
   height: 1px;
   background: var(--border);
   margin: 0 0 24px;
+}
+
+.about-expand-grid {
+  align-items: stretch;
+}
+
+.about-expand-card {
+  --about-expand-card-height: 300px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: var(--about-expand-card-height);
+  min-height: var(--about-expand-card-height);
+  overflow: hidden;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.about-expand-card > p {
+  flex: 1 1 auto;
+}
+
+.about-expand-card__previews {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-top: 0;
+  pointer-events: none;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.3s ease,
+    margin-top 0.3s ease;
+}
+
+.about-project-preview {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.about-project-preview img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--radius);
+  background: var(--image-container-fill);
+}
+
+.about-project-preview__caption {
+  display: block;
+  margin: 0;
+  padding: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  background: transparent;
+  border: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-expand-card:hover,
+  .about-expand-card:focus-within {
+    position: relative;
+    z-index: 2;
+    height: auto;
+    box-shadow: 0 10px 28px rgba(28, 28, 28, 0.08);
+  }
+
+  .about-expand-grid:has(.about-expand-card:hover),
+  .about-expand-grid:has(.about-expand-card:focus-within) {
+    align-items: start;
+  }
+
+  .about-expand-grid:has(.about-expand-card:hover) .about-expand-card:not(:hover),
+  .about-expand-grid:has(.about-expand-card:focus-within) .about-expand-card:not(:focus-within) {
+    height: var(--about-expand-card-height);
+    min-height: var(--about-expand-card-height);
+  }
+
+  .about-expand-card:hover .about-expand-card__previews,
+  .about-expand-card:focus-within .about-expand-card__previews {
+    max-height: 520px;
+    opacity: 1;
+    margin-top: 20px;
+    pointer-events: auto;
+  }
+
+  .about-project-preview:hover img {
+    border-color: var(--blue);
+  }
+
+  .about-project-preview:hover .about-project-preview__caption {
+    color: var(--blue);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-expand-card,
+  .about-expand-card__previews {
+    transition: none;
+  }
 }
 
 .services-wrap {
@@ -3128,7 +3293,12 @@ body.trubel-lightbox-open {
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
+  }
+
+  .about-photo {
+    max-width: min(240px, 72vw);
+    margin: 0 auto;
   }
 
   .stats-grid {
@@ -3138,6 +3308,11 @@ body.trubel-lightbox-open {
 
   .card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-expand-card {
+    height: auto;
+    min-height: var(--about-expand-card-height);
   }
 
   .service-body {
@@ -3286,12 +3461,22 @@ body.trubel-lightbox-open {
     margin-left: 0;
   }
 
+  .about-main h1,
   .archive-main h1 {
     font-size: 40px;
   }
 
   .archive-gallery {
     column-count: 3;
+  }
+
+  .about-gallery {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .about-gallery-item img {
+    height: 260px;
   }
 
   .process-row {
@@ -3355,7 +3540,11 @@ body.trubel-lightbox-open {
   }
 
   .about-main {
-    padding: 64px 0 72px;
+    padding: 92px 0 72px;
+  }
+
+  .about-intro {
+    margin-bottom: 32px;
   }
 
   .about-main section {
@@ -3387,6 +3576,15 @@ body.trubel-lightbox-open {
   .archive-gallery img,
   .archive-gallery-video {
     margin-bottom: 14px;
+  }
+
+  .about-gallery {
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .about-gallery-item img {
+    height: 220px;
   }
 
   .project-main #overview .wscuc-snapshots-grid .portfolio-pages-gallery,

@@ -17,66 +17,119 @@
     <main class="about-main">
       <div class="container">
         <section>
-          <div class="subtitle">Meet Monica</div>
-          <h1>About Me</h1>
+          <div class="about-intro" aria-labelledby="about-title">
+            <h1 id="about-title">About Monica</h1>
+          </div>
 
-          <div class="about-grid">
-            <div class="about-photo">
-              <img src="assets/about page/me in library.jpg" alt="Portrait of Monica Cortes" />
-            </div>
+          <div class="about-bio">
+            <p>
+              I’m Monica Cortes (she/her), a UC Berkeley grad (Fall 2024) with degrees in
+              Cognitive Science and Data Science, plus the Berkeley Certificate in Design
+              Innovation. I’m passionate about using design and data for social good.
+            </p>
+            <p>
+              I care about thoughtful systems, visual experiences, and product direction. My
+              work has spanned nonprofits, university work, and startups. I’m based in Southern
+              California and open to relocation for full-time roles with positive impact.
+            </p>
+            <p>
+              Outside work, I’m into media commentary, crocheting, Formula 1, and watching as
+              many rom-com and thriller movies as I can. I’m also building my full-stack skills
+              for both professional work and personal projects.
+            </p>
+          </div>
 
-            <div>
-              <p>
-                I’m Monica Cortes (she/her), a UC Berkeley graduate (Fall 2024) with degrees in
-                Cognitive Science and Data Science and the Berkeley Certificate in Design
-                Innovation. During university, I discovered my passion for applying design and
-                data science to social good, and I bring that focus to my work with startups
-                and nonprofits as a designer and analyst.
-              </p>
-              <p>
-                I’m interested in thoughtful systems, visual experiences, and product direction.
-                I’ve supported product teams, marketing efforts, and large-scale publications,
-                from parole-readiness tools and nonprofit websites to accreditation reports and
-                healthcare social media. I’m based in Southern California and open to relocation
-                for full-time roles with positive impact.
-              </p>
-              <p>
-                Outside of work, I enjoy listening to commentary on popular or niche media,
-                crocheting and knitting, keeping up with Formula 1, and watching as many movies
-                as possible. I’m also building toward full-stack skills and hope to launch an
-                app someday.
-              </p>
-
-              <div class="cta-row">
-                <a class="cta-button" href="mailto:monicacortes@berkeley.edu">
-                  <span>Let’s Keep in Touch</span>
-                  <span class="cta-icon" aria-hidden="true">
-                    <img src="assets/icons/Arrow right.svg" alt="" />
-                  </span>
-                </a>
-              </div>
-
-              <div class="stats-grid">
-                <div>
-                  <div class="stat-number">6+</div>
-                  <div class="stat-label">Portfolio case studies</div>
-                </div>
-                <div>
-                  <div class="stat-number">2</div>
-                  <div class="stat-label">Degrees at Berkeley</div>
-                </div>
-                <div>
-                  <div class="stat-number">5+</div>
-                  <div class="stat-label">Startups &amp; nonprofits</div>
-                </div>
-              </div>
-            </div>
+          <div class="about-gallery" aria-label="Photos of Monica">
+            <figure class="about-gallery-item">
+              <img src="assets/about page/me in library.jpg" alt="" loading="lazy" decoding="async" />
+              <figcaption class="about-gallery__caption">Graduation!</figcaption>
+            </figure>
+            <figure class="about-gallery-item">
+              <img src="assets/about page/me at f1.jpg" alt="" loading="lazy" decoding="async" />
+              <figcaption class="about-gallery__caption">Seeing Charles Leclerc’s F1 car</figcaption>
+            </figure>
+            <figure class="about-gallery-item">
+              <img src="assets/about page/me at event.jpg" alt="" loading="lazy" decoding="async" />
+              <figcaption class="about-gallery__caption">Hosting a job fair</figcaption>
+            </figure>
+            <figure class="about-gallery-item">
+              <img src="assets/about page/me with poster.jpg" alt="" loading="lazy" decoding="async" />
+              <figcaption class="about-gallery__caption">Data Science research!</figcaption>
+            </figure>
+            <figure class="about-gallery-item">
+              <img src="assets/about page/me with banner.jpg" alt="" loading="lazy" decoding="async" />
+              <figcaption class="about-gallery__caption">Checking out my design</figcaption>
+            </figure>
           </div>
         </section>
 
         <section>
-          <div class="subtitle">How I Work</div>
-          <h2>Work Process</h2>
+          <h2>What I Do</h2>
+
+          <div class="card-grid about-expand-grid">
+            <article class="process-card about-expand-card">
+              <h3>Product Design &amp; UX Research</h3>
+              <div class="card-rule"></div>
+              <p>
+                End-to-end product thinking: user research, information architecture,
+                prototyping, and usability testing for web and digital tools.
+              </p>
+              <div class="about-expand-card__previews">
+                <a class="about-project-preview" href="project.html">
+                  <img src="assets/images/Unlocked Labs Preview.png" alt="" />
+                  <span class="about-project-preview__caption">Unlocked Labs</span>
+                </a>
+                <a class="about-project-preview" href="projects/trubel-co.html">
+                  <img src="assets/images/trubel_co Preview.png" alt="" />
+                  <span class="about-project-preview__caption">trubel&amp;co</span>
+                </a>
+                <a class="about-project-preview" href="projects/nenos.html">
+                  <img src="assets/images/nenos Preview.png" alt="" />
+                  <span class="about-project-preview__caption">nenos Inc.</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="process-card about-expand-card">
+              <h3>Visual &amp; Brand Design</h3>
+              <div class="card-rule"></div>
+              <p>
+                Layout systems, typography, and visual storytelling for websites, reports,
+                and marketing collateral. I’ve designed everything from university publications
+                to social posts and print materials for startups.
+              </p>
+              <div class="about-expand-card__previews">
+                <a class="about-project-preview" href="projects/wscuc.html">
+                  <img src="assets/images/WSCUC Preview.png" alt="" />
+                  <span class="about-project-preview__caption">UC Berkeley WSCUC Report</span>
+                </a>
+                <a class="about-project-preview" href="projects/bonded-diamond.html">
+                  <img src="assets/images/Bonded Diamond Preview.png" alt="" />
+                  <span class="about-project-preview__caption">Bonded Diamond</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="process-card about-expand-card">
+              <h3>Strategy &amp; Data-Informed Design</h3>
+              <div class="card-rule"></div>
+              <p>
+                Research-backed content strategy, marketing analytics, and design decisions
+                grounded in data. My Data Science background helps me track performance,
+                synthesize findings, and turn insights into clearer creative direction.
+              </p>
+              <div class="about-expand-card__previews">
+                <a class="about-project-preview" href="projects/scriptchain-health.html">
+                  <img src="assets/images/ScriptChain Health Preview.png" alt="" />
+                  <span class="about-project-preview__caption">ScriptChain Health</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2>My Work Process</h2>
 
           <div class="card-grid">
             <article class="process-card">
@@ -109,95 +162,6 @@
                 performance data when it’s available. Small details matter, but so does knowing
                 when something is ready to ship, especially on tight timelines.
               </p>
-            </article>
-          </div>
-        </section>
-
-        <section>
-          <div class="subtitle">Expertise</div>
-          <h2>What I Do</h2>
-
-          <div class="services-wrap">
-            <article class="service-item">
-              <div class="service-header">
-                <div class="service-title">Product &amp; UX Design</div>
-                <div class="service-icon" aria-hidden="true">
-                  <img src="assets/icons/Arrow right.svg" alt="" />
-                </div>
-              </div>
-              <div class="service-body">
-                <div class="service-copy">
-                  <p>
-                    End-to-end product thinking: user research, information architecture,
-                    prototyping, and usability testing for web and digital tools, especially
-                    in mission-driven contexts like education, re-entry support, and nonprofit
-                    platforms.
-                  </p>
-                  <a class="learn-more" href="project.html">
-                    <span>View Unlocked Labs</span>
-                    <span class="learn-more-arrow" aria-hidden="true">
-                      <img src="assets/icons/Arrow right.svg" alt="" />
-                    </span>
-                  </a>
-                </div>
-                <div class="shape-box" aria-hidden="true">
-                  <div class="diamond"></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="service-item">
-              <div class="service-header">
-                <div class="service-title">Visual &amp; Brand Design</div>
-                <div class="service-icon" aria-hidden="true">
-                  <img src="assets/icons/Arrow right.svg" alt="" />
-                </div>
-              </div>
-              <div class="service-body">
-                <div class="service-copy">
-                  <p>
-                    Layout systems, typography, and visual storytelling for websites, reports,
-                    and marketing collateral. I’ve designed everything from a 200-page
-                    accreditation publication to social posts and print materials for startups.
-                  </p>
-                  <a class="learn-more" href="projects/wscuc.html">
-                    <span>View WSCUC Report</span>
-                    <span class="learn-more-arrow" aria-hidden="true">
-                      <img src="assets/icons/Arrow right.svg" alt="" />
-                    </span>
-                  </a>
-                </div>
-                <div class="shape-box" aria-hidden="true">
-                  <div class="diamond"></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="service-item">
-              <div class="service-header">
-                <div class="service-title">Strategy &amp; Data-Informed Design</div>
-                <div class="service-icon" aria-hidden="true">
-                  <img src="assets/icons/Arrow right.svg" alt="" />
-                </div>
-              </div>
-              <div class="service-body">
-                <div class="service-copy">
-                  <p>
-                    Research-backed content strategy, marketing analytics, and design decisions
-                    grounded in data. My Data Science background helps me track performance,
-                    synthesize findings, and turn insights into clearer creative direction.
-                  </p>
-                  <a class="learn-more" href="projects/scriptchain-health.html">
-                    <span>View ScriptChain Health</span>
-                    <span class="learn-more-arrow" aria-hidden="true">
-                      <img src="assets/icons/Arrow right.svg" alt="" />
-                    </span>
-                  </a>
-                </div>
-                <div class="shape-box" aria-hidden="true">
-                  <div class="diamond"></div>
-                </div>
-              </div>
             </article>
           </div>
         </section>
