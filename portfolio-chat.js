@@ -71,8 +71,8 @@ class PortfolioChat extends HTMLElement {
         >
           <header class="portfolio-chat__header">
             <div>
-              <p class="portfolio-chat__brand">✦ Monica Cortes ✦</p>
-              <p class="portfolio-chat__subtitle">Portfolio assistant</p>
+              <p class="portfolio-chat__brand">Mini Monica</p>
+              <p class="portfolio-chat__subtitle">beta</p>
             </div>
             <button
               type="button"
@@ -197,6 +197,17 @@ class PortfolioChat extends HTMLElement {
 
   setOpen(open) {
     this.isOpen = open;
+
+    if (open) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.setProperty(
+        '--portfolio-chat-scrollbar-width',
+        `${Math.max(0, scrollbarWidth)}px`
+      );
+    } else {
+      document.documentElement.style.removeProperty('--portfolio-chat-scrollbar-width');
+    }
+
     this.toggle.setAttribute('aria-expanded', String(open));
     this.toggle.hidden = open;
     this.panel.hidden = !open;
@@ -234,6 +245,34 @@ class PortfolioChat extends HTMLElement {
     }
   }
 
+  setBotMessageContent(element, html) {
+    element.innerHTML = html;
+    element.querySelectorAll('a').forEach((link) => {
+      if (link.getAttribute('href')?.startsWith('mailto:')) return;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    });
+  }
+
+  scrollToBottom() {
+    if (!this.messagesEl) return;
+
+    const scroll = () => {
+      const lastRow = this.messagesEl.lastElementChild;
+      if (lastRow) {
+        lastRow.scrollIntoView({ block: 'end' });
+        return;
+      }
+
+      this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
+    };
+
+    requestAnimationFrame(() => {
+      scroll();
+      requestAnimationFrame(scroll);
+    });
+  }
+
   addMessage(text, role) {
     this.messages.push({ text, role });
 
@@ -250,10 +289,14 @@ class PortfolioChat extends HTMLElement {
 
     const bubble = document.createElement('div');
     bubble.className = `portfolio-chat__message portfolio-chat__message--${role}`;
-    bubble.textContent = text;
+    if (role === 'bot') {
+      this.setBotMessageContent(bubble, text);
+    } else {
+      bubble.textContent = text;
+    }
     row.appendChild(bubble);
     this.messagesEl.appendChild(row);
-    this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
+    this.scrollToBottom();
   }
 
   addUserMessage(text) {
@@ -287,7 +330,7 @@ class PortfolioChat extends HTMLElement {
     row.appendChild(avatar);
     row.appendChild(bubble);
     this.messagesEl.appendChild(row);
-    this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
+    this.scrollToBottom();
     return row;
   }
 
@@ -325,6 +368,8 @@ class PortfolioChat extends HTMLElement {
       });
       this.suggestionsEl.appendChild(button);
     });
+
+    this.scrollToBottom();
   }
 
   handleSubmit() {

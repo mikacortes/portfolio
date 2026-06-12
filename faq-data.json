@@ -55,7 +55,7 @@
         "Is she open to relocating?",
         "Can Monica relocate?"
       ],
-      "answer": "Yes — Monica is open to relocation for full-time roles with positive impact."
+      "answer": "Yes — Monica is open to relocation for full-time roles."
     },
     {
       "id": "background",
@@ -99,7 +99,7 @@
         "How do I reach Monica?",
         "How can I get in touch?"
       ],
-      "answer": "You can reach Monica at monicacortes@berkeley.edu, or connect with her on LinkedIn."
+      "answer": "You can reach Monica at <a href=\"mailto:monicacortes@berkeley.edu\">monicacortes@berkeley.edu</a>, or connect with her on <a href=\"https://www.linkedin.com/in/monica--cortes/\">LinkedIn</a>."
     },
     {
       "id": "resume",
@@ -110,7 +110,7 @@
         "Where is her CV?",
         "Can I see Monica's resume?"
       ],
-      "answer": "Monica's resume is linked in the site header and footer — look for the Resume link in the navigation."
+      "answer": "Here is Monica's <a href=\"https://drive.google.com/file/d/15hiMYotLD28_68xlZpxlYPcf4pC3u9S1/view?usp=sharing\">resume</a>."
     },
     {
       "id": "projects",
@@ -121,7 +121,7 @@
         "What are her featured projects?",
         "What has Monica designed?"
       ],
-      "answer": "Monica's featured projects include Unlocked Labs, trubel&co, and nenos Inc. You can explore them on the home page, or browse more work in the Archive."
+      "answer": "Monica's featured projects include <a href=\"/project.html\">Unlocked Labs</a>, <a href=\"/projects/trubel-co.html\">trubel&amp;co</a>, and <a href=\"/projects/nenos.html\">nenos Inc.</a> Browse more work in the <a href=\"/archive.html\">Archive</a> or see <a href=\"/#featured-projects\">featured projects</a> on the home page."
     },
     {
       "id": "hobbies",
