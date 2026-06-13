@@ -128,8 +128,8 @@ portfolio-chat {
   z-index: 1200;
   width: 390px;
   max-width: calc(100vw - (var(--chat-inset) * 2));
-  height: 500px;
-  max-height: min(500px, calc(100dvh - (var(--chat-inset) * 2)));
+  height: 70dvh;
+  max-height: min(70dvh, calc(100dvh - (var(--chat-inset) * 2)));
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -487,8 +487,8 @@ body.portfolio-chat-open {
   .portfolio-chat__panel {
     width: 100%;
     min-width: 0;
-    height: 80dvh;
-    max-height: 80dvh;
+    height: 70dvh;
+    max-height: 70dvh;
     margin: 0;
     border-radius: 20px 20px 0 0;
     transform: translateY(100%);
@@ -502,8 +502,8 @@ body.portfolio-chat-open {
     bottom: 0;
     width: 100%;
     min-width: 0;
-    height: 80dvh;
-    max-height: 80dvh;
+    height: 70dvh;
+    max-height: 70dvh;
     margin: 0;
     transform: translate3d(0, 0, 0);
     border-radius: 20px 20px 0 0;
