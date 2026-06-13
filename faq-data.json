@@ -1,11 +1,11 @@
 {
   "fallbackMessage": "I'm sorry, I don't have the answer to that. Here are some questions I can help with:",
-  "greeting": "Hi! I'm Monica's portfolio assistant. Ask me anything below, or pick a suggested question.",
+  "greeting": "Hi! Ask me anything below, or pick a suggested question.",
   "intents": [
     {
       "category": "general",
       "id": "graduation_year",
-      "label": "What year did Monica graduate?",
+      "label": "What year did you graduate?",
       "patterns": [
         "graduate",
         "graduation",
@@ -14,15 +14,15 @@
       ],
       "examples": [
         "What year did I graduate?",
-        "When did Monica graduate?",
-        "What year did Monica graduate in?"
+        "When did you graduate?",
+        "What year did you graduate in?"
       ],
       "answer": "I graduated from UC Berkeley in Fall 2024."
     },
     {
       "category": "general",
       "id": "school",
-      "label": "Where did Monica go to school?",
+      "label": "Where did you go to school?",
       "patterns": [
         "school",
         "university",
@@ -31,16 +31,16 @@
         "uc"
       ],
       "examples": [
-        "What university did Monica attend?",
-        "Did she go to Berkeley?",
-        "Where did Monica study?"
+        "What university did you attend?",
+        "Did you go to Berkeley?",
+        "Where did you study?"
       ],
       "answer": "I attended UC Berkeley, where I earned degrees in Cognitive Science and Data Science, plus the Berkeley Certificate in Design Innovation."
     },
     {
       "category": "general",
       "id": "studies",
-      "label": "What did Monica study?",
+      "label": "What did you study?",
       "patterns": [
         "study",
         "studied",
@@ -51,16 +51,16 @@
         "data science"
       ],
       "examples": [
-        "What's her major?",
-        "What degrees does Monica have?",
-        "What did Monica major in?"
+        "What's your major?",
+        "What degrees do you have?",
+        "What did you major in?"
       ],
       "answer": "I studied Cognitive Science and Data Science at UC Berkeley. I also earned the Berkeley Certificate in Design Innovation."
     },
     {
       "category": "general",
       "id": "location",
-      "label": "Where is Monica based?",
+      "label": "Where are you based?",
       "patterns": [
         "based",
         "live",
@@ -70,16 +70,16 @@
         "southern california"
       ],
       "examples": [
-        "Where does Monica live?",
-        "What city is she in?",
-        "Where is Monica located?"
+        "Where do you live?",
+        "What city are you in?",
+        "Where are you located?"
       ],
       "answer": "I'm based in Southern California."
     },
     {
       "category": "general",
       "id": "relocation",
-      "label": "Is Monica open to relocation?",
+      "label": "Are you open to relocation?",
       "patterns": [
         "relocate",
         "relocation",
@@ -88,9 +88,9 @@
         "willing"
       ],
       "examples": [
-        "Would Monica move for a job?",
-        "Is she open to relocating?",
-        "Can Monica relocate?"
+        "Would you move for a job?",
+        "Are you open to relocating?",
+        "Can you relocate?"
       ],
       "answer": "Yes, I'm open to relocation for full-time roles."
     },
@@ -101,7 +101,7 @@
         "industry_experience"
       ],
       "id": "background",
-      "label": "What does Monica do?",
+      "label": "What do you do?",
       "patterns": [
         "background",
         "about",
@@ -110,9 +110,9 @@
         "social good"
       ],
       "examples": [
-        "What's Monica's background?",
-        "Tell me about Monica",
-        "Who is Monica?"
+        "What's your background?",
+        "Tell me about yourself",
+        "Who are you?"
       ],
       "answer": "I'm Monica Cortes, a designer and data-minded creative passionate about using design and data for social good. My work has spanned nonprofits, university projects, and startups."
     },
@@ -124,7 +124,7 @@
         "data_design_overlap"
       ],
       "id": "skills",
-      "label": "What are Monica's skills?",
+      "label": "What are your skills?",
       "patterns": [
         "skill",
         "skills",
@@ -135,9 +135,9 @@
         "strategy"
       ],
       "examples": [
-        "What is Monica good at?",
-        "What are her design skills?",
-        "Does Monica do UX research?"
+        "What are you good at?",
+        "What are your design skills?",
+        "Do you do UX research?"
       ],
       "answer": "My skills include product design and UX research, visual and brand design, and strategy with data-informed design, from user research and prototyping to content strategy and marketing analytics."
     },
@@ -149,7 +149,7 @@
         "freelance"
       ],
       "id": "roles_open",
-      "label": "What kind of roles is Monica open to?",
+      "label": "What kind of roles are you open to?",
       "patterns": [
         "roles",
         "role",
@@ -160,15 +160,15 @@
       ],
       "examples": [
         "What kind of roles are you open to?",
-        "What positions is Monica interested in?",
-        "What type of role is she seeking?"
+        "What positions are you interested in?",
+        "What type of role are you seeking?"
       ],
       "answer": "I'm open to roles related to:<ul><li>Design (visual or UX)</li><li>Marketing</li><li>Research</li><li>Data analysis</li></ul>For the right role, I'm open to exploring something new."
     },
     {
       "category": "general",
       "id": "freelance",
-      "label": "Is Monica open to freelance work?",
+      "label": "Are you open to freelance work?",
       "patterns": [
         "freelance",
         "contract",
@@ -178,15 +178,15 @@
       ],
       "examples": [
         "Are you available for freelance or contract work?",
-        "Does Monica do freelance?",
-        "Is Monica open to contract roles?"
+        "Do you do freelance?",
+        "Are you open to contract roles?"
       ],
       "answer": "I'm primarily looking for full-time roles, but I'm open to hearing about freelance or contract opportunities if the scope and mission are the right fit."
     },
     {
       "category": "design",
       "id": "tools_software",
-      "label": "What tools does Monica use?",
+      "label": "What tools do you use?",
       "patterns": [
         "tools",
         "software",
@@ -197,15 +197,15 @@
       ],
       "examples": [
         "What tools and software do you work with?",
-        "What design tools does Monica use?",
-        "What software is she proficient in?"
+        "What design tools do you use?",
+        "What software are you proficient in?"
       ],
       "answer": "I work in Figma for product and UX design, Adobe CC for publications and print, and Jira and Asana for collaboration. I'm also comfortable with data tools including Python and SQL, and I adapt to whatever stack a team already uses."
     },
     {
       "category": "general",
       "id": "industry_experience",
-      "label": "What industries has Monica worked in?",
+      "label": "What industries have you worked in?",
       "patterns": [
         "industry",
         "industries",
@@ -224,8 +224,8 @@
       ],
       "examples": [
         "Do you have experience working in healthcare?",
-        "Has Monica worked in nonprofits?",
-        "Does she have tech industry experience?"
+        "Have you worked in nonprofits?",
+        "Do you have tech industry experience?"
       ],
       "answer": "My work spans nonprofits, higher education, and startup contexts. Examples include <a href=\"/projects/nenos.html\">nenos</a> (nonprofit), <a href=\"/projects/scriptchain-health.html\">ScriptChain Health</a> (health-tech), and <a href=\"/projects/wscuc.html\">UC Berkeley</a> (higher education)."
     },
@@ -236,7 +236,7 @@
         "tools_software"
       ],
       "id": "design_process",
-      "label": "What does Monica's design process look like?",
+      "label": "What does your design process look like?",
       "patterns": [
         "process",
         "workflow",
@@ -247,15 +247,15 @@
       ],
       "examples": [
         "What does your design process typically look like?",
-        "How does Monica approach a new project?",
-        "What's her design workflow?"
+        "How do you approach a new project?",
+        "What's your design workflow?"
       ],
       "answer": "I adapt my process based on the team and project constraints. I try to gather as much context and research as possible upfront (stakeholder input, user needs, existing data), but if there isn't much to work with, I'll figure it out as I go. From there, I move into implementation and keep refining based on feedback and results."
     },
     {
       "category": "general",
       "id": "work_format",
-      "label": "Is Monica open to remote work?",
+      "label": "Are you open to remote work?",
       "patterns": [
         "remote",
         "hybrid",
@@ -266,15 +266,15 @@
       ],
       "examples": [
         "Are you open to remote, hybrid, or in-person work?",
-        "Does Monica work remotely?",
-        "Is she open to hybrid roles?"
+        "Do you work remotely?",
+        "Are you open to hybrid roles?"
       ],
       "answer": "I'm open to remote, hybrid, and in-person opportunities, and I'm willing to relocate for the right full-time role."
     },
     {
       "category": "general",
       "id": "availability",
-      "label": "When can Monica start?",
+      "label": "When can you start?",
       "patterns": [
         "availability",
         "available",
@@ -286,14 +286,14 @@
       "examples": [
         "What's your availability?",
         "When can you start?",
-        "How soon is Monica available?"
+        "How soon are you available?"
       ],
       "answer": "I'm available for full-time opportunities now. For specific start dates, reach out at <a href=\"mailto:monicacortes@berkeley.edu\">monicacortes@berkeley.edu</a>."
     },
     {
       "category": "general",
       "id": "job_search",
-      "label": "What kind of work is Monica looking for?",
+      "label": "What kind of work are you looking for?",
       "patterns": [
         "looking",
         "job",
@@ -304,16 +304,16 @@
         "search"
       ],
       "examples": [
-        "Is Monica looking for work?",
-        "Is Monica available for full-time roles?",
-        "What opportunities is she pursuing?"
+        "Are you looking for work?",
+        "Are you available for full-time roles?",
+        "What opportunities are you pursuing?"
       ],
       "answer": "I'm looking for full-time roles where I can use design and/or data for social good. I'm open to relocation for the right opportunity."
     },
     {
       "category": "personal",
       "id": "proud_project",
-      "label": "What project is Monica most proud of?",
+      "label": "What project are you most proud of?",
       "patterns": [
         "proud",
         "favorite",
@@ -323,15 +323,15 @@
       ],
       "examples": [
         "What's a project you're most proud of and why?",
-        "What's Monica's favorite project?",
-        "Which project means the most to her?"
+        "What's your favorite project?",
+        "Which project means the most to you?"
       ],
       "answer": "I'm proud of different projects for different reasons, whether I learned a new tool through the work or enjoyed the topic. If I had to choose one, my work and growth at UC Berkeley on the <a href=\"/projects/wscuc.html\">WSCUC report</a> was especially meaningful. I felt like I was contributing to something bigger than myself at my own university."
     },
     {
       "category": "personal",
       "id": "learning_now",
-      "label": "What is Monica learning right now?",
+      "label": "What are you learning right now?",
       "patterns": [
         "learning",
         "learn",
@@ -341,15 +341,15 @@
       ],
       "examples": [
         "What's something you're learning right now?",
-        "What is Monica studying outside of work?",
-        "What skills is she building?"
+        "What are you studying outside of work?",
+        "What skills are you building?"
       ],
       "answer": "I'm developing myself as a better strategist who considers business and marketing, given my separate backgrounds in data science and visual design. Outside of work, I'm learning how to knit!"
     },
     {
       "category": "general",
       "id": "one_industry_forever",
-      "label": "What industry would Monica design for forever?",
+      "label": "What industry would you design for forever?",
       "patterns": [
         "forever",
         "one industry",
@@ -359,8 +359,8 @@
       ],
       "examples": [
         "If you could only design for one industry forever, what would it be?",
-        "What sector would Monica focus on indefinitely?",
-        "What mission area matters most to her?"
+        "What sector would you focus on indefinitely?",
+        "What mission area matters most to you?"
       ],
       "answer": "I don't have a dream industry to work in, but I do prioritize work that feels like it's driving positive change or making people happy."
     },
@@ -376,7 +376,7 @@
       ],
       "examples": [
         "Crochet or knitting — which wins?",
-        "Does Monica prefer crochet or knitting?",
+        "Do you prefer crochet or knitting?",
         "Knitting vs crochet?"
       ],
       "answer": "Crocheting is 100% easier, but I prefer knitting for clothes."
@@ -384,7 +384,7 @@
     {
       "category": "design",
       "id": "designing_for_others",
-      "label": "How does Monica design for unfamiliar users?",
+      "label": "How do you design for unfamiliar users?",
       "patterns": [
         "users you're not",
         "not part of",
@@ -394,8 +394,8 @@
       ],
       "examples": [
         "How do you approach designing for users you're not part of?",
-        "How does Monica design for people unlike her?",
-        "How does she build empathy with users?"
+        "How do you design for people unlike you?",
+        "How do you build empathy with users?"
       ],
       "answer": "I start with research: interviews, observation, and understanding constraints, rather than assuming I already know the answer. I test early, listen closely in usability sessions, and treat users as experts on their own experience.",
       "disabled": true,
@@ -405,7 +405,7 @@
     {
       "category": "cross",
       "id": "data_design_overlap",
-      "label": "How do data science and design overlap for Monica?",
+      "label": "How do data science and design overlap for you?",
       "patterns": [
         "overlap",
         "data science",
@@ -415,15 +415,15 @@
       ],
       "examples": [
         "What's the overlap between your data science and design work?",
-        "How does Monica combine data and design?",
-        "How do her data and design skills work together?"
+        "How do you combine data and design?",
+        "How do your data and design skills work together?"
       ],
       "answer": "In practice, I use data to frame problems, track performance, and validate design decisions, not just to make something look pretty. On projects like <a href=\"/projects/scriptchain-health.html\">ScriptChain Health</a>, research and analytics informed clearer creative direction and strategy."
     },
     {
       "category": "design",
       "id": "project_changed_thinking",
-      "label": "Has a project changed how Monica thinks about design?",
+      "label": "Has a project changed how you think about design?",
       "patterns": [
         "changed",
         "shift",
@@ -433,8 +433,8 @@
       ],
       "examples": [
         "Have you worked on a project that changed how you think about design?",
-        "What project shifted Monica's perspective?",
-        "Did any work change her design philosophy?"
+        "What project shifted your perspective?",
+        "Did any work change your design philosophy?"
       ],
       "answer": "<a href=\"/project.html\">Unlocked Labs</a> deepened my appreciation for designing within real constraints, balancing user needs, stakeholder goals, and what a small team can actually ship.",
       "disabled": true,
@@ -444,7 +444,7 @@
     {
       "category": "general",
       "id": "team_culture",
-      "label": "What team culture does Monica thrive in?",
+      "label": "What team culture do you thrive in?",
       "patterns": [
         "team culture",
         "culture",
@@ -454,8 +454,8 @@
       ],
       "examples": [
         "What kind of team culture do you do your best work in?",
-        "What work environment suits Monica best?",
-        "What kind of team does she prefer?"
+        "What work environment suits you best?",
+        "What kind of team do you prefer?"
       ],
       "answer": "I do my best work on collaborative, cross-functional teams where designers talk regularly with engineers, researchers, and non-technical stakeholders, and where feedback is direct but constructive.",
       "disabled": true,
@@ -468,7 +468,7 @@
         "marketing_collateral"
       ],
       "id": "social_media_strategy",
-      "label": "Does Monica do social media strategy?",
+      "label": "Do you do social media strategy?",
       "patterns": [
         "social media",
         "social",
@@ -478,15 +478,15 @@
       ],
       "examples": [
         "Have you worked on social media strategy or content creation?",
-        "Does Monica create social content?",
-        "Has she done social media for brands?"
+        "Do you create social content?",
+        "Have you done social media for brands?"
       ],
       "answer": "Yes, I've created social and marketing content for startups and organizations. See my most notable work for <a href=\"/projects/scriptchain-health.html\">ScriptChain Health</a>."
     },
     {
       "category": "marketing",
       "id": "campaign_analytics",
-      "label": "Does Monica have marketing analytics experience?",
+      "label": "Do you have marketing analytics experience?",
       "patterns": [
         "campaign",
         "analytics",
@@ -497,8 +497,8 @@
       ],
       "examples": [
         "Do you have experience with campaign analytics or reporting?",
-        "Has Monica tracked marketing performance?",
-        "Does she report on campaign metrics?"
+        "Have you tracked marketing performance?",
+        "Do you report on campaign metrics?"
       ],
       "answer": "Yes, I have experience with marketing analytics and reporting, using data to understand what's working and adjust creative direction accordingly.",
       "disabled": true,
@@ -508,7 +508,7 @@
     {
       "category": "marketing",
       "id": "marketing_collateral",
-      "label": "Has Monica designed marketing collateral?",
+      "label": "Have you designed marketing collateral?",
       "patterns": [
         "collateral",
         "ads",
@@ -519,15 +519,15 @@
       ],
       "examples": [
         "Have you designed marketing collateral from scratch?",
-        "Has Monica designed ads, emails, or landing pages?",
-        "Does she create marketing materials?"
+        "Have you designed ads, emails, or landing pages?",
+        "Do you create marketing materials?"
       ],
       "answer": "Yes, I've designed marketing collateral from scratch, including social posts, print materials, reports, and digital assets for startups and UC Berkeley."
     },
     {
       "category": "design",
       "id": "external_brand_design",
-      "label": "How does Monica design for existing brands?",
+      "label": "How do you design for existing brands?",
       "patterns": [
         "brand you didn't",
         "existing brand",
@@ -536,8 +536,8 @@
       ],
       "examples": [
         "How do you approach designing for a brand you didn't build?",
-        "How does Monica work within an existing brand?",
-        "Can she design for someone else's brand system?"
+        "How do you work within an existing brand?",
+        "Can you design for someone else's brand system?"
       ],
       "answer": "Monica starts by learning the brand's existing rules, voice, and constraints — then extends the system thoughtfully rather than reinventing it. She's done this for university, nonprofit, and startup clients with established identities.",
       "disabled": true,
@@ -547,7 +547,7 @@
     {
       "category": "design",
       "id": "aesthetics_usability",
-      "label": "How does Monica balance aesthetics and usability?",
+      "label": "How do you balance aesthetics and usability?",
       "patterns": [
         "aesthetics",
         "usability",
@@ -557,8 +557,8 @@
       ],
       "examples": [
         "How do you balance aesthetics with usability?",
-        "Does Monica prioritize beauty or usability?",
-        "How does she make designs both pretty and usable?"
+        "Do you prioritize beauty or usability?",
+        "How do you make designs both pretty and usable?"
       ],
       "answer": "I treat aesthetics and usability as partners, not opposites. Visual clarity should help people understand and navigate a product. I test whether beautiful choices still work for real users before calling something done.",
       "disabled": true,
@@ -568,7 +568,7 @@
     {
       "category": "design",
       "id": "design_trend_skeptical",
-      "label": "What design trend is Monica skeptical of?",
+      "label": "What design trend are you skeptical of?",
       "patterns": [
         "trend",
         "trends",
@@ -578,8 +578,8 @@
       ],
       "examples": [
         "What's a design trend you're skeptical of right now?",
-        "What design trends does Monica question?",
-        "Is there a trend she avoids?"
+        "What design trends do you question?",
+        "Is there a trend you avoid?"
       ],
       "answer": "I'm skeptical of trends that prioritize visual novelty over clarity, especially when they make interfaces harder to use or exclude people. If a trend doesn't serve the user, I'm not interested.",
       "disabled": true,
@@ -594,7 +594,7 @@
         "data_design_overlap"
       ],
       "id": "data_analysis_tools",
-      "label": "What data tools does Monica use?",
+      "label": "What data tools do you use?",
       "patterns": [
         "sql",
         "python",
@@ -605,15 +605,15 @@
       ],
       "examples": [
         "What tools do you use for data analysis?",
-        "Does Monica use SQL or Python?",
-        "What data analysis software does she know?"
+        "Do you use SQL or Python?",
+        "What data analysis software do you know?"
       ],
       "answer": "Most of my work has been done through Python and SQL. I'm also comfortable building visualizations and synthesizing findings into design or strategy recommendations, and I adapt tooling to whatever a project requires."
     },
     {
       "category": "data",
       "id": "data_to_decision",
-      "label": "Has Monica turned data into design decisions?",
+      "label": "Have you turned data into design decisions?",
       "patterns": [
         "data finding",
         "concrete decision",
@@ -623,8 +623,8 @@
       ],
       "examples": [
         "Have you turned a data finding into a concrete design or strategy decision?",
-        "How has Monica used data to change a design?",
-        "Does she act on analytics findings?"
+        "How have you used data to change a design?",
+        "Do you act on analytics findings?"
       ],
       "answer": "Yes, on strategy and marketing work, I've used performance data and research findings to refine messaging, layout priorities, and content direction rather than treating analytics as a separate step.",
       "disabled": true,
@@ -644,7 +644,7 @@
       ],
       "examples": [
         "What does a good data visualization look like to you?",
-        "How does Monica approach data viz?",
+        "How do you approach data viz?",
         "What makes charts effective?"
       ],
       "answer": "A good visualization answers one clear question fast, with honest scales, readable labels, and enough context that a non-technical viewer knows what to do next."
@@ -652,7 +652,7 @@
     {
       "category": "data",
       "id": "messy_datasets",
-      "label": "Has Monica worked with messy data?",
+      "label": "Have you worked with messy data?",
       "patterns": [
         "messy",
         "incomplete",
@@ -662,15 +662,15 @@
       ],
       "examples": [
         "Have you worked with messy or incomplete datasets?",
-        "Does Monica clean data?",
-        "How does she handle incomplete data?"
+        "Do you clean data?",
+        "How do you handle incomplete data?"
       ],
       "answer": "Yes, my Data Science background includes working with incomplete or messy datasets, cleaning and synthesizing what's available before drawing conclusions or making recommendations."
     },
     {
       "category": "product",
       "id": "engineer_collaboration",
-      "label": "Has Monica worked with engineers?",
+      "label": "Have you worked with engineers?",
       "patterns": [
         "engineer",
         "engineers",
@@ -680,8 +680,8 @@
       ],
       "examples": [
         "Have you worked directly with engineers or developers on a product?",
-        "Does Monica collaborate with dev teams?",
-        "Has she partnered with engineers?"
+        "Do you collaborate with dev teams?",
+        "Have you partnered with engineers?"
       ],
       "answer": "Yes, I've collaborated closely with engineers and developers on product work, including handoff, feasibility conversations, and iterating within technical constraints."
     },
@@ -708,7 +708,7 @@
     {
       "category": "product",
       "id": "user_interviews",
-      "label": "Has Monica done user research?",
+      "label": "Have you done user research?",
       "patterns": [
         "user interview",
         "interviews",
@@ -718,15 +718,15 @@
       ],
       "examples": [
         "Have you conducted user interviews or usability tests?",
-        "Does Monica run usability sessions?",
-        "What has she learned from user research?"
+        "Do you run usability sessions?",
+        "What have you learned from user research?"
       ],
       "answer": "Yes, I've conducted user interviews and usability testing across product projects. I've found that early, lightweight sessions often surface assumptions worth fixing before too much gets built."
     },
     {
       "category": "cross",
       "id": "stakeholder_communication",
-      "label": "How does Monica explain design to stakeholders?",
+      "label": "How do you explain design to stakeholders?",
       "patterns": [
         "stakeholder",
         "non-technical",
@@ -736,15 +736,15 @@
       ],
       "examples": [
         "How do you communicate design or data decisions to non-technical stakeholders?",
-        "How does Monica present work to executives?",
-        "Can she explain design to non-designers?"
+        "How do you present work to executives?",
+        "Can you explain design to non-designers?"
       ],
       "answer": "I tie recommendations to goals stakeholders already care about, using plain language, visuals, and evidence from research or data rather than design jargon."
     },
     {
       "category": "general",
       "id": "contact",
-      "label": "How can I contact Monica?",
+      "label": "How can I contact you?",
       "patterns": [
         "contact",
         "email",
@@ -753,8 +753,8 @@
         "get in touch"
       ],
       "examples": [
-        "What's Monica's email?",
-        "How do I reach Monica?",
+        "What's your email?",
+        "How do I reach you?",
         "How can I get in touch?"
       ],
       "answer": "You can reach me at <a href=\"mailto:monicacortes@berkeley.edu\">monicacortes@berkeley.edu</a>, or connect with me on <a href=\"https://www.linkedin.com/in/monica--cortes/\">LinkedIn</a>."
@@ -762,7 +762,7 @@
     {
       "category": "general",
       "id": "resume",
-      "label": "Where can I find Monica's resume?",
+      "label": "Where can I find your resume?",
       "patterns": [
         "resume",
         "cv",
@@ -770,15 +770,15 @@
       ],
       "examples": [
         "Resume link?",
-        "Where is her CV?",
-        "Can I see Monica's resume?"
+        "Where is your CV?",
+        "Can I see your resume?"
       ],
       "answer": "Here is my <a href=\"https://drive.google.com/file/d/15hiMYotLD28_68xlZpxlYPcf4pC3u9S1/view?usp=sharing\">resume</a>."
     },
     {
       "category": "personal",
       "id": "hobbies",
-      "label": "What are Monica's hobbies?",
+      "label": "What are your hobbies?",
       "patterns": [
         "hobby",
         "hobbies",
@@ -790,9 +790,9 @@
         "movies"
       ],
       "examples": [
-        "What does Monica do for fun?",
-        "Does Monica like F1?",
-        "What are her interests outside work?"
+        "What do you do for fun?",
+        "Do you like F1?",
+        "What are your interests outside work?"
       ],
       "answer": "Outside of work, I enjoy media commentary, crocheting, Formula 1, and watching rom-com and thriller movies. I'm also building my full-stack skills for personal and professional projects."
     }

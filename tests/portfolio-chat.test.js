@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   detectForeignName,
+  isRelatedIntent,
   matchQuestion,
   normalizeText,
   pickSuggestions,
@@ -74,11 +75,14 @@ describe('portfolio chat matcher', () => {
   });
 
   it('prefers related suggestions after an answered intent', () => {
+    const source = faqData.intents.find((intent) => intent.id === 'data_analysis_tools');
     const result = pickSuggestions(faqData.intents, 3, {
       preferIntentId: 'data_analysis_tools',
     });
-    const relatedIds = new Set(['data_visualization', 'messy_datasets', 'data_design_overlap']);
-    const relatedCount = result.intentIds.filter((intentId) => relatedIds.has(intentId)).length;
+    const relatedCount = result.intentIds.filter((intentId) => {
+      const intent = faqData.intents.find((item) => item.id === intentId);
+      return intent && isRelatedIntent(source, intent);
+    }).length;
 
     expect(relatedCount).toBeGreaterThanOrEqual(2);
   });

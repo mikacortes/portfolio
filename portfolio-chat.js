@@ -56,17 +56,17 @@ class PortfolioChat extends HTMLElement {
           class="portfolio-chat__toggle"
           aria-expanded="false"
           aria-controls="portfolio-chat-panel"
-          aria-label="Ask about Monica"
+          aria-label="Ask me a question"
         >
           <span class="portfolio-chat__toggle-icon" aria-hidden="true">✦</span>
-          <span class="portfolio-chat__toggle-label">Ask about Monica</span>
+          <span class="portfolio-chat__toggle-label">Ask me</span>
         </button>
 
         <section
           id="portfolio-chat-panel"
           class="portfolio-chat__panel"
           role="dialog"
-          aria-label="Ask about Monica"
+          aria-label="Ask me a question"
           aria-modal="true"
           hidden
         >
@@ -98,7 +98,7 @@ class PortfolioChat extends HTMLElement {
                 type="text"
                 name="question"
                 autocomplete="off"
-                placeholder="Ask a question about Monica..."
+                placeholder="Ask me a question..."
                 maxlength="240"
               />
               <button type="submit" class="portfolio-chat__send" aria-label="Send message">

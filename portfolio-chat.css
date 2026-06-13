@@ -151,7 +151,7 @@ portfolio-chat {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
-  z-index: 1;
+  z-index: 1201;
 }
 
 .portfolio-chat__panel[hidden] {
@@ -508,6 +508,7 @@ body.portfolio-chat-open {
     transform: translate3d(0, 0, 0);
     border-radius: 20px 20px 0 0;
     border-bottom: none;
+    z-index: 1201;
   }
 
   .portfolio-chat.is-open .portfolio-chat__form {

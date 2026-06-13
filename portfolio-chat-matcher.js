@@ -281,7 +281,7 @@ function shuffle(items) {
   return copy;
 }
 
-function isRelatedIntent(source, candidate) {
+export function isRelatedIntent(source, candidate) {
   if (!source || source.id === candidate.id) return false;
   if (source.related?.includes(candidate.id)) return true;
   if (source.category && candidate.category && source.category === candidate.category) {
