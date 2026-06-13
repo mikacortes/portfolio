@@ -27,6 +27,17 @@ const ALLOWED_PROPER_NOUNS = new Set([
   'scriptchain',
   'nenos',
   'trubel',
+  'healthcare',
+  'nonprofit',
+  'python',
+  'tableau',
+  'figma',
+  'indesign',
+  'jira',
+  'squarespace',
+  'wordpress',
+  'knitting',
+  'crochet',
 ]);
 
 const COMMON_WORDS = new Set([
@@ -82,6 +93,56 @@ const COMMON_WORDS = new Set([
   'job',
   'live',
   'based',
+  'design',
+  'marketing',
+  'product',
+  'data',
+  'analysis',
+  'visual',
+  'creative',
+  'social',
+  'campaign',
+  'usability',
+  'remote',
+  'hybrid',
+  'freelance',
+  'contract',
+  'industry',
+  'process',
+  'tools',
+  'software',
+  'available',
+  'availability',
+  'stakeholder',
+  'stakeholders',
+  'engineer',
+  'engineers',
+  'developer',
+  'developers',
+  'features',
+  'feature',
+  'trend',
+  'trends',
+  'collateral',
+  'analytics',
+  'visualization',
+  'visualisation',
+  'dataset',
+  'datasets',
+  'great',
+  'good',
+  'proud',
+  'learning',
+  'excited',
+  'culture',
+  'team',
+  'overlap',
+  'brief',
+  'identity',
+  'aesthetics',
+  'prioritize',
+  'interviews',
+  'interview',
 ]);
 
 export function normalizeText(text) {
@@ -157,15 +218,19 @@ export function scoreIntent(input, intent) {
   return pattern * PATTERN_WEIGHT + example * EXAMPLE_WEIGHT;
 }
 
+export function getActiveIntents(intents) {
+  return (intents || []).filter((intent) => !intent.disabled);
+}
+
 export function matchQuestion(input, faqData, options = {}) {
   const threshold = options.threshold ?? MATCH_THRESHOLD;
-  const intents = faqData?.intents || [];
+  const intents = getActiveIntents(faqData?.intents);
 
   if (!normalizeText(input)) {
     return {
       type: 'fallback',
       message: faqData?.fallbackMessage || "I'm sorry, I don't have the answer to that.",
-      suggestions: pickSuggestions(intents, options.count ?? 3),
+      suggestions: pickSuggestions(intents, options.count ?? 3, options.suggestionOptions).labels,
     };
   }
 
@@ -174,7 +239,7 @@ export function matchQuestion(input, faqData, options = {}) {
     return {
       type: 'fallback',
       message: faqData?.fallbackMessage || "I'm sorry, I don't have the answer to that.",
-      suggestions: pickSuggestions(intents, options.count ?? 3),
+      suggestions: pickSuggestions(intents, options.count ?? 3, options.suggestionOptions).labels,
       reason: 'foreign_name',
     };
   }
@@ -202,19 +267,99 @@ export function matchQuestion(input, faqData, options = {}) {
   return {
     type: 'fallback',
     message: faqData?.fallbackMessage || "I'm sorry, I don't have the answer to that.",
-    suggestions: pickSuggestions(intents, options.count ?? 3),
+    suggestions: pickSuggestions(intents, options.count ?? 3, options.suggestionOptions).labels,
     score: bestScore,
   };
 }
 
-export function pickSuggestions(intents, count = 3) {
-  const pool = [...(intents || [])];
-  const selected = [];
+function shuffle(items) {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
 
-  while (pool.length && selected.length < count) {
-    const index = Math.floor(Math.random() * pool.length);
-    selected.push(pool.splice(index, 1)[0]);
+function isRelatedIntent(source, candidate) {
+  if (!source || source.id === candidate.id) return false;
+  if (source.related?.includes(candidate.id)) return true;
+  if (source.category && candidate.category && source.category === candidate.category) {
+    return true;
+  }
+  if (source.category === 'cross' || candidate.category === 'cross') {
+    const crossCategories = new Set(['cross', 'design', 'data', 'product', 'marketing']);
+    return crossCategories.has(source.category) && crossCategories.has(candidate.category);
+  }
+  return false;
+}
+
+export function pickSuggestions(intents, count = 3, options = {}) {
+  const {
+    excludeIds = new Set(),
+    preferIntentId = null,
+    relatedToInput = null,
+    diversify = false,
+  } = options;
+
+  const active = getActiveIntents(intents);
+  let pool = active.filter((intent) => !excludeIds.has(intent.id));
+
+  if (pool.length === 0) {
+    pool = [...active];
   }
 
-  return selected.map((intent) => intent.label);
+  const allById = new Map(intents.map((intent) => [intent.id, intent]));
+  const preferIntent = preferIntentId ? allById.get(preferIntentId) : null;
+  const selected = [];
+
+  if (preferIntent) {
+    const related = shuffle(pool.filter((intent) => isRelatedIntent(preferIntent, intent)));
+    const unrelated = shuffle(pool.filter((intent) => !isRelatedIntent(preferIntent, intent)));
+    const relatedTarget = Math.min(count, Math.max(count - 1, 2));
+
+    while (selected.length < relatedTarget && related.length) {
+      selected.push(related.shift());
+    }
+    while (selected.length < count && unrelated.length) {
+      selected.push(unrelated.shift());
+    }
+    while (selected.length < count && related.length) {
+      selected.push(related.shift());
+    }
+  } else if (relatedToInput) {
+    const ranked = pool
+      .map((intent) => ({ intent, score: scoreIntent(relatedToInput, intent) }))
+      .sort((a, b) => b.score - a.score)
+      .map(({ intent }) => intent);
+    selected.push(...ranked.slice(0, count));
+  } else if (diversify) {
+    const byCategory = new Map();
+    pool.forEach((intent) => {
+      const category = intent.category || 'general';
+      if (!byCategory.has(category)) byCategory.set(category, []);
+      byCategory.get(category).push(intent);
+    });
+
+    const categories = shuffle([...byCategory.keys()]);
+    while (selected.length < count && categories.length) {
+      const category = categories.shift();
+      const bucket = byCategory.get(category);
+      if (bucket?.length) {
+        selected.push(bucket.splice(Math.floor(Math.random() * bucket.length), 1)[0]);
+      }
+    }
+
+    const remaining = shuffle(pool.filter((intent) => !selected.includes(intent)));
+    while (selected.length < count && remaining.length) {
+      selected.push(remaining.shift());
+    }
+  } else {
+    selected.push(...shuffle(pool).slice(0, count));
+  }
+
+  return {
+    labels: selected.map((intent) => intent.label),
+    intentIds: selected.map((intent) => intent.id),
+  };
 }

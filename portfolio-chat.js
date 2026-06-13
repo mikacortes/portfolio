@@ -7,6 +7,7 @@ class PortfolioChat extends HTMLElement {
     this.isOpen = false;
     this.messages = [];
     this.previousFocus = null;
+    this.sessionSeenIntentIds = new Set();
   }
 
   connectedCallback() {
@@ -29,7 +30,7 @@ class PortfolioChat extends HTMLElement {
       if (!response.ok) throw new Error('Failed to load FAQ data');
       this.faqData = await response.json();
       await this.respondWithBotMessage(this.faqData.greeting, 320);
-      this.renderSuggestions();
+      this.renderSuggestions({ diversify: true });
     } catch {
       await this.respondWithBotMessage(
         "Sorry, I couldn't load my answers right now. Please try again later or use the About page.",
@@ -350,15 +351,22 @@ class PortfolioChat extends HTMLElement {
     });
   }
 
-  renderSuggestions(labels) {
+  renderSuggestions(pickOptions = {}) {
     if (!this.suggestionsEl) return;
     this.suggestionsEl.innerHTML = '';
 
-    const suggestions =
-      labels ||
-      (this.faqData ? pickSuggestions(this.faqData.intents, 3) : []);
+    if (!this.faqData) return;
 
-    suggestions.forEach((label) => {
+    const result = pickSuggestions(this.faqData.intents, 3, {
+      excludeIds: this.sessionSeenIntentIds,
+      ...pickOptions,
+    });
+
+    result.intentIds.forEach((intentId) => {
+      this.sessionSeenIntentIds.add(intentId);
+    });
+
+    result.labels.forEach((label) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'portfolio-chat__chip';
@@ -389,13 +397,14 @@ class PortfolioChat extends HTMLElement {
     const result = matchQuestion(question, this.faqData);
 
     if (result.type === 'answer') {
+      this.sessionSeenIntentIds.add(result.intentId);
       await this.respondWithBotMessage(result.answer);
-      this.renderSuggestions();
+      this.renderSuggestions({ preferIntentId: result.intentId });
       return;
     }
 
     await this.respondWithBotMessage(result.message);
-    this.renderSuggestions(result.suggestions);
+    this.renderSuggestions({ relatedToInput: question });
   }
 }
 
