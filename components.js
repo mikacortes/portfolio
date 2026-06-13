@@ -829,6 +829,7 @@ function getComponentsAssetBase() {
 }
 
 function initPortfolioChat() {
+  if (document.querySelector('.project-layout')) return;
   if (document.body.dataset.portfolioChatReady === 'true') return;
   document.body.dataset.portfolioChatReady = 'true';
 
