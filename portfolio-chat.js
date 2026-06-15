@@ -199,16 +199,6 @@ class PortfolioChat extends HTMLElement {
   setOpen(open) {
     this.isOpen = open;
 
-    if (open) {
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.documentElement.style.setProperty(
-        '--portfolio-chat-scrollbar-width',
-        `${Math.max(0, scrollbarWidth)}px`
-      );
-    } else {
-      document.documentElement.style.removeProperty('--portfolio-chat-scrollbar-width');
-    }
-
     this.toggle.setAttribute('aria-expanded', String(open));
     this.toggle.hidden = open;
     this.panel.hidden = !open;

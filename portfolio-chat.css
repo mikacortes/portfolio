@@ -2,6 +2,10 @@ portfolio-chat {
   display: contents;
 }
 
+html:has(portfolio-chat) {
+  scrollbar-gutter: stable;
+}
+
 .portfolio-chat {
   --chat-inset: 24px;
   font-family: inherit;
@@ -147,7 +151,6 @@ portfolio-chat {
 }
 
 .portfolio-chat.is-open .portfolio-chat__panel {
-  right: calc(var(--chat-inset) + var(--portfolio-chat-scrollbar-width, 0px));
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
