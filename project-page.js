@@ -158,41 +158,40 @@
   function getOrientationLabel(img) {
     const width = img.naturalWidth;
     const height = img.naturalHeight;
-    if (!width || !height) return 'Landscape';
+    if (width && height) {
+      const ratio = width / height;
+      if (Math.abs(ratio - 1) <= 0.05) return 'Square';
+      if (ratio > 1) return 'Landscape';
+      return 'Portrait';
+    }
 
-    const ratio = width / height;
-    if (Math.abs(ratio - 1) <= 0.05) return 'Square';
-    if (ratio > 1) return 'Landscape';
-    return 'Portrait';
+    const src = img.getAttribute('src') || img.dataset.src || '';
+    const name = decodeURIComponent(src.split('/').pop() || '').toLowerCase();
+    if (name.includes('square')) return 'Square';
+    if (name.includes('portrait')) return 'Portrait';
+    if (name.includes('landscape')) return 'Landscape';
+    return 'Landscape';
   }
 
-  images.forEach((img) => {
-    if (img.closest('.bonded-media-item')) return;
+  function fixManualGridSwaps(grid) {
+    if (!grid.classList.contains('bonded-manual-order')) return;
 
-    const figure = document.createElement('figure');
-    figure.className = 'platform-preview-item bonded-media-item';
-    img.parentNode.insertBefore(figure, img);
-    figure.appendChild(img);
+    const figures = Array.from(grid.querySelectorAll(':scope > .bonded-media-item'));
+    const seventh = figures[7];
+    const eighth = figures[8];
+    if (!seventh || !eighth) return;
 
-    const caption = document.createElement('figcaption');
-    caption.className = 'bonded-media-caption';
-    caption.textContent = getOrientationLabel(img);
-    figure.appendChild(caption);
+    const cap7 = seventh.querySelector('.bonded-media-caption')?.textContent?.trim();
+    const cap8 = eighth.querySelector('.bonded-media-caption')?.textContent?.trim();
 
-    if (!img.complete) {
-      img.addEventListener(
-        'load',
-        () => {
-          caption.textContent = getOrientationLabel(img);
-        },
-        { once: true }
-      );
+    if (cap7 === 'Portrait' && cap8 === 'Square') {
+      eighth.insertAdjacentElement('beforebegin', seventh);
     }
-  });
+  }
 
-  const grids = section.querySelectorAll('.platform-preview-grid');
+  function reorderGrid(grid) {
+    if (grid.classList.contains('bonded-manual-order')) return;
 
-  grids.forEach((grid) => {
     const imageFigures = Array.from(grid.querySelectorAll(':scope > .bonded-media-item'));
     if (!imageFigures.length) return;
 
@@ -227,6 +226,42 @@
 
     ordered.forEach((item) => grid.appendChild(item));
     nonImageItems.forEach((item) => grid.appendChild(item));
+  }
+
+  images.forEach((img) => {
+    if (img.closest('.bonded-media-item')) return;
+
+    const figure = document.createElement('figure');
+    figure.className = 'platform-preview-item bonded-media-item';
+    img.parentNode.insertBefore(figure, img);
+    figure.appendChild(img);
+
+    const caption = document.createElement('figcaption');
+    caption.className = 'bonded-media-caption';
+    caption.textContent = getOrientationLabel(img);
+    figure.appendChild(caption);
+
+    const grid = img.closest('.platform-preview-grid');
+
+    if (!img.complete) {
+      img.addEventListener(
+        'load',
+        () => {
+          caption.textContent = getOrientationLabel(img);
+          if (grid) {
+            reorderGrid(grid);
+            fixManualGridSwaps(grid);
+          }
+        },
+        { once: true }
+      );
+    }
+  });
+
+  const grids = section.querySelectorAll('.platform-preview-grid');
+  grids.forEach((grid) => {
+    reorderGrid(grid);
+    fixManualGridSwaps(grid);
   });
 })();
 

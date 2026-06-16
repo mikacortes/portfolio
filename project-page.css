@@ -1043,6 +1043,40 @@
 
 .bonded-diamond-page .bonded-media-item {
   margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
+}
+
+.bonded-diamond-page .bonded-media-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.bonded-diamond-page .platform-preview-item .platform-preview-frame {
+  overflow: hidden;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
+}
+
+.bonded-diamond-page .platform-preview-item .platform-preview-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: top center;
 }
 
 .bonded-diamond-page .bonded-media-caption {
