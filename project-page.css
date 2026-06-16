@@ -887,13 +887,17 @@
   background: transparent;
 }
 
-.project-main .scriptchain-social-group-title {
+.project-main h3 {
   grid-column: 1 / -1;
   margin: 8px 0 -4px;
   font-size: 20px;
   line-height: 1.4;
   font-weight: 500;
   color: rgba(28, 28, 28, 0.7);
+}
+
+.project-main h3 + .platform-preview-grid {
+  margin-top: 12px;
 }
 
 .scriptchain-health-page .project-main #reflection .reflection-row {
@@ -1046,6 +1050,22 @@
   font-size: 12px;
   line-height: 1.35;
   color: rgba(28, 28, 28, 0.72);
+}
+
+.bonded-diamond-page #overview .platform-preview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+  .bonded-diamond-page #overview .platform-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .bonded-diamond-page #overview .platform-preview-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project-main .scriptchain-post-stack .platform-preview-frame {

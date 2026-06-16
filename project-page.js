@@ -149,7 +149,7 @@
 (function initBondedImageCaptions() {
   if (!document.body.classList.contains('bonded-diamond-page')) return;
 
-  const section = document.getElementById('background');
+  const section = document.getElementById('overview');
   if (!section) return;
 
   const images = section.querySelectorAll('.platform-preview-grid > img');
@@ -188,6 +188,45 @@
         { once: true }
       );
     }
+  });
+
+  const grids = section.querySelectorAll('.platform-preview-grid');
+
+  grids.forEach((grid) => {
+    const imageFigures = Array.from(grid.querySelectorAll(':scope > .bonded-media-item'));
+    if (!imageFigures.length) return;
+
+    const landscape = [];
+    const square = [];
+    const portrait = [];
+
+    imageFigures.forEach((figure) => {
+      const caption = figure.querySelector('.bonded-media-caption');
+      const label = caption?.textContent?.trim();
+
+      if (label === 'Square') {
+        square.push(figure);
+      } else if (label === 'Portrait') {
+        portrait.push(figure);
+      } else {
+        landscape.push(figure);
+      }
+    });
+
+    const ordered = [];
+    const maxLength = Math.max(landscape.length, square.length, portrait.length);
+    for (let i = 0; i < maxLength; i += 1) {
+      if (landscape[i]) ordered.push(landscape[i]);
+      if (square[i]) ordered.push(square[i]);
+      if (portrait[i]) ordered.push(portrait[i]);
+    }
+
+    const nonImageItems = Array.from(grid.children).filter(
+      (child) => !child.classList.contains('bonded-media-item')
+    );
+
+    ordered.forEach((item) => grid.appendChild(item));
+    nonImageItems.forEach((item) => grid.appendChild(item));
   });
 })();
 
