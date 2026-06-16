@@ -1043,10 +1043,6 @@
 
 .bonded-diamond-page .bonded-media-item {
   margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--image-container-border);
-  border-radius: var(--media-caption-radius);
-  background: var(--image-container-fill);
 }
 
 .bonded-diamond-page .bonded-media-item img {
@@ -1054,9 +1050,9 @@
   height: auto;
   display: block;
   box-sizing: border-box;
-  border: none;
-  border-radius: 0;
-  background: transparent;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
   object-fit: contain;
   object-position: top center;
 }
@@ -1084,6 +1080,18 @@
   font-size: 12px;
   line-height: 1.35;
   color: rgba(28, 28, 28, 0.72);
+}
+
+.bonded-diamond-page #overview > h3 {
+  margin: 0;
+}
+
+.bonded-diamond-page #overview > h3 + .platform-preview-grid {
+  margin-top: 16px;
+}
+
+.bonded-diamond-page #overview > .platform-preview-grid + h3 {
+  margin-top: var(--project-block-gap);
 }
 
 .bonded-diamond-page #overview .platform-preview-grid {
