@@ -146,6 +146,51 @@
   });
 })();
 
+(function initBondedImageCaptions() {
+  if (!document.body.classList.contains('bonded-diamond-page')) return;
+
+  const section = document.getElementById('background');
+  if (!section) return;
+
+  const images = section.querySelectorAll('.platform-preview-grid > img');
+  if (!images.length) return;
+
+  function getOrientationLabel(img) {
+    const width = img.naturalWidth;
+    const height = img.naturalHeight;
+    if (!width || !height) return 'Landscape';
+
+    const ratio = width / height;
+    if (Math.abs(ratio - 1) <= 0.05) return 'Square';
+    if (ratio > 1) return 'Landscape';
+    return 'Portrait';
+  }
+
+  images.forEach((img) => {
+    if (img.closest('.bonded-media-item')) return;
+
+    const figure = document.createElement('figure');
+    figure.className = 'platform-preview-item bonded-media-item';
+    img.parentNode.insertBefore(figure, img);
+    figure.appendChild(img);
+
+    const caption = document.createElement('figcaption');
+    caption.className = 'bonded-media-caption';
+    caption.textContent = getOrientationLabel(img);
+    figure.appendChild(caption);
+
+    if (!img.complete) {
+      img.addEventListener(
+        'load',
+        () => {
+          caption.textContent = getOrientationLabel(img);
+        },
+        { once: true }
+      );
+    }
+  });
+})();
+
 (function initLazyProjectVideos() {
   const main = document.querySelector('.project-main');
   if (!main || typeof initViewportAutoplayVideos !== 'function') return;

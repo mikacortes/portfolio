@@ -1037,6 +1037,17 @@
   display: block;
 }
 
+.bonded-diamond-page .bonded-media-item {
+  margin: 0;
+}
+
+.bonded-diamond-page .bonded-media-caption {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(28, 28, 28, 0.72);
+}
+
 .project-main .scriptchain-post-stack .platform-preview-frame {
   width: 100%;
 }
