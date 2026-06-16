@@ -51,6 +51,8 @@
     }
 
     const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.post-carousel-dot')) : [];
+    const dotHalfWidth = Math.max(slides.length * 8 - 4, 0);
+    carousel.style.setProperty('--carousel-dots-half', `${dotHalfWidth}px`);
 
     function updateUI(index, loadActive) {
       activeIndex = (index + slides.length) % slides.length;

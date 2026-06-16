@@ -860,22 +860,63 @@
 }
 
 .project-main .scriptchain-social-gallery {
-  column-count: 3;
-  column-gap: 20px;
+  --scriptchain-social-media-height: 184px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  column-count: unset;
   margin-top: 24px;
   width: 100%;
 }
 
 .project-main .scriptchain-social-gallery > img,
-.project-main .scriptchain-social-gallery > .archive-gallery-video,
-.project-main .scriptchain-social-gallery > .scriptchain-social-grid-item {
-  break-inside: avoid;
-  margin: 0 0 20px;
+.project-main .scriptchain-social-gallery > .archive-gallery-video-media,
+.project-main .scriptchain-social-gallery > .post-carousel {
+  break-inside: unset;
+  margin: 0;
+  min-width: 0;
+}
+
+.project-main .scriptchain-social-gallery .archive-gallery-video-media {
+  width: auto;
+  max-width: 100%;
+  height: var(--scriptchain-social-media-height);
+  margin: 0 auto;
+  object-fit: contain;
+  border: none;
+  background: transparent;
+}
+
+.project-main .scriptchain-social-group-title {
+  grid-column: 1 / -1;
+  margin: 8px 0 -4px;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: rgba(28, 28, 28, 0.7);
+}
+
+.scriptchain-health-page .project-main #reflection .reflection-row {
+  display: block;
+}
+
+.scriptchain-health-page .project-main #reflection .reflection-row-label {
+  margin: 0 0 var(--project-label-gap);
+}
+
+.scriptchain-health-page .project-main #reflection .reflection-row-columns {
+  display: block;
+}
+
+.scriptchain-health-page .project-main #reflection .reflection-column + .reflection-column {
+  margin-top: var(--project-section-gap);
 }
 
 .project-main .scriptchain-social-gallery .post-carousel {
   margin: 0;
   display: block;
+  height: fit-content;
+  margin-bottom: 28px;
   overflow: visible;
   background: transparent;
   border: none;
@@ -884,6 +925,7 @@
 
 .project-main .scriptchain-social-gallery .post-carousel .post-carousel-frame {
   width: 100%;
+  height: fit-content;
   border: none;
   background: transparent;
   border-radius: 0;
@@ -891,31 +933,52 @@
 }
 
 .project-main .scriptchain-social-gallery .post-carousel-viewport {
+  height: fit-content;
   overflow: visible;
 }
 
 .project-main .scriptchain-social-gallery .post-carousel-viewport .post-carousel-slide.is-active {
   display: block;
   width: 100%;
-  height: auto;
+  height: var(--scriptchain-social-media-height);
   margin: 0;
   box-sizing: border-box;
-  border: 1px solid var(--image-container-border);
+  border: none;
   border-radius: 4px;
-  background: var(--white);
+  background: transparent;
   object-fit: contain;
   object-position: center;
 }
 
 .project-main .scriptchain-social-gallery .post-carousel-dots {
-  margin-top: 8px;
+  margin-top: 10px;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-main .scriptchain-social-gallery .post-carousel-arrow {
+  position: absolute;
+  top: calc(100% + 22px);
+  transform: translateY(-50%);
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
+}
+
+.project-main .scriptchain-social-gallery .post-carousel-prev {
+  left: 50%;
+  transform: translate(calc(-100% - (var(--carousel-dots-half, 28px) + 20px)), -50%);
+}
+
+.project-main .scriptchain-social-gallery .post-carousel-next {
+  left: 50%;
+  transform: translate(calc(var(--carousel-dots-half, 28px) + 20px), -50%);
 }
 
 .project-main .scriptchain-social-gallery .post-carousel-arrow img {
@@ -1034,7 +1097,8 @@
 
 @media (max-width: 980px) {
   .project-main .scriptchain-social-gallery {
-    column-count: 2;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 
   .project-main .scriptchain-strategy-examples {
@@ -1383,6 +1447,11 @@
 
   .project-main .finding-direction-media-grid .platform-preview-arrow img {
     transform: rotate(90deg);
+  }
+
+  .project-main .scriptchain-social-gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .outcome-stats {
