@@ -1075,6 +1075,16 @@
   object-position: top center;
 }
 
+.bonded-diamond-page #overview .bonded-featured-video {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 100%;
+}
+
+.bonded-diamond-page #overview .bonded-featured-video .platform-preview-frame {
+  width: 100%;
+}
+
 .bonded-diamond-page .bonded-media-caption {
   margin: 8px 0 0;
   font-size: 12px;
@@ -1086,8 +1096,14 @@
   margin: 0;
 }
 
-.bonded-diamond-page #overview > h3 + .platform-preview-grid {
+.bonded-diamond-page #overview > h3 + .platform-preview-grid,
+.bonded-diamond-page #overview > h3 + p + .platform-preview-grid {
   margin-top: 16px;
+}
+
+.bonded-diamond-page #overview > h3 + p {
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 
 .bonded-diamond-page #overview > .platform-preview-grid + h3 {
