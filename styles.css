@@ -1141,6 +1141,7 @@ body.nav-menu-open .nav-menu-overlay {
 #journey h2 {
   max-width: none;
   font-style: italic;
+  color: var(--blue);
 }
 
 .project-main p {
