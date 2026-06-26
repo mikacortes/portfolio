@@ -39,13 +39,63 @@ describe('initSimilarProjects', () => {
 
     expect(section).not.toBeNull();
     expect(section.querySelector('h2')?.textContent).toBe('Check out similar projects!');
-    expect(section.querySelectorAll('.similar-project-card')).toHaveLength(3);
+    expect(section.querySelectorAll('.similar-project-item')).toHaveLength(3);
     expect(section.querySelector('.similar-project-card')?.getAttribute('href')).toBe(
       'bonded-diamond.html'
+    );
+    expect(section.querySelector('.featured-cursor span:first-child')?.textContent).toBe(
+      'View Case Study'
     );
     expect(section.querySelector('.similar-project-title')?.textContent).toBe(
       'Advertising a luxury diamond jewelry brand'
     );
+  });
+
+  it('activates the follow cursor when hovering a similar project preview', () => {
+    const document = loadSimilarProjects('http://localhost/projects/furever-diamond.html');
+    const item = document.querySelector('.similar-project-item');
+    const media = item?.querySelector('.similar-project-media');
+    const view = document.defaultView;
+
+    expect(item).not.toBeNull();
+    expect(media).not.toBeNull();
+
+    media.dispatchEvent(
+      new view.MouseEvent('pointerenter', { bubbles: true, clientX: 120, clientY: 80 })
+    );
+    expect(item.classList.contains('is-cursor-active')).toBe(true);
+
+    media.dispatchEvent(new view.MouseEvent('pointerleave', { bubbles: true }));
+    expect(item.classList.contains('is-cursor-active')).toBe(false);
+  });
+
+  it('recommends curated brand, marketing, and print projects for Furever Diamond', () => {
+    const document = loadSimilarProjects('http://localhost/projects/furever-diamond.html');
+    const hrefs = Array.from(document.querySelectorAll('.similar-project-card')).map((card) =>
+      card.getAttribute('href')
+    );
+
+    expect(hrefs).toEqual([
+      'bonded-diamond.html',
+      'scriptchain-health.html',
+      'wscuc.html',
+    ]);
+    expect(hrefs).not.toContain('trubel-co.html');
+    expect(hrefs).not.toContain('nenos.html');
+  });
+
+  it('recommends curated UX and product design projects for Unlocked Labs', () => {
+    const document = loadSimilarProjects('http://localhost/project.html');
+    const hrefs = Array.from(document.querySelectorAll('.similar-project-card')).map((card) =>
+      card.getAttribute('href')
+    );
+
+    expect(hrefs).toEqual([
+      'projects/trubel-co.html',
+      'projects/nenos.html',
+      'projects/wscuc.html',
+    ]);
+    expect(hrefs).not.toContain('projects/bonded-diamond.html');
   });
 
   it('resolves project links relative to the current page location', () => {

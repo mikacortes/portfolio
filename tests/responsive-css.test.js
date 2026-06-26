@@ -91,6 +91,25 @@ describe('responsive CSS rules', () => {
     expect(smallSharedCss).toMatch(/\.project-main h2[\s\S]*font-size: 24px/);
   });
 
+  it('keeps similar project cards in a three-column row at all breakpoints', () => {
+    const gridRuleBlocks =
+      projectPageCss.match(/\.project-main \.similar-projects-grid\s*\{[^}]+\}/g) ?? [];
+
+    expect(gridRuleBlocks.length).toBeGreaterThan(0);
+    expect(
+      gridRuleBlocks.some((block) =>
+        block.includes('grid-template-columns: repeat(3, minmax(0, 1fr))')
+      )
+    ).toBe(true);
+    expect(
+      gridRuleBlocks.every(
+        (block) =>
+          !block.includes('grid-template-columns: 1fr') &&
+          !block.includes('grid-template-columns: repeat(2,')
+      )
+    ).toBe(true);
+  });
+
   it('collapses shared layout grids for about and project pages at 980px', () => {
     expect(mobileSharedCss).toMatch(/\.about-grid[\s\S]*grid-template-columns: 1fr/);
     expect(mobileSharedCss).toMatch(/\.stats-grid[\s\S]*grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);

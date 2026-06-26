@@ -578,55 +578,57 @@ initTrubelLightbox('.color-coding-trigger:not(.blog-examples-trigger)', 'color-c
 initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
 
 (function initSimilarProjects() {
+  // Curated by project type: UX/product web work, brand & marketing contracts,
+  // and print/visual collateral (WSCUC, Bonded, Furever, ScriptChain).
   const PORTFOLIO_PROJECTS = [
     {
       id: 'unlocked-labs',
       path: 'project.html',
       title: 'Supporting incarcerated learners preparing for re-entry',
       image: 'assets/images/Unlocked Labs Preview.png',
-      tags: ['product', 'ux', 'research'],
+      similar: ['trubel-co', 'nenos', 'wscuc'],
     },
     {
       id: 'trubel-co',
       path: 'projects/trubel-co.html',
       title: "Revamping the digital identity of an ed-tech non-profit's website",
       image: 'assets/images/trubel_co Preview.png',
-      tags: ['web', 'brand', 'ux'],
+      similar: ['nenos', 'unlocked-labs', 'wscuc'],
     },
     {
       id: 'wscuc',
       path: 'projects/wscuc.html',
       title: "Designing the university's 2024 accreditation report",
       image: 'assets/images/WSCUC Preview.png',
-      tags: ['print', 'brand', 'report'],
+      similar: ['furever-diamond', 'scriptchain-health', 'bonded-diamond'],
     },
     {
       id: 'nenos',
       path: 'projects/nenos.html',
       title: "Optimizing a social media company's parent website",
       image: 'assets/images/nenos Preview.png',
-      tags: ['web', 'ux', 'marketing'],
+      similar: ['trubel-co', 'unlocked-labs', 'wscuc'],
     },
     {
       id: 'bonded-diamond',
       path: 'projects/bonded-diamond.html',
       title: 'Advertising a luxury diamond jewelry brand',
       image: 'assets/images/Bonded Diamond Preview.png',
-      tags: ['brand', 'marketing', 'print'],
+      similar: ['furever-diamond', 'scriptchain-health', 'wscuc'],
     },
     {
       id: 'furever-diamond',
       path: 'projects/furever-diamond.html',
       title: 'Launching a pet memorial diamond brand',
       image: 'assets/images/Furever Diamond Preview.jpg',
-      tags: ['brand', 'packaging', 'web', 'print', 'marketing'],
+      similar: ['bonded-diamond', 'scriptchain-health', 'wscuc'],
     },
     {
       id: 'scriptchain-health',
       path: 'projects/scriptchain-health.html',
       title: 'Leading marketing design for a healthcare startup',
       image: 'assets/images/ScriptChain Health Preview.png',
-      tags: ['brand', 'marketing', 'print'],
+      similar: ['bonded-diamond', 'furever-diamond', 'wscuc'],
     },
   ];
 
@@ -655,24 +657,12 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
 
   function pickSimilarProjects(currentId) {
     const current = PORTFOLIO_PROJECTS.find((project) => project.id === currentId);
-    if (!current) return [];
+    if (!current?.similar?.length) return [];
 
-    const scored = PORTFOLIO_PROJECTS.filter((project) => project.id !== currentId).map((project) => {
-      const sharedTags = project.tags.filter((tag) => current.tags.includes(tag)).length;
-      const order = PORTFOLIO_PROJECTS.indexOf(project);
-
-      return { project, sharedTags, order };
-    });
-
-    scored.sort((left, right) => {
-      if (right.sharedTags !== left.sharedTags) {
-        return right.sharedTags - left.sharedTags;
-      }
-
-      return left.order - right.order;
-    });
-
-    return scored.slice(0, 3).map(({ project }) => project);
+    return current.similar
+      .map((projectId) => PORTFOLIO_PROJECTS.find((project) => project.id === projectId))
+      .filter((project) => project && project.id !== currentId)
+      .slice(0, 3);
   }
 
   const container = document.querySelector('.project-main .container');
@@ -700,12 +690,15 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
   grid.className = 'similar-projects-grid';
 
   similarProjects.forEach((project) => {
+    const item = document.createElement('article');
+    item.className = 'similar-project-item';
+
     const card = document.createElement('a');
-    card.className = 'similar-project-card';
+    card.className = 'similar-project-card card';
     card.href = resolvePortfolioPath(project.path);
 
-    const imageWrap = document.createElement('div');
-    imageWrap.className = 'similar-project-image';
+    const media = document.createElement('span');
+    media.className = 'similar-project-media';
 
     const image = document.createElement('img');
     image.src = resolvePortfolioPath(project.image);
@@ -713,16 +706,56 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     image.loading = 'lazy';
     image.decoding = 'async';
 
+    const cursor = document.createElement('span');
+    cursor.className = 'featured-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    cursor.innerHTML =
+      '<span>View Case Study</span>' +
+      `<span class="featured-cursor-arrow" aria-hidden="true"><img src="${resolvePortfolioPath('assets/icons/Arrow up-right.svg')}" alt="" /></span>`;
+
     const title = document.createElement('p');
     title.className = 'similar-project-title';
     title.textContent = project.title;
 
-    imageWrap.appendChild(image);
-    card.appendChild(imageWrap);
-    card.appendChild(title);
-    grid.appendChild(card);
+    media.appendChild(image);
+    card.appendChild(media);
+    item.appendChild(card);
+    item.appendChild(cursor);
+    item.appendChild(title);
+    grid.appendChild(item);
   });
 
   section.appendChild(grid);
   container.appendChild(section);
+
+  initSimilarProjectCursors(section);
 })();
+
+function initSimilarProjectCursors(root = document) {
+  root.querySelectorAll('.similar-project-item').forEach((item) => {
+    const media = item.querySelector('.similar-project-media');
+    const cursor = item.querySelector('.featured-cursor');
+    if (!media || !cursor || media.dataset.cursorInit === 'true') {
+      return;
+    }
+
+    media.dataset.cursorInit = 'true';
+
+    function positionCursor(event) {
+      const rect = media.getBoundingClientRect();
+      cursor.style.left = `${event.clientX - rect.left}px`;
+      cursor.style.top = `${event.clientY - rect.top}px`;
+    }
+
+    media.addEventListener('pointerenter', (event) => {
+      positionCursor(event);
+      item.classList.add('is-cursor-active');
+    });
+
+    media.addEventListener('pointermove', positionCursor);
+
+    media.addEventListener('pointerleave', () => {
+      item.classList.remove('is-cursor-active');
+    });
+  });
+}
