@@ -43,6 +43,9 @@ describe('initSimilarProjects', () => {
     expect(section.querySelector('.similar-project-card')?.getAttribute('href')).toBe(
       'bonded-diamond.html'
     );
+    expect(section.querySelector('.similar-project-title')?.textContent).toBe(
+      'Advertising a luxury diamond jewelry brand'
+    );
   });
 
   it('resolves project links relative to the current page location', () => {
@@ -66,7 +69,7 @@ describe('initSimilarProjects', () => {
       (title) => title.textContent
     );
 
-    expect(titles).not.toContain('Bonded Diamond');
+    expect(titles).not.toContain('Advertising a luxury diamond jewelry brand');
     expect(titles).toHaveLength(3);
   });
 });
