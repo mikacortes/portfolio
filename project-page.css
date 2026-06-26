@@ -1383,6 +1383,16 @@
   text-decoration: none;
 }
 
+@media (pointer: fine) {
+  .project-main .similar-project-card,
+  .project-main .similar-project-card:hover,
+  .project-main .similar-project-card:focus-visible,
+  .project-main .similar-project-media,
+  .project-main .similar-project-media img {
+    cursor: none;
+  }
+}
+
 .project-main .similar-project-media {
   position: relative;
   display: block;
