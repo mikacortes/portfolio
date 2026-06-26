@@ -576,3 +576,153 @@ function initTrubelLightbox(triggerSelector, lightboxId) {
 
 initTrubelLightbox('.color-coding-trigger:not(.blog-examples-trigger)', 'color-coding-lightbox');
 initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
+
+(function initSimilarProjects() {
+  const PORTFOLIO_PROJECTS = [
+    {
+      id: 'unlocked-labs',
+      path: 'project.html',
+      title: 'Unlocked Labs',
+      image: 'assets/images/Unlocked Labs Preview.png',
+      tags: ['product', 'ux', 'research'],
+    },
+    {
+      id: 'trubel-co',
+      path: 'projects/trubel-co.html',
+      title: 'trubel&co',
+      image: 'assets/images/trubel_co Preview.png',
+      tags: ['web', 'brand', 'ux'],
+    },
+    {
+      id: 'wscuc',
+      path: 'projects/wscuc.html',
+      title: 'UC Berkeley UED',
+      image: 'assets/images/WSCUC Preview.png',
+      tags: ['print', 'brand', 'report'],
+    },
+    {
+      id: 'nenos',
+      path: 'projects/nenos.html',
+      title: 'nenos Inc.',
+      image: 'assets/images/nenos Preview.png',
+      tags: ['web', 'ux', 'marketing'],
+    },
+    {
+      id: 'bonded-diamond',
+      path: 'projects/bonded-diamond.html',
+      title: 'Bonded Diamond',
+      image: 'assets/images/Bonded Diamond Preview.png',
+      tags: ['brand', 'marketing', 'print'],
+    },
+    {
+      id: 'furever-diamond',
+      path: 'projects/furever-diamond.html',
+      title: 'Furever Diamond',
+      image: 'assets/images/Furever Diamond Preview.jpg',
+      tags: ['brand', 'packaging', 'web', 'print', 'marketing'],
+    },
+    {
+      id: 'scriptchain-health',
+      path: 'projects/scriptchain-health.html',
+      title: 'ScriptChain Health',
+      image: 'assets/images/ScriptChain Health Preview.png',
+      tags: ['brand', 'marketing', 'print'],
+    },
+  ];
+
+  function isInProjectsDir() {
+    return /\/projects\/[^/]+\.html(?:$|[?#])/.test(window.location.pathname);
+  }
+
+  function resolvePortfolioPath(rootPath) {
+    if (rootPath.startsWith('projects/')) {
+      return isInProjectsDir() ? rootPath.slice('projects/'.length) : rootPath;
+    }
+
+    return isInProjectsDir() ? `../${rootPath}` : rootPath;
+  }
+
+  function getCurrentProjectId() {
+    const path = window.location.pathname;
+
+    if (/\/project\.html(?:$|[?#])/.test(path)) {
+      return 'unlocked-labs';
+    }
+
+    const match = path.match(/\/projects\/([^/]+)\.html(?:$|[?#])/);
+    return match ? match[1] : null;
+  }
+
+  function pickSimilarProjects(currentId) {
+    const current = PORTFOLIO_PROJECTS.find((project) => project.id === currentId);
+    if (!current) return [];
+
+    const scored = PORTFOLIO_PROJECTS.filter((project) => project.id !== currentId).map((project) => {
+      const sharedTags = project.tags.filter((tag) => current.tags.includes(tag)).length;
+      const order = PORTFOLIO_PROJECTS.indexOf(project);
+
+      return { project, sharedTags, order };
+    });
+
+    scored.sort((left, right) => {
+      if (right.sharedTags !== left.sharedTags) {
+        return right.sharedTags - left.sharedTags;
+      }
+
+      return left.order - right.order;
+    });
+
+    return scored.slice(0, 3).map(({ project }) => project);
+  }
+
+  const container = document.querySelector('.project-main .container');
+  const currentId = getCurrentProjectId();
+  if (!container || !currentId || container.querySelector('.similar-projects-section')) {
+    return;
+  }
+
+  const similarProjects = pickSimilarProjects(currentId);
+  if (!similarProjects.length) {
+    return;
+  }
+
+  const section = document.createElement('section');
+  section.className = 'project-section similar-projects-section';
+  section.id = 'similar-projects';
+  section.setAttribute('aria-labelledby', 'similar-projects-heading');
+
+  const heading = document.createElement('h2');
+  heading.id = 'similar-projects-heading';
+  heading.textContent = 'Check out similar projects!';
+  section.appendChild(heading);
+
+  const grid = document.createElement('div');
+  grid.className = 'similar-projects-grid';
+
+  similarProjects.forEach((project) => {
+    const card = document.createElement('a');
+    card.className = 'similar-project-card';
+    card.href = resolvePortfolioPath(project.path);
+
+    const imageWrap = document.createElement('div');
+    imageWrap.className = 'similar-project-image';
+
+    const image = document.createElement('img');
+    image.src = resolvePortfolioPath(project.image);
+    image.alt = '';
+    image.loading = 'lazy';
+    image.decoding = 'async';
+
+    const title = document.createElement('p');
+    title.className = 'similar-project-title';
+    title.textContent = project.title;
+
+    imageWrap.appendChild(image);
+    card.appendChild(imageWrap);
+    card.appendChild(title);
+    grid.appendChild(card);
+  });
+
+  section.appendChild(grid);
+  container.appendChild(section);
+})();

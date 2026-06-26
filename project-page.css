@@ -338,7 +338,10 @@
 .project-main .three-up > div,
 .project-main .user-goals-layout,
 .project-main .user-goals-content,
-.project-main .image-frame {
+.project-main .image-frame,
+.project-main .similar-projects-section,
+.project-main .similar-projects-grid,
+.project-main .similar-project-card {
   max-width: none;
   width: 100%;
   box-sizing: border-box;
@@ -1126,16 +1129,20 @@
   }
 }
 
-.bonded-diamond-page #confidentiality .platform-preview-grid.bonded-website-preview {
+.furever-diamond-page #website-design .platform-preview-grid.bonded-website-preview {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 16px;
 }
 
-.bonded-diamond-page #confidentiality .platform-preview-item {
+.furever-diamond-page #website-design .platform-preview-item,
+.furever-diamond-page #brand-identity .platform-preview-item,
+.furever-diamond-page #marketing .platform-preview-item {
   margin: 0;
 }
 
-.bonded-diamond-page #confidentiality .platform-preview-item img {
+.furever-diamond-page #website-design .platform-preview-item img,
+.furever-diamond-page #brand-identity .platform-preview-item img,
+.furever-diamond-page #marketing .platform-preview-item img {
   width: 100%;
   height: auto;
   display: block;
@@ -1147,14 +1154,72 @@
   object-position: top center;
 }
 
+.furever-diamond-page .bonded-media-caption {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+  color: rgba(28, 28, 28, 0.72);
+}
+
+.furever-diamond-page #brand-identity .platform-preview-grid.bonded-branding-preview {
+  grid-template-columns: 1fr;
+  margin-top: 16px;
+}
+
+.furever-diamond-page #brand-identity .bonded-featured-branding,
+.furever-diamond-page #marketing .bonded-featured-branding {
+  width: 100%;
+  max-width: 100%;
+}
+
+.furever-diamond-page #marketing .platform-preview-grid.bonded-branding-preview {
+  grid-template-columns: 1fr;
+  margin-top: 16px;
+}
+
+.furever-diamond-page #marketing .bonded-featured-video {
+  grid-column: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.furever-diamond-page #marketing .bonded-card-pair {
+  width: 100%;
+  max-width: 100%;
+}
+
+.furever-diamond-page #marketing .bonded-card-pair-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--media-caption-gap);
+}
+
+.furever-diamond-page #marketing .platform-preview-item .platform-preview-frame {
+  overflow: hidden;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius);
+  background: var(--image-container-fill);
+}
+
+.furever-diamond-page #marketing .platform-preview-item .platform-preview-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: top center;
+}
+
 @media (max-width: 960px) {
-  .bonded-diamond-page #confidentiality .platform-preview-grid.bonded-website-preview {
+  .furever-diamond-page #website-design .platform-preview-grid.bonded-website-preview {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 480px) {
-  .bonded-diamond-page #confidentiality .platform-preview-grid.bonded-website-preview {
+  .furever-diamond-page #website-design .platform-preview-grid.bonded-website-preview {
     grid-template-columns: 1fr;
   }
 }
@@ -1286,6 +1351,72 @@
   border-radius: 8px;
 }
 
+
+.project-main .similar-projects-section {
+  margin-top: var(--project-section-gap, 80px);
+}
+
+.project-main .similar-projects-section > h2 {
+  margin: 0 0 32px;
+}
+
+.project-main .similar-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+}
+
+.project-main .similar-project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-main .similar-project-image {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--image-container-border);
+  border-radius: var(--media-caption-radius, 4px);
+  background: var(--image-container-fill);
+}
+
+.project-main .similar-project-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 280ms ease;
+}
+
+.project-main .similar-project-card:hover .similar-project-image img,
+.project-main .similar-project-card:focus-visible .similar-project-image img {
+  transform: scale(1.05);
+}
+
+.project-main .similar-project-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+@media (max-width: 980px) {
+  .project-main .similar-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-main .similar-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
 
 .project-section {
   scroll-margin-top: 32px;
