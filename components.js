@@ -202,6 +202,126 @@ if (!customElements.get('site-footer')) {
   customElements.define('site-footer', SiteFooter);
 }
 
+const SPARKLE_TRAIL_CHARS = ['✦', '✧', '·'];
+const SPARKLE_TRAIL_LIGHT_COLORS = [
+  '#ffffff',
+  '#f4f7ff',
+  '#e8efff',
+  '#dce7ff',
+  '#d0dfff',
+  '#c4d7ff',
+  '#b8ceff',
+];
+
+const SPARKLE_TRAIL_ZONE_CONFIGS = [
+  {
+    selector: '.hero',
+    sparkleClass: 'sparkle-trail-particle sparkle-trail-particle--light',
+    colors: SPARKLE_TRAIL_LIGHT_COLORS,
+  },
+];
+
+function initSparkleTrailZones() {
+  if (document.body.dataset.sparkleTrailZonesReady === 'true') return;
+
+  const zones = SPARKLE_TRAIL_ZONE_CONFIGS.map((config) => {
+    const element = document.querySelector(config.selector);
+    if (!element) return null;
+    return { ...config, element };
+  }).filter(Boolean);
+
+  if (zones.length === 0) return;
+  document.body.dataset.sparkleTrailZonesReady = 'true';
+
+  const isFinePointer =
+    window.matchMedia &&
+    window.matchMedia('(pointer: fine)').matches &&
+    window.matchMedia('(hover: hover)').matches;
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!isFinePointer || prefersReducedMotion) return;
+
+  const spawnIntervalMs = 28;
+  const minTravelPx = 10;
+  let lastSpawnAt = 0;
+  let lastSpawnX = 0;
+  let lastSpawnY = 0;
+
+  function spawnSparkle(x, y, zone) {
+    const sparkle = document.createElement('span');
+    sparkle.className = zone.sparkleClass;
+    sparkle.setAttribute('aria-hidden', 'true');
+    sparkle.textContent =
+      SPARKLE_TRAIL_CHARS[Math.floor(Math.random() * SPARKLE_TRAIL_CHARS.length)];
+    sparkle.style.left = `${x}px`;
+    sparkle.style.top = `${y}px`;
+    sparkle.style.setProperty(
+      '--sparkle-color',
+      zone.colors[Math.floor(Math.random() * zone.colors.length)]
+    );
+    sparkle.style.setProperty('--sparkle-rotate', `${Math.floor(Math.random() * 360)}deg`);
+    const scaleMin = zone.sparkleScaleMin ?? 0.55;
+    const scaleMax = zone.sparkleScaleMax ?? 1.3;
+    const fontMin = zone.sparkleFontMin ?? 12;
+    const fontMax = zone.sparkleFontMax ?? 26;
+    sparkle.style.setProperty(
+      '--sparkle-scale',
+      `${scaleMin + Math.random() * (scaleMax - scaleMin)}`
+    );
+    sparkle.style.setProperty('--sparkle-duration', `${620 + Math.floor(Math.random() * 280)}ms`);
+    sparkle.style.fontSize = `${fontMin + Math.floor(Math.random() * (fontMax - fontMin))}px`;
+
+    document.body.appendChild(sparkle);
+
+    const removeSparkle = () => {
+      sparkle.remove();
+    };
+
+    sparkle.addEventListener('animationend', removeSparkle, { once: true });
+    window.setTimeout(removeSparkle, 1100);
+  }
+
+  function maybeSpawnSparkle(x, y, zone) {
+    const now = performance.now();
+    const travel = Math.hypot(x - lastSpawnX, y - lastSpawnY);
+
+    if (now - lastSpawnAt < spawnIntervalMs && travel < minTravelPx) {
+      return;
+    }
+
+    lastSpawnAt = now;
+    lastSpawnX = x;
+    lastSpawnY = y;
+    spawnSparkle(x, y, zone);
+  }
+
+  function isPointInsideZone(zone, clientX, clientY) {
+    const rect = zone.element.getBoundingClientRect();
+    return (
+      clientX >= rect.left &&
+      clientX <= rect.right &&
+      clientY >= rect.top &&
+      clientY <= rect.bottom
+    );
+  }
+
+  function findZoneAtPoint(clientX, clientY) {
+    return zones.find((zone) => isPointInsideZone(zone, clientX, clientY)) || null;
+  }
+
+  window.addEventListener(
+    'pointermove',
+    (event) => {
+      const zone = findZoneAtPoint(event.clientX, event.clientY);
+      if (!zone) return;
+      maybeSpawnSparkle(event.clientX, event.clientY, zone);
+    },
+    { passive: true }
+  );
+}
+
 function initViewportAutoplayVideos(root) {
   const scope = root && root.querySelectorAll ? root : document;
   const videos = scope.querySelectorAll('video[autoplay][muted]');
@@ -430,6 +550,7 @@ function initArchiveLazyMedia() {
 }
 
 function initSharedEnhancements() {
+  initSparkleTrailZones();
   if (document.querySelector('.featured-grid, .featured-item')) {
     initHomePageLazyMedia();
   }

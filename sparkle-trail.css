@@ -1,0 +1,47 @@
+/*
+  Hero sparkle trail
+*/
+.sparkle-trail-particle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--sparkle-color, #ffffff);
+  transform: translate(-50%, -50%) rotate(var(--sparkle-rotate, 0deg))
+    scale(var(--sparkle-scale, 1));
+  animation: sparkle-trail-fade var(--sparkle-duration, 720ms) ease-out forwards;
+}
+
+.sparkle-trail-particle--light {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.28);
+  mix-blend-mode: normal;
+  filter: none;
+}
+
+@keyframes sparkle-trail-fade {
+  0% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) rotate(var(--sparkle-rotate, 0deg))
+      scale(var(--sparkle-scale, 1));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%)
+      rotate(calc(var(--sparkle-rotate, 0deg) + 48deg))
+      scale(calc(var(--sparkle-scale, 1) * 0.35));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle-trail-particle {
+    animation: none;
+    opacity: 0;
+  }
+}
