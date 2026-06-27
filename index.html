@@ -8,7 +8,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <title>Monica Cortes | Home</title>
     <script defer src="components.js"></script>
-    <link rel="stylesheet" href="sparkle-cursor.css" />
 
     <style>
       /*
@@ -383,6 +382,17 @@
 
       .featured-media video.align-top-left {
         object-position: left top;
+      }
+
+      @media (pointer: fine) {
+        .featured-item a.featured-image,
+        .featured-item a.featured-image:hover,
+        .featured-item a.featured-image:focus-visible,
+        .featured-media,
+        .featured-media img,
+        .featured-media video {
+          cursor: none;
+        }
       }
 
       .featured-cursor {
@@ -876,8 +886,8 @@
           I’m a multi-disciplinary designer with a formal education in Data Science.
         </p>
         <p class="hero-copy">
-          I’ve worked with startups and nonprofits as a Designer and Analyst, and I’m
-          continuing to deepen my skills across product, design, strategy, and data analytics.
+          I’ve worked with startups and nonprofits in cross-functional roles in design,
+          strategy, analytics, and marketing.
         </p>
         <p class="hero-copy">
           I’m based in Southern California and open to relocation for full-time roles with
