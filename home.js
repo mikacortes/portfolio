@@ -6,7 +6,6 @@
   const body = document.body;
   const topbar = document.querySelector('.topbar');
   const heroCopies = document.querySelectorAll('.hero-copy');
-  const heroRoleSwitch = document.querySelector('.hero-role-switch');
   const revealCards = document.querySelectorAll('.reveal-card');
   const featuredMedias = document.querySelectorAll('.featured-media');
 
@@ -17,11 +16,6 @@
         copy.classList.add('is-visible');
       }, index * 120);
     });
-    if (heroRoleSwitch) {
-      window.setTimeout(() => {
-        heroRoleSwitch.classList.add('is-visible');
-      }, heroCopies.length * 120 + 80);
-    }
     body.classList.remove('preload-ui');
   }
 

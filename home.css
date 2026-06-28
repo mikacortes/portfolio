@@ -52,7 +52,6 @@
       }
 
       body.preload-ui .hero-copy,
-      body.preload-ui .hero-role-switch,
       body.preload-ui .topbar {
         opacity: 0;
       }
@@ -251,55 +250,6 @@
       .topbar.is-visible-on-load {
         opacity: 1;
         transform: translateY(0);
-      }
-
-      .hero-role-switch {
-        margin: 8px 0 0;
-        max-width: 760px;
-        font-size: 14px;
-        line-height: 1.5;
-        font-weight: 400;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 500ms ease, transform 500ms ease;
-      }
-
-      .hero-role-switch.is-visible {
-        opacity: 0.88;
-        transform: translateY(0);
-      }
-
-      .hero-role-switch a {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        margin-left: 8px;
-        color: var(--white);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-
-      .hero-role-switch a:hover,
-      .hero-role-switch a:focus-visible {
-        opacity: 1;
-      }
-
-      .hero-role-switch strong {
-        font-weight: 500;
-      }
-
-      .archive-link-section {
-        margin-top: 8px;
-      }
-
-      .archive-link-section a {
-        color: var(--blue);
-        text-decoration: underline;
-        text-underline-offset: 3px;
       }
 
       main {
