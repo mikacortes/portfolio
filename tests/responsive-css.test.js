@@ -127,6 +127,7 @@ describe('responsive CSS rules', () => {
   it('includes viewport meta tags on primary HTML pages', () => {
     const pages = [
       'index.html',
+      'gd.html',
       'about.html',
       'archive.html',
       'project.html',

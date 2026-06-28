@@ -152,7 +152,9 @@
   const section = document.getElementById('overview');
   if (!section) return;
 
-  const images = section.querySelectorAll('.platform-preview-grid > img');
+  const images = section.querySelectorAll(
+    '.platform-preview-grid:not([data-bonded-static]) > img'
+  );
   if (!images.length) return;
 
   function getOrientationLabel(img) {
@@ -248,7 +250,7 @@
         'load',
         () => {
           caption.textContent = getOrientationLabel(img);
-          if (grid) {
+          if (grid && grid.dataset.bondedStatic !== 'true') {
             reorderGrid(grid);
             fixManualGridSwaps(grid);
           }
@@ -260,6 +262,7 @@
 
   const grids = section.querySelectorAll('.platform-preview-grid');
   grids.forEach((grid) => {
+    if (grid.dataset.bondedStatic === 'true') return;
     reorderGrid(grid);
     fixManualGridSwaps(grid);
   });
