@@ -627,6 +627,20 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       similar: ['bonded-diamond', 'scriptchain-health', 'wscuc'],
     },
     {
+      id: 'scriptchain-product',
+      path: 'projects/scriptchain-product.html',
+      title: 'Designing product experiences for a healthcare startup',
+      image: 'assets/images/ScriptChain Health Preview.png',
+      similar: ['learvo', 'nenos', 'trubel-co'],
+    },
+    {
+      id: 'learvo',
+      path: 'projects/learvo.html',
+      title: 'Designing new features and analyzing user behavior at an ed-tech startup',
+      image: 'assets/images/Learvo Preview.png',
+      similar: ['scriptchain-product', 'nenos', 'trubel-co'],
+    },
+    {
       id: 'scriptchain-health',
       path: 'projects/scriptchain-health.html',
       title: 'Leading marketing design for a healthcare startup',
