@@ -131,7 +131,7 @@ describe('responsive CSS rules', () => {
       'about.html',
       'archive.html',
       'project.html',
-      'projects/scriptchain-health.html',
+      'projects/scriptchain-health-gd.html',
     ];
 
     pages.forEach((page) => {

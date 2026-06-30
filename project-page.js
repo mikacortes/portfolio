@@ -603,7 +603,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'projects/wscuc.html',
       title: "Designing the university's 2024 accreditation report",
       image: 'assets/images/WSCUC Preview.png',
-      similar: ['furever-diamond', 'scriptchain-health', 'bonded-diamond'],
+      similar: ['furever-diamond', 'scriptchain-health-gd', 'bonded-diamond'],
     },
     {
       id: 'nenos',
@@ -617,14 +617,14 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'projects/bonded-diamond.html',
       title: 'Advertising a luxury diamond jewelry brand',
       image: 'assets/images/Bonded Diamond Preview.png',
-      similar: ['furever-diamond', 'scriptchain-health', 'wscuc'],
+      similar: ['furever-diamond', 'scriptchain-health-gd', 'wscuc'],
     },
     {
       id: 'furever-diamond',
       path: 'projects/furever-diamond.html',
       title: 'Launching a pet memorial diamond brand',
       image: 'assets/images/Furever Diamond Preview.jpg',
-      similar: ['bonded-diamond', 'scriptchain-health', 'wscuc'],
+      similar: ['bonded-diamond', 'scriptchain-health-gd', 'wscuc'],
     },
     {
       id: 'scriptchain-product',
@@ -641,8 +641,8 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       similar: ['scriptchain-product', 'nenos', 'trubel-co'],
     },
     {
-      id: 'scriptchain-health',
-      path: 'projects/scriptchain-health.html',
+      id: 'scriptchain-health-gd',
+      path: 'projects/scriptchain-health-gd.html',
       title: 'Leading marketing design for a healthcare startup',
       image: 'assets/images/ScriptChain Health Preview.png',
       similar: ['bonded-diamond', 'furever-diamond', 'wscuc'],

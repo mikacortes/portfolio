@@ -77,7 +77,7 @@ describe('initSimilarProjects', () => {
 
     expect(hrefs).toEqual([
       'bonded-diamond.html',
-      'scriptchain-health.html',
+      'scriptchain-health-gd.html',
       'wscuc.html',
     ]);
     expect(hrefs).not.toContain('trubel-co.html');
