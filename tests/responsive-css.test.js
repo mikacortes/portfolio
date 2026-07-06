@@ -129,7 +129,8 @@ describe('responsive CSS rules', () => {
       'index.html',
       'gd.html',
       'about.html',
-      'archive.html',
+      'play.html',
+      'archive-gd.html',
       'project.html',
       'projects/scriptchain-health-gd.html',
     ];

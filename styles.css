@@ -5,7 +5,8 @@
   This file contains the shared CSS for all pages:
   - index.html (home)
   - about.html
-  - archive.html
+  - play.html (product play gallery)
+  - archive-gd.html (graphic design archive)
   - project.html (Unlocked Labs case study)
   - projects/*.html (other case studies)
   - project-page.css (case study layout)
@@ -1058,14 +1059,17 @@ body.nav-menu-open .nav-menu-overlay {
   contain-intrinsic-size: auto 3200px;
 }
 
-.archive-gallery img,
-.archive-gallery-video {
+.archive-gallery img {
   content-visibility: auto;
   contain-intrinsic-size: auto 280px;
 }
 
-.archive-gallery img,
-.archive-gallery-video video {
+.archive-gallery-video {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none;
+}
+
+.archive-gallery img {
   display: block;
   width: 100%;
   height: auto;
@@ -1073,6 +1077,20 @@ body.nav-menu-open .nav-menu-overlay {
   border: 1px solid var(--image-container-border);
   border-radius: 4px;
   background: var(--white);
+  object-fit: contain;
+  object-position: center;
+}
+
+.archive-gallery > .archive-gallery-video-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 20px;
+  break-inside: avoid;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 4px;
+  background: var(--image-container-fill);
   object-fit: contain;
   object-position: center;
 }
@@ -1085,12 +1103,21 @@ body.nav-menu-open .nav-menu-overlay {
 
 .archive-gallery-video {
   min-width: 0;
-  aspect-ratio: 9 / 16;
+  display: block;
+  line-height: 0;
 }
 
-.archive-gallery-video-media {
-  min-height: 180px;
+.archive-gallery-video .archive-gallery-video-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--image-container-border);
+  border-radius: 4px;
   background: var(--image-container-fill);
+  object-position: center;
+  vertical-align: top;
 }
 
 /*

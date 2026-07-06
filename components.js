@@ -61,6 +61,8 @@ class SiteHeader extends HTMLElement {
 
     const brandHref = this.getAttribute('brand-href') || '/';
     const projectsHref = this.getAttribute('projects-href') || '#featured-projects';
+    const archiveHref = this.getAttribute('archive-href') || 'play.html';
+    const archiveLabel = this.getAttribute('archive-label') || 'Play';
 
     this.innerHTML = `
       <button
@@ -85,7 +87,7 @@ class SiteHeader extends HTMLElement {
           </button>
           <nav class="nav" id="primary-nav" aria-label="Primary">
             <a href="${projectsHref}">Projects</a>
-            <a href="archive.html">Archive</a>
+            <a href="${archiveHref}">${archiveLabel}</a>
             <a href="about.html">About</a>
             <a class="external" href="${RESUME_URL}" target="_blank" rel="noopener noreferrer">
               <span>Resume</span>
@@ -158,6 +160,8 @@ class SiteFooter extends HTMLElement {
     const footerClass = this.getAttribute('footer-class') || '';
     const brandHref = this.getAttribute('brand-href') || '/';
     const projectsHref = this.getAttribute('projects-href') || '#featured-projects';
+    const archiveHref = this.getAttribute('archive-href') || 'play.html';
+    const archiveLabel = this.getAttribute('archive-label') || 'Play';
     const className = ['footer', footerClass].filter(Boolean).join(' ');
 
     this.innerHTML = `
@@ -171,7 +175,7 @@ class SiteFooter extends HTMLElement {
           <div class="footer-right">
             <nav class="nav" aria-label="Footer">
               <a href="${projectsHref}">Projects</a>
-              <a href="archive.html">Archive</a>
+              <a href="${archiveHref}">${archiveLabel}</a>
               <a href="about.html">About</a>
               <a class="external" href="${RESUME_URL}" target="_blank" rel="noopener noreferrer">
                 <span>Resume</span>
@@ -472,6 +476,13 @@ function loadArchiveGalleryVideo(video) {
   video.preload = 'metadata';
   video.load();
   video.dataset.srcLoaded = 'true';
+  video.addEventListener(
+    'loadedmetadata',
+    () => {
+      video.style.height = 'auto';
+    },
+    { once: true }
+  );
 
   if (!video.hasAttribute('autoplay')) return;
 
