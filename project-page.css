@@ -17,8 +17,9 @@
 }
 
 .project-layout {
-  --project-column-padding-left: 120px;
-  --project-column-padding-right: 220px;
+  --project-column-padding-left: clamp(18px, 5vw + 8px, 120px);
+  --project-column-padding-right: clamp(18px, 9vw + 16px, 220px);
+  --project-column-padding-top: clamp(24px, 3vw + 12px, 56px);
   --project-footer-inset-right: 20px;
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
@@ -219,6 +220,26 @@
   width: 100%;
 }
 
+.project-main #results .outcome-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 60px;
+  width: 100%;
+}
+
+.project-main #results .outcome-stat {
+  width: max-content;
+  max-width: 100%;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.project-main #results .outcome-stat-text {
+  width: max-content;
+  max-width: 100%;
+}
+
 .project-main #impact .outcome-stats {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
@@ -293,7 +314,8 @@
 .project-column {
   min-width: 0;
   max-width: 100%;
-  padding: 56px var(--project-column-padding-right) 0 var(--project-column-padding-left);
+  padding: var(--project-column-padding-top) var(--project-column-padding-right) 0
+    var(--project-column-padding-left);
   overflow-x: clip;
 }
 
@@ -418,6 +440,24 @@
 
 .project-main .platform-preview-frame {
   height: fit-content;
+}
+
+.project-main .platform-preview-grid.platform-preview-grid--pair {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: var(--media-caption-gap);
+  width: 100%;
+  grid-template-columns: none;
+}
+
+.project-main .platform-preview-grid.platform-preview-grid--pair > img {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+  height: auto;
 }
 
 .project-main .design-decision-preview .platform-preview-grid {
@@ -1609,8 +1649,9 @@
 
 @media (max-width: 980px) {
   .project-layout {
-    --project-column-padding-left: 24px;
-    --project-column-padding-right: 24px;
+    --project-column-padding-left: clamp(18px, 4vw + 10px, 48px);
+    --project-column-padding-right: clamp(18px, 4vw + 10px, 48px);
+    --project-column-padding-top: clamp(20px, 2.5vw + 10px, 32px);
     --project-footer-inset-right: 0;
     grid-template-columns: 1fr;
   }
@@ -1761,7 +1802,8 @@
   }
 
   .project-column {
-    padding: 24px var(--project-column-padding-right) 0 var(--project-column-padding-left);
+    padding: var(--project-column-padding-top) var(--project-column-padding-right) 0
+      var(--project-column-padding-left);
   }
 
   .sidebar-links {
@@ -1777,8 +1819,14 @@
     min-height: 520px;
   }
 
-  .project-main .platform-preview-grid {
+  .project-main .platform-preview-grid:not(.platform-preview-grid--pair) {
     grid-template-columns: 1fr;
+  }
+
+  .project-main .platform-preview-grid.platform-preview-grid--pair {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
 
   .project-main .finding-direction-media-grid.platform-preview-grid--with-arrow {
@@ -1806,16 +1854,13 @@
 
 @media (max-width: 640px) {
   .project-layout {
-    --project-column-padding-left: 18px;
-    --project-column-padding-right: 18px;
+    --project-column-padding-left: clamp(14px, 3vw + 8px, 24px);
+    --project-column-padding-right: clamp(14px, 3vw + 8px, 24px);
+    --project-column-padding-top: clamp(18px, 2vw + 8px, 24px);
   }
 
   .project-sidebar-inner {
     padding: 10px 14px;
-  }
-
-  .project-column {
-    padding: 20px var(--project-column-padding-right) 0 var(--project-column-padding-left);
   }
 
   .project-main .linkedin-embed-wrap,

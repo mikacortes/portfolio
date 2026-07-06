@@ -587,7 +587,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     {
       id: 'unlocked-labs',
       path: 'project.html',
-      title: 'Supporting incarcerated learners preparing for re-entry',
+      title: 'Supporting 500+ incarcerated learners preparing for re-entry',
       image: 'assets/images/Unlocked Labs Preview.png',
       similar: ['trubel-co', 'nenos', 'wscuc'],
     },
