@@ -587,14 +587,14 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     {
       id: 'unlocked-labs',
       path: 'project.html',
-      title: 'Supporting 500+ incarcerated learners preparing for re-entry',
+      title: 'Designing a parole-prep dashboard for 500+ incarcerated learners',
       image: 'assets/images/Unlocked Labs Preview.png',
       similar: ['trubel-co', 'nenos', 'wscuc'],
     },
     {
       id: 'trubel-co',
       path: 'projects/trubel-co.html',
-      title: "Revamping the digital identity of an ed-tech non-profit's website",
+      title: 'Untangling workshop discovery and sign-up for an ed-tech nonprofit',
       image: 'assets/images/trubel_co Preview.png',
       similar: ['nenos', 'unlocked-labs', 'wscuc'],
     },
@@ -608,7 +608,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     {
       id: 'nenos',
       path: 'projects/nenos.html',
-      title: "Optimizing a social media company's parent website",
+      title: 'Redesigning supporter flows for an ethical social media nonprofit',
       image: 'assets/images/nenos Preview.png',
       similar: ['trubel-co', 'unlocked-labs', 'wscuc'],
     },
@@ -622,7 +622,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     {
       id: 'furever-diamond',
       path: 'projects/furever-diamond.html',
-      title: 'Launching a pet memorial diamond brand',
+      title: 'Designing a memorial purchase experience for pet owners',
       image: 'assets/images/Furever Diamond Preview.jpg',
       similar: ['bonded-diamond', 'scriptchain-health-gd', 'wscuc'],
     },
