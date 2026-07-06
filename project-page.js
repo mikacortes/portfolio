@@ -581,22 +581,41 @@ initTrubelLightbox('.color-coding-trigger:not(.blog-examples-trigger)', 'color-c
 initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
 
 (function initSimilarProjects() {
-  // Curated by project type: UX/product web work, brand & marketing contracts,
-  // and print/visual collateral (WSCUC, Bonded, Furever, ScriptChain).
+  // Keep similar-project links aligned with each portfolio landing page featured grid.
+  const PRODUCT_DESIGN_FEATURED = [
+    'unlocked-labs',
+    'trubel-co',
+    'nenos',
+    'scriptchain-health-gd',
+    'furever-diamond',
+  ];
+
+  const GRAPHIC_DESIGN_FEATURED = [
+    'wscuc',
+    'bonded-diamond',
+    'furever-diamond',
+    'scriptchain-health-gd',
+    'unlocked-labs',
+    'trubel-co',
+    'nenos',
+  ];
+
+  const GRAPHIC_DESIGN_ONLY = new Set(['wscuc', 'bonded-diamond']);
+
   const PORTFOLIO_PROJECTS = [
     {
       id: 'unlocked-labs',
       path: 'project.html',
       title: 'Designing a parole-prep dashboard for 500+ incarcerated learners',
       image: 'assets/images/Unlocked Labs Preview.png',
-      similar: ['trubel-co', 'nenos', 'wscuc'],
+      similar: ['trubel-co', 'nenos', 'scriptchain-health-gd'],
     },
     {
       id: 'trubel-co',
       path: 'projects/trubel-co.html',
       title: 'Untangling workshop discovery and sign-up for an ed-tech nonprofit',
       image: 'assets/images/trubel_co Preview.png',
-      similar: ['nenos', 'unlocked-labs', 'wscuc'],
+      similar: ['nenos', 'unlocked-labs', 'scriptchain-health-gd'],
     },
     {
       id: 'wscuc',
@@ -610,7 +629,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'projects/nenos.html',
       title: 'Redesigning supporter flows for an ethical social media nonprofit',
       image: 'assets/images/nenos Preview.png',
-      similar: ['trubel-co', 'unlocked-labs', 'wscuc'],
+      similar: ['trubel-co', 'unlocked-labs', 'scriptchain-health-gd'],
     },
     {
       id: 'bonded-diamond',
@@ -624,28 +643,28 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'projects/furever-diamond.html',
       title: 'Designing a memorial purchase experience for pet owners',
       image: 'assets/images/Furever Diamond Preview.jpg',
-      similar: ['bonded-diamond', 'scriptchain-health-gd', 'wscuc'],
+      similar: ['scriptchain-health-gd', 'unlocked-labs', 'trubel-co'],
     },
     {
       id: 'scriptchain-product',
       path: 'projects/scriptchain-product.html',
       title: 'Designing product experiences for a healthcare startup',
       image: 'assets/images/ScriptChain Health Preview.png',
-      similar: ['learvo', 'nenos', 'trubel-co'],
+      similar: ['nenos', 'trubel-co', 'unlocked-labs'],
     },
     {
       id: 'learvo',
       path: 'projects/learvo.html',
       title: 'Designing new features and analyzing user behavior at an ed-tech startup',
       image: 'assets/images/Learvo Preview.png',
-      similar: ['scriptchain-product', 'nenos', 'trubel-co'],
+      similar: ['nenos', 'trubel-co', 'unlocked-labs'],
     },
     {
       id: 'scriptchain-health-gd',
       path: 'projects/scriptchain-health-gd.html',
       title: 'Leading marketing design for a healthcare startup',
       image: 'assets/images/ScriptChain Health Preview.png',
-      similar: ['bonded-diamond', 'furever-diamond', 'wscuc'],
+      similar: ['furever-diamond', 'unlocked-labs', 'trubel-co'],
     },
   ];
 
@@ -672,14 +691,34 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     return match ? match[1] : null;
   }
 
+  function getFeaturedAllowlist(currentId) {
+    if (GRAPHIC_DESIGN_ONLY.has(currentId)) {
+      return GRAPHIC_DESIGN_FEATURED;
+    }
+
+    return PRODUCT_DESIGN_FEATURED;
+  }
+
   function pickSimilarProjects(currentId) {
     const current = PORTFOLIO_PROJECTS.find((project) => project.id === currentId);
-    if (!current?.similar?.length) return [];
+    if (!current) return [];
 
-    return current.similar
+    const allowlist = new Set(getFeaturedAllowlist(currentId));
+    const curated = (current.similar ?? [])
       .map((projectId) => PORTFOLIO_PROJECTS.find((project) => project.id === projectId))
-      .filter((project) => project && project.id !== currentId)
-      .slice(0, 3);
+      .filter((project) => project && project.id !== currentId && allowlist.has(project.id));
+
+    if (curated.length >= 3) {
+      return curated.slice(0, 3);
+    }
+
+    const curatedIds = new Set(curated.map((project) => project.id));
+    const backfill = getFeaturedAllowlist(currentId)
+      .filter((projectId) => projectId !== currentId && !curatedIds.has(projectId))
+      .map((projectId) => PORTFOLIO_PROJECTS.find((project) => project.id === projectId))
+      .filter(Boolean);
+
+    return [...curated, ...backfill].slice(0, 3);
   }
 
   const container = document.querySelector('.project-main .container');

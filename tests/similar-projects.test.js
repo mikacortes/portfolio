@@ -41,13 +41,13 @@ describe('initSimilarProjects', () => {
     expect(section.querySelector('h2')?.textContent).toBe('Check out similar projects!');
     expect(section.querySelectorAll('.similar-project-item')).toHaveLength(3);
     expect(section.querySelector('.similar-project-card')?.getAttribute('href')).toBe(
-      'bonded-diamond.html'
+      'scriptchain-health-gd.html'
     );
     expect(section.querySelector('.featured-cursor span:first-child')?.textContent).toBe(
       'View Case Study'
     );
     expect(section.querySelector('.similar-project-title')?.textContent).toBe(
-      'Advertising a luxury diamond jewelry brand'
+      'Leading marketing design for a healthcare startup'
     );
   });
 
@@ -69,22 +69,22 @@ describe('initSimilarProjects', () => {
     expect(item.classList.contains('is-cursor-active')).toBe(false);
   });
 
-  it('recommends curated brand, marketing, and print projects for Furever Diamond', () => {
+  it('recommends only product landing featured projects for Furever Diamond', () => {
     const document = loadSimilarProjects('http://localhost/projects/furever-diamond.html');
     const hrefs = Array.from(document.querySelectorAll('.similar-project-card')).map((card) =>
       card.getAttribute('href')
     );
 
     expect(hrefs).toEqual([
-      'bonded-diamond.html',
       'scriptchain-health-gd.html',
-      'wscuc.html',
+      '../project.html',
+      'trubel-co.html',
     ]);
-    expect(hrefs).not.toContain('trubel-co.html');
-    expect(hrefs).not.toContain('nenos.html');
+    expect(hrefs).not.toContain('bonded-diamond.html');
+    expect(hrefs).not.toContain('wscuc.html');
   });
 
-  it('recommends curated UX and product design projects for Unlocked Labs', () => {
+  it('recommends only product landing featured projects for Unlocked Labs', () => {
     const document = loadSimilarProjects('http://localhost/project.html');
     const hrefs = Array.from(document.querySelectorAll('.similar-project-card')).map((card) =>
       card.getAttribute('href')
@@ -93,9 +93,21 @@ describe('initSimilarProjects', () => {
     expect(hrefs).toEqual([
       'projects/trubel-co.html',
       'projects/nenos.html',
-      'projects/wscuc.html',
+      'projects/scriptchain-health-gd.html',
     ]);
     expect(hrefs).not.toContain('projects/bonded-diamond.html');
+    expect(hrefs).not.toContain('projects/wscuc.html');
+  });
+
+  it('recommends only product landing featured projects for trubel&co', () => {
+    const document = loadSimilarProjects('http://localhost/projects/trubel-co.html');
+    const hrefs = Array.from(document.querySelectorAll('.similar-project-card')).map((card) =>
+      card.getAttribute('href')
+    );
+
+    expect(hrefs).toEqual(['nenos.html', '../project.html', 'scriptchain-health-gd.html']);
+    expect(hrefs).not.toContain('wscuc.html');
+    expect(hrefs).not.toContain('bonded-diamond.html');
   });
 
   it('resolves project links relative to the current page location', () => {
@@ -109,7 +121,7 @@ describe('initSimilarProjects', () => {
       (card) => card.getAttribute('href')
     );
 
-    expect(projectHrefs).toContain('bonded-diamond.html');
+    expect(projectHrefs).toContain('scriptchain-health-gd.html');
     expect(rootHrefs.some((href) => href.includes('projects/'))).toBe(true);
   });
 

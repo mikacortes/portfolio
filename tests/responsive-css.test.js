@@ -57,10 +57,10 @@ describe('responsive CSS rules', () => {
   const smallSharedCss = getMediaBlocks(stylesCss, 640);
 
   it('reduces project column padding at tablet and phone breakpoints', () => {
-    expect(mobileProjectCss).toContain('--project-column-padding-left: 24px');
-    expect(mobileProjectCss).toContain('--project-column-padding-right: 24px');
-    expect(smallProjectCss).toContain('--project-column-padding-left: 18px');
-    expect(smallProjectCss).toContain('--project-column-padding-right: 18px');
+    expect(mobileProjectCss).toContain('--project-column-padding-left: clamp(18px, 4vw + 10px, 48px)');
+    expect(mobileProjectCss).toContain('--project-column-padding-right: clamp(18px, 4vw + 10px, 48px)');
+    expect(smallProjectCss).toContain('--project-column-padding-left: clamp(14px, 3vw + 8px, 24px)');
+    expect(smallProjectCss).toContain('--project-column-padding-right: clamp(14px, 3vw + 8px, 24px)');
   });
 
   it('uses a sticky mobile nav bar with left/right actions', () => {
