@@ -22,7 +22,25 @@
     <main class="archive-main">
       <div class="container">
         <section class="archive-intro" aria-labelledby="archive-title">
-          <h1 id="archive-title">Take a peek at previous projects!</h1>
+          <div class="archive-intro-header">
+            <h1 id="archive-title">Take a peek at previous projects!</h1>
+            <div
+              class="archive-gallery-filters project-tag-filters"
+              role="toolbar"
+              aria-label="Filter gallery by medium"
+              data-default-filter="all"
+            >
+              <button type="button" class="project-tag is-active" data-filter="all" aria-pressed="true">
+                All
+              </button>
+              <button type="button" class="project-tag" data-filter="digital" aria-pressed="false">
+                Digital
+              </button>
+              <button type="button" class="project-tag" data-filter="print" aria-pressed="false">
+                Print
+              </button>
+            </div>
+          </div>
         </section>
 
         <section class="archive-gallery" aria-label="Archive work">

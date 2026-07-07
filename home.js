@@ -4,6 +4,24 @@
 */
 (function () {
   const body = document.body;
+  const heroFontOptions = new Set([
+    'architects-daughter',
+    'caveat',
+    'gloria-hallelujah',
+    'handlee',
+    'kalam',
+    'patrick-hand',
+    'reenie-beanie',
+    'shadows-into-light',
+  ]);
+
+  if (body.classList.contains('home-page--product')) {
+    const heroFont = new URLSearchParams(window.location.search).get('heroFont');
+    if (heroFont && heroFontOptions.has(heroFont)) {
+      body.dataset.heroFont = heroFont;
+    }
+  }
+
   const topbar = document.querySelector('.topbar');
   const heroCopies = document.querySelectorAll('.hero-copy');
   const revealCards = document.querySelectorAll('.reveal-card');

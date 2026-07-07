@@ -41,13 +41,13 @@ describe('initSimilarProjects', () => {
     expect(section.querySelector('h2')?.textContent).toBe('Check out similar projects!');
     expect(section.querySelectorAll('.similar-project-item')).toHaveLength(3);
     expect(section.querySelector('.similar-project-card')?.getAttribute('href')).toBe(
-      'scriptchain-health-gd.html'
+      '../project.html'
     );
     expect(section.querySelector('.featured-cursor span:first-child')?.textContent).toBe(
       'View Case Study'
     );
     expect(section.querySelector('.similar-project-title')?.textContent).toBe(
-      'Leading marketing design for a healthcare startup'
+      'Designing a parole-prep dashboard for 500+ incarcerated learners'
     );
   });
 
@@ -76,9 +76,9 @@ describe('initSimilarProjects', () => {
     );
 
     expect(hrefs).toEqual([
-      'scriptchain-health-gd.html',
       '../project.html',
       'trubel-co.html',
+      'nenos.html',
     ]);
     expect(hrefs).not.toContain('bonded-diamond.html');
     expect(hrefs).not.toContain('wscuc.html');
@@ -93,7 +93,7 @@ describe('initSimilarProjects', () => {
     expect(hrefs).toEqual([
       'projects/trubel-co.html',
       'projects/nenos.html',
-      'projects/scriptchain-health-gd.html',
+      'projects/furever-diamond.html',
     ]);
     expect(hrefs).not.toContain('projects/bonded-diamond.html');
     expect(hrefs).not.toContain('projects/wscuc.html');
@@ -105,7 +105,7 @@ describe('initSimilarProjects', () => {
       card.getAttribute('href')
     );
 
-    expect(hrefs).toEqual(['nenos.html', '../project.html', 'scriptchain-health-gd.html']);
+    expect(hrefs).toEqual(['nenos.html', '../project.html', 'furever-diamond.html']);
     expect(hrefs).not.toContain('wscuc.html');
     expect(hrefs).not.toContain('bonded-diamond.html');
   });
@@ -121,7 +121,7 @@ describe('initSimilarProjects', () => {
       (card) => card.getAttribute('href')
     );
 
-    expect(projectHrefs).toContain('scriptchain-health-gd.html');
+    expect(projectHrefs).toContain('../project.html');
     expect(rootHrefs.some((href) => href.includes('projects/'))).toBe(true);
   });
 

@@ -560,12 +560,101 @@ function initArchiveLazyMedia() {
   videos.forEach((video) => observer.observe(video));
 }
 
+function resolveArchiveGalleryItemSrc(element) {
+  if (element.matches('img')) {
+    return element.getAttribute('src') || '';
+  }
+
+  const source = element.querySelector('source[data-src], source[src]');
+  return source?.getAttribute('data-src') || source?.getAttribute('src') || '';
+}
+
+function getArchiveGalleryTags(src) {
+  const tags = new Set();
+  if (!src) return tags;
+
+  const isDigital =
+    /\.mp4(?:$|[?#])/i.test(src) ||
+    /bonded diamond|helping-hands|Nexus VR|girls-who-code|asuc-student-government\/asuc graphic|geography slide|op graphic -|Changemaker Postcard|Daily Cal Ads #4|scriptchain-health\/social/i.test(
+      src
+    );
+
+  const isPrint =
+    /asuc banner|blue-gold-yearbook|Quotes Version|daily cal np|FOR PRINT\] Daily Cal Printed Ad|ls110 poster|scriptchain-health\/marketing\/SCH(?:%20| )POSTER|scriptchain-health\/marketing\/SCH(?:%20| )Brochure/i.test(
+      src
+    );
+
+  const isBoth =
+    /uc-berkeley-sts\/signage\/sts sit|uc-berkeley-sts\/event\/sts event|the-daily-californian\/graphics\/daily cal graphic|project-specific\/wscuc/i.test(
+      src
+    );
+
+  if (isDigital || isBoth) tags.add('digital');
+  if (isPrint || isBoth) tags.add('print');
+
+  return tags;
+}
+
+function initArchiveGalleryFilters() {
+  const filterBar = document.querySelector('.archive-gallery-filters');
+  const gallery = document.querySelector('.archive-gallery');
+  if (!filterBar || !gallery) return;
+
+  const filterButtons = Array.from(filterBar.querySelectorAll('.project-tag'));
+  const filterableItems = [
+    ...gallery.querySelectorAll('img'),
+    ...gallery.querySelectorAll('.archive-gallery-video'),
+  ];
+
+  filterableItems.forEach((item) => {
+    if (item.dataset.galleryTags) return;
+
+    const tags = getArchiveGalleryTags(resolveArchiveGalleryItemSrc(item));
+    if (tags.size) {
+      item.dataset.galleryTags = [...tags].join(' ');
+    }
+  });
+
+  function updateFilteredGallery() {
+    const activeFilter =
+      filterButtons.find((button) => button.classList.contains('is-active'))?.dataset.filter || 'all';
+    let visibleCount = 0;
+
+    filterableItems.forEach((item) => {
+      const itemTags = (item.dataset.galleryTags || '').split(/\s+/).filter(Boolean);
+      const isVisible =
+        activeFilter === 'all' ||
+        (activeFilter === 'digital' && itemTags.includes('digital')) ||
+        (activeFilter === 'print' && itemTags.includes('print'));
+
+      item.classList.toggle('is-filter-hidden', !isVisible);
+      if (isVisible) visibleCount += 1;
+    });
+
+    gallery.classList.toggle('is-filter-empty', visibleCount === 0);
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach((peer) => {
+        const isActive = peer === button;
+        peer.classList.toggle('is-active', isActive);
+        peer.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      updateFilteredGallery();
+    });
+  });
+
+  updateFilteredGallery();
+}
+
 function initSharedEnhancements() {
   initSparkleTrailZones();
   if (document.querySelector('.featured-grid, .featured-item')) {
     initHomePageLazyMedia();
   }
   initArchiveLazyMedia();
+  initArchiveGalleryFilters();
 }
 
 if (document.readyState === 'loading') {

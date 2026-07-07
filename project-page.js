@@ -586,7 +586,6 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     'unlocked-labs',
     'trubel-co',
     'nenos',
-    'scriptchain-health-gd',
     'furever-diamond',
   ];
 
@@ -600,7 +599,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
     'nenos',
   ];
 
-  const GRAPHIC_DESIGN_ONLY = new Set(['wscuc', 'bonded-diamond']);
+  const GRAPHIC_DESIGN_CASE_STUDIES = new Set(['wscuc', 'bonded-diamond', 'scriptchain-health-gd']);
 
   const PORTFOLIO_PROJECTS = [
     {
@@ -608,14 +607,14 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'project.html',
       title: 'Designing a parole-prep dashboard for 500+ incarcerated learners',
       image: 'assets/images/Unlocked Labs Preview.png',
-      similar: ['trubel-co', 'nenos', 'scriptchain-health-gd'],
+      similar: ['trubel-co', 'nenos', 'furever-diamond'],
     },
     {
       id: 'trubel-co',
       path: 'projects/trubel-co.html',
       title: 'Untangling workshop discovery and sign-up for an ed-tech nonprofit',
       image: 'assets/images/trubel_co Preview.png',
-      similar: ['nenos', 'unlocked-labs', 'scriptchain-health-gd'],
+      similar: ['nenos', 'unlocked-labs', 'furever-diamond'],
     },
     {
       id: 'wscuc',
@@ -629,7 +628,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'projects/nenos.html',
       title: 'Redesigning supporter flows for an ethical social media nonprofit',
       image: 'assets/images/nenos Preview.png',
-      similar: ['trubel-co', 'unlocked-labs', 'scriptchain-health-gd'],
+      similar: ['trubel-co', 'unlocked-labs', 'furever-diamond'],
     },
     {
       id: 'bonded-diamond',
@@ -643,7 +642,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
       path: 'projects/furever-diamond.html',
       title: 'Designing a memorial purchase experience for pet owners',
       image: 'assets/images/Furever Diamond Preview.jpg',
-      similar: ['scriptchain-health-gd', 'unlocked-labs', 'trubel-co'],
+      similar: ['unlocked-labs', 'trubel-co', 'nenos'],
     },
     {
       id: 'scriptchain-product',
@@ -692,7 +691,7 @@ initTrubelLightbox('.blog-examples-trigger', 'blog-examples-lightbox');
   }
 
   function getFeaturedAllowlist(currentId) {
-    if (GRAPHIC_DESIGN_ONLY.has(currentId)) {
+    if (GRAPHIC_DESIGN_CASE_STUDIES.has(currentId)) {
       return GRAPHIC_DESIGN_FEATURED;
     }
 

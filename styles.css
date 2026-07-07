@@ -1035,6 +1035,65 @@ body.nav-menu-open .nav-menu-overlay {
   margin-bottom: 48px;
 }
 
+.archive-intro-header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.archive-gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.archive-page .project-tag {
+  appearance: none;
+  border: 1px solid var(--blue);
+  background: transparent;
+  color: var(--blue);
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.archive-page .project-tag:hover,
+.archive-page .project-tag:focus-visible {
+  background: rgba(1, 63, 167, 0.08);
+  outline: none;
+}
+
+.archive-page .project-tag.is-active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
+.archive-gallery.is-filter-empty::after {
+  content: 'No projects match this filter yet.';
+  display: block;
+  column-span: all;
+  padding: 24px 0 8px;
+  color: #555555;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.archive-gallery img.is-filter-hidden,
+.archive-gallery-video.is-filter-hidden {
+  display: none !important;
+}
+
 .archive-main h1 {
   margin: 0;
   color: var(--blue);
